@@ -26,17 +26,17 @@
         s.parentNode.insertBefore( wf, s );
     })();
 </script>
-<link rel='stylesheet' id='mllc-view-css-css'  href='css/mllc-view.css?ver=1540196819' type='text/css' media='all' />
-<link rel='stylesheet' id='contact-form-7-css'  href='css/styles.css?ver=5.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='tp_twitter_plugin_css-css'  href='css/tp_twitter_plugin.css?ver=1.0' type='text/css' media='screen' />
-<link rel='stylesheet' id='woocommerce-layout-css'  href='css/woocommerce-layout.css?ver=3.4.1' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='css/woocommerce-smallscreen.css?ver=3.4.1' type='text/css' media='only screen and (max-width: 768px)' />
-<link rel='stylesheet' id='woocommerce-general-css'  href='css/woocommerce.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='mllc-view-css-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/mllc-view.css?ver=1540196819' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/styles.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='tp_twitter_plugin_css-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/tp_twitter_plugin.css?ver=1.0' type='text/css' media='screen' />
+<link rel='stylesheet' id='woocommerce-layout-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/woocommerce-layout.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/woocommerce-smallscreen.css?ver=3.4.1' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/woocommerce.css?ver=3.4.1' type='text/css' media='all' />
 <style id='woocommerce-inline-inline-css' type='text/css'>
 .woocommerce form .form-row .required { visibility: visible; }
 </style>
-<link rel='stylesheet' id='master-layout-css'  href='css/master-layout.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='tmnf-custom-style-css'  href='css/custom-style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='master-layout-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/master-layout.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='tmnf-custom-style-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/custom-style.css?ver=4.9.8' type='text/css' media='all' />
 <style id='tmnf-custom-style-inline-css' type='text/css'>
 #footer .bottom-menu li a{font-weight:600 !important}
 
@@ -48,14 +48,14 @@
 
 .flexinside {background:rgba(0,0,0,.1);}
 </style>
-<link rel='stylesheet' id='processing-style-css'  href='style.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='prettyPhoto-css'  href='css/prettyPhoto.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-css'  href='css/font-awesome.min.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce_frontend_styles-css'  href='assets/css/woocommerce.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='processing-woo-custom-css'  href='assets/css/woo-custom.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='processing-woo-custom-css'  href='css/style-mobile.css?ver=4.9.8' type='text/css' media='all' />
-<script type='text/javascript' src='js/jquery.js?ver=1.12.4'></script>
-<script type='text/javascript' src='js/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='stylesheet' id='processing-style-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='prettyPhoto-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/prettyPhoto.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/font-awesome.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce_frontend_styles-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/assets/css/woocommerce.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='processing-woo-custom-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/assets/css/woo-custom.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='processing-woo-custom-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/style-mobile.css?ver=4.9.8' type='text/css' media='all' />
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-migrate.min.js?ver=1.4.1'></script>
 <meta name="generator" content="WordPress 4.9.8" />
 <meta name="generator" content="WooCommerce 3.4.1" />
 <link rel='shortlink' href='http://capethemes.com/demo/processing/' />
