@@ -17,8 +17,8 @@ class WP_Video_Management {
         add_action('admin_menu', array($this, 'wpa_add_menu'));
         add_action('wp_enqueue_scripts', array($this, 'wpa_plugin_styles_scripts'));
 
-        add_shortcode('video_list', array($this, 'create_video_grid_view'));
-        add_shortcode('create_video_upload_form', array($this, 'video_upload_form_client'));
+//        add_shortcode('video_list', array($this, 'create_video_grid_view'));
+//        add_shortcode('create_video_upload_form', array($this, 'video_upload_form_client'));
         register_activation_hook(__FILE__, array($this, 'wpa_install'));
         register_deactivation_hook(__FILE__, array($this, 'wpa_uninstall'));
     }
@@ -89,18 +89,15 @@ class WP_Video_Management {
 
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		user_id mediumint(9) NOT NULL ,
-		display_name tinytext DEFAULT '' NOT NULL,
-		download_name tinytext DEFAULT '' NOT NULL,
-		thumbnail tinytext DEFAULT '' NULL,
-		description text NULL,
-		video_format varchar(50) NOT NULL,
-		duration varchar(50) NOT NULL,
-                post_id mediumint(9) NOT NULL,
-                is_published boolean DEFAULT false,
+		full_name tinytext DEFAULT '' NOT NULL,
+		phone_number tinytext DEFAULT '' NOT NULL,
+		email tinytext DEFAULT '' NOT NULL,
+		company tinytext NULL,
+		status tinytext DEFAULT 'da_gui' NOT NULL,
+		order_detail text NULL,
                 created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-		PRIMARY KEY  (id)
+		PRIMARY KEY (id)
 	) $charset_collate;";
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
