@@ -9,16 +9,16 @@
 
                 <div class="clearfix"></div>
 
-                <ul id="menu-special-menu" class="top-menu"><li id="menu-item-802" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://capethemes.com/demo/processing/contact-us/"><i class="fa fa-envelope-o"></i> Contact Us</a><div class="sub sf-mega">hello@example.com</div></li>
-                    <li id="menu-item-821" class="kill menu-item menu-item-type-custom menu-item-object-custom"><a href="#"><i class="fa fa-phone-square"></i> Call Us</a><div class="sub sf-mega">01-899-247-5471</div></li>
-                    <li id="menu-item-803" class="special menu-item menu-item-type-post_type menu-item-object-page"><a href="http://capethemes.com/demo/processing/request-a-quote/"><i class="fa fa-question-circle"></i> Request a Quote</a><div class="sub sf-mega">New Project?Just Ask!</div></li>
+                <ul id="menu-special-menu" class="top-menu"><li id="menu-item-802" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="mailto:hoacokhigiahoang@gmail.com"><i class="fa fa-envelope-o"></i> Liên hệ</a><div class="sub sf-mega">hoacokhigiahoang@gmail.com</div></li>
+                    <li id="menu-item-821" class="kill menu-item menu-item-type-custom menu-item-object-custom"><a href="#"><i class="fa fa-phone-square"></i> Số điện thoại</a><div class="sub sf-mega">0903.370.117 - 0903 975 117</div></li>
+                    <li id="menu-item-803" class="special menu-item menu-item-type-post_type menu-item-object-page"><a href="http://capethemes.com/demo/processing/request-a-quote/"><i class="fa fa-question-circle"></i> Báo giá</a><div class="sub sf-mega">Gửi báo giá ngay!</div></li>
                 </ul>
                 <div id="titles" class="tranz">
 
 
-                    <a class="logo" href="http://capethemes.com/demo/processing/">
+                    <a class="logo" href="<?php echo HOME_URL;?>">
 
-                        <img class="tranz" src="http://capethemes.com/demo/processing/wp-content/uploads/2016/12/processing-logo1.png" alt="Processing"/>
+                        <img class="tranz" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/logo.png" alt="Processing"/>
 
                     </a>
 
@@ -37,12 +37,11 @@
                         <ul id="main-nav" class="nav rad">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-596 current_page_item"><a href="#">Trang chủ</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about">Giới thiệu</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/products">Sản phẩm</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/service">Dịch vụ</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Báo giá</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news">Tin tức</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Bảo hành</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/contact">Liên hệ</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/products">Sản phẩm</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/service">Dịch vụ</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Báo giá</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news">Tin tức</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="#">Bảo hành</a></li>
                         </ul>
                         <ul class="social-menu">
                             <li class="sprite-facebook"><a class="mk-social-facebook" title="Facebook" href="http://capethemes.com/demo/processing"><i class="fa fa-facebook-official"></i><span>Facebook</span></a></li>

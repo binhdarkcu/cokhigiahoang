@@ -7,9 +7,9 @@
 
                         <h2 class="block"  style="color:#141414;">
 
-                            <span class="subtitle" style="color:#141414;">Projects are our top priority and the foundation of our firm.</span>
+                            <span class="subtitle" style="color:#141414;">Các sản phẩm giàn giáo</span>
 
-                            <span class="maintitle" style="background-color:#ffffff;">Featured Projects</span>
+                            <span class="maintitle" style="background-color:#ffffff;">Giàn giáo xây dựng</span>
 
                         </h2>
                         <!-- end title section-->
@@ -17,45 +17,61 @@
                         <div class="carouselwrap">
 
                             <div class="flexcarousel flexslider loading">
-
-
-
                                 <ul class="slides">
+                                    <?php
+                                		$args = array(
+                                			'post_type'           => 'gian-giao-nem',
+                                			'post_status'         => 'publish',
+                                            'posts_per_page'      => 16,
+                                    	);
+                                    		$loop = new WP_Query( $args );
+                                    		if ( $loop->have_posts() ) {
+                                          	    while ( $loop->have_posts() ) : $loop->the_post();
+                                                $feature_image_id = get_post_thumbnail_id(get_the_ID());
+                                                $feature_image_meta = wp_get_attachment_image_src($feature_image_id, '32');
+                                      ?>
+                                      <li>
+                                          <div class="item post tranz">
+
+                                              <div class="item_inn tranz gradient">
+
+                                                  <p class="meta tranz ">
+                                                     <b><?php echo get_the_title(get_the_ID())?></b>
+                                                  </p>
+
+                                                  <h2><a href="<?php echo get_the_permalink(get_the_ID())?>" title="">
+                                                      <?php
+                                                          echo wp_trim_words( get_the_content(get_the_ID()), 7, '...' );
+                                                      ?>
+                                                  </a></h2>
+
+                                              </div><!-- end .item_inn -->
+
+
+                                              <div class="imgwrap">
+
+                                                  <a href="<?php echo get_the_permalink(get_the_ID())?>" title="<?php echo get_the_title(get_the_ID())?>">
+
+                                                      <img width="300" height="300" src="<?php echo $feature_image_meta[0] ?>" class="tranz grayscale grayscale-fade wp-post-image" alt="" />
+                                                  </a>
+
+                                                  <a class="hoverstuff hoverstuff-zoom" data-gal="prettyPhoto[gallery]" href="<?php echo $feature_image_meta[0] ?>"><i class="fa fa-search"></i></a>
+                                                  <a class="hoverstuff hoverstuff-link" href="<?php echo get_the_permalink(get_the_ID())?>"><i class="fa fa-info-circle"></i></a>
+
+                                              </div>
 
 
 
-                                    <li>
+                                          </div>
+                                      </li>
 
+                                    <?php endwhile;
+                                      } else {
+                                        echo __( 'No products found' );
+                                      }
+                                      wp_reset_postdata();
+                                ?>
 
-                                        <div class="item post tranz">
-
-                                            <div class="item_inn tranz gradient">
-
-                                                <p class="meta tranz ">
-                                                    Engineering &bull; Supply
-                                                </p>
-
-                                                <h2><a href="http://capethemes.com/demo/processing/work/chemical-water-treatment/" title="Chemical Water Treatment">Chemical Water Treatment</a></h2>
-
-                                            </div><!-- end .item_inn -->
-
-
-                                            <div class="imgwrap">
-
-                                                <a href="http://capethemes.com/demo/processing/work/chemical-water-treatment/" title="Chemical Water Treatment">
-
-                                                    <img width="353" height="297" src="http://capethemes.com/demo/processing/wp-content/uploads/2015/07/port-1172268_1920-353x297.jpg" class="tranz grayscale grayscale-fade wp-post-image" alt="" />
-                                                </a>
-
-                                                <a class="hoverstuff hoverstuff-zoom" data-gal="prettyPhoto[gallery]" href="http://capethemes.com/demo/processing/wp-content/uploads/2015/07/port-1172268_1920.jpg"><i class="fa fa-search"></i></a>
-                                                <a class="hoverstuff hoverstuff-link" href="http://capethemes.com/demo/processing/work/chemical-water-treatment/"><i class="fa fa-info-circle"></i></a>
-
-                                            </div>
-
-
-
-                                        </div>
-                                    </li>
 
 
                                     <li>
