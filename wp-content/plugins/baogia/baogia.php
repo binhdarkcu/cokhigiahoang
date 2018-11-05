@@ -93,7 +93,7 @@ class WP_Video_Management {
 		phone_number tinytext DEFAULT '' NOT NULL,
 		email tinytext DEFAULT '' NOT NULL,
 		company tinytext NULL,
-		status tinytext DEFAULT 'da_gui' NOT NULL,
+		status tinytext DEFAULT '' NOT NULL,
 		order_detail text NULL,
                 created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
