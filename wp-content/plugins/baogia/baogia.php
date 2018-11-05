@@ -9,7 +9,7 @@
  * Version:1.0
  */
 
-class WP_Video_Management {
+class WP_Order_Management {
 
     function __construct() {
 
@@ -114,5 +114,5 @@ class WP_Video_Management {
 
 }
 
-new WP_Video_Management();
+new WP_Order_Management();
 ?>
