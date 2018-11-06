@@ -1,159 +1,6 @@
-<?php
-    $action = 'view';
-    global $wpdb;
-
-    if (isset ( $_GET ['action'] ) and $_GET ['action'] != '') {
-        $action = trim ( $_GET ['action'] );
-
-        //delete a video
-        if (strtolower ( $action ) == strtolower ( 'delete' )) {
-            $retrieved_nonce = '';
-
-        if(isset($_GET['nonce']) and $_GET['nonce']!=''){
-
-            $retrieved_nonce=$_GET['nonce'];
-
-        }
-
-        if (!wp_verify_nonce($retrieved_nonce, 'delete_video' ) ){
-            wp_die('Security check fail');
-        }
-
-        $uploads = wp_upload_dir();
-        $baseDir = $uploads ['basedir'];
-        $baseDir = str_replace ( "\\", "/", $baseDir );
-        $pathToVideosFolder = $baseDir . '/uploaded-videos';
-
-        $location = "admin.php?page=manage-videos";
-        $deleteId = ( int ) htmlentities(strip_tags($_GET ['id']),ENT_QUOTES);
-
-         try {
-
-                 $query = "SELECT * FROM " . $wpdb->prefix . "videos WHERE id=$deleteId";
-                 $myrow = $wpdb->get_row ( $query );
-
-                 if (is_object ( $myrow )) {
-
-                         $video_name = $myrow->download_name;
-                         $wpcurrentdir = dirname ( __FILE__ );
-                         $wpcurrentdir = str_replace ( "\\", "/", $wpcurrentdir );
-                         $videoToDel = $pathToVideosFolder . '/' . $video_name;
-                         $imageToDel = $pathToVideosFolder . '/' . $myrow->thumbnail;
-                         @unlink ($videoToDel);
-                         @unlink ($imageToDel);
-
-                         $query = "DELETE FROM  " . $wpdb->prefix . "videos WHERE id=$deleteId";
-                         $wpdb->query ( $query );
-                         
-                         //delete associated post
-                         wp_delete_post($myrow->post_id, true);
-
-                 }
-         } catch ( Exception $e ) {
-
-                 $responsive_video_grid_messages = array();
-                 $responsive_video_grid_messages ['type'] = 'err';
-                 $responsive_video_grid_messages ['message'] = 'Error while deleting video.';
-         }
-            echo "<script type='text/javascript'> location.href='$location';</script>";
-            exit();
-
-        //delete mutilple videos
-        } else if (strtolower ( $action ) == strtolower ( 'deleteselected' )) {
-
-
-//              if(!check_admin_referer('action_settings_mass_delete','mass_delete_nonce')){
-//
-//                    wp_die('Security check fail');
-//               }
-
-		$location = "admin.php?page=manage-videos";
-
-		if (isset ( $_POST ) and isset ( $_POST ['deleteselected'] ) and $_POST ['action_upper'] == 'delete') {
-
-			$uploads = wp_upload_dir();
-			$baseDir = $uploads ['basedir'];
-			$baseDir = str_replace ( "\\", "/", $baseDir );
-			$pathToVideosFolder = $baseDir . '/uploaded-videos';
-
-			if (sizeof ( $_POST ['thumbnails'] ) > 0) {
-				$deleteto = $_POST ['thumbnails'];
-				$implode = implode ( ',', $deleteto );
-
-				try {
-
-					foreach ( $deleteto as $video ) {
-
-						$query = "SELECT * FROM " . $wpdb->prefix . "videos WHERE id=$video";
-						$myrow = $wpdb->get_row ( $query );
-
-						if (is_object ( $myrow )) {
-
-							$video_name = $myrow->download_name;
-							$wpcurrentdir = dirname ( __FILE__ );
-							$wpcurrentdir = str_replace ( "\\", "/", $wpcurrentdir );
-                                                        $videotoDel = $pathToVideosFolder . '/' . $video_name;
-                                                        $imageToDel = $pathToVideosFolder . '/' . $myrow->thumbnail;
-
-                                                        @unlink ( $videotoDel );
-                                                        @unlink ($imageToDel);
-
-							$query = "DELETE FROM " . $wpdb->prefix . "videos WHERE id=$video";
-							$wpdb->query ( $query );
-                                                        //delete associated post
-                                                        
-                                                        wp_delete_post($myrow->post_id, true);
-                                                        
-							$responsive_video_grid_messages = array();
-							$responsive_video_grid_messages ['type'] = 'succ';
-							$responsive_video_grid_messages ['message'] = 'selected videos deleted successfully.';
-						}
-					}
-				} catch ( Exception $e ) {
-
-					$responsive_video_grid_messages = array();
-					$responsive_video_grid_messages ['type'] = 'err';
-					$responsive_video_grid_messages ['message'] = 'Error while deleting videos.';
-				}
-
-				echo "<script type='text/javascript'> location.href='$location';</script>";
-				exit();
-			} else {
-
-				echo "<script type='text/javascript'> location.href='$location';</script>";
-				exit();
-			}
-                }
-        }else if (strtolower ( $action ) == strtolower ( 'changepublishstatus' )){
-                $location = "admin.php?page=manage-videos";
-                $videoId = ( int ) htmlentities(strip_tags($_GET ['id']),ENT_QUOTES);
-
-                 try {
-
-                         $query = "SELECT * FROM " . $wpdb->prefix . "videos WHERE id=$videoId";
-                         $myrow = $wpdb->get_row ( $query );
-
-                         if (is_object ( $myrow )) {
-
-                                 $query = "UPDATE " . $wpdb->prefix . "videos SET is_published = NOT is_published WHERE id=$videoId";
-                                 $wpdb->query ( $query );
-                         }
-                 } catch ( Exception $e ) {
-
-                         $responsive_video_grid_messages = array();
-                         $responsive_video_grid_messages ['type'] = 'err';
-                         $responsive_video_grid_messages ['message'] = 'Error while editting video.';
-                 }
-                    echo "<script type='text/javascript'> location.href='$location';</script>";
-                    exit();
-        }
-    }
-
-?>
-
 
 <div id="video-list">
-    <h2>Uploaded Videos</h2>
+    <h2>Báo giá</h2>
     <form method="POST" action="admin.php?page=manage-videos&action=deleteselected">
         <div class="alignleft actions">
             <select name="action_upper" id="action_upper">
@@ -171,14 +18,13 @@
             <thead>
                     <tr>
                         <th class="manage-column column-cb check-column" scope="col"><input type="checkbox"></th>
-                        <th>Renter Name</th>
-                        <th><span><?php echo _('Video Title')?></span></th>
-                        <th><span><?php echo _('Thumbnail');?></span></th>
-                        <th><span><?php echo _('Video Format');?></span></th>
-                        <th><span><?php echo _('Duration'); ?></span></th>
-                        <th><span><?php echo _('Created date');?></span></th>
-                        <th><span><?php echo _('Publish action'); ?></span></th>
-                        <th><span><?php echo _('Action');?></span></th>
+                        <th><span><?php echo _('Họ tên')?></span></th>
+                        <th><span><?php echo _('Số điện thoại');?></span></th>
+                        <th><span><?php echo _('Email');?></span></th>
+                        <th><span><?php echo _('Công ty'); ?></span></th>
+                        <th><span><?php echo _('Trạng thái');?></span></th>
+                        <th><span><?php echo _('Ngày tạo'); ?></span></th>
+                        <th><span><?php echo _('Xem chi tiết');?></span></th>
                     </tr>
             </thead>
 
@@ -227,7 +73,4 @@
         </table>
     </form>
 </div>
-    <div id="video-player-popup" class="mfp-hide">
-<!--        <video id="video-player" width="640" height="360" src=""></video>-->
-    </div>
 </div>
