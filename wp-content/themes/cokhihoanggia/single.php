@@ -25,7 +25,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
                   <h1 class="entry-title dekoline"><?php the_title();?></h1>
 
                   <div class="page-crumbs">
-                      <a href="<?php echo HOME_URL;?>"><i class="icon-home"></i>  <i class='fa fa-angle-right'></i>
+                      <a href="<?php echo HOME_URL;?>"><i class="fa fa-home"></i>  <i class='fa fa-angle-right'></i>
         Trang chủ<i class='fa fa-angle-right'></i></a> <i class='fa fa-angle-right'></i> <a href="<?php echo HOME_URL?>/san-pham">Sản phẩm</a>
         <i class='fa fa-angle-right'></i>
         <?php if($meta_values === 'van-thang') {
