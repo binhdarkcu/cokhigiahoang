@@ -88,7 +88,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
                                 <div class="clear"></div>
                                 <div class="features_items" style="margin-top: 20px;">
                                     <h2 class="box-title" style="text-transform: uppercase;background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin: 0;">Thông tin sản phẩm</h2>
-                                    <?php the_content();?>
+                                    <?php echo get_the_content(get_the_ID());?>
                                 </div>
                             </div>
 
