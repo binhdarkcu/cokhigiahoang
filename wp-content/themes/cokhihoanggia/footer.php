@@ -43,3 +43,4 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.flexslider.start.carousel.js?ver=4.9.8'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.isotope.min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.isotope.folio.start.js?ver=4.9.8'></script>
+<?php wp_footer(); ?>
