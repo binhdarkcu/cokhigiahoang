@@ -121,6 +121,32 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                         <section>
                             <h3 style="margin-bottom: 16px;">Yêu cầu sản phẩm</h3>
                             <div class="cart_totals">
+                            <!--Thông tin giàn giáo-->
+                            <div id="tt_cho_thue" class="form-row">
+                                
+                                <div id="chieu_cao" class="form-holder">
+                                    <i class="zmdi zmdi-account"></i>
+                                    <input type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao">
+                                </div>                                
+                                <div id="sl_gian_giao" class="form-holder">
+                                    <i class="zmdi zmdi-account"></i>
+                                    <input type="text" name="so_luong" value="" class="form-control" placeholder="Số lượng">
+                                </div>
+                                
+                                <div id="thoi_gian_thue" class="form-holder">
+                                    <i class="zmdi zmdi-smartphone-android"></i>
+                                    <input type="text" name="thoi_gian_thue" class="form-control" placeholder="Thời gian thuê">
+                                </div>
+                                
+                                <div class="form-holder">
+                                    <select class="form-control chon-vi-tri" data-placeholder="Vị trí lắp đặt...">
+                                        <option value=""></option>
+                                        <?php foreach ($list_tp as $tp): ?>
+                                        <option value="<?php echo $tp;?>"><?php echo $tp;?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
                                 <table cellspacing="0" class="shop_table shop_table_responsive">
                                     
                                     <!--Trọng lượng vận thăng hàng-->
@@ -191,35 +217,7 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                                         </td>
                                     </tr>
                                 </table>
-                            </div>
-
-                            <!--Thông tin giàn giáo-->
-                            <div id="tt_cho_thue" class="form-row">
-                                
-                                <div id="chieu_cao" class="form-holder">
-                                    <i class="zmdi zmdi-account"></i>
-                                    <input type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao">
-                                </div>                                
-                                <div id="sl_gian_giao" class="form-holder">
-                                    <i class="zmdi zmdi-account"></i>
-                                    <input type="text" name="so_luong" value="" class="form-control" placeholder="Số lượng">
-                                </div>
-                                
-                                <div id="thoi_gian_thue" class="form-holder">
-                                    <i class="zmdi zmdi-smartphone-android"></i>
-                                    <input type="text" name="thoi_gian_thue" class="form-control" placeholder="Thời gian thuê">
-                                </div>
-                                
-                                <div class="form-holder">
-                                    <select class="form-control chon-vi-tri" data-placeholder="Vị trí lắp đặt...">
-                                        <option value=""></option>
-                                        <?php foreach ($list_tp as $tp): ?>
-                                        <option value="<?php echo $tp;?>"><?php echo $tp;?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
-                            
+                            </div>                      
                         </section>
 
                         <!-- SECTION 4 -->
