@@ -39,6 +39,24 @@ jQuery(function ($) {
                 $('.actions ul').removeClass('step-4');
             }
             return true;
+        },
+        onFinished: function (event, currentIndex)
+        {
+            
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: globalConfig.admin_ajax_url,
+                data: {
+                    'action': 'tao_bao_gia'
+                },
+                success: function (msg) {
+                    console.log('msg: ', msg)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error(thrownError);
+                }
+            });
         }
     });
     // Custom Button Jquery Steps
@@ -198,10 +216,12 @@ jQuery(function ($) {
             'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'thoi_gian_thue']
         };
         var sp = window.GiaHoangProduct;
+        sp.submitData = {};
         var html = '';
         const fields = form_bao_gia[sp.form_bao_gia];
         fields.forEach(function (item) {
             html += `<tr class="cart-subtotal"> <th>${translations[item]}</th> <td>${sp[item]}</td></tr>`;
+            sp.submitData[item] = sp[item];
         });
         $('#review-section').html(html);
     }

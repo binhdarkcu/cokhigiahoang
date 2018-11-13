@@ -53,8 +53,6 @@
 <link rel='stylesheet' id='woocommerce_frontend_styles-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/assets/css/woocommerce.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' id='processing-woo-custom-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/assets/css/woo-custom.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' id='processing-woo-custom-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/style-mobile.css?ver=4.9.8' type='text/css' media='all' />
-<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js?ver=1.12.4'></script>
-<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery-migrate.min.js?ver=1.4.1'></script>
 <meta name="generator" content="WordPress 4.9.8" />
 <meta name="generator" content="WooCommerce 3.4.1" />
 <link rel='shortlink' href='http://capethemes.com/demo/processing/' />

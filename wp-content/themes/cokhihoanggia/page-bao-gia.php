@@ -34,11 +34,11 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                             <div class="form-row">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-account"></i>
-                                    <input type="text" class="form-control" name="ho_ten" value="" placeholder="Họ tên">
+                                    <input type="text" class="form-control required" name="ho_ten" value="" placeholder="Họ tên" >
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-smartphone-android"></i>
-                                    <input type="text" class="form-control" name="so_dt" value="" placeholder="Số điện thoại">
+                                    <input type="text" class="form-control required" name="so_dt" value="" placeholder="Số điện thoại">
                                 </div>
                             </div>
 
@@ -46,11 +46,11 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                             <div class="form-row">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-email"></i>
-                                    <input type="text" class="form-control" name="email" value="" placeholder="Địa chỉ email">
+                                    <input type="text" class="form-control required" name="email" value="" placeholder="Địa chỉ email">
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-home"></i>
-                                    <input type="text" class="form-control" name="cty" value="" placeholder="Công ty">
+                                    <input type="text" class="form-control required" name="cty" value="" placeholder="Công ty">
                                 </div>
                             </div>
                         </section>
