@@ -1,3 +1,8 @@
+<?php 
+global $wpdb;
+$query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date desc";
+$rows = $wpdb->get_results ( $query, 'ARRAY_A' );
+?>
 <table id="bao-gia" class="display" style="width:100%">
     <thead>
         <tr>
@@ -11,14 +16,16 @@
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($rows as $row):?>
         <tr>
-            <td>Donna Snider</td>
-            <td>0967077825</td>
-            <td>cqthanh.zx@gmail.com</td>
-            <td>TMA</td>
-            <td>2011/01/25</td>
-            <td>Đã gửi</td>
-            <td><a href="#">Xem chi tiết</a></td>
+            <td><?php echo $row['full_name'];?></td>
+            <td><?php echo $row['phone_number'];?></td>
+            <td><?php echo $row['email'];?></td>
+            <td><?php echo $row['company'];?></td>
+            <td><?php echo $row['created_date'];?></td>
+            <td><?php echo $row['status'];?></td>
+            <td><a href="#<?php echo $row['id'];?>">Xem chi tiết</a></td>
         </tr>
+        <?php endforeach;?>
     </tbody>
 </table>
