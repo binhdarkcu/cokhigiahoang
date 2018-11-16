@@ -18,7 +18,57 @@
             <td>TMA</td>
             <td>2011/01/25</td>
             <td>Đã gửi</td>
-            <td><a href="#">Xem chi tiết</a></td>
+            <td><a href="#" class="xem">Xem chi tiết</a></td>
         </tr>
     </tbody>
 </table>
+
+<div id="modal">
+
+    <div class="main-content">
+           <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <section>
+        <footer>
+            <button data-izimodal-close="">Cancel</button>
+            <button class="submit">Log in</button>            
+        </footer>
+    </section>
+    </div>
+</div>
