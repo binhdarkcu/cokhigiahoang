@@ -24,7 +24,7 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
             <td><?php echo $row['company'];?></td>
             <td><?php echo $row['created_date'];?></td>
             <td><?php echo $row['status'];?></td>
-            <td><a href="#<?php echo $row['id'];? class="xem>">Xem chi tiết</a></td>
+            <td><a href="#<?php echo $row['id'];?>" class="xem">Xem chi tiết</a></td>
         </tr>
         <?php endforeach;?>
     </tbody>
