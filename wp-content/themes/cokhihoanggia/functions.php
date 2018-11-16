@@ -10,6 +10,7 @@ add_action('wp_enqueue_scripts', 'ajax_enqueue');
 
 //Send ajax request without login
 add_action('wp_ajax_nopriv_tao_bao_gia', 'bao_gia');
+add_action('wp_ajax_tao_bao_gia', 'bao_gia');
 
 //create admin ajax url
 function ajax_enqueue() {
@@ -18,14 +19,42 @@ function ajax_enqueue() {
 }
 
 function bao_gia() {
-    
+    global $wp_version;
+    global $wpdb;
+    $json_data = $_POST['json'];
+
+    if (version_compare($wp_version, '5.0', '<')) {
+
+        $json = wp_unslash($json_data);
+    } else {
+
+        $json = $json_data;
+    }
 //    $current_user = wp_get_current_user();
 
-    $data = $_POST['data'];
+    $bao_gia = json_decode($json, true);
 
+    //Lấy thông tin người báo giá
+    //Validate dữ liệu đầu vào
+    $ho_ten = $bao_gia['ho_ten'];
+    $sdt = $bao_gia['so_dt'];
+    $email = $bao_gia['email'];
+    $cty = $bao_gia['cty'];
+    $trang_thai = 'Đã báo giá';
+    $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
+    $ngay_tao = $ngay_cap_nhat = current_time('Y-m-d h:i:s');
+    
+    
+    $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
+                                		(full_name, phone_number, email, company, status, order_detail, created_date, updated_date, is_deleted)
+                                                         VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
+
+    $wpdb->query($query);
+    var_dump($bao_gia);
+    die();
     //default messages
     $result = array(
-        'message' => 'aaa',
+        'message' => $test,
         'status' => 'OK'
     );
 

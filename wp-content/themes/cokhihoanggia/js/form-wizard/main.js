@@ -45,10 +45,11 @@ jQuery(function ($) {
             
             $.ajax({
                 type: "post",
-                dataType: "json",
+//                dataType: "json",
                 url: globalConfig.admin_ajax_url,
                 data: {
-                    'action': 'tao_bao_gia'
+                    'action': 'tao_bao_gia',
+                    'json': JSON.stringify(GiaHoangProduct.submitData)
                 },
                 success: function (msg) {
                     console.log('msg: ', msg)

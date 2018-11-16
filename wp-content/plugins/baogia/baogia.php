@@ -57,6 +57,7 @@ class WP_Order_Management {
 		company tinytext NULL,
 		status tinytext DEFAULT '' NOT NULL,
 		order_detail text NULL,
+                is_deleted boolean DEFAULT false,
                 created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		PRIMARY KEY (id)
