@@ -12,26 +12,65 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
             <th>Công ty</th>
             <th>Ngày báo giá</th>
             <th>Trạng thái</th>
-            <th>Chi tiết báo giá</th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($rows as $row):?>
-        <tr>
-            <td><?php echo $row['full_name'];?></td>
-            <td><?php echo $row['phone_number'];?></td>
-            <td><?php echo $row['email'];?></td>
-            <td><?php echo $row['company'];?></td>
-            <td><?php echo $row['created_date'];?></td>
-            <td><?php echo $row['status'];?></td>
-            <td><a href="#<?php echo $row['id'];?>" class="xem">Xem chi tiết</a></td>
-        </tr>
-        <?php endforeach;?>
+
     </tbody>
 </table>
 
-<div id="modal">
+<div id="modal-chi-tiet">
 
+    <div class="main-content">
+           <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <div>some content</div>
+    <section>
+        <footer>
+            <button data-izimodal-close="">Cancel</button>
+            <button class="submit">Log in</button>            
+        </footer>
+    </section>
+    </div>
+</div>
+
+<div id="modal-chinh-sua">
     <div class="main-content">
            <div>some content</div>
     <div>some content</div>
