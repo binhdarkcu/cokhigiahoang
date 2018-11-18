@@ -75,7 +75,8 @@ h3 {
     position: relative; }
 .form-holder i {
     position: absolute;
-    top: 50%;
+    /*top: 50%;*/
+    top: 18px;
     transform: translateY(-50%);
     right: 20px;
     font-size: 16px; }
@@ -332,3 +333,10 @@ table.cart .product-remove a {
     table.cart tr:last-child td:first-child {
         padding-top: 30px;
         border-top: 1px solid #e6e6e6; } }
+
+label.error { 
+   float: none; color: red; 
+   padding-left: .5em;
+   vertical-align: top; 
+   display: block;
+}

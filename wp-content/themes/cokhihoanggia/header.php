@@ -68,7 +68,10 @@
 <?php  global $post; $post_slug=$post->post_name;?>
 <?php if($post_slug == 'bao-gia'):?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
-<link rel='stylesheet' id='bao-gia-style-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/css/form-wizard/style.css?ver=4.9.8' type='text/css' media='all' />
-<link rel='stylesheet' id='bao-gia-style-css'  href='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/css/form-wizard/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/iziModal/iziModal.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/css/style.css?ver=4.9.8' type='text/css' media='all' />
 <?php endif;?>
 </head>

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
-<?php 
-$list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn','Bạc Liêu','Bắc Ninh','Bến Tre','Bình Định','Bình Dương','Bình Phước','Bình Thuận','Cà Mau ','Cao Bằng ','Đắk Lắk ','Đắk Nông ','Điện Biên ','Đồng Nai ','Đồng Tháp','Gia Lai','Hà Giang ','Hà Nam','Hà Tĩnh','Hải Dương','Hậu Giang','Hòa Bình','Hưng Yên','Khánh Hòa','Kiên Giang','Kon Tum','Lai Châu','Lâm Đồng','Lạng Sơn','Lào Cai','Long An','Nam Định','Nghệ An','Ninh Bình','Ninh Thuận','Phú Thọ','Quảng Bình','Quảng Nam','Quảng Ngãi','Quảng Ninh','Quảng Trị','Sóc Trăng','Sơn La','Tây Ninh','Thái Bình','Thái Nguyên','Thanh Hóa','Thừa Thiên Huế','Tiền Giang','Trà Vinh','Tuyên Quang','Vĩnh Long','Vĩnh Phúc','Yên Bái','Phú Yên','Cần Thơ','Đà Nẵng','Hải Phòng','Hà Nội','TP HCM');
+<?php
+$list_tp = array('An Giang', 'Bà Rịa - Vũng Tàu', 'Bắc Giang', 'Bắc Kạn', 'Bạc Liêu', 'Bắc Ninh', 'Bến Tre', 'Bình Định', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Cà Mau ', 'Cao Bằng ', 'Đắk Lắk ', 'Đắk Nông ', 'Điện Biên ', 'Đồng Nai ', 'Đồng Tháp', 'Gia Lai', 'Hà Giang ', 'Hà Nam', 'Hà Tĩnh', 'Hải Dương', 'Hậu Giang', 'Hòa Bình', 'Hưng Yên', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lai Châu', 'Lâm Đồng', 'Lạng Sơn', 'Lào Cai', 'Long An', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận', 'Phú Thọ', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sóc Trăng', 'Sơn La', 'Tây Ninh', 'Thái Bình', 'Thái Nguyên', 'Thanh Hóa', 'Thừa Thiên Huế', 'Tiền Giang', 'Trà Vinh', 'Tuyên Quang', 'Vĩnh Long', 'Vĩnh Phúc', 'Yên Bái', 'Phú Yên', 'Cần Thơ', 'Đà Nẵng', 'Hải Phòng', 'Hà Nội', 'TP HCM');
+$ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 ?>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
 
@@ -34,11 +35,11 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                             <div class="form-row">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-account"></i>
-                                    <input type="text" class="form-control required" name="ho_ten" value="" placeholder="Họ tên" >
+                                    <input type="text" class="form-control required" name="ho_ten" value="" placeholder="Họ tên" />
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-smartphone-android"></i>
-                                    <input type="text" class="form-control required" name="so_dt" value="" placeholder="Số điện thoại">
+                                    <input id="so_dt" type="text" class="form-control required" name="so_dt" value="" placeholder="Số điện thoại"/>
                                 </div>
                             </div>
 
@@ -46,11 +47,11 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                             <div class="form-row">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-email"></i>
-                                    <input type="text" class="form-control required" name="email" value="" placeholder="Địa chỉ email">
+                                    <input id="email" type="text" class="form-control required" name="email" value="" placeholder="Địa chỉ email"/>
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-home"></i>
-                                    <input type="text" class="form-control required" name="cty" value="" placeholder="Công ty">
+                                    <input type="text" class="form-control required" name="cty" value="" placeholder="Công ty"/>
                                 </div>
                             </div>
                         </section>
@@ -121,34 +122,34 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                         <section>
                             <h3 style="margin-bottom: 16px;">Yêu cầu sản phẩm</h3>
                             <div class="cart_totals">
-                            <!--Thông tin giàn giáo-->
-                            <div id="tt_cho_thue" class="form-row">
-                                
-                                <div id="chieu_cao" class="form-holder">
-                                    <i class="zmdi zmdi-account"></i>
-                                    <input type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao">
-                                </div>                                
-                                <div id="sl_gian_giao" class="form-holder">
-                                    <i class="zmdi zmdi-account"></i>
-                                    <input type="text" name="so_luong" value="" class="form-control" placeholder="Số lượng">
+                                <!--Thông tin giàn giáo-->
+                                <div id="tt_cho_thue" class="form-row">
+
+                                    <div id="chieu_cao" class="form-holder">
+                                        <i class="zmdi zmdi-format-list-numbered"></i>
+                                        <input id="chieu_cao" type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao (m)">
+                                    </div>                                
+                                    <div id="sl_gian_giao" class="form-holder">
+                                        <i class="zmdi zmdi-collection-item"></i>
+                                        <input id="so_luong" type="text" name="so_luong" value="" class="form-control required" placeholder="Số lượng">
+                                    </div>
+
+                                    <div id="thoi_gian_thue" class="form-holder">
+                                        <i class="zmdi zmdi-calendar"></i>
+                                        <input type="text" name="thoi_gian_thue" class="form-control required" placeholder="Thời gian thuê">
+                                    </div>
+
+                                    <div class="form-holder">
+                                        <select id="vi_tri" name="vi_tri" class="form-control chon-vi-tri required" data-placeholder="Vị trí lắp đặt...">
+                                            <option value=""></option>
+                                            <?php foreach ($list_tp as $tp): ?>
+                                                <option value="<?php echo $tp; ?>"><?php echo $tp; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
-                                
-                                <div id="thoi_gian_thue" class="form-holder">
-                                    <i class="zmdi zmdi-smartphone-android"></i>
-                                    <input type="text" name="thoi_gian_thue" class="form-control" placeholder="Thời gian thuê">
-                                </div>
-                                
-                                <div class="form-holder">
-                                    <select class="form-control chon-vi-tri" data-placeholder="Vị trí lắp đặt...">
-                                        <option value=""></option>
-                                        <?php foreach ($list_tp as $tp): ?>
-                                        <option value="<?php echo $tp;?>"><?php echo $tp;?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                </div>
-                            </div>
                                 <table cellspacing="0" class="shop_table shop_table_responsive">
-                                    
+
                                     <!--Trọng lượng vận thăng hàng-->
                                     <tr id="tl_hang" class="cart-subtotal shipping">
                                         <th>Trọng lượng vận thăng</th>
@@ -165,7 +166,7 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                                             </div>
                                         </td>
                                     </tr>
-                                    
+
                                     <!--Số lồng--> 
                                     <tr id="so_long" class="cart-subtotal shipping">
                                         <th>Số lồng</th>
@@ -230,10 +231,24 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
                             </div>
 
                         </section>
+                        <input id="ajax_nonce" type="hidden" value="<?php echo $ajax_nonce;?>"/>
                     </form>
                 </div>
             </div>
         </div><!-- /.container -->
+    </div>
+
+    <div id="modal-bao-gia">
+        <div class="main-content">
+            <!--insert template here-->
+            <div id="detail-content"></div>
+            <section>
+                <footer>
+                    <button data-izimodal-close="">Đóng</button>
+                    <button id="gui-bao-gia" class="submit">Lưu</button>            
+                </footer>
+            </section>
+        </div>
     </div>
 </body>
 
@@ -245,3 +260,15 @@ $list_tp = array('An Giang','Bà Rịa - Vũng Tàu','Bắc Giang','Bắc Kạn'
 </style>
 <?php get_template_part("template-parts/footer"); ?>
 <?php get_footer(); ?>
+
+<script id="template-1" type="text/template">
+<?php get_template_part("template-parts/emailing/template1"); ?>
+</script>
+
+<script id="template-2" type="text/template">
+<?php get_template_part("template-parts/emailing/template2"); ?>
+</script>
+
+<script id="template-3" type="text/template">
+    <?php get_template_part("template-parts/emailing/template3"); ?>
+</script>

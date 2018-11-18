@@ -25,26 +25,48 @@ jQuery(document).ready(function ($) {
             .addClass('highlight');
 
     $("#modal-chi-tiet").iziModal({
-        title: 'Modal xem chi tiết',
-        subtitle: 'Subtitle modal xem chi tiết',
-        width: 700,
+        width: 850,
         radius: 5,
+        top: 35,
+        bottom: 10,
         loop: true
     });
 
     $("#modal-chinh-sua").iziModal({
-        title: 'Modal chỉnh sửa',
-        subtitle: 'Subtitle modal chỉnh sửa',
-        width: 700,
+        width: 850,
         radius: 5,
+        top: 35,
+        bottom: 10,
         loop: true
     });
 
     $(document).on('click', '.xem-chi-tiet', function (event) {
         event.preventDefault();
-        // $('#modal').iziModal('setZindex', 99999);
-        // $('#modal').iziModal('open', { zindex: 99999 });
-        $('#modal-chi-tiet').iziModal('open');
+        const detailModal = $('#modal-chi-tiet');
+        const rowData = tableBaoGia.row( $(this).parents('tr') ).data();
+        const type = 1;
+        var text;
+        switch (1) {
+            case 1:
+                text = $('#template-1').text();
+                break;
+            case 2:
+                text = $('#template-2').text();
+                break;
+            case 3:
+                text = $('#template-3').text();
+                break;
+            defaut:
+                break;
+        }
+
+        //Apply template
+        
+
+        $('#detail-content').html(text);
+        detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);
+        detailModal.iziModal('setSubtitle', `${rowData[1]}-${rowData[2]}-${rowData[3]}`);
+        detailModal.iziModal('open');
     });
 
     $(document).on('click', '.chinh-sua', function (event) {
@@ -78,7 +100,8 @@ jQuery(document).ready(function ($) {
                             baoGia.created_date,
                             baoGia.status,
                             (`<a href="#" class="chinh-sua" data-id="${baoGia.id}" data-item-index="${index}">Chỉnh sửa</a> 
-                                <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}">Chi tiết</a>`)
+                                <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}">Chi tiết</a>
+                                    <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`)
                         ]).draw(false);
                     });
 
@@ -95,4 +118,14 @@ jQuery(document).ready(function ($) {
             console.error(thrownError);
         }
     });
+
+    function template(text, data) {
+        return text
+                .replace(
+                        /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
+                        function (m, key) {
+                            return data.hasOwnProperty(key) ? data[ key ] : "";
+                        }
+                );
+    }
 });

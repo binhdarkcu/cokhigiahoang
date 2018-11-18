@@ -1,6 +1,6 @@
 <?php 
 global $wpdb;
-$query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date desc";
+$query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date DESC";
 $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 ?>
 <table id="bao-gia" class="display" style="width:100%">
@@ -21,50 +21,13 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 </table>
 
 <div id="modal-chi-tiet">
-
     <div class="main-content">
-           <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
+ <!--insert template here-->
+    <div id="detail-content"></div>
     <section>
         <footer>
-            <button data-izimodal-close="">Cancel</button>
-            <button class="submit">Log in</button>            
+            <button data-izimodal-close="">Đóng</button>
+            <!--<button class="submit">Log in</button>-->            
         </footer>
     </section>
     </div>
@@ -72,49 +35,25 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 
 <div id="modal-chinh-sua">
     <div class="main-content">
-           <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
-    <div>some content</div>
+    <!--insert template here-->
+    <div id="edit-content"></div>
     <section>
         <footer>
-            <button data-izimodal-close="">Cancel</button>
-            <button class="submit">Log in</button>            
+            <button data-izimodal-close="">Hủy</button>
+            <button id="#gui-bao-gia" class="submit">Lưu</button>            
         </footer>
     </section>
     </div>
 </div>
+
+<script id="template-1" type="text/template">
+<?php get_template_part("template-parts/emailing/template1");?>
+</script>
+
+<script id="template-2" type="text/template">
+<?php get_template_part("template-parts/emailing/template2");?>
+</script>
+
+<script id="template-3" type="text/template">
+<?php get_template_part("template-parts/emailing/template3");?>
+</script>

@@ -20,6 +20,7 @@ function ajax_enqueue() {
 }
 
 function bao_gia() {
+    check_ajax_referer( 'H4GpryAtCnbwJVTdNMMf', 'security' );
     global $wp_version;
     global $wpdb;
     $json_data = $_POST['json'];
@@ -31,7 +32,6 @@ function bao_gia() {
 
         $json = $json_data;
     }
-//    $current_user = wp_get_current_user();
 
     $bao_gia = json_decode($json, true);
 
