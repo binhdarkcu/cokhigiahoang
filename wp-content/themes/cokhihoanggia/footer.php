@@ -2,10 +2,10 @@
 		var c = document.body.className;
 		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
 		document.body.className = c;
+                window.styleDirectoyURL = "<?php echo get_stylesheet_directory_uri(); ?>/assets/form-wizard/";
 	</script>
-	<link rel='stylesheet' id='su-content-shortcodes-css'  href='http://capethemes.com/demo/processing/wp-content/plugins/shortcodes-ultimate/assets/css/content-shortcodes.css?ver=5.0.4' type='text/css' media='all' />
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/plugins/masterlayout/layoutcreator/assets/javascripts/mllc-view.js?ver=1540196819'></script>
-<script type='text/javascript'>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/mllc-view.js?ver=1540196819'></script>
+<!--<script type='text/javascript'>
 /* <![CDATA[ */
 var wpcf7 = {"apiSettings":{"root":"http:\/\/capethemes.com\/demo\/processing\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
 /* ]]> */
@@ -35,12 +35,22 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.hoverIntent.minified.js?ver=4.9.8'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/superfish.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/ownScript.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.flexslider-min.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.flexslider.start.main.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.flexslider-min.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.flexslider.start.carousel.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.isotope.min.js?ver=4.9.8'></script>
-<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/jquery.isotope.folio.start.js?ver=4.9.8'></script>
+<script type='text/javascript' src='http://capethemes.com/demo/processing/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>-->
+
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/ownScript.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider-min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider.start.main.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider-min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider.start.carousel.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.isotope.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.isotope.folio.start.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.validate.min.js?ver=4.9.8'></script>
+<?php  global $post;$post_slug=$post->post_name;?>
+<?php if($post_slug == 'bao-gia'):?>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/jquery.steps.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/main.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.jquery.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/iziModal/iziModal.min.js?ver=4.9.8'></script>
+<?php endif;?>
 <?php wp_footer(); ?>

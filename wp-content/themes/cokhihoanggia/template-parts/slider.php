@@ -14,7 +14,7 @@ $query = new WP_Query(array(
             $query->the_post();
             $post_id = get_the_ID();
             $post_content = get_the_content();
-            $image_url = wp_extract_urls($post_content);
+            $image_url = get_the_post_thumbnail_url(get_the_ID(),'full');
             $url_slider = get_post_custom_values('wpcf-url-cua-slider', $post_id);
             $url_1 = get_post_custom_values('wpcf-url-1', $post_id);
             $url_2 = get_post_custom_values('wpcf-url-2', $post_id);
@@ -24,8 +24,8 @@ $query = new WP_Query(array(
             $slider_description = get_post_custom_values('wpcf-mo-ta-cua-slider', $post_id);
             ?>
             <li>
-                <a href="<?php echo $url_slider[0]; ?>" title="<?php echo $subheading[0];?>" >
-                    <img width="1600" height="620" src="<?php echo $image_url[0];?>" class="tranz wp-post-image" alt="" />
+                <a href="<?php echo $url_slider; ?>" title="<?php echo $subheading[0];?>" >
+                    <img width="1600" height="620" src="<?php echo $image_url;?>" class="tranz wp-post-image" alt="" />
                 </a>
                 <?php if($subheading || $slider_description): ?>
                     <div class="flexinside rad tranz content_Left">

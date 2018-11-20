@@ -1,3 +1,8 @@
+<?php 
+global $wpdb;
+$query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date DESC";
+$rows = $wpdb->get_results ( $query, 'ARRAY_A' );
+?>
 <table id="bao-gia" class="display" style="width:100%">
     <thead>
         <tr>
@@ -7,18 +12,48 @@
             <th>Công ty</th>
             <th>Ngày báo giá</th>
             <th>Trạng thái</th>
-            <th>Chi tiết báo giá</th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Donna Snider</td>
-            <td>0967077825</td>
-            <td>cqthanh.zx@gmail.com</td>
-            <td>TMA</td>
-            <td>2011/01/25</td>
-            <td>Đã gửi</td>
-            <td><a href="#">Xem chi tiết</a></td>
-        </tr>
+
     </tbody>
 </table>
+
+<div id="modal-chi-tiet">
+    <div class="main-content">
+ <!--insert template here-->
+    <div id="detail-content"></div>
+    <section>
+        <footer>
+            <button data-izimodal-close="">Đóng</button>
+            <!--<button class="submit">Log in</button>-->            
+        </footer>
+    </section>
+    </div>
+</div>
+
+<div id="modal-chinh-sua">
+    <div class="main-content">
+    <!--insert template here-->
+    <div id="edit-content"></div>
+    <section>
+        <footer>
+            <button data-izimodal-close="">Hủy</button>
+            <button id="#gui-bao-gia" class="submit">Lưu</button>            
+        </footer>
+    </section>
+    </div>
+</div>
+
+<script id="template-1" type="text/template">
+<?php get_template_part("template-parts/emailing/template1");?>
+</script>
+
+<script id="template-2" type="text/template">
+<?php get_template_part("template-parts/emailing/template2");?>
+</script>
+
+<script id="template-3" type="text/template">
+<?php get_template_part("template-parts/emailing/template3");?>
+</script>

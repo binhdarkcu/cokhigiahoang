@@ -2684,7 +2684,7 @@ li.bypostauthor p{ padding-right:25px;}
 
 /* tables, def lists
 ***************************/
-table,dl {
+/*table,dl {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	background:url(images/transparent-light.png);
 	width: 90%;
@@ -2693,7 +2693,7 @@ table,dl {
 
 table td, table th, dd {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
+}*/
 
 table tr:first-child th{ border-top:none;}
 
