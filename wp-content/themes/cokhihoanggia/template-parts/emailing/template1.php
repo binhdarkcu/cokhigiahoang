@@ -94,7 +94,7 @@
           <tr>
             <td align="left" valign="top" style="padding: 20px 0 0 5px; line-height: 1.4; font-family: Helvetica, Arial, sans-serif; font-size: 16px; border-bottom: 1px solid #ccc;"> Công ty Gia Hoàng cám ơn Quý Công ty đã tín nhiệm sử dụng các sản phẩm do Cty Chúng tôi cung cấp trong
             suốt thời gian qua. Theo yêu cầu báo giá từ Quý Công oty, nay Công ty Gia Hoàng xin gửi bảng báo giá bán, vận chuyển và lắp đặt vận thăng tại %vi_tri% để Quý Công ty tham khảo, xem đặt hàng.<br/>
-            <br/><strong>I. BẢNG GIÁ CHI TIẾT GIÁ %hinh_thuc% VẬN THĂNG LỒNG.</strong>&nbsp;</td>
+            <br/><strong style="text-transform: uppercase">I. BẢNG GIÁ CHI TIẾT GIÁ %hinh_thuc% VẬN THĂNG LỒNG.</strong>&nbsp;</td>
           </tr>
           <tr>
             <td style="padding: 5px 0 7px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #000;" align="left" valign="top">
@@ -109,7 +109,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Loại sản phẩm</td>
-                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Loại 02 lồng x 1tấn/lồng</td>
+                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Loại 0%so_long%  x %tl_long%/lồng</td>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Ghi chú</td>
                       </tr>
                     </table>
@@ -280,7 +280,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; font-weight: bold;">1</td>
-                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: bold;">Vận thăng 0%so_long% lồng x %tl_long% tấn lồng/cao %chieu_cao%m</td>
+                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: bold;">Vận thăng 0%so_long% x %tl_long% /lồng/cao %chieu_cao%m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Bộ</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">939,500,000</td>
@@ -513,7 +513,7 @@
                 <tr>
                   <td width="50%" valign="bottom" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;">Xác nhận từ khách hàng</td>
                   <td width="50%" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">
-                    <i>Ngày 1 tháng 11 năm 2018</i><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong>
+                    <i>Ngày 1 tháng 11 năm 2018</i><br/><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong>
                   </td>
                 </tr>
               </table>
