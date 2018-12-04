@@ -55,7 +55,7 @@
           </tr>
           <tr>
             <td align="left" valign="top" style="font-weight: bold; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; color: #000; padding: 30px 0; font-size: 20px; text-decoration: underline; text-align: center;">
-              BẢNG BÁO GIÁ BÁN VẬN THĂNG LỒNG
+              BẢNG BÁO GIÁ BÁN GIÀN GIÁO
             </td>
           </tr>
           <tr>

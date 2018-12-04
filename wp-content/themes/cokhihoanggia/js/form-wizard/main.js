@@ -124,6 +124,7 @@ jQuery(function ($) {
 
             //Apply template
 
+            text = template(text, window.GiaHoangProduct);
             $('#detail-content').html(text);
             modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
             modalBaoGia.iziModal('setSubtitle', `Báo giá ngày 18/11/2018`);
@@ -335,4 +336,14 @@ jQuery(function ($) {
             }
         });
     });
+
+    function template(text, data) {
+        return text
+                .replace(
+                        /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
+                        function (m, key) {
+                            return data.hasOwnProperty(key) ? data[ key ] : "";
+                        }
+                );
+    }
 })
