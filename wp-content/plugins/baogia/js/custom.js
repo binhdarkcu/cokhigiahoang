@@ -12,7 +12,8 @@ jQuery(document).ready(function ($) {
         },
         "columnDefs": [{
                 "targets": 6,
-                "searchable": false
+                "searchable": false,
+                "orderable": false
             }],
         "createdRow": function (row, data, index) {
             console.log('row: ', row);
@@ -43,7 +44,7 @@ jQuery(document).ready(function ($) {
     $(document).on('click', '.xem-chi-tiet', function (event) {
         event.preventDefault();
         const detailModal = $('#modal-chi-tiet');
-        const rowData = tableBaoGia.row( $(this).parents('tr') ).data();
+        const rowData = tableBaoGia.row($(this).parents('tr')).data();
         const type = 1;
         var text;
         switch (1) {
@@ -56,12 +57,12 @@ jQuery(document).ready(function ($) {
             case 3:
                 text = $('#template-3').text();
                 break;
-            defaut:
-                break;
+                defaut:
+                        break;
         }
 
         //Apply template
-        
+
 
         $('#detail-content').html(text);
         detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);
@@ -86,6 +87,7 @@ jQuery(document).ready(function ($) {
             try {
                 jsonData = JSON.parse(result);
 
+                const statuses = ['Đã báo giá', 'Đã thanh toán', 'Đã đóng'];
                 //Get data OK
                 if (jsonData.status === 'OK') {
 
@@ -98,11 +100,34 @@ jQuery(document).ready(function ($) {
                             baoGia.email,
                             baoGia.company,
                             baoGia.created_date,
-                            baoGia.status,
-                            (`<a href="#" class="chinh-sua" data-id="${baoGia.id}" data-item-index="${index}">Chỉnh sửa</a> 
+                            (`<select class="order-status">
+                            ${statuses.map(function (item) {
+                                return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
+                            }).join(' ')}
+                            </select>`),
+                            (`
                                 <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}">Chi tiết</a>
                                     <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`)
                         ]).draw(false);
+                    });
+
+                    // Observe onchange event
+                    $('.order-status').on({
+                        "ready": function (e) {
+                            $(this).attr("readonly", true);
+                        },
+                        "focus": function (e) {
+                            $(this).data({choice: $(this).val()});
+                        },
+                        "change": function (e) {
+                            if (!confirm("Lưu thay đổi ?")) {
+                                $(this).val($(this).data('choice'));
+                                return false;
+                            } else {
+                                $(this).attr("readonly", false);
+                                return true;
+                            }
+                        }
                     });
 
                 } else {
