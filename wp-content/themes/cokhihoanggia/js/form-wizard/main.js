@@ -258,20 +258,23 @@ jQuery(function ($) {
             'bien_tan': 'Biến tần',
         };
         const form_bao_gia = {
-            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri'],
-            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'thoi_gian_thue'],
-            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri'],
-            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'thoi_gian_thue'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri'],
-            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'thoi_gian_thue']
+            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri','form_bao_gia'],
+            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'form_bao_gia'],
+            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'form_bao_gia'],
+            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'thoi_gian_thue','form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
         sp.submitData = {};
         var html = '';
         const fields = form_bao_gia[sp.form_bao_gia];
         fields.forEach(function (item) {
-            html += `<tr class="cart-subtotal"> <th>${translations[item]}</th> <td>${sp[item] === 'Bán' ? 'Mua': sp[item]} ${item === 'thoi_gian_thue' ? 'ngày' : ''} ${item === 'chieu_cao' ? 'm' : ''}</td></tr>`;
+            if(item !== 'form_bao_gia'){
+                html += `<tr class="cart-subtotal"> <th>${translations[item]}</th> <td>${sp[item] === 'Bán' ? 'Mua': sp[item]} ${item === 'thoi_gian_thue' ? 'ngày' : ''} ${item === 'chieu_cao' ? 'm' : ''}</td></tr>`;
+            }
             sp.submitData[item] = sp[item];
+
         });
         $('#review-section').html(html);
     }
