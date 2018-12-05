@@ -12,6 +12,7 @@ add_action('wp_enqueue_scripts', 'ajax_enqueue');
 add_action('wp_ajax_nopriv_tao_bao_gia', 'bao_gia');
 add_action('wp_ajax_tao_bao_gia', 'bao_gia');
 add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
+add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
 
 //create admin ajax url
 function ajax_enqueue() {
@@ -87,19 +88,30 @@ function danh_sach_bao_gia() {
 
 function cap_nhat_trang_thai() {
     global $wpdb;
+    // Validate input data
     $id = $_POST['id'];
-    $action = $_POST['action'];
+    $action = $_POST['action_type'];
     $status = $_POST['status'];
     
-    $response = array();
+    $response = array(
+        'data' => 'null',
+        'id' => $id,
+        'action' => $action,
+        's' => $status,
+        'status' => 'ACTION_DENIED'
+    );
     
-    if (is_admin()) {
+    if (is_admin() && $id) {
         $query = '';
         if($action == 'delete'){
-            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET is_deleted = 1 WHERE id=" . $id;
+            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET is_deleted=1 WHERE id=" . $id;
         }else if($action == 'update' && $status){
-            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET status = " . $status . " WHERE id=" . $id;
+            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET status = '" . $status . "' WHERE id=" . $id;
         }
         $wpdb->query($query);
+        $response['status'] = $query;
     }
+    
+    echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    wp_die();
 }

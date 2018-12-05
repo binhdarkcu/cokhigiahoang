@@ -161,9 +161,9 @@ jQuery(document).ready(function ($) {
                 "orderable": false
             }],
         "createdRow": function (row, data, index) {
-            console.log('row: ', row);
-            console.log('data: ', data);
-            console.log('index: ', index);
+//            console.log('row: ', row);
+//            console.log('data: ', data);
+//            console.log('index: ', index);
 //            console.log('aaaa', $('td', row).eq(6).addClass('aaa'));
         }
     });
@@ -208,13 +208,13 @@ jQuery(document).ready(function ($) {
                 case 'form_gian_giao_thue':
                     text = $('#template-3').text();
                     break;
-                defaut:
-                    text = '';
+                    defaut:
+                            text = '';
                     break;
             }
 
             //Apply template
-//            delete order_detail.form_bao_gia;
+            delete order_detail.form_bao_gia;
             console.log('text: ', text);
             console.log('Object: ', JSON.stringify(order_detail));
             text = template(text, order_detail);
@@ -226,14 +226,20 @@ jQuery(document).ready(function ($) {
             console.error(ex);
         }
         ;
-
     });
 
-    $(document).on('click', '.chinh-sua', function (event) {
+    $(document).on('click', '.xoa-bao-gia', function (event) {
         event.preventDefault();
-        // $('#modal').iziModal('setZindex', 99999);
-        // $('#modal').iziModal('open', { zindex: 99999 });
-        $('#modal-chinh-sua').iziModal('open');
+        if (confirm("Bạn có chắc muốn xóa dữ liệu này ?")) {
+            const _id = $(this).data('id');
+            sendPostRequest({action: 'cap_nhat_trang_thai', action_type: 'delete', id: _id}, function (err, success) {
+                if (!err) {
+                    console.log('callback success result:', success);
+                } else {
+                    console.log('callback failed!');
+                }
+            });
+        }
     });
 
     $.ajax({
@@ -252,14 +258,13 @@ jQuery(document).ready(function ($) {
 
                     //Create row
                     jsonData.data.forEach(function (baoGia, index) {
-                        console.log('aaa');
                         tableBaoGia.row.add([
                             baoGia.full_name,
                             baoGia.phone_number,
                             baoGia.email,
                             baoGia.company,
                             baoGia.created_date,
-                            (`<select class="order-status">
+                            (`<select class="order-status" data-item-id="${baoGia.id}">
                             ${statuses.map(function (item) {
                                 return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
                             }).join(' ')}
@@ -284,6 +289,16 @@ jQuery(document).ready(function ($) {
                                 return false;
                             } else {
                                 $(this).attr("readonly", false);
+                                //Update changes
+                                const _id = $(this).data('item-id');
+                                const _status = e.target.value;
+                                sendPostRequest({action: 'cap_nhat_trang_thai', action_type: 'update', id: _id, status: _status}, function (err, success) {
+                                    if (!err) {
+                                        console.log('callback success result:', success);
+                                    } else {
+                                        console.log('callback failed!');
+                                    }
+                                });
                                 return true;
                             }
                         }
@@ -302,6 +317,23 @@ jQuery(document).ready(function ($) {
             console.error(thrownError);
         }
     });
+
+    // Send post request
+    function sendPostRequest(_data, callback) {
+        $.ajax({
+            type: 'POST',
+            url: ajaxurl,
+            data: _data,
+            success: function (result) {
+                console.log('result: ', result);
+                callback(null, result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.error(thrownError);
+                callback(thrownError);
+            }
+        });
+    }
 
     function template(text, data) {
         return text
