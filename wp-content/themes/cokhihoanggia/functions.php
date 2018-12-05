@@ -20,7 +20,7 @@ function ajax_enqueue() {
 }
 
 function bao_gia() {
-    check_ajax_referer( 'H4GpryAtCnbwJVTdNMMf', 'security' );
+    check_ajax_referer('H4GpryAtCnbwJVTdNMMf', 'security');
     global $wp_version;
     global $wpdb;
     $json_data = $_POST['json'];
@@ -71,7 +71,7 @@ function danh_sach_bao_gia() {
         'data' => $rows,
         'status' => 'ACTION_DENIED'
     );
-    
+
     if (is_admin()) {
         $query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted = 0 ORDER BY created_date DESC";
         $wpdb->query($query);
@@ -83,4 +83,23 @@ function danh_sach_bao_gia() {
 
     echo json_encode($result, JSON_UNESCAPED_UNICODE);
     wp_die();
+}
+
+function cap_nhat_trang_thai() {
+    global $wpdb;
+    $id = $_POST['id'];
+    $action = $_POST['action'];
+    $status = $_POST['status'];
+    
+    $response = array();
+    
+    if (is_admin()) {
+        $query = '';
+        if($action == 'delete'){
+            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET is_deleted = 1 WHERE id=" . $id;
+        }else if($action == 'update' && $status){
+            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET status = " . $status . " WHERE id=" . $id;
+        }
+        $wpdb->query($query);
+    }
 }
