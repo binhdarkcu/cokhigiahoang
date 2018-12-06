@@ -18,7 +18,7 @@
 
                     <a class="logo" href="<?php echo HOME_URL;?>">
 
-                        <img class="tranz" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/logo.png" alt="Processing"/>
+                        <img class="tranz" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/logo.png" alt="Cơ khí gia hoàng"/>
 
                     </a>
 
@@ -35,19 +35,18 @@
                     <nav id="navigation" class="rad tranz" itemscope itemtype="http://schema.org/SiteNavigationElement">
 
                         <ul id="main-nav" class="nav rad">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-596 current_page_item"><a href="#">Trang chủ</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/gioi-thieu">Giới thiệu</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/san-pham">Sản phẩm</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/dich-vu">Dịch vụ</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/bao-gia">Báo giá</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/tin-tuc">Tin tức</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/bao-hanh">Bảo hành</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-596 current_page_item"><a href="<?php echo HOME_URL?>">Trang chủ</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo HOME_URL?>/gioi-thieu">Giới thiệu</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="<?php echo HOME_URL?>/san-pham">Sản phẩm</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="<?php echo HOME_URL?>/dich-vu">Dịch vụ</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="<?php echo HOME_URL?>/bao-gia">Báo giá</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="<?php echo HOME_URL?>/tin-tuc">Tin tức</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="<?php echo HOME_URL?>/bao-hanh">Bảo hành</a></li>
                         </ul>
                         <ul class="social-menu">
-                            <li class="sprite-facebook"><a class="mk-social-facebook" title="Facebook" href="http://capethemes.com/demo/processing"><i class="fa fa-facebook-official"></i><span>Facebook</span></a></li>
-                            <li class="sprite-twitter"><a class="mk-social-twitter-alt" title="Twitter" href="http://capethemes.com/demo/processing"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
-                            <li class="sprite-instagram"><a class="mk-social-photobucket" title="Instagram" href="http://capethemes.com/demo/processing"><i class="fa fa-instagram"></i><span>Instagram</span></a></li>
-                            <li class="sprite-vimeo"><a class="mk-social-vimeo" title="Vimeo" href="http://capethemes.com/demo/processing"><i class="fa fa-vimeo-square"></i><span>Vimeo</span></a></li>
+                            <li class="sprite-facebook"><a class="mk-social-facebook" target="_blank" title="Facebook" href="https://www.facebook.com/banchothuevanthanggiangiao/"><i class="fa fa-facebook-official"></i><span>Facebook</span></a></li>
+                            <li class="sprite-twitter"><a class="mk-social-twitter-alt" target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCqVekzX8AR6oaSKw4PnhVSg"><i class="fa fa-youtube"></i><span>Youtube</span></a></li>
+                            <li class="sprite-instagram"><a class="mk-social-photobucket" target="_blank" title="Google+" href="https://plus.google.com/u/0/103035464217087906477"><i class="fa fa-google-plus"></i><span>Google+</span></a></li>
                         </ul>
                     </nav>
 

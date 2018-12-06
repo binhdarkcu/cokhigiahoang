@@ -38,22 +38,21 @@ $content = str_replace(']]>', ']]&gt;', $content);
 
         <div class="postbarLeft">
 
-        <div id="content" class="twelvecol first">
+        <div id="content" class="twelvecol first productPage">
 
             <div class="post-544 page type-page status-publish hentry">
 
                 <div class="item_inn tranz p-border ghost">
 
-                    <div class="entry pageentry" style="padding-top: 0!important;">
+                    <div class="entry pageentry" style="padding: 0!important;">
                         <div class="col-sm-12">
                             <div class="product-information">
-                                <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;"><?php the_title();?></h2>
-
-                                <div class="twelvecol" style="padding-left: 20px;">
-                                    <?php the_content();?>
+                                <div class="twelvecol" style="padding-left: 0;">
+                                    <?php get_template_part("template-parts/what-we", "do"); ?>
+                                    <?php get_template_part("template-parts/lastest", "news"); ?>
                                 </div>
                                 <div class="clear"></div>
-                            
+
                             </div>
 
                         </div>

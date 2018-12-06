@@ -1,4 +1,7 @@
 <?php
+/* Template Name: Thông tin công ty Template */
+
+
 $my_postid = get_the_ID();//This is page id or post id
 $content_post = get_post($my_postid);
 $content = $content_post->post_content;
@@ -38,22 +41,22 @@ $content = str_replace(']]>', ']]&gt;', $content);
 
         <div class="postbarLeft">
 
-        <div id="content" class="twelvecol first">
+        <div id="content" class="eightcol first">
 
             <div class="post-544 page type-page status-publish hentry">
 
                 <div class="item_inn tranz p-border ghost">
 
-                    <div class="entry pageentry" style="padding-top: 0!important;">
+                    <div class="entry pageentry" style="padding: 0 16px!important;">
                         <div class="col-sm-12">
                             <div class="product-information">
                                 <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;"><?php the_title();?></h2>
 
-                                <div class="twelvecol" style="padding-left: 20px;">
+                                <div class="twelvecol" style="padding-left: 0;">
                                     <?php the_content();?>
+
                                 </div>
                                 <div class="clear"></div>
-                            
                             </div>
 
                         </div>
@@ -81,6 +84,8 @@ $content = str_replace(']]>', ']]&gt;', $content);
                     <div class="clearfix"></div>
 
         </div><!-- #content -->
+
+        <?php get_sidebar();?>
 
         </div><!-- .postbarLeft -->
 

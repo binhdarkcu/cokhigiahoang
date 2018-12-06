@@ -36,7 +36,6 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js?ver=3.1.6'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-content/themes/processing/js/superfish.js?ver=4.9.8'></script>
 <script type='text/javascript' src='http://capethemes.com/demo/processing/wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>-->
-
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/ownScript.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider-min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.flexslider.start.main.js?ver=4.9.8'></script>
@@ -52,5 +51,6 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.jquery.min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/iziModal/iziModal.min.js?ver=4.9.8'></script>
+
 <?php endif;?>
 <?php wp_footer(); ?>

@@ -47,13 +47,13 @@ $content = str_replace(']]>', ']]&gt;', $content);
                     <div class="entry pageentry" style="padding-top: 0!important;">
                         <div class="col-sm-12">
                             <div class="product-information">
-                                <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;"><?php the_title();?></h2>
+                                <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;">Giới thiệu chung</h2>
 
                                 <div class="twelvecol" style="padding-left: 20px;">
                                     <?php the_content();?>
                                 </div>
                                 <div class="clear"></div>
-                            
+
                             </div>
 
                         </div>

@@ -187,7 +187,7 @@ jQuery(function ($) {
 
     function setShowHideSection() {
         var sp = window.GiaHoangProduct;
-        //Sản phẩm là vận thăng 
+        //Sản phẩm là vận thăng
         if (sp.loai_sp === 'Vận thăng') {
             $('#loai_vt').show();
             $('#sl_gian_giao, #so_luong').hide();
@@ -288,7 +288,6 @@ jQuery(function ($) {
         bottom: 10,
         overlayClose: false
     });
-
     $('#gui-bao-gia').on('click', function (e) {
         e.preventDefault();
         modalBaoGia.iziModal('startLoading');
@@ -315,6 +314,11 @@ jQuery(function ($) {
                     loader: true, // Whether to show loader or not. True by default
                     loaderBg: '#9EC600', // Background color of the toast loader
                 });
+               //  doc.fromHTML(jQuery('#modal-bao-gia').html(), 15, 15, {
+               //     'width': 170,
+               //     'elementHandlers': specialElementHandlers
+               // });
+                // doc.save('sample-file.pdf');
                 modalBaoGia.iziModal('stopLoading');
                 modalBaoGia.iziModal('close');
                 $("#wizard-t-0").click();

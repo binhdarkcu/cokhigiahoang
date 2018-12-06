@@ -12,13 +12,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,addre
 
 .clearfix:after { content: "\00A0"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
 
-.clearfix{ display: inline-block;}  
+.clearfix{ display: inline-block;}
 
-html[xmlns] .clearfix { display: block;}  
+html[xmlns] .clearfix { display: block;}
 
-* html .clearfix{ height: 1%;}  
+* html .clearfix{ height: 1%;}
 
-.clearfix {display: block}  
+.clearfix {display: block}
 
 .tranz,
 img.attachment-service-thumb,
@@ -68,6 +68,10 @@ ul.mpbox { overflow:hidden; width:100%; display:block;/*background:#000;*/}
 
 ul.mpbox li .mp-inner{ margin:0 0 0 0; position:relative;}
 
+ul.mpbox li .mp-inner .desc {
+    min-height: 145px;
+    margin-top: 20px;
+}
 /* columns */
 
 ul.mpbox li{width:33.33%;}
@@ -85,7 +89,7 @@ ul.mpbox.col6 li{width:16.66%;}
 
 /* boxed columns */
 
-.boxed li .mp-inner{ background:#f9f9f9;  padding:30px 35px; overflow:hidden;}
+.boxed li .mp-inner{ background:#f9f9f9;  padding:16px; overflow:hidden;}
 
 
 ul.mpbox.col5 li p,
@@ -97,7 +101,7 @@ ul.mpbox.col6 li p{ font-size:90% !important;}
 ********************************************************************************************
 ********************************************************************************************/
 
-.mp-services h3{ margin-bottom:25px;}
+.mp-services h3{ margin-bottom:25px; min-height: 60px;}
 
 .mp-services p{ margin-top:25px;}
 
@@ -165,7 +169,7 @@ ul.mpbox.modern img{
 	z-index:1;
 }
 
-ul.mpbox.modern .testi-content:before{	
+ul.mpbox.modern .testi-content:before{
 	top: auto;
 	left:10px;
 	bottom:-25px;
@@ -303,7 +307,7 @@ ul.mpbox.simple .staff-content{ display:none;}
 
 /* 6. tooltips
 ********************************************************************************************
-********************************************************************************************/	
+********************************************************************************************/
 
 
 div.tooltip {
@@ -321,7 +325,7 @@ div.tooltip {
 div.tooltip p {
 	padding:10px 15px;
 	line-height:1.4 !important;
-	border-radius:2px;	
+	border-radius:2px;
 	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
 	text-shadow:none;
@@ -330,8 +334,8 @@ div.tooltip p {
 	position:relative;
 }
 div.tooltip p:after {
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid #333;
@@ -364,10 +368,10 @@ ul.mpbox.col6 li{width:28.75%;}
 
 
 @media screen and (max-width: 770px) {
-	
+
 ul.mpbox.modern .testi-content {font-size: 100%;}
 ul.mpbox.modern .testi-content p {line-height: 1.9 !important;}
-	
+
 ul.mpbox.clients .testi-meta{ padding:25px 0 !important;}
 ul.mpbox.clients .testi-meta h4{ font-size:13px !important;}
 
@@ -383,15 +387,15 @@ ul.mpbox.simple .staff-meta {
 }
 
 ul.mpbox.simple ul.mp-staff-social{ display:none;}
-	
+
 }
 
 @media screen and (max-width: 740px) {
-	
+
 ul.mpbox {
     width: 100%;
-}	
-	
+}
+
 
 .mp-wrap ul.mpbox>li,
 ul.mpbox.col1>li,
@@ -404,7 +408,7 @@ ul.mpbox.col6>li{
 	float:none !important;
 	clear:both;
 	margin:0 auto 40px auto !important;
-}	
+}
 
 
 ul.mpbox.modern .testi-content { padding: 25px 35px 80px 35px;}
@@ -414,5 +418,5 @@ ul.mpbox.modern .testi-content::after{ display:none;}
 ul.mpbox.modern .testi-meta h4, ul.mpbox.modern .testi-meta p{ font-size:13px !important; line-height:1.4 !important;}
 
 
-	
+
 }

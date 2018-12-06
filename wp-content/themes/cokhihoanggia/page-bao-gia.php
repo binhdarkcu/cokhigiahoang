@@ -128,7 +128,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                     <div id="chieu_cao" class="form-holder">
                                         <i class="zmdi zmdi-format-list-numbered"></i>
                                         <input id="chieu_cao" type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao (m)">
-                                    </div>                                
+                                    </div>
                                     <div id="sl_gian_giao" class="form-holder">
                                         <i class="zmdi zmdi-collection-item"></i>
                                         <input id="so_luong" type="text" name="so_luong" value="" class="form-control required" placeholder="Số lượng">
@@ -167,7 +167,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                         </td>
                                     </tr>
 
-                                    <!--Số lồng--> 
+                                    <!--Số lồng-->
                                     <tr id="so_long" class="cart-subtotal shipping">
                                         <th>Số lồng</th>
                                         <td data-title="Subtotal">
@@ -184,7 +184,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                         </td>
                                     </tr>
 
-                                    <!--Trọng lượng lồng--> 
+                                    <!--Trọng lượng lồng-->
                                     <tr id="tl_long" class="cart-subtotal shipping">
                                         <th>Trọng lượng lồng</th>
                                         <td data-title="Subtotal">
@@ -218,7 +218,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                         </td>
                                     </tr>
                                 </table>
-                            </div>                      
+                            </div>
                         </section>
 
                         <!-- SECTION 4 -->
@@ -245,7 +245,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
             <section>
                 <footer>
                     <button data-izimodal-close="">Đóng</button>
-                    <button id="gui-bao-gia" class="submit">Lưu</button>            
+                    <button id="gui-bao-gia" class="submit">Lưu</button>
                 </footer>
             </section>
         </div>
@@ -258,6 +258,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
         margin-right: 5px;
     }
 </style>
+<div id="editor"></div>
 <?php get_template_part("template-parts/footer"); ?>
 <?php get_footer(); ?>
 

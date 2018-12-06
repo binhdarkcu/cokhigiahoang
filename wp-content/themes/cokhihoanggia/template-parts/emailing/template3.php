@@ -25,11 +25,14 @@
         font-weight: inherit !important;
         line-height: inherit !important;
     }
+    table.tbPrices td{
+        padding: 0!important;
+    }
 </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
 <!-- ONE COLUMN SECTION -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tbPrices">
     <tr>
       <td bgcolor="#fff" align="center" valign="top" style="padding: 30px 0">
         <table border="0" cellpadding="0" cellspacing="0" width="810" style="border: 1px solid #ccc; table-layout: fixed;">
