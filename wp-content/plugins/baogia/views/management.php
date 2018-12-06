@@ -33,19 +33,6 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     </div>
 </div>
 
-<div id="modal-chinh-sua">
-    <div class="main-content">
-    <!--insert template here-->
-    <div id="edit-content"></div>
-    <section>
-        <footer>
-            <button data-izimodal-close="">Hủy</button>
-            <button id="#gui-bao-gia" class="submit">Lưu</button>            
-        </footer>
-    </section>
-    </div>
-</div>
-
 <script id="template-1" type="text/template">
 <?php get_template_part("template-parts/emailing/template1");?>
 </script>

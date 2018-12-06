@@ -178,14 +178,7 @@ jQuery(document).ready(function ($) {
         loop: true
     });
 
-    $("#modal-chinh-sua").iziModal({
-        width: 850,
-        radius: 5,
-        top: 35,
-        bottom: 10,
-        loop: true
-    });
-
+    // Handle view details action
     $(document).on('click', '.xem-chi-tiet', function (event) {
         event.preventDefault();
         try {
@@ -228,6 +221,7 @@ jQuery(document).ready(function ($) {
         ;
     });
 
+    // Handle delete action
     $(document).on('click', '.xoa-bao-gia', function (event) {
         event.preventDefault();
         if (confirm("Bạn có chắc muốn xóa dữ liệu này ?")) {
@@ -244,6 +238,7 @@ jQuery(document).ready(function ($) {
     });
 
     getDataAndRenderTable();
+    // Send post renquest and render data table
     function getDataAndRenderTable() {
         $.ajax({
             type: "GET",
@@ -332,15 +327,18 @@ jQuery(document).ready(function ($) {
             data: _data,
             success: function (result) {
                 console.log('result: ', result);
+                showSuccessMsg();
                 callback(null, result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                showErrorMsg();
                 console.error(thrownError);
                 callback(thrownError);
             }
         });
     }
 
+    // Replace template engine
     function template(text, data) {
         return text
                 .replace(
@@ -349,5 +347,39 @@ jQuery(document).ready(function ($) {
                             return data.hasOwnProperty(key) ? data[ key ] : "";
                         }
                 );
+    }
+
+    // Show success message
+    function showSuccessMsg() {
+        $.toast({
+            text: "Thông tin đã được cập nhật thành công.", // Text that is to be shown in the toast
+            heading: 'Hệ thống', // Optional heading to be shown on the toast
+            icon: 'success', // Type of toast icon
+            showHideTransition: 'slide', // fade, slide or plain
+            allowToastClose: true, // Boolean value true or false
+            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+            textAlign: 'left', // Text alignment i.e. left, right or center
+            loader: true, // Whether to show loader or not. True by default
+            loaderBg: '#9EC600', // Background color of the toast loader
+        });
+    }
+
+    // Show error message
+    function showErrorMsg() {
+        $.toast({
+            text: "Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.", // Text that is to be shown in the toast
+            heading: 'Hệ thống', // Optional heading to be shown on the toast
+            icon: 'error', // Type of toast icon
+            showHideTransition: 'slide', // fade, slide or plain
+            allowToastClose: true, // Boolean value true or false
+            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+            textAlign: 'left', // Text alignment i.e. left, right or center
+            loader: true, // Whether to show loader or not. True by default
+            loaderBg: '#9EC600', // Background color of the toast loader
+        });
     }
 });
