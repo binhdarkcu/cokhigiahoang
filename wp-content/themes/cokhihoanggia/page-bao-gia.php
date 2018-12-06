@@ -245,7 +245,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
             <section>
                 <footer>
                     <button data-izimodal-close="">Đóng</button>
-                    <button id="gui-bao-gia" class="submit">Lưu</button>
+                    <button id="gui-bao-gia" class="submit">Gửi báo giá</button>
                 </footer>
             </section>
         </div>
