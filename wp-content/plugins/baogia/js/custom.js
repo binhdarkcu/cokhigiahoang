@@ -234,6 +234,7 @@ jQuery(document).ready(function ($) {
             const _id = $(this).data('id');
             sendPostRequest({action: 'cap_nhat_trang_thai', action_type: 'delete', id: _id}, function (err, success) {
                 if (!err) {
+                    getDataAndRenderTable();
                     console.log('callback success result:', success);
                 } else {
                     console.log('callback failed!');
@@ -242,81 +243,86 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $.ajax({
-        type: "GET",
-        url: ajaxurl,
-        data: {
-            'action': 'get_list_bao_gia'
-        },
-        success: function (result) {
-            try {
-                jsonData = JSON.parse(result);
+    getDataAndRenderTable();
+    function getDataAndRenderTable() {
+        $.ajax({
+            type: "GET",
+            url: ajaxurl,
+            data: {
+                'action': 'get_list_bao_gia'
+            },
+            success: function (result) {
+                try {
+                    jsonData = JSON.parse(result);
 
-                const statuses = ['Đã báo giá', 'Đã thanh toán', 'Đã đóng'];
-                //Get data OK
-                if (jsonData.status === 'OK') {
+                    const statuses = ['Đã báo giá', 'Đã thanh toán', 'Đã đóng'];
+                    //Get data OK
+                    if (jsonData.status === 'OK') {
 
-                    //Create row
-                    jsonData.data.forEach(function (baoGia, index) {
-                        tableBaoGia.row.add([
-                            baoGia.full_name,
-                            baoGia.phone_number,
-                            baoGia.email,
-                            baoGia.company,
-                            baoGia.created_date,
-                            (`<select class="order-status" data-item-id="${baoGia.id}">
+                        //Create row
+                        tableBaoGia.clear().draw();
+                        jsonData.data.forEach(function (baoGia, index) {
+                            tableBaoGia.row.add([
+                                baoGia.full_name,
+                                baoGia.phone_number,
+                                baoGia.email,
+                                baoGia.company,
+                                baoGia.created_date,
+                                (`<select class="order-status" data-item-id="${baoGia.id}">
                             ${statuses.map(function (item) {
-                                return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
-                            }).join(' ')}
+                                    return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
+                                }).join(' ')}
                             </select>`),
-                            (`
+                                (`
                                 <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}" data-item-data="${Base64.encode(baoGia.order_detail)}">Chi tiết</a>
                                     <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`)
-                        ]).draw(false);
-                    });
+                            ]).draw(false);
+                        });
 
-                    // Observe onchange event
-                    $('.order-status').on({
-                        "ready": function (e) {
-                            $(this).attr("readonly", true);
-                        },
-                        "focus": function (e) {
-                            $(this).data({choice: $(this).val()});
-                        },
-                        "change": function (e) {
-                            if (!confirm("Lưu thay đổi ?")) {
-                                $(this).val($(this).data('choice'));
-                                return false;
-                            } else {
-                                $(this).attr("readonly", false);
-                                //Update changes
-                                const _id = $(this).data('item-id');
-                                const _status = e.target.value;
-                                sendPostRequest({action: 'cap_nhat_trang_thai', action_type: 'update', id: _id, status: _status}, function (err, success) {
-                                    if (!err) {
-                                        console.log('callback success result:', success);
-                                    } else {
-                                        console.log('callback failed!');
-                                    }
-                                });
-                                return true;
+                        // Observe onchange event
+                        $('.order-status').on({
+                            "ready": function (e) {
+                                $(this).attr("readonly", true);
+                            },
+                            "focus": function (e) {
+                                $(this).data({choice: $(this).val()});
+                            },
+                            "change": function (e) {
+                                if (!confirm("Lưu thay đổi ?")) {
+                                    $(this).val($(this).data('choice'));
+                                    return false;
+                                } else {
+                                    $(this).attr("readonly", false);
+                                    //Update changes
+                                    const _id = $(this).data('item-id');
+                                    const _status = e.target.value;
+                                    sendPostRequest({action: 'cap_nhat_trang_thai', action_type: 'update', id: _id, status: _status}, function (err, success) {
+                                        if (!err) {
+                                            console.log('callback success result:', success);
+                                        } else {
+                                            console.log('callback failed!');
+                                        }
+                                    });
+                                    return true;
+                                }
                             }
-                        }
-                    });
+                        });
 
-                } else {
-                    console.error('Can not retrieve data');
+                    } else {
+                        console.error('Can not retrieve data');
+                    }
+                    //Handle parsing JSON exception
+                } catch (ex) {
+                    console.error('Can not parse JSON content!', ex);
                 }
-                //Handle parsing JSON exception
-            } catch (ex) {
-                console.error('Can not parse JSON content!', ex);
-            }
 
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.error(thrownError);
-        }
-    });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.error(thrownError);
+            }
+        });
+    }
+
 
     // Send post request
     function sendPostRequest(_data, callback) {
