@@ -38,7 +38,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
 
         <div class="postbarLeft">
 
-        <div id="content" class="twelvecol first productPage">
+        <div id="content" class="eightcol first productPage">
 
             <div class="post-544 page type-page status-publish hentry">
 
@@ -48,8 +48,15 @@ $content = str_replace(']]>', ']]&gt;', $content);
                         <div class="col-sm-12">
                             <div class="product-information">
                                 <div class="twelvecol" style="padding-left: 0;">
-                                    <?php get_template_part("template-parts/what-we", "do"); ?>
-                                    <?php get_template_part("template-parts/lastest", "news"); ?>
+
+                                    <?php  get_template_part("template-parts/what-we", "do");  ?>
+                                    <?php  if($_GET["slug"] == 'gian-giao-nem') {
+                                        get_template_part("template-parts/lastest", "news");
+                                    } elseif(empty($_GET["slug"])) {
+                                        get_template_part("template-parts/lastest", "news"); 
+                                    }
+
+                                     ?>
                                 </div>
                                 <div class="clear"></div>
 
@@ -61,16 +68,6 @@ $content = str_replace(']]>', ']]&gt;', $content);
                     <div class="clearfix"></div>
 
 
-
-
-        <div id="comments">
-
-        <p class="nocomments">Comments are closed.</p>
-
-
-
-        </div><!-- #comments -->
-
                 </div><!-- .item_inn tranz p-border ghost -->
 
             </div>
@@ -80,7 +77,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
                     <div class="clearfix"></div>
 
         </div><!-- #content -->
-
+<?php get_sidebar();?>
         </div><!-- .postbarLeft -->
 
         </div>

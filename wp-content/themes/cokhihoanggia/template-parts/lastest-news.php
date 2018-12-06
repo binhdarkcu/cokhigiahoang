@@ -1,8 +1,8 @@
 <div id="ml-block-824-10" class="ml-block ml-block-ml_blog ml_span12 ml-first clearfix">
-                    <div class="widgetwrap widgetwrap-alt homeblog" style="padding:60px 0;">
-
+                    <div class="widgetwrap widgetwrap-alt homeblog" style="<?php if(!is_page('san-pham')) {echo 'padding:60px 0;';}?>">
+                        <?php if(!is_page('san-pham')) {?>
                         <div class="block_bg" style="background-color:#eaeaea;"></div>
-
+                        <?php }?>
                         <h2 class="block"  style="color:#222;">
 
                             <span class="subtitle" style="color:#222;">Các sản phẩm giàn giáo</span>

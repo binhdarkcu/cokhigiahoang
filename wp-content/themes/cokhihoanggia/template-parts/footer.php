@@ -49,7 +49,9 @@
                     <div class="single-widget">
                         <h2>SẢN PHẨM</h2>
                         <ul class="nav nav-pills nav-stacked">
-                             <li><strong class="nobold"><a href="/san-pham/van-thang-long-2">Vận thăng lồng</a></strong></li> <li><strong class="nobold"><a href="/san-pham/van-thang-hang-1">Vận thăng hàng</a></strong></li> <li><strong class="nobold"><a href="/san-pham/gian-giao-xay-dung-8">Giàn giáo xây dựng</a></strong></li> <li><strong class="nobold"><a href="/san-pham/phu-tung-van-thang-cau-thap-3">Phụ tùng vận thăng cẩu tháp</a></strong></li> <li><strong class="nobold"><a href="/san-pham/san-treo-gondola-5">Sàn treo - gondola</a></strong></li> <li><strong class="nobold"><a href="/san-pham/thiet-bi-nang-ha-khac-9">Thiết bị nâng hạ khác</a></strong></li>
+                             <li><strong class="nobold"><a href="<?php echo HOME_URL;?>/san-pham/?slug=van-thang-long">Vận thăng lồng</a></strong></li>
+                             <li><strong class="nobold"><a href="<?php echo HOME_URL;?>/san-pham/?slug=van-thang-hang">Vận thăng hàng</a></strong></li>
+                             <li><strong class="nobold"><a href="<?php echo HOME_URL;?>/san-pham/?slug=gian-giao-nem">Giàn giáo xây dựng</a></strong></li>
                         </ul>
                     </div>
                 </div>

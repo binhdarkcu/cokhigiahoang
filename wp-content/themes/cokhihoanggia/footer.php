@@ -1,9 +1,4 @@
-	<script type="text/javascript">
-		var c = document.body.className;
-		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-		document.body.className = c;
-                window.styleDirectoyURL = "<?php echo get_stylesheet_directory_uri(); ?>/assets/form-wizard/";
-	</script>
+	
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/mllc-view.js?ver=1540196819'></script>
 <!--<script type='text/javascript'>
 /* <![CDATA[ */

@@ -22,9 +22,9 @@
                     ?>
                     <?php }?>
                     <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544 menu-item-783"><a>SẢN PHẨM</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/van-thang/van-thang-long">Vận thăng lồng (<?php echo count($query_van_thang_long);?>)</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/van-thang/van-thang-hang">Vận thăng hàng (<?php echo count($query_van_thang_hang);?>)</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/gian-giao-nem">Giàn giáo xây dựng (<?php echo $query_gian_giao;?>)</a></li>
+                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/san-pham/?slug=van-thang-long">Vận thăng lồng (<?php echo count($query_van_thang_long);?>)</a></li>
+                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/san-pham/?slug=van-thang-hang">Vận thăng hàng (<?php echo count($query_van_thang_hang);?>)</a></li>
+                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/san-pham/?slug=gian-giao-nem">Giàn giáo xây dựng (<?php echo $query_gian_giao;?>)</a></li>
 
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841">&nbsp;</li>
                     <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544  menu-item-783"><a>HỖ TRỢ ONLINE</a></li>
@@ -32,12 +32,12 @@
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="tel: 0938679117"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/so_phone.png" style="height: 40px;width: 40px;float: left;margin-right: 5px;padding: 2px;"/>Ms. Minh <br/>(0938 679 117)</a></li>
 
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841">&nbsp;</li>
-                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544 current_page_item menu-item-783"><a>DỊCH VỤ</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/van-thang/van-thang-hang"><img  src="<?php echo get_stylesheet_directory_uri(); ?>/assets/3.jpg"/></a></li>
+                    <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544 menu-item-783"><a>DỊCH VỤ</a></li>
+                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/san-pham/?slug=van-thang-hang"><img  src="<?php echo get_stylesheet_directory_uri(); ?>/assets/3.jpg"/></a></li>
 
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841">&nbsp;</li>
                     <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544 current_page_item menu-item-783"><a>TIN TỨC</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/van-thang/van-thang-hang">Updading...</li>
+                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="<?php echo HOME_URL?>/san-pham/?slug=van-thang-hang">Updading...</a></li>
                 </ul>
 </div>
         </div>

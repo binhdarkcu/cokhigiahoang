@@ -69,7 +69,7 @@ ul.mpbox { overflow:hidden; width:100%; display:block;/*background:#000;*/}
 ul.mpbox li .mp-inner{ margin:0 0 0 0; position:relative;}
 
 ul.mpbox li .mp-inner .desc {
-    min-height: 145px;
+    min-height: 75px;
     margin-top: 20px;
 }
 /* columns */

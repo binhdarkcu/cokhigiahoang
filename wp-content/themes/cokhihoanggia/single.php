@@ -54,7 +54,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
                     <div class="entry pageentry" style="padding-top: 0!important;">
                         <div class="col-sm-12">
                             <div class="product-information">
-                                <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;">Chi tiết sản phẩm</h2>
+                                <h2 class="box-title" style="background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-weight: 700;font-size: 17px;margin-bottom: 20px;text-transform: uppercase;">Chi tiết sản phẩm</h2>
                                 <div class="fourcol">
                                     <div class="row">
                                         <div class="product-img">
@@ -66,13 +66,12 @@ $content = str_replace(']]>', ']]&gt;', $content);
                                 </div>
                                 <div class="eightcol" style="padding-left: 20px;">
                                     <h1 style="margin-top: 0; color: #017bc4;font-size: 30px;"><?php the_title();?></h1>
-                                    <p><b>Mã sản phẩm:</b> 000100</p>
                                     <span class="product-infomation-price">
-                                        <span style="color: #017bc4;float: left; width: 100%; padding-bottom: 15px;font-family: Roboto,sans-serif;font-size: 25px;font-weight: 700;margin-right: 20px;">Giá: LIÊN HỆ</span>
+                                        <span style="color: #017bc4;float: left; width: 100%; padding-bottom: 15px;font-size: 16px;font-weight: 700;margin-right: 20px;">Giá: LIÊN HỆ</span>
                                     </span>
                                     <p><b>Trạng thái:</b> Còn hàng</p>
                                     <p><b>Xuất xứ:</b> Trung Quốc</p>
-                                    <p><b>Loại sản phẩm:</b><?php if($meta_values === 'van-thang') {
+                                    <p><b>Loại sản phẩm: </b><?php if($meta_values === 'van-thang') {
                                         echo 'Vận Thăng';
                                     } else if($meta_values === 'gian-giao-nem'){
                                         echo 'Giàn giáo';
@@ -87,7 +86,7 @@ $content = str_replace(']]>', ']]&gt;', $content);
                                 </div>
                                 <div class="clear"></div>
                                 <div class="features_items" style="margin-top: 20px;">
-                                    <h2 class="box-title" style="text-transform: uppercase;background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-family: roboto;font-weight: 700;font-size: 17px;margin: 0;">Thông tin sản phẩm</h2>
+                                    <h2 class="box-title" style="text-transform: uppercase;background-color: #017bc4;color: #fff;line-height: 35px;padding-left: 10px;font-weight: 700;font-size: 17px;margin: 0;">Thông tin sản phẩm</h2>
                                     <?php echo get_the_content(get_the_ID());?>
                                 </div>
                             </div>
