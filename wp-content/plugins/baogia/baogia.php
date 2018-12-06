@@ -28,10 +28,12 @@ class WP_Order_Management {
 
     function wpa_admin_styles_scripts() {
         wp_enqueue_style('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/css/jquery.dataTables.css', __FILE__));
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_style('iziModal', plugins_url('/libs/iziModal/iziModal.min.css', __FILE__));
         wp_enqueue_style('style', plugins_url('/css/style.css', __FILE__));
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/js/jquery.dataTables.js', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
         wp_enqueue_script('iziModal', plugins_url('/libs/iziModal/iziModal.min.js', __FILE__));
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
     }

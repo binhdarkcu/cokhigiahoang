@@ -68,7 +68,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                         <td data-title="Subtotal">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="radio" name="hinh_thuc" value="Mua" checked> Mua
+                                                    <input type="radio" name="hinh_thuc" value="Bán" checked> Mua
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <label>
@@ -156,11 +156,11 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                         <td data-title="Subtotal">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="radio" name="tl_hang" value="500 kg" checked> 500 kg
+                                                    <input type="radio" name="tl_vt_hang" value="500 kg" checked> 500 kg
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <label>
-                                                    <input type="radio" name="tl_hang" value="1000 kg"> 1000 kg
+                                                    <input type="radio" name="tl_vt_hang" value="1000 kg"> 1000 kg
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>

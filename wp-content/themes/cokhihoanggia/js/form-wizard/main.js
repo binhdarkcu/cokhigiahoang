@@ -106,24 +106,27 @@ jQuery(function ($) {
         },
         onFinished: function (event, currentIndex)
         {
-            const type = 1;
             var text;
-            switch (1) {
-                case 1:
+            switch (window.GiaHoangProduct.form_bao_gia) {
+                case 'form_vt_long_ban':
+                case 'form_vt_long_thue':
                     text = $('#template-1').text();
                     break;
-                case 2:
+                case 'form_vt_hang_ban':
+                case 'form_vt_hang_thue':
                     text = $('#template-2').text();
                     break;
-                case 3:
+                case 'form_gian_giao_ban':
+                case 'form_gian_giao_thue':
                     text = $('#template-3').text();
                     break;
-                    defaut:
-                            break;
+                defaut:
+                    break;
             }
 
             //Apply template
 
+            text = template(text, window.GiaHoangProduct);
             $('#detail-content').html(text);
             modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
             modalBaoGia.iziModal('setSubtitle', `Báo giá ngày 18/11/2018`);
@@ -150,7 +153,7 @@ jQuery(function ($) {
             'so_dt': '',
             'email': '',
             'cty': '',
-            'hinh_thuc': 'Mua',
+            'hinh_thuc': 'Bán',
             'loai_sp': 'Vận thăng',
             'loai_vt': 'Vận thăng hàng',
             'tl_vt_hang': '500 kg',
@@ -219,9 +222,9 @@ jQuery(function ($) {
             sp.form_bao_gia = 'form_gian_giao';
         }
 
-        if (sp.hinh_thuc === 'Mua') {
+        if (sp.hinh_thuc === 'Bán') {
             $('#thoi_gian_thue').hide();
-            sp.form_bao_gia += '_mua';
+            sp.form_bao_gia += '_ban';
         } else {
             $('#thoi_gian_thue').show();
             sp.form_bao_gia += '_thue';
@@ -255,20 +258,23 @@ jQuery(function ($) {
             'bien_tan': 'Biến tần',
         };
         const form_bao_gia = {
-            'form_vt_hang_mua': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri'],
-            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'thoi_gian_thue'],
-            'form_vt_long_mua': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri'],
-            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'thoi_gian_thue'],
-            'form_gian_giao_mua': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri'],
-            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'thoi_gian_thue']
+            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri','form_bao_gia'],
+            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'form_bao_gia'],
+            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'form_bao_gia'],
+            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'thoi_gian_thue','form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
         sp.submitData = {};
         var html = '';
         const fields = form_bao_gia[sp.form_bao_gia];
         fields.forEach(function (item) {
-            html += `<tr class="cart-subtotal"> <th>${translations[item]}</th> <td>${sp[item]} ${item === 'thoi_gian_thue' ? 'ngày' : ''} ${item === 'chieu_cao' ? 'm' : ''}</td></tr>`;
+            if(item !== 'form_bao_gia'){
+                html += `<tr class="cart-subtotal"> <th>${translations[item]}</th> <td>${sp[item] === 'Bán' ? 'Mua': sp[item]} ${item === 'thoi_gian_thue' ? 'ngày' : ''} ${item === 'chieu_cao' ? 'm' : ''}</td></tr>`;
+            }
             sp.submitData[item] = sp[item];
+
         });
         $('#review-section').html(html);
     }
@@ -335,4 +341,14 @@ jQuery(function ($) {
             }
         });
     });
+
+    function template(text, data) {
+        return text
+                .replace(
+                        /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
+                        function (m, key) {
+                            return data.hasOwnProperty(key) ? data[ key ] : "";
+                        }
+                );
+    }
 })
