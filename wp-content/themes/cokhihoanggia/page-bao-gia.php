@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php
-$list_tp = array('An Giang', 'Bà Rịa - Vũng Tàu', 'Bắc Giang', 'Bắc Kạn', 'Bạc Liêu', 'Bắc Ninh', 'Bến Tre', 'Bình Định', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Cà Mau ', 'Cao Bằng ', 'Đắk Lắk ', 'Đắk Nông ', 'Điện Biên ', 'Đồng Nai ', 'Đồng Tháp', 'Gia Lai', 'Hà Giang ', 'Hà Nam', 'Hà Tĩnh', 'Hải Dương', 'Hậu Giang', 'Hòa Bình', 'Hưng Yên', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lai Châu', 'Lâm Đồng', 'Lạng Sơn', 'Lào Cai', 'Long An', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận', 'Phú Thọ', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị', 'Sóc Trăng', 'Sơn La', 'Tây Ninh', 'Thái Bình', 'Thái Nguyên', 'Thanh Hóa', 'Thừa Thiên Huế', 'Tiền Giang', 'Trà Vinh', 'Tuyên Quang', 'Vĩnh Long', 'Vĩnh Phúc', 'Yên Bái', 'Phú Yên', 'Cần Thơ', 'Đà Nẵng', 'Hải Phòng', 'Hà Nội', 'TP HCM');
 $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 ?>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
@@ -15,7 +14,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 
                 <div class="page-crumbs">
                     <a href="<?php echo HOME_URL; ?>"><i class="fa fa-home"></i>  <i class='fa fa-angle-right'></i>
-                        Trang chủ<i class='fa fa-angle-right'></i></a> <i class='fa fa-angle-right'></i> <a href="<?php echo HOME_URL ?>/bao-gia">Báo giá</a>
+                        Trang chủ</a> <i class='fa fa-angle-right'></i> <a href="<?php echo HOME_URL ?>/bao-gia">Báo giá</a>
                 </div>
 
             </div>
@@ -195,7 +194,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                 <div id="ngay_can_hang" class="form-holder">
                                     <label class="order-label">Ngày cần hàng</label>
                                     <i class="zmdi zmdi-calendar"></i>
-                                    <input type="text" id="datepicker" name="ngay_can_hang" placeholder="Chọn ngày cần hàng" class="form-control required">
+                                    <input readonly type="text" id="datepicker" name="ngay_can_hang" placeholder="Chọn ngày cần hàng" class="form-control required">
                                 </div>
                             </div>
                             
