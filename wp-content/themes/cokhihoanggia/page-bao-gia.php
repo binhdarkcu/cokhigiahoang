@@ -29,8 +29,199 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                     <form action="" id="wizard">
                         <!-- SECTION 1 -->
                         <h4></h4>
-                        <section>
-                            <h3>Thông tin cá nhân</h3>
+                        <section style="display: none">
+                            <h3>Chọn sản phẩm</h3>
+
+                            <div class="cart_totals">
+                                
+                                <!--Hình thức-->
+                                <div data-title="Subtotal">
+                                    <div class="item-content">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="hinh_thuc" value="Bán" required> Mua
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="hinh_thuc" value="Thuê"> Thuê
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <!--Loại sản phẩm-->
+                                <div id="loai_sp" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="loai_sp" value="Vận thăng" required> Vận thăng
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="loai_sp" value="Giàn giáo" required> Giàn giáo
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Loại vận thăng-->
+                                <div id="loai_vt" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="loai_vt" value="Vận thăng hàng" required> Vận thăng hàng
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="loai_vt" value="Vận thăng lồng"> Vận thăng lồng
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--Số lồng-->
+                                <div id="so_long" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="so_long" value="1 lồng" required> 1 lồng
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="so_long" value="2 lồng"> 2 lồng
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--Trọng lượng vận thăng hàng-->
+                                <div id="tl_vt_hang" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="tl_vt_hang" value="500 kg" required> 500 kg
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="tl_vt_hang" value="1000 kg"> 1000 kg
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--Trọng lượng lồng-->
+                                <div id="tl_long" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i> 
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="tl_long" value="1 tấn" required> 1 tấn
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="tl_long" value="2 tấn"> 2 tấn
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!--Biến tần-->
+                                <div id="bien_tan" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i> 
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="bien_tan" value="Có" required> Biến tần
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="bien_tan" value="Không"> Không biến tần
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                    
+                        </section>
+
+                        <!-- SECTION 2 -->
+                        <h4></h4>
+                        <section style="display: none">
+                            <h3>Vị trí lắp đặt</h3>
+
+
+                            <div class="cart_totals">
+
+                            </div>
+
+                            <!--Thông tin giàn giáo-->
+                            <div class="form-row vi_tri_lap_dat">
+
+                                <div id="chieu_cao" class="form-holder">
+                                    <label class="order-label">Chiều cao (m)</label>
+                                    <i class="zmdi zmdi-format-list-numbered"></i>
+                                    <input id="chieu_cao" type="text" name="chieu_cao" value="" class="form-control" placeholder="Nhập chiều cao">
+                                </div>
+                                <div id="sl_gian_giao" class="form-holder">
+                                    <label class="order-label">Số lượng (bộ)</label>
+                                    <i class="zmdi zmdi-collection-item"></i>
+                                    <input id="so_luong" type="text" name="so_luong" value="" class="form-control required" placeholder="Nhập số lượng">
+                                </div>
+
+                            </div>
+                            
+                            <div class="form-row vi_tri_lap_dat">
+                                
+                                <div id="thoi_gian_thue" class="form-holder">
+                                    <label class="order-label">Thời gian thuê (tháng)</label>
+                                    <i class="zmdi zmdi-calendar"></i>
+                                    <input type="text" name="thoi_gian_thue" class="form-control required" placeholder="Thời gian thuê (tháng)">
+                                </div>
+                                
+                                <div id="ngay_can_hang" class="form-holder">
+                                    <label class="order-label">Ngày cần hàng</label>
+                                    <i class="zmdi zmdi-calendar"></i>
+                                    <input type="text" id="datepicker" name="ngay_can_hang" placeholder="Chọn ngày cần hàng" class="form-control required">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row vi_tri_lap_dat">
+                                <div class="form-holder">
+                                    <label class="order-label">Chọn tỉnh/thành phố</label>
+                                    <select id="vi_tri" name="vi_tri" class="form-control chon-vi-tri required" data-placeholder="Thành phố...">
+ 
+                                    </select>
+                                </div>
+                                
+                                <div class="form-holder">
+                                    <label class="order-label">Chọn Quận/Huyện</label>
+                                    <select id="vi_tri2" name="vi_tri2" class="form-control chon-vi-tri required" data-placeholder="Quận/Huyện...">
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </section>
+
+                        <!-- SECTION 3 -->
+                        <h4></h4>
+                        <section style="display: none">
+                            <h3 style="margin-bottom: 16px;">Thông tin khách hàng</h3>
+
                             <!--Họ tên và sdt-->
                             <div class="form-row">
                                 <div class="form-holder">
@@ -54,176 +245,13 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                                     <input type="text" class="form-control required" name="cty" value="" placeholder="Công ty"/>
                                 </div>
                             </div>
-                        </section>
 
-                        <!-- SECTION 2 -->
-                        <h4></h4>
-                        <section>
-                            <h3>Lựa chọn sản phẩm</h3>
-                            <div class="cart_totals">
-                                <table cellspacing="0" class="shop_table shop_table_responsive">
-                                    <!--Hình thức-->
-                                    <tr id="hinh_thuc" class="cart-subtotal shipping">
-                                        <th>Hình thức</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="hinh_thuc" value="Bán" checked> Mua
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="hinh_thuc" value="Thuê"> Thuê
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
 
-                                    <!--Loại sản phẩm-->
-                                    <tr id="loai_sp" class="cart-subtotal shipping">
-                                        <th>Loại sản phẩm</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="loai_sp" value="Vận thăng" checked> Vận thăng
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="loai_sp" value="Giàn giáo"> Giàn giáo
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!--Loại vận thăng-->
-                                    <tr id="loai_vt" class="cart-subtotal shipping">
-                                        <th>Loại vận thăng</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="loai_vt" value="Vận thăng hàng" checked> Vận thăng hàng
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="loai_vt" value="Vận thăng lồng"> Vận thăng lồng
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </section>
-
-                        <!-- SECTION 3 -->
-                        <h4></h4>
-                        <section>
-                            <h3 style="margin-bottom: 16px;">Yêu cầu sản phẩm</h3>
-                            <div class="cart_totals">
-                                <!--Thông tin giàn giáo-->
-                                <div id="tt_cho_thue" class="form-row">
-
-                                    <div id="chieu_cao" class="form-holder">
-                                        <i class="zmdi zmdi-format-list-numbered"></i>
-                                        <input id="chieu_cao" type="text" name="chieu_cao" value="" class="form-control" placeholder="Chiều cao (m)">
-                                    </div>
-                                    <div id="sl_gian_giao" class="form-holder">
-                                        <i class="zmdi zmdi-collection-item"></i>
-                                        <input id="so_luong" type="text" name="so_luong" value="" class="form-control required" placeholder="Số lượng">
-                                    </div>
-
-                                    <div id="thoi_gian_thue" class="form-holder">
-                                        <i class="zmdi zmdi-calendar"></i>
-                                        <input type="text" name="thoi_gian_thue" class="form-control required" placeholder="Thời gian thuê">
-                                    </div>
-
-                                    <div class="form-holder">
-                                        <select id="vi_tri" name="vi_tri" class="form-control chon-vi-tri required" data-placeholder="Vị trí lắp đặt...">
-                                            <option value=""></option>
-                                            <?php foreach ($list_tp as $tp): ?>
-                                                <option value="<?php echo $tp; ?>"><?php echo $tp; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <table cellspacing="0" class="shop_table shop_table_responsive">
-
-                                    <!--Trọng lượng vận thăng hàng-->
-                                    <tr id="tl_hang" class="cart-subtotal shipping">
-                                        <th>Trọng lượng vận thăng</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="tl_vt_hang" value="500 kg" checked> 500 kg
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="tl_vt_hang" value="1000 kg"> 1000 kg
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!--Số lồng-->
-                                    <tr id="so_long" class="cart-subtotal shipping">
-                                        <th>Số lồng</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="so_long" value="1 lồng" checked> 1 lồng
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="so_long" value="2 lồng"> 2 lồng
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!--Trọng lượng lồng-->
-                                    <tr id="tl_long" class="cart-subtotal shipping">
-                                        <th>Trọng lượng lồng</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="tl_long" value="1 tấn" checked> 1 tấn
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="tl_long" value="2 tấn"> 2 tấn
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!--Biến tần-->
-                                    <tr id="bien_tan" class="cart-subtotal shipping">
-                                        <th>Biến tần</th>
-                                        <td data-title="Subtotal">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="radio" name="bien_tan" value="Có" checked> Biến tần
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="bien_tan" value="Không"> Không biến tần
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
                         </section>
 
                         <!-- SECTION 4 -->
                         <h4></h4>
-                        <section>
+                        <section style="display: none">
                             <h3>Yêu cầu báo giá</h3>
                             <div class="cart_totals">
                                 <table id="review-section" cellspacing="0" class="shop_table shop_table_responsive">
@@ -231,7 +259,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                             </div>
 
                         </section>
-                        <input id="ajax_nonce" type="hidden" value="<?php echo $ajax_nonce;?>"/>
+                        <input id="ajax_nonce" type="hidden" value="<?php echo $ajax_nonce; ?>"/>
                     </form>
                 </div>
             </div>

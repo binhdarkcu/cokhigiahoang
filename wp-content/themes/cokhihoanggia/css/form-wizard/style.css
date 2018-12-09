@@ -6,7 +6,7 @@ select {
     display: none; }
 .form-wrapper {
     width: 100%;
-    min-height: 650px;
+    min-height: 800px;
     padding: 63px 90px 0;
     background: #fff; 
     margin-bottom: 50px;
@@ -43,7 +43,7 @@ select {
 
 h3 {
     font-family: "Montserrat";
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
     text-transform: uppercase;
     text-align: center;
@@ -87,6 +87,7 @@ h3 {
     height: 36px;
     border: 1px solid #e6e6e6;
     width: 100%;
+    font-size: 15px;
     background: none;
     padding: 0 35px 0 19px;
     color: #999; }
@@ -207,7 +208,10 @@ table.cart .product-remove a {
     color: #666;
     width: 66.56%;
     margin: auto;
-    margin-bottom: 31px; }
+    margin-bottom: 31px; 
+    display: flex;
+    flex-direction: column;
+}
 .cart_totals table {
     width: 100%; }
 .cart_totals th, .cart_totals td {
@@ -230,9 +234,11 @@ table.cart .product-remove a {
 .checkbox label {
     padding-left: 21px;
     cursor: pointer;
-    display: block;
+    display: inline-block;
     position: relative;
-    margin-bottom: 13px; }
+    margin-left: 10px;
+    font-size: 18px;
+    margin-bottom: 5px; }
 .checkbox label span {
     font-family: "Montserrat"; }
 .checkbox input {
@@ -339,4 +345,24 @@ label.error {
    padding-left: .5em;
    vertical-align: top; 
    display: block;
+}
+
+.item-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.item-content .fa-arrow-down{font-size: 21px;}
+.item-content .checkbox{
+    margin-top: 10px;
+}
+.order-label{
+    position: absolute;
+    left: 0;
+    top: -25px;
+}
+.vi_tri_lap_dat{
+    margin-bottom: 40px;
 }

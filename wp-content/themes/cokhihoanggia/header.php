@@ -73,6 +73,7 @@
 <link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.min.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/iziModal/iziModal.min.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/css/style.css?ver=4.9.8' type='text/css' media='all' />
 <script type="text/javascript">
 var templateUrl = '<?= get_bloginfo("template_url"); ?>';
