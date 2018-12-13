@@ -251,7 +251,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
                         <!-- SECTION 4 -->
                         <h4></h4>
                         <section style="display: none">
-                            <h3>Yêu cầu báo giá</h3>
+                            <h3>Báo giá</h3>
                             <div class="cart_totals">
                                 <table id="review-section" cellspacing="0" class="shop_table shop_table_responsive">
                                 </table>
