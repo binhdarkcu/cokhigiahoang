@@ -316,57 +316,85 @@ jQuery(function ($) {
             'ngay_can_hang': 'Ngày cần hàng'
         };
         const form_bao_gia = {
-            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'tl_vt_hang', 'chieu_cao', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'bien_tan', 'chieu_cao', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'chieu_cao', 'ngay_can_hang', 'form_bao_gia'],
-            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'chieu_cao', 'ngay_can_hang', 'form_bao_gia']
+            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao','bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao','bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp',  'chieu_cao','so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'chieu_cao', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
         sp.submitData = {};
+        var sanpham = '';
         const fields = form_bao_gia[sp.form_bao_gia];
+        fields.forEach(function (item) {
+            sp.submitData[item] = sp[item];
+            var dvt = '';
+            switch (item) {
+                case 'thoi_gian_thue':
+                    dvt = 'tháng';
+                    break;
+                case 'so_luong':
+                    dvt = 'bộ';
+                    break;
+                case 'chieu_cao':
+                    dvt = 'm';
+                    break;
+                case 'bien_tan':
+                    dvt = 'biến tần';
+                    break;
+                default:
+                    break;
+
+            }
+            if (item !== 'ho_ten' && item !== 'so_dt' && item !== 'email' && item !== 'cty' && item !== 'vi_tri' && item !== 'vi_tri2' && item !== 'form_bao_gia' && item !== 'ngay_can_hang') {
+                sanpham += 'hinh_thuc' && sp[item] === 'Bán' ? 'Mua /' : ` ${sp[item]} ${dvt}/`;
+                
+            }
+        });
+        
+        sanpham = sanpham.substring(0, sanpham.length - 1); 
+
         var html = `
         <tr class="cart-subtotal"> 
-            <th>1. Thông tin khách hàng</th> 
+            <th class="summary-heading">1. Thông tin khách hàng</th> 
         </tr>
         <tr class="cart-subtotal"> 
-            <th>Họ tên</th> <td>${fields['ho_ten']}</td>
+            <th>Họ tên</th> <td>${sp['ho_ten']}</td>
         </tr>
         <tr class="cart-subtotal"> 
             <th>Số điện thoại</th> 
-            <td>${fields['so_dt']}</td>
+            <td>${sp['so_dt']}</td>
         </tr>
         <tr class="cart-subtotal"> 
             <th>Emal</th> 
-            <td>${fields['email']}</td>
+            <td>${sp['email']}</td>
         </tr>
         <tr class="cart-subtotal"> 
             <th>Công ty</th> 
-            <td>${fields['cty']}</td>
+            <td>${sp['cty']}</td>
         </tr>
         <tr class="cart-subtotal"> 
-            <th>2. Sản phẩm</th> 
+            <th class="summary-heading">2. Sản phẩm</th> 
         </tr>
-        <tr class="cart-subtotal">  
-            <td>Thuê / Giàn giáo / 10m /10 bộ /10 tháng</td>
+        <tr class="cart-subtotal" style="position: relative;">  
+            <td style="height: 35px;">
+                <div style="position: absolute; width: 100%">${sanpham}</div>
+            </td>
         </tr>
         <tr class="cart-subtotal"> 
-            <th>3. Vị trí lắp đặt</th> 
+            <th class="summary-heading">3. Vị trí lắp đặt</th> 
         </tr>
         <tr class="cart-subtotal"> 
             <th>Vị trí</th> 
-            <td>${fields['vitri2']}- ${fields['vitri2']}</td>
+            <td>${sp['vi_tri2']} - ${sp['vi_tri']}</td>
         </tr>
         <tr class="cart-subtotal"> 
             <th>Ngày cần hàng</th> 
-            <td>${fields['ngay_can_hang']}</td>
+            <td>${sp['ngay_can_hang']}</td>
         </tr>
         `;
-        fields.forEach(function (item) {
-            sp.submitData[item] = sp[item];
 
-        });
         $('#review-section').html(html);
     }
 
