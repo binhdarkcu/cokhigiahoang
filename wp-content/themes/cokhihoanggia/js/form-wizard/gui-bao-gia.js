@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -90,20 +90,59 @@ jQuery(function ($) {
                         }
                 );
     }
-    
+
     // Get init value
     $('.so-luong').each(function(index, item){
         item.value = 1;
-        objectData[item.name] = 1; 
+        objectData[item.name] = 1;
         item.disabled = false;
     });
+
+
+
+    function totalPrices() {
+        var total = 0;
+        $('#tblGianGiao .totalPrice').each(function(index, value) {
+            total = total + Number($(value).html().replace(/[^0-9.-]+/g,""))
+        });
+        return total;
+    }
+
+    function totalWeight() {
+        var total = 0;
+        $('#tblGianGiao .MassNumber').each(function(index, value) {
+            total = total + Number($(value).html().replace(/[^0-9.-]+/g,""))
+        });
+        return total;
+
+    }
     
-    
-    $("input[type=text]").on("change", function () {
+
+    $("#tblGianGiao .so-luong").on("change", function () {
         const name = this.name;
         const value = this.value;
         objectData[name] = value;
         console.log(objectData);
+        var parentTr = $(this).parent().parent();
+        if($(this).val() > 0) {
+            var weightValue = parseFloat($(parentTr).find('.weightNumber').html());
+            $(parentTr).find('.MassNumber').html((weightValue*$(this).val()).toFixed(2));
+            var priceNumber = Number($(parentTr).find('.priceNumber').html().replace(/[^0-9.-]+/g,""))
+            $(parentTr).find('.totalPrice').html(priceNumber*$(this).val()).simpleMoneyFormat();
+            var finalTotal = totalPrices();
+            $(parentTr).find('.finalTotal').html(finalTotal).simpleMoneyFormat();
+            $('#totalWeight').html(Math.ceil(totalWeight()))
+            $('.deliveryPrice').html(Math.round(1200*$('#totalWeight').html())).simpleMoneyFormat();
+            var beforePrice = parseInt($('.deliveryPrice').html().replace(/[^0-9.-]+/g,"")) + parseInt($('.finalTotal').html().replace(/[^0-9.-]+/g,""));
+
+
+            $('#beforeTotalPrice').html(beforePrice).simpleMoneyFormat();
+            var beforeTotalPrice = parseInt($('#beforeTotalPrice').html().replace(/[^0-9.-]+/g,"")) * 0.1;
+            $('#gtgtValue').html(beforeTotalPrice).simpleMoneyFormat();
+
+            var totalofTotal = beforePrice + beforeTotalPrice;
+            $('#totalofTotal').html(totalofTotal).simpleMoneyFormat();
+        }
     });
 
 });

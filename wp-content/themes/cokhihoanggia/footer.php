@@ -1,4 +1,4 @@
-	
+
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/mllc-view.js?ver=1540196819'></script>
 <!--<script type='text/javascript'>
 /* <![CDATA[ */
@@ -53,6 +53,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 
 <?php if($post_slug == 'gui-bao-gia'):?>
 <script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/simple.money.format.js'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/base64.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/gui-bao-gia.js?ver=4.9.8'></script>
 <?php endif;?>

@@ -28,7 +28,7 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 
             <div id="core">
                 <div id="form-wrapper"></div>
-                
+
                 <div id="button-controls" class="actions">
                     <ul class="action-list">
                         <li>
@@ -54,5 +54,6 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 </script>
 
 <script id="template-3" type="text/template">
-    <?php get_template_part("template-parts/emailing/template3"); ?>
+    <?php get_template_part("template-parts/emailing/template-gian-giao"); ?>
+    
 </script>
