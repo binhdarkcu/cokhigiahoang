@@ -264,19 +264,6 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
             </div>
         </div><!-- /.container -->
     </div>
-
-    <div id="modal-bao-gia">
-        <div class="main-content">
-            <!--insert template here-->
-            <div id="detail-content"></div>
-            <section>
-                <footer>
-                    <button data-izimodal-close="">Đóng</button>
-                    <button id="gui-bao-gia" class="submit">Gửi báo giá</button>
-                </footer>
-            </section>
-        </div>
-    </div>
 </body>
 
 <style>

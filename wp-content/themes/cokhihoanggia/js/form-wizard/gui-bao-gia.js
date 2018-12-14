@@ -10,7 +10,7 @@ jQuery(function ($) {
     const stringData = Base64.decode(token);
     const objectData = JSON.parse(stringData);
     console.log('string data', stringData);
-    
+
     var text;
     switch (objectData.form_bao_gia) {
         case 'form_vt_long_ban':
@@ -25,14 +25,14 @@ jQuery(function ($) {
         case 'form_gian_giao_thue':
             text = $('#template-3').text();
             break;
-        defaut:
-            break;
+            defaut:
+                    break;
     }
     text = template(text, objectData);
-    
+
     $('#form-wrapper').html(text);
-    
-    
+
+
     $('#gui-bao-gia').on('click', function (e) {
         e.preventDefault();
 
@@ -90,5 +90,18 @@ jQuery(function ($) {
                         }
                 );
     }
+    
+    // Get init value
+    $('.so-luong').each(function(index, item){
+        objectData[item.name] = item.value; 
+    });
+    
+    
+    $("input[type=text]").on("change", function () {
+        const name = this.name;
+        const value = this.value;
+        objectData[name] = value;
+        console.log(objectData);
+    });
 
 });
