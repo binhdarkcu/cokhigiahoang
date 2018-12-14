@@ -93,7 +93,9 @@ jQuery(function ($) {
     
     // Get init value
     $('.so-luong').each(function(index, item){
-        objectData[item.name] = item.value; 
+        item.value = 1;
+        objectData[item.name] = 1; 
+        item.disabled = false;
     });
     
     
