@@ -58,8 +58,8 @@ jQuery(function ($) {
                     loader: true, // Whether to show loader or not. True by default
                     loaderBg: '#9EC600', // Background color of the toast loader
                 });
-                $('#gui-bao-gia').off('click');
-
+                //$('#gui-bao-gia').off('click');
+                window.location.href = homeUrl;
             },
             error: function (xhr, ajaxOptions, thrownError) {
 
@@ -116,7 +116,7 @@ jQuery(function ($) {
         return total;
 
     }
-    
+
 
     $("#tblGianGiao .so-luong").on("change", function () {
         const name = this.name;

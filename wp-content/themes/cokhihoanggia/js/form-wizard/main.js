@@ -149,8 +149,8 @@ jQuery(function ($) {
 
             //Apply template
             const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
-            var win = window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_blank');
-            win.focus();
+            window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
+            //window.top.close();
 //            text = template(text, window.GiaHoangProduct);
 //            $('#detail-content').html(text);
 //            modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
@@ -218,8 +218,9 @@ jQuery(function ($) {
 
         if (sp.hinh_thuc) {
             $('#loai_sp').fadeIn();
-            if (sp.loai_sp === 'Vận thăng') {
 
+            if (sp.loai_sp === 'Vận thăng') {
+                $('#chieu_cao').fadeIn();
                 $('#loai_vt').fadeIn();
                 if (sp.loai_vt === 'Vận thăng hàng') {
 
@@ -246,6 +247,7 @@ jQuery(function ($) {
                 }
             } else if (sp.loai_sp === 'Giàn giáo') {
                 $('#loai_vt').hide();
+                $('#chieu_cao').hide();
                 $('#tl_vt_hang').hide();
                 $('#tl_long').hide();
                 $('#so_long').hide();
@@ -323,8 +325,8 @@ jQuery(function ($) {
             'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
             'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'chieu_cao', 'so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'chieu_cao', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
         sp.submitData = {};
