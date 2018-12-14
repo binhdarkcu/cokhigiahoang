@@ -149,7 +149,7 @@ jQuery(function ($) {
 
             //Apply template
             const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
-            var win = window.open(`${window.location.origin}/gui-bao-gia?token=${token}`, '_blank');
+            var win = window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_blank');
             win.focus();
 //            text = template(text, window.GiaHoangProduct);
 //            $('#detail-content').html(text);
@@ -359,41 +359,41 @@ jQuery(function ($) {
         sanpham = sanpham.substring(0, sanpham.length - 1);
 
         var html = `
-        <tr class="cart-subtotal"> 
-            <th class="summary-heading">1. Thông tin khách hàng</th> 
+        <tr class="cart-subtotal">
+            <th class="summary-heading">1. Thông tin khách hàng</th>
         </tr>
-        <tr class="cart-subtotal"> 
+        <tr class="cart-subtotal">
             <th>Họ tên</th> <td>${sp['ho_ten']}</td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th>Số điện thoại</th> 
+        <tr class="cart-subtotal">
+            <th>Số điện thoại</th>
             <td>${sp['so_dt']}</td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th>Emal</th> 
+        <tr class="cart-subtotal">
+            <th>Emal</th>
             <td>${sp['email']}</td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th>Công ty</th> 
+        <tr class="cart-subtotal">
+            <th>Công ty</th>
             <td>${sp['cty']}</td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th class="summary-heading">2. Sản phẩm</th> 
+        <tr class="cart-subtotal">
+            <th class="summary-heading">2. Sản phẩm</th>
         </tr>
-        <tr class="cart-subtotal" style="position: relative;">  
+        <tr class="cart-subtotal" style="position: relative;">
             <td style="height: 35px;">
                 <div style="position: absolute; width: 100%">${sanpham}</div>
             </td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th class="summary-heading">3. Vị trí lắp đặt</th> 
+        <tr class="cart-subtotal">
+            <th class="summary-heading">3. Vị trí lắp đặt</th>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th>Vị trí</th> 
+        <tr class="cart-subtotal">
+            <th>Vị trí</th>
             <td>${sp['vi_tri2']} - ${sp['vi_tri']}</td>
         </tr>
-        <tr class="cart-subtotal"> 
-            <th>Ngày cần hàng</th> 
+        <tr class="cart-subtotal">
+            <th>Ngày cần hàng</th>
             <td>${sp['ngay_can_hang']}</td>
         </tr>
         `;

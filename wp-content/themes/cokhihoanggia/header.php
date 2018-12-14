@@ -77,10 +77,11 @@
 <link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/css/style.css?ver=4.9.8' type='text/css' media='all' />
 <script type="text/javascript">
 var templateUrl = '<?= get_bloginfo("template_url"); ?>';
+var homeUrl = '<?= get_home_url(); ?>';
 </script>
 <?php endif;?>
 
-<?php if($post_slug == 'gui-bao-gia'):?> 
+<?php if($post_slug == 'gui-bao-gia'):?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 <link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/css/form-wizard/style.css?ver=4.9.8' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.min.css?ver=4.9.8' type='text/css' media='all' />
