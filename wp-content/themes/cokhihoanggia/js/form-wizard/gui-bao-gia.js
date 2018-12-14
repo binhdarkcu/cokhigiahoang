@@ -25,8 +25,8 @@ jQuery(function ($) {
         case 'form_gian_giao_thue':
             text = $('#template-3').text();
             break;
-            defaut:
-                    break;
+        default:
+            break;
     }
     text = template(text, objectData);
 
