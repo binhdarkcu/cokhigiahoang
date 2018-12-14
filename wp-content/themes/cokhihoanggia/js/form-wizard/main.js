@@ -1,3 +1,4 @@
+
 jQuery(function ($) {
 
     const form = $("#wizard");
@@ -147,12 +148,14 @@ jQuery(function ($) {
             }
 
             //Apply template
-
-            text = template(text, window.GiaHoangProduct);
-            $('#detail-content').html(text);
-            modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
-            modalBaoGia.iziModal('setSubtitle', `Báo giá ngày 18/11/2018`);
-            modalBaoGia.iziModal('open');
+            const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
+            var win = window.open(`${window.location.origin}/gui-bao-gia?token=${token}`, '_blank');
+            win.focus();
+//            text = template(text, window.GiaHoangProduct);
+//            $('#detail-content').html(text);
+//            modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
+//            modalBaoGia.iziModal('setSubtitle', `Báo giá ngày 18/11/2018`);
+//            modalBaoGia.iziModal('open');
         }
     });
     // Custom Button Jquery Steps
@@ -318,9 +321,9 @@ jQuery(function ($) {
         const form_bao_gia = {
             'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao','bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao','bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp',  'chieu_cao','so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'chieu_cao', 'so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'chieu_cao', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
@@ -349,11 +352,11 @@ jQuery(function ($) {
             }
             if (item !== 'ho_ten' && item !== 'so_dt' && item !== 'email' && item !== 'cty' && item !== 'vi_tri' && item !== 'vi_tri2' && item !== 'form_bao_gia' && item !== 'ngay_can_hang') {
                 sanpham += 'hinh_thuc' && sp[item] === 'Bán' ? 'Mua /' : ` ${sp[item]} ${dvt}/`;
-                
+
             }
         });
-        
-        sanpham = sanpham.substring(0, sanpham.length - 1); 
+
+        sanpham = sanpham.substring(0, sanpham.length - 1);
 
         var html = `
         <tr class="cart-subtotal"> 
@@ -396,83 +399,6 @@ jQuery(function ($) {
         `;
 
         $('#review-section').html(html);
-    }
-
-    //Handle modal action
-    modalBaoGia.iziModal({
-        width: 850,
-        closeButton: false,
-        radius: 5,
-        top: 35,
-        bottom: 10,
-        overlayClose: false
-    });
-    $('#gui-bao-gia').on('click', function (e) {
-        e.preventDefault();
-        modalBaoGia.iziModal('startLoading');
-
-        $.ajax({
-            type: "post",
-            url: globalConfig.admin_ajax_url,
-            data: {
-                'action': 'tao_bao_gia',
-                'security': $('#ajax_nonce').val(),
-                'json': JSON.stringify(GiaHoangProduct.submitData)
-            },
-            success: function (msg) {
-                $.toast({
-                    text: "Thông tin báo giá của bạn đã được lưu thành công.", // Text that is to be shown in the toast
-                    heading: 'Hệ thống', // Optional heading to be shown on the toast
-                    icon: 'success', // Type of toast icon
-                    showHideTransition: 'slide', // fade, slide or plain
-                    allowToastClose: true, // Boolean value true or false
-                    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                    position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                    textAlign: 'left', // Text alignment i.e. left, right or center
-                    loader: true, // Whether to show loader or not. True by default
-                    loaderBg: '#9EC600', // Background color of the toast loader
-                });
-                //  doc.fromHTML(jQuery('#modal-bao-gia').html(), 15, 15, {
-                //     'width': 170,
-                //     'elementHandlers': specialElementHandlers
-                // });
-                // doc.save('sample-file.pdf');
-                modalBaoGia.iziModal('stopLoading');
-                modalBaoGia.iziModal('close');
-                $("#wizard-t-0").click();
-                form.validate().resetForm();
-                form[0].reset();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                modalBaoGia.iziModal('stopLoading');
-                modalBaoGia.iziModal('close');
-                $.toast({
-                    text: "Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.", // Text that is to be shown in the toast
-                    heading: 'Hệ thống', // Optional heading to be shown on the toast
-                    icon: 'error', // Type of toast icon
-                    showHideTransition: 'slide', // fade, slide or plain
-                    allowToastClose: true, // Boolean value true or false
-                    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                    position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                    textAlign: 'left', // Text alignment i.e. left, right or center
-                    loader: true, // Whether to show loader or not. True by default
-                    loaderBg: '#9EC600', // Background color of the toast loader
-                });
-                console.error(thrownError);
-            }
-        });
-    });
-
-    function template(text, data) {
-        return text
-                .replace(
-                        /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
-                        function (m, key) {
-                            return data.hasOwnProperty(key) ? data[ key ] : "";
-                        }
-                );
     }
 
     $("#datepicker").datepicker({

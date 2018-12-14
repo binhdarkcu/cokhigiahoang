@@ -25,9 +25,9 @@
         font-weight: inherit !important;
         line-height: inherit !important;
     }
-    table.tbPrices td{
+/*    table.tbPrices td{
         padding: 0!important;
-    }
+    }*/
 </style>
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">

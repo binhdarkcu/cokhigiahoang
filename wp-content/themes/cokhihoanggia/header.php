@@ -79,4 +79,15 @@
 var templateUrl = '<?= get_bloginfo("template_url"); ?>';
 </script>
 <?php endif;?>
+
+<?php if($post_slug == 'gui-bao-gia'):?> 
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/css/form-wizard/style.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/iziModal/iziModal.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_stylesheet_directory_uri(); ?>/libs/jquery-ui-1.12.1.custom/jquery-ui.min.css?ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo plugins_url(); ?>/baogia/css/style.css?ver=4.9.8' type='text/css' media='all' />
+<?php endif;?>
+
 </head>

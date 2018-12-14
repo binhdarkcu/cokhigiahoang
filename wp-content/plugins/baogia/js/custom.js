@@ -191,18 +191,22 @@ jQuery(document).ready(function ($) {
             switch (order_detail.form_bao_gia) {
                 case 'form_vt_long_ban':
                 case 'form_vt_long_thue':
+                    console.log('template 1');
                     text = $('#template-1').text();
                     break;
                 case 'form_vt_hang_ban':
                 case 'form_vt_hang_thue':
+                    console.log('template 2');
                     text = $('#template-2').text();
                     break;
                 case 'form_gian_giao_ban':
                 case 'form_gian_giao_thue':
+                    console.log('template 3');
                     text = $('#template-3').text();
                     break;
-                    defaut:
-                            text = '';
+                default:
+                    console.log('No template found!');
+                    text = '';
                     break;
             }
 
@@ -340,6 +344,7 @@ jQuery(document).ready(function ($) {
 
     // Replace template engine
     function template(text, data) {
+        console.log('text: ', text);
         return text
                 .replace(
                         /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"

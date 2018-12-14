@@ -42,6 +42,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <?php  global $post;$post_slug=$post->post_name;?>
 <?php if($post_slug == 'bao-gia'):?>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/jquery.steps.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/base64.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/main.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/libs/chosen_v1.8.7/chosen.jquery.min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.js?ver=4.9.8'></script>
@@ -49,4 +50,11 @@ var wc_cart_fragments_params = {"ajax_url":"\/demo\/processing\/wp-admin\/admin-
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/libs/jquery-ui-1.12.1.custom/jquery-ui.min.js?ver=4.9.8'></script>
 <script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/libs/jquery-ui-1.12.1.custom/datepicker-vi.js?ver=4.9.8'></script>
 <?php endif;?>
+
+<?php if($post_slug == 'gui-bao-gia'):?>
+<script type='text/javascript' src='<?php echo plugins_url(); ?>/baogia/libs/jqueryToast/jquery.toast.min.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/base64.js?ver=4.9.8'></script>
+<script type='text/javascript' src='<?php echo get_stylesheet_directory_uri(); ?>/js/form-wizard/gui-bao-gia.js?ver=4.9.8'></script>
+<?php endif;?>
+
 <?php wp_footer(); ?>

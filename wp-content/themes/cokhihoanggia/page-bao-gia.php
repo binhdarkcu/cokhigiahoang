@@ -289,14 +289,3 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 <?php get_template_part("template-parts/footer"); ?>
 <?php get_footer(); ?>
 
-<script id="template-1" type="text/template">
-<?php get_template_part("template-parts/emailing/template1"); ?>
-</script>
-
-<script id="template-2" type="text/template">
-<?php get_template_part("template-parts/emailing/template2"); ?>
-</script>
-
-<script id="template-3" type="text/template">
-    <?php get_template_part("template-parts/emailing/template3"); ?>
-</script>
