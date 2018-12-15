@@ -3,7 +3,7 @@
 $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 ?>
 <?php if($_GET['token']):?>
-<script>var token = "<?php echo $_GET['token'];?>"</script>
+<script>var token = "<?php echo $_GET['token'];?>", homeUrl = "<?php echo get_site_url();?>";</script>
 <?php endif;?>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
 

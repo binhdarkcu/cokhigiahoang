@@ -42,5 +42,5 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 </script>
 
 <script id="template-3" type="text/template">
-<?php get_template_part("template-parts/emailing/template3");?>
+<?php get_template_part("template-parts/emailing/template-gian-giao");?>
 </script>
