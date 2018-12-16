@@ -217,7 +217,7 @@ jQuery(document).ready(function ($) {
             text = template(text, order_detail);
             $('#detail-content').html(text);
             detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);
-            detailModal.iziModal('setSubtitle', `${rowData[1]}-${rowData[2]}-${rowData[3]}`);
+            detailModal.iziModal('setSubtitle', `${rowData[1]} - ${rowData[2]} - ${rowData[3]}`);
             detailModal.iziModal('open');
         } catch (ex) {
             console.error(ex);
