@@ -254,7 +254,7 @@ jQuery(document).ready(function ($) {
                 try {
                     jsonData = JSON.parse(result);
 
-                    const statuses = ['Đã báo giá', 'Đã thanh toán', 'Đã đóng'];
+                    const statuses = ['Đã báo giá', 'Đã thanh toán', 'Hoàn thành'];
                     //Get data OK
                     if (jsonData.status === 'OK') {
 
