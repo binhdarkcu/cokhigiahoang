@@ -437,12 +437,6 @@ jQuery(function ($) {
                 'Huyện Hóc Môn',
                 'Huyện Nhà Bè'
             ],
-            'Hà Nội': [
-                'Quận Ba Đình',
-                'Quận Hoàn Kiếm',
-                'Quận Hai Bà Trưng',
-                'Quận Đống Đa'
-            ],
             'Đà Nẵng': [
                 'Huyện Hoàng Sa',
                 'Quận Thanh Khê',
@@ -464,38 +458,6 @@ jQuery(function ($) {
                 'Thị xã Tân Châu',
                 'Huyện Thoại Sơn'
             ],
-            'Bà Rịa - Vũng Tàu': [
-                'Huyện Xuyên Mộc',
-                'Huyện Côn Đảo',
-                'Huyện Long Điền',
-                'Huyện Châu Đức',
-                'Thành phố Vũng Tàu',
-                'Huyện Tân Thành',
-                'Thành phố Bà Rịa',
-                'Huyện Đất Đỏ'
-            ],
-            'Bắc Giang': [
-                'Huyện Lục Ngạn',
-                'Huyện Sơn Động',
-                'Huyện Hiệp Hòa',
-                'Thành phố Bắc Giang',
-                'Huyện Tân Yên',
-                'Huyện Việt Yên',
-                'Huyện Yên Dũng',
-                'Huyện Lạng Giang',
-                'Huyện Yên Thế',
-                'Huyện Lục Nam'
-            ],
-            'Bắc Kạn': [
-                'Huyện Ngân Sơn',
-                'Huyện Chợ Đồn',
-                'Huyện Ba Bể',
-                'Huyện Chợ Mới',
-                'Huyện Bạch Thông',
-                'Thành Phố Bắc Kạn',
-                'Huyện Na Rì',
-                'Huyện Pác Nặm'
-            ],
             'Bạc Liêu': [
                 'Thành phố Bạc Liêu',
                 'Huyện Vĩnh Lợi',
@@ -504,16 +466,6 @@ jQuery(function ($) {
                 'Huyện Phước Long',
                 'Huyện Đông Hải',
                 'Huyện Hoà Bình'
-            ],
-            'Bắc Ninh': [
-                'Huyện Gia Bình',
-                'Huyện Quế Võ',
-                'Huyện Tiên Du',
-                'Thị xã Từ Sơn',
-                'Huyện Lương Tài',
-                'Huyện Yên Phong',
-                'Huyện Thuận Thành',
-                'Thành phố Bắc Ninh'
             ],
             'Bến Tre': [
                 'Huyện Bình Đại',
@@ -597,21 +549,16 @@ jQuery(function ($) {
                 'Huyện Vĩnh Thạnh',
                 'Huyện Thới Lai'
             ],
-            'Cao Bằng': [
-                'Huyện Hạ Lang',
-                'Huyện Phục Hoà',
-                'Huyện Trùng Khánh',
-                'Huyện Trà Lĩnh',
-                'Huyện Bảo Lâm',
-                'Huyện Bảo Lạc',
-                'Huyện Hà Quảng',
-                'Huyện Quảng Uyên',
-                'Huyện Thông Nông',
-                'Huyện Thạch An',
-                'Huyện Nguyên Bình',
-                'Huyện Hoà An',
-                'Thành phố Cao Bằng'
-            ],
+            'Khánh Hòa': [
+                'Thành phố Cam Ranh',
+                'Huyện Trường Sa',
+                'Thị xã Ninh Hòa',
+                'Huyện Khánh Sơn',
+                'Huyện Khánh Vĩnh',
+                'Huyện Diên Khánh',
+                'Huyện Vạn Ninh',
+                'Huyện Cam Lâm',
+                'Thành phố Nha Trang'],
             'Gia Lai': [
                 'Thị xã Ayun Pa',
                 'Thị xã An Khê',
@@ -631,117 +578,6 @@ jQuery(function ($) {
                 'Thành phố Pleiku',
                 'Huyện Chư Pưh'
             ],
-            'Hà Giang': [
-                'Huyện Quang Bình',
-                'Huyện Vị Xuyên',
-                'Huyện Xín Mần',
-                'Huyện Yên Minh',
-                'Huyện Quản Bạ',
-                'Huyện Bắc Mê',
-                'Huyện Đồng Văn',
-                'Huyện Hoàng Su Phì',
-                'Huyện Bắc Quang',
-                'Huyện Mèo Vạc',
-                'Thành phố Hà Giang'
-            ],
-            'Hà Nam': [
-                'Thành phố Phủ Lý',
-                'Huyện Bình Lục',
-                'Huyện Duy Tiên',
-                'Huyện Kim Bảng',
-                'Huyện Lý Nhân',
-                'Huyện Thanh Liêm'
-            ],
-            'Hà Tĩnh': [
-                'Thị xã Kỳ Anh',
-                'Huyện Cẩm Xuyên',
-                'Huyện Vũ Quang',
-                'Thành phố Hà Tĩnh',
-                'Thị xã Hồng Lĩnh',
-                'Huyện Kỳ Anh',
-                'Huyện Can Lộc',
-                'Huyện Hương Sơn',
-                'Huyện Nghi Xuân',
-                'Huyện Hương Khê',
-                'Huyện Đức Thọ',
-                'Huyện Thạch Hà',
-                'Huyện Lộc Hà'
-            ],
-            'Hải Dương': [
-                'Huyện Nam Sách',
-                'Thành phố Hải Dương',
-                'Huyện Ninh Giang',
-                'Huyện Bình Giang',
-                'Huyện Tứ Kỳ',
-                'Huyện Kim Thành',
-                'Thị xã Chí Linh',
-                'Huyện Thanh Miện',
-                'Huyện Cẩm Giàng',
-                'Huyện Gia Lộc',
-                'Huyện Kinh Môn',
-                'Huyện Thanh Hà'
-            ],
-            'Hải Phòng': [
-                'Quận Hồng Bàng',
-                'Quận Dương Kinh',
-                'Quận Đồ Sơn',
-                'Huyện Bạch Long Vĩ',
-                'Huyện Cát Hải',
-                'Huyện Vĩnh Bảo',
-                'Huyện Tiên Lãng',
-                'Huyện Kiến Thuỵ',
-                'Huyện An Lão',
-                'Quận Hải An',
-                'Huyện Thuỷ Nguyên',
-                'Quận Kiến An',
-                'Quận Lê Chân',
-                'Quận Ngô Quyền',
-                'Huyện An Dương'],
-            'Hậu Giang': [
-                'Thị xã Long Mỹ',
-                'Huyện Châu Thành A',
-                'Huyện Phụng Hiệp',
-                'Huyện Vị Thuỷ',
-                'Huyện Châu Thành',
-                'Huyện Long Mỹ',
-                'Thị xã Ngã Bảy',
-                'Thành phố Vị Thanh'
-            ],
-            'Hoà Bình': [
-                'Huyện Tân Lạc',
-                'Huyện Mai Châu',
-                'Huyện Kim Bôi',
-                'Huyện Lương Sơn',
-                'Huyện Đà Bắc',
-                'Huyện Lạc Sơn',
-                'Huyện Kỳ Sơn',
-                'Huyện Yên Thủy',
-                'Huyện Lạc Thủy',
-                'Thành phố Hòa Bình',
-                'Huyện Cao Phong'
-            ],
-            'Hưng Yên': [
-                'Huyện Khoái Châu',
-                'Huyện Văn Giang',
-                'Huyện Văn Lâm',
-                'Huyện Phù Cừ',
-                'Huyện Ân Thi',
-                'Huyện Mỹ Hào',
-                'Huyện Yên Mỹ',
-                'Huyện Tiên Lữ',
-                'Huyện Kim Động',
-                'Thành phố Hưng Yên'
-            ],
-            'Khánh Hòa': [
-                'Thành phố Cam Ranh',
-                'Huyện Trường Sa',
-                'Thị xã Ninh Hòa',
-                'Huyện Khánh Sơn',
-                'Huyện Khánh Vĩnh',
-                'Huyện Diên Khánh',
-                'Huyện Vạn Ninh',
-                'Huyện Cam Lâm',
-                'Thành phố Nha Trang'],
             'Kiên Giang': [
                 'Huyện Vĩnh Thuận',
                 'Huyện Kiên Lương',
@@ -771,16 +607,6 @@ jQuery(function ($) {
                 'Huyện Sa Thầy',
                 'Thành phố Kon Tum'
             ],
-            'Lai Châu': [
-                'Huyện Tân Uyên',
-                'Huyện Nậm Nhùn',
-                'Huyện Sìn Hồ',
-                'Huyện Mường Tè',
-                'Huyện Tam Đường',
-                'Thành phố Lai Châu',
-                'Huyện Phong Thổ',
-                'Huyện Than Uyên'
-            ],
             'Lâm Đồng': [
                 'Huyện Đức Trọng',
                 'Huyện Đơn Dương',
@@ -794,30 +620,6 @@ jQuery(function ($) {
                 'Huyện Di Linh',
                 'Thành phố Đà Lạt',
                 'Huyện Đam Rông'
-            ],
-            'Lạng Sơn': [
-                'Huyện Bình Gia',
-                'Thành phố Lạng Sơn',
-                'Huyện Văn Lãng',
-                'Huyện Văn Quan',
-                'Huyện Lộc Bình',
-                'Huyện Cao Lộc',
-                'Huyện Chi Lăng',
-                'Huyện Đình Lập',
-                'Huyện Bắc Sơn',
-                'Huyện Tràng Định',
-                'Huyện Hữu Lũng'
-            ],
-            'Lào Cai': [
-                'Thành phố Lào Cai',
-                'Huyện Bát Xát',
-                'Huyện Văn Bàn',
-                'Huyện Bảo Thắng',
-                'Huyện Si Ma Cai',
-                'Huyện Mường Khương',
-                'Huyện Sa Pa',
-                'Huyện Bảo Yên',
-                'Huyện Bắc Hà'
             ],
             'Long An': [
                 'Huyện Tân Thạnh',
@@ -836,51 +638,6 @@ jQuery(function ($) {
                 'Thành phố Tân An',
                 'Thị xã Kiến Tường'
             ],
-            'Nam Định': [
-                'Thành phố Nam Định',
-                'Huyện Nghĩa Hưng',
-                'Huyện Trực Ninh',
-                'Huyện Ý Yên',
-                'Huyện Vụ Bản',
-                'Huyện Giao Thủy',
-                'Huyện Xuân Trường',
-                'Huyện Nam Trực',
-                'Huyện Mỹ Lộc',
-                'Huyện Hải Hậu'
-            ],
-            'Nghệ An': [
-                'Thị xã Hoàng Mai',
-                'Huyện Quỳ Châu',
-                'Huyện Diễn Châu',
-                'Huyện Anh Sơn',
-                'Huyện Hưng Nguyên',
-                'Huyện Quế Phong',
-                'Huyện Tương Dương',
-                'Huyện Kỳ Sơn',
-                'Thị xã Cửa Lò',
-                'Thị xã Thái Hoà',
-                'Huyện Nam Đàn',
-                'Huyện Quỳnh Lưu',
-                'Huyện Quỳ Hợp',
-                'Huyện Yên Thành',
-                'Huyện Đô Lương',
-                'Huyện Nghĩa Đàn',
-                'Huyện Con Cuông',
-                'Huyện Tân Kỳ',
-                'Huyện Nghi Lộc',
-                'Huyện Thanh Chương',
-                'Thành phố Vinh'
-            ],
-            'Ninh Bình': [
-                'Huyện Nho Quan',
-                'Huyện Hoa Lư',
-                'Huyện Gia Viễn',
-                'Huyện Kim Sơn',
-                'Huyện Yên Khánh',
-                'Thành phố Tam Điệp',
-                'Thành phố Ninh Bình',
-                'Huyện Yên Mô'
-            ],
             'Ninh Thuận': [
                 'Huyện Bác Ái',
                 'Huyện Ninh Hải',
@@ -889,21 +646,6 @@ jQuery(function ($) {
                 'Huyện Thuận Bắc',
                 'Huyện Thuận Nam',
                 'Thành phố Phan Rang-Tháp Chàm'
-            ],
-            'Phú Thọ': [
-                'Huyện Lâm Thao',
-                'Thị xã Phú Thọ',
-                'Thành phố Việt Trì',
-                'Huyện Thanh Thuỷ',
-                'Huyện Đoan Hùng',
-                'Huyện Cẩm Khê',
-                'Huyện Phù Ninh',
-                'Huyện Tam Nông',
-                'Huyện Thanh Ba',
-                'Huyện Yên Lập',
-                'Huyện Thanh Sơn',
-                'Huyện Hạ Hoà',
-                'Huyện Tân Sơn'
             ],
             'Phú Yên': [
                 'Huyện Sông Hinh',
@@ -915,16 +657,6 @@ jQuery(function ($) {
                 'Thành phố Tuy Hoà',
                 'Huyện Phú Hoà',
                 'Huyện Đông Hòa'
-            ],
-            'Quảng Bình': [
-                'Huyện Bố Trạch',
-                'Huyện Tuyên Hóa',
-                'Huyện Lệ Thủy',
-                'Huyện Quảng Ninh',
-                'Huyện Quảng Trạch',
-                'Thành Phố Đồng Hới',
-                'Huyện Minh Hóa',
-                'Thị xã Ba Đồn'
             ],
             'Quảng Nam': [
                 'Huyện Hiệp Đức',
@@ -962,34 +694,6 @@ jQuery(function ($) {
                 'Thành phố Quảng Ngãi',
                 'Huyện Sơn Hà'
             ],
-            'Quảng Ninh': [
-                'Thị xã Đông Triều',
-                'Huyện Hải Hà',
-                'Thành phố Hạ Long',
-                'Thành phố Cẩm Phả',
-                'Thành phố Móng Cái',
-                'Thành phố Uông Bí',
-                'Huyện Vân Đồn',
-                'Huyện Tiên Yên',
-                'Huyện Ba Chẽ',
-                'Huyện Hoành Bồ',
-                'Huyện Bình Liêu',
-                'Huyện Cô Tô',
-                'Huyện Đầm Hà',
-                'Thị xã Quảng Yên'
-            ],
-            'Quảng Trị': [
-                'Huyện Cồn Cỏ',
-                'Thị xã Quảng Trị',
-                'Huyện Đa Krông',
-                'Huyện Vĩnh Linh',
-                'Huyện Triệu Phong',
-                'Huyện Gio Linh',
-                'Huyện Cam Lộ',
-                'Huyện Hải Lăng',
-                'Huyện Hướng Hóa',
-                'Thành phố Đông Hà'
-            ],
             'Sóc Trăng': [
                 'Huyện Thạnh Trị',
                 'Huyện Mỹ Xuyên',
@@ -1003,20 +707,6 @@ jQuery(function ($) {
                 'Huyện Châu Thành',
                 'Huyện Trần Đề'
             ],
-            'Sơn La': [
-                'Huyện Sốp Cộp',
-                'Huyện Mai Sơn',
-                'Huyện Mường La',
-                'Huyện Sông Mã',
-                'Huyện Mộc Châu',
-                'Huyện Vân Hồ',
-                'Huyện Quỳnh Nhai',
-                'Huyện Phù Yên',
-                'Huyện Thuận Châu',
-                'Huyện Yên Châu',
-                'Huyện Bắc Yên',
-                'Thành phố Sơn La'
-            ],
             'Tây Ninh': [
                 'Huyện Dương Minh Châu',
                 'Huyện Bến Cầu',
@@ -1027,67 +717,6 @@ jQuery(function ($) {
                 'Huyện Trảng Bàng',
                 'Huyện Tân Biên',
                 'Thành phố Tây Ninh'
-            ],
-            'Thái Bình': [
-                'Huyện Quỳnh Phụ',
-                'Huyện Vũ Thư',
-                'Huyện Hưng Hà',
-                'Huyện Kiến Xương',
-                'Huyện Tiền Hải',
-                'Huyện Thái Thụy',
-                'Huyện Đông Hưng',
-                'Thành phố Thái Bình'
-            ],
-            'Thái Nguyên': [
-                'Thành phố Sông Công',
-                'Huyện Phú Lương',
-                'Huyện Định Hóa',
-                'Huyện Phú Bình',
-                'Huyện Võ Nhai',
-                'Thị xã Phổ Yên',
-                'Huyện Đồng Hỷ',
-                'Huyện Đại Từ',
-                'Thành phố Thái Nguyên'
-            ],
-            'Thanh Hóa': [
-                'Huyện Đông Sơn',
-                'Huyện Thường Xuân',
-                'Huyện Nông Cống',
-                'Huyện Hà Trung',
-                'Huyện Bá Thước',
-                'Huyện Hoằng Hóa',
-                'Huyện Quảng Xương',
-                'Huyện Thiệu Hóa',
-                'Huyện Như Thanh',
-                'Thành phố Thanh Hóa',
-                'Thị xã Sầm Sơn',
-                'Thị xã Bỉm Sơn',
-                'Huyện Nga Sơn',
-                'Huyện Mường Lát',
-                'Huyện Tĩnh Gia',
-                'Huyện Thạch Thành',
-                'Huyện Thọ Xuân',
-                'Huyện Hậu Lộc',
-                'Huyện Cẩm Thủy',
-                'Huyện Vĩnh Lộc',
-                'Huyện Quan Hóa',
-                'Huyện Triệu Sơn',
-                'Huyện Ngọc Lặc',
-                'Huyện Như Xuân',
-                'Huyện Quan Sơn',
-                'Huyện Yên Định',
-                'Huyện Lang Chánh'
-            ],
-            'Thừa Thiên Huế': [
-                'Huyện Phú Vang',
-                'Huyện A Lưới',
-                'Huyện Nam Đông',
-                'Thị xã Hương Trà',
-                'Huyện Phong Điền',
-                'Thị xã Hương Thủy',
-                'Huyện Quảng Điền',
-                'Huyện Phú Lộc',
-                'Thành phố Huế'
             ],
             'Tiền Giang': [
                 'Thị xã Cai Lậy',
@@ -1113,15 +742,6 @@ jQuery(function ($) {
                 'Huyện Trà Cú',
                 'Thành phố Trà Vinh'
             ],
-            'Tuyên Quang': [
-                'Huyện Chiêm Hóa',
-                'Huyện Sơn Dương',
-                'Huyện Yên Sơn',
-                'Huyện Hàm Yên',
-                'Huyện Nà Hang',
-                'Thành phố Tuyên Quang',
-                'Huyện Lâm Bình'
-            ],
             'Vĩnh Long': [
                 'Huyện Mang Thít',
                 'Huyện Vũng Liêm',
@@ -1131,28 +751,6 @@ jQuery(function ($) {
                 'Thành phố Vĩnh Long',
                 'Huyện Bình Tân',
                 'Huyện Trà Ôn'
-            ],
-            'Vĩnh Phúc': [
-                'Huyện Bình Xuyên',
-                'Huyện Vĩnh Tường',
-                'Huyện Lập Thạch',
-                'Huyện Yên Lạc',
-                'Thành phố Vĩnh Yên',
-                'Huyện Tam Đảo',
-                'Huyện Tam Dương',
-                'Thị xã Phúc Yên',
-                'Huyện Sông Lô'
-            ],
-            'Yên Bái': [
-                'Huyện Trấn Yên',
-                'Huyện Văn Chấn',
-                'Huyện Lục Yên',
-                'Huyện Văn Yên',
-                'Huyện Mù Căng Chải',
-                'Huyện Trạm Tấu',
-                'Huyện Yên Bình',
-                'Thành phố Yên Bái',
-                'Thị xã Nghĩa Lộ'
             ],
             'Đắk Lắk': [
                 'Huyện Krông A Na',
@@ -1180,18 +778,6 @@ jQuery(function ($) {
                 'Huyện Đắk Song',
                 'Huyện Tuy Đức',
                 'Thị xã Gia Nghĩa'
-            ],
-            'Điện Biên': [
-                'Huyện Nậm Pồ',
-                'Thành phố Điện Biên Phủ',
-                'Thị Xã Mường Lay',
-                'Huyện Tủa Chùa',
-                'Huyện Tuần Giáo',
-                'Huyện Điện Biên Đông',
-                'Huyện Mường Nhé',
-                'Huyện Điện Biên',
-                'Huyện Mường Ảng',
-                'Huyện Mường Chà'
             ],
             'Đồng Nai': [
                 'Huyện Định Quán',
