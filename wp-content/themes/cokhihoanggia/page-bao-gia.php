@@ -1,7 +1,15 @@
 <?php get_header(); ?>
 <?php
 $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
+$cities = getCities();
+$data = array();
+foreach ($cities as $city => $districts){
+    foreach ($districts as $district => $detail){
+        $data[$city][] = $district;
+    }
+}
 ?>
+<script>var Cities = JSON.parse(`<?php echo json_encode($data, JSON_UNESCAPED_UNICODE)?>`)</script>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
 
     <div class="wrapper upper modern-header">

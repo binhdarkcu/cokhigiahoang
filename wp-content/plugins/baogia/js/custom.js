@@ -159,6 +159,14 @@ jQuery(document).ready(function ($) {
                 "targets": 6,
                 "searchable": false,
                 "orderable": false
+            }, {
+                targets: 5,
+                data: "5",
+                render: {
+                  _: 'display',
+                  sort: 'selected_status',
+                  filter: 'selected_status'
+              }
             }],
         "createdRow": function (row, data, index) {
 //            console.log('row: ', row);
@@ -261,23 +269,20 @@ jQuery(document).ready(function ($) {
                         //Create row
                         tableBaoGia.clear().draw();
                         jsonData.data.forEach(function (baoGia, index) {
-                            tableBaoGia.row.add([
-                                baoGia.full_name,
-                                baoGia.phone_number,
-                                baoGia.email,
-                                baoGia.company,
-                                baoGia.created_date,
-                                (`<select class="order-status" data-item-id="${baoGia.id}">
-                            ${statuses.map(function (item) {
-                                    return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
-                                }).join(' ')}
-                            </select>`),
-                                (`
-                                <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}" data-item-data="${Base64.encode(baoGia.order_detail)}">Chi tiết</a>
-                                    <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`)
-                            ]).draw(false);
+                            tableBaoGia.row.add({
+                                '0': baoGia.full_name,
+                                '1': baoGia.phone_number,
+                                '2': baoGia.email,
+                                '3': baoGia.company,
+                                '4': baoGia.created_date,
+                                '5' : {
+                                    "display": (`<select class="order-status" data-item-id="${baoGia.id}">${statuses.map(function (item) {return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);}).join(' ')}</select>`),
+                                    "selected_status": `${baoGia.status}`,
+                                },
+                                '6': (` <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}" data-item-data="${Base64.encode(baoGia.order_detail)}">Chi tiết</a> <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`),
+                            }).draw(false);
                         });
-
+                        tableBaoGia.draw();
                         // Observe onchange event
                         $('.order-status').on({
                             "ready": function (e) {
