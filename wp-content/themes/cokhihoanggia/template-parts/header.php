@@ -11,7 +11,7 @@
 
                 <ul id="menu-special-menu" class="top-menu"><li id="menu-item-802" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="mailto:hoacokhigiahoang@gmail.com"><i class="fa fa-envelope-o"></i> Liên hệ</a><div class="sub sf-mega">hoacokhigiahoang@gmail.com</div></li>
                     <li id="menu-item-821" class="kill menu-item menu-item-type-custom menu-item-object-custom"><a href="#"><i class="fa fa-phone-square"></i> Số điện thoại</a><div class="sub sf-mega">0903.370.117 - 0903 975 117</div></li>
-                    <li id="menu-item-803" class="special menu-item menu-item-type-post_type menu-item-object-page"><a href="/bao-gia"><i class="fa fa-question-circle"></i> Báo giá</a><div class="sub sf-mega">Gửi báo giá ngay!</div></li>
+                    <li id="menu-item-803" class="special menu-item menu-item-type-post_type menu-item-object-page"><a href="<?php echo HOME_URL;?>/bao-gia"><i class="fa fa-question-circle"></i> Báo giá</a><div class="sub sf-mega">Gửi báo giá ngay!</div></li>
                 </ul>
                 <div id="titles" class="tranz">
 
