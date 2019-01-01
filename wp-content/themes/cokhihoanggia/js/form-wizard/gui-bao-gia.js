@@ -46,6 +46,8 @@ jQuery(function ($) {
                     loader: true, // Whether to show loader or not. True by default
                     loaderBg: '#9EC600', // Background color of the toast loader
                 });
+                console.log(msg);
+                
                 $('#gui-bao-gia').off('click');
                 window.location.href = homeUrl;
             },
@@ -159,35 +161,5 @@ jQuery(function ($) {
             objectData[this.name] = this.value;
             updateOrder();
         });
-        
-        
     }
-//
-//    $("#tblGianGiao .so-luong").on("change", function () {
-//        const name = this.name;
-//        const value = this.value;
-//        objectData[name] = value;
-//        console.log(objectData);
-//        var parentTr = $(this).parent().parent();
-//        if ($(this).val() > 0) {
-//            var weightValue = parseFloat($(parentTr).find('.weightNumber').html());
-//            $(parentTr).find('.MassNumber').html((weightValue * $(this).val()).toFixed(2));
-//            var priceNumber = Number($(parentTr).find('.priceNumber').html().replace(/[^0-9.-]+/g, ""))
-//            $(parentTr).find('.totalPrice').html(priceNumber * $(this).val()).simpleMoneyFormat();
-//            var finalTotal = totalPrices();
-//            $(parentTr).find('.finalTotal').html(finalTotal).simpleMoneyFormat();
-//            $('#totalWeight').html(Math.ceil(totalWeight()))
-//            $('.deliveryPrice').html(Math.round(1200 * $('#totalWeight').html())).simpleMoneyFormat();
-//            var beforePrice = parseInt($('.deliveryPrice').html().replace(/[^0-9.-]+/g, "")) + parseInt($('.finalTotal').html().replace(/[^0-9.-]+/g, ""));
-//
-//
-//            $('#beforeTotalPrice').html(beforePrice).simpleMoneyFormat();
-//            var beforeTotalPrice = parseInt($('#beforeTotalPrice').html().replace(/[^0-9.-]+/g, "")) * 0.1;
-//            $('#gtgtValue').html(beforeTotalPrice).simpleMoneyFormat();
-//
-//            var totalofTotal = beforePrice + beforeTotalPrice;
-//            $('#totalofTotal').html(totalofTotal).simpleMoneyFormat();
-//        }
-//    });
-
 });

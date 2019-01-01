@@ -16,6 +16,16 @@ add_action('wp_ajax_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
 add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
 
+$file = get_template_directory().'/assets/logo_email.png'; //phpmailer will load this file
+$uid = 'logo'; //will map it to this UID
+$name = 'logo.png'; //this will be the file name for the attachment
+
+global $phpmailer;
+add_action( 'phpmailer_init', function(&$phpmailer)use($file,$uid,$name){
+    $phpmailer->SMTPKeepAlive = true;
+    $phpmailer->AddEmbeddedImage($file, $uid, $name);
+});
+
 //create admin ajax url
 function ajax_enqueue() {
     wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js', array('jquery'));
@@ -36,6 +46,7 @@ function bao_gia() {
         $json = $json_data;
     }
 
+    $status = 'ERROR';
     $bao_gia = json_decode($json, true);
 
     //Lấy thông tin người báo giá
@@ -63,17 +74,78 @@ function bao_gia() {
                                                          VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
 
     $wpdb->query($query);
-    var_dump($bao_gia);
-    die();
-    //default messages
+    
+    
+    if(sendEmailToCustomer($bao_gia)){
+        $status = 'OK';
+    }
+    
     $result = array(
-        'message' => $test,
-        'status' => 'OK'
+        'message' => '',
+        'status' => $status
     );
 
     echo json_encode($result);
     // Don't forget to stop execution afterward.
     wp_die();
+}
+
+function sendEmailToCustomer($bao_gia){
+    $fields = array('ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp','so_luong', 'loai_vt', 'tl_vt_hang', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue');
+    
+    $available_fields = array();
+    
+    foreach ($bao_gia as $key => $value){
+        if(in_array($key, $fields)){
+            $available_fields[$key] = $value;
+        }
+    }
+    
+    $template_path = get_template_directory().'/template-parts/emailing/email-customer.html';
+    $template = file_get_contents($template_path);
+    
+    
+    $chi_tiet = '';
+    foreach ($available_fields as $key => $value){
+        $template = str_replace("[$key]", $value, $template);
+        
+        $dvt = '';
+        switch ($key) {
+            case 'thoi_gian_thue':
+                $dvt = 'tháng';
+                break;
+            case 'so_luong':
+                $dvt = 'bộ';
+                break;
+            case 'chieu_cao':
+                $dvt = 'm';
+                break;
+            case 'bien_tan':
+                $dvt = 'biến tần';
+                break;
+            default:
+                break;
+
+        }
+        
+        if ($key !== 'ho_ten' && $key !== 'so_dt' && $key !== 'email' && $key !== 'cty' && $key !== 'vi_tri' && $key !== 'vi_tri2' && $key !== 'form_bao_gia' && $key !== 'ngay_can_hang') {
+            $chi_tiet .= 'hinh_thuc' && $available_fields[$key] === 'Bán' ? 'Mua /' : " $available_fields[$key] $dvt/";
+        }
+    }
+    
+    $chi_tiet = substr($chi_tiet, 0, -1);
+    $date = getdate(date("U"));
+    $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
+    
+    $template = str_replace("[chi_tiet]", $chi_tiet, $template);
+    $template = str_replace("[ngay_thang]", $ngay_thang, $template);
+    
+    $to = $available_fields['email'];
+    $subject = 'Xác nhận đơn hàng';
+    $body = $template;
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+ 
+    return wp_mail( $to, $subject, $body, $headers );
 }
 
 function danh_sach_bao_gia() {
