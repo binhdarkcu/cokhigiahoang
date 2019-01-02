@@ -741,9 +741,16 @@ border-spacing: 0;
 .entry h5{ font-size:130%;}
 .entry h6{ font-size:100%;}
 
+.itemleft {
+    float: left;
+}
+.itemleft .item-content {
+    display: inline-block;
+}
 #footer {
     background: #017bc4!important;
 }
+
 #footer .single-widget h2 {
     color: #fff;
     font-family: Roboto,sans-serif;
@@ -801,6 +808,36 @@ border-spacing: 0;
     margin-right: 0;
     float:left;
     padding-right: 20px;
+}
+.wrapper .cart_totals {
+    display: inline-block;
+    width: 100%;
+}
+.wrapper .cart_totals .itemleft label{
+    width: 100%;
+    float: left;
+}
+.wrapper .form-wrapper.step1 {
+    padding: 63px 10px 0;
+}
+.form-wrapper .chosen-container-single .chosen-default {
+    height: 36px;
+    border: 1px solid #e6e6e6;
+    line-height: 36px;
+    background: #fff;
+    color: #999;
+}
+.form-wrapper .chosen-container-single .chosen-single div b {
+    background-position: 0 8px;
+}
+.item-content .fa-arrow-right {
+    font-size: 21px;
+    float: left;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+.wrapper .cart_totals .checkbox .checkmark {
+    top: 5px;
 }
 .media-list .media img {
     height: 100px;
