@@ -40,7 +40,7 @@ foreach ($cities as $city => $districts){
                             <h3>Chọn sản phẩm</h3>
 
                             <div class="cart_totals">
-                                
+
                                 <!--Hình thức-->
                                 <div data-title="Subtotal">
                                     <div class="item-content">
@@ -57,7 +57,7 @@ foreach ($cities as $city => $districts){
                                     </div>
 
                                 </div>
-                                
+
                                 <!--Loại sản phẩm-->
                                 <div id="loai_sp" data-title="Subtotal" class="flex-item">
                                     <div class="item-content">
@@ -132,7 +132,7 @@ foreach ($cities as $city => $districts){
                                 <!--Trọng lượng lồng-->
                                 <div id="tl_long" data-title="Subtotal" class="flex-item">
                                     <div class="item-content">
-                                        <i class="fa fa-arrow-down"></i> 
+                                        <i class="fa fa-arrow-down"></i>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="radio" name="tl_long" value="1 tấn" required> 1 tấn
@@ -145,11 +145,11 @@ foreach ($cities as $city => $districts){
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!--Biến tần-->
                                 <div id="bien_tan" data-title="Subtotal" class="flex-item">
                                     <div class="item-content">
-                                        <i class="fa fa-arrow-down"></i> 
+                                        <i class="fa fa-arrow-down"></i>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="radio" name="bien_tan" value="Có" required> Biến tần
@@ -162,7 +162,7 @@ foreach ($cities as $city => $districts){
                                         </div>
                                     </div>
                                 </div>
-                            </div>                    
+                            </div>
                         </section>
 
                         <!-- SECTION 2 -->
@@ -190,30 +190,30 @@ foreach ($cities as $city => $districts){
                                 </div>
 
                             </div>
-                            
+
                             <div class="form-row vi_tri_lap_dat">
-                                
+
                                 <div id="thoi_gian_thue" class="form-holder">
                                     <label class="order-label">Thời gian thuê (tháng)</label>
                                     <i class="zmdi zmdi-calendar"></i>
                                     <input type="text" name="thoi_gian_thue" class="form-control required" placeholder="Thời gian thuê (tháng)">
                                 </div>
-                                
+
                                 <div id="ngay_can_hang" class="form-holder">
                                     <label class="order-label">Ngày cần hàng</label>
                                     <i class="zmdi zmdi-calendar"></i>
                                     <input readonly type="text" id="datepicker" name="ngay_can_hang" placeholder="Chọn ngày cần hàng" class="form-control required">
                                 </div>
                             </div>
-                            
+
                             <div class="form-row vi_tri_lap_dat">
                                 <div class="form-holder">
                                     <label class="order-label">Chọn tỉnh/thành phố</label>
                                     <select id="vi_tri" name="vi_tri" class="form-control chon-vi-tri required" data-placeholder="Thành phố...">
- 
+
                                     </select>
                                 </div>
-                                
+
                                 <div class="form-holder">
                                     <label class="order-label">Chọn Quận/Huyện</label>
                                     <select id="vi_tri2" name="vi_tri2" class="form-control chon-vi-tri required" data-placeholder="Quận/Huyện...">
@@ -230,13 +230,15 @@ foreach ($cities as $city => $districts){
                             <h3 style="margin-bottom: 16px;">Thông tin khách hàng</h3>
 
                             <!--Họ tên và sdt-->
-                            <div class="form-row">
+                            <div class="form-row" style="margin-top: 50px;">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-account"></i>
+                                    <label class="order-label">Họ tên</label>
                                     <input type="text" class="form-control required" name="ho_ten" value="" placeholder="Họ tên" />
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-smartphone-android"></i>
+                                    <label class="order-label">Số điện thoại</label>
                                     <input id="so_dt" type="text" class="form-control required" name="so_dt" value="" placeholder="Số điện thoại"/>
                                 </div>
                             </div>
@@ -245,10 +247,12 @@ foreach ($cities as $city => $districts){
                             <div class="form-row">
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-email"></i>
+                                    <label class="order-label">Địa chỉ email</label>
                                     <input id="email" type="text" class="form-control required" name="email" value="" placeholder="Địa chỉ email"/>
                                 </div>
                                 <div class="form-holder">
                                     <i class="zmdi zmdi-home"></i>
+                                    <label class="order-label">Công ty</label>
                                     <input type="text" class="form-control required" name="cty" value="" placeholder="Công ty"/>
                                 </div>
                             </div>
@@ -283,4 +287,3 @@ foreach ($cities as $city => $districts){
 <div id="editor"></div>
 <?php get_template_part("template-parts/footer"); ?>
 <?php get_footer(); ?>
-

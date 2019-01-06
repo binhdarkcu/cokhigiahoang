@@ -8,7 +8,7 @@ select {
     width: 100%;
     min-height: 800px;
     padding: 63px 90px 0;
-    background: #fff; 
+    background: #fff;
     margin-bottom: 50px;
     padding-bottom: 50px;
 }
@@ -57,7 +57,7 @@ h3 {
     margin-bottom: 20px; }
 .form-row .form-holder {
     width: 50%;
-    margin-right: 20px; }
+    margin-right: 20px; margin-bottom: 10px;}
 .form-row .form-holder:last-child {
     margin-right: 0; }
 .form-row .form-holder.w-100 {
@@ -83,6 +83,11 @@ h3 {
 .form-holder i.zmdi-eye {
     cursor: pointer; }
 
+.chosen-container-single .chosen-single span {
+    font-family: arial;
+    font-size: 14px;
+        color: #000;
+}
 .form-control {
     height: 36px;
     border: 1px solid #e6e6e6;
@@ -90,18 +95,28 @@ h3 {
     font-size: 15px;
     background: none;
     padding: 0 35px 0 19px;
-    color: #999; }
+    color: #000; }
 .form-control:focus {
     border-color: #8eb852; }
 .form-control::-webkit-input-placeholder {
-    color: #999; }
+    color: #000; }
 .form-control::-moz-placeholder {
-    color: #999; }
+    color: #000; }
 .form-control:-ms-input-placeholder {
-    color: #999; }
+    color: #000; }
 .form-control:-moz-placeholder {
-    color: #999; }
-
+    color: #000; }
+.chosen-container .chosen-results li {
+    color: #000;
+    font-family: Arial;
+}
+.chosen-container-single .chosen-single {
+    height: 36px!important;
+    border: 1px solid #e6e6e6!important;
+    line-height: 36px!important;
+    background: #fff!important;
+    color: #000!important;
+}
 .actions {
     margin-top: 30px; }
 .actions ul {
@@ -208,7 +223,7 @@ table.cart .product-remove a {
     color: #666;
     width: 66.56%;
     margin: auto;
-    margin-bottom: 31px; 
+    margin-bottom: 31px;
     display: flex;
     flex-direction: column;
 }
@@ -340,10 +355,10 @@ table.cart .product-remove a {
         padding-top: 30px;
         border-top: 1px solid #e6e6e6; } }
 
-label.error { 
-   float: none; color: red; 
+label.error {
+   float: none; color: red;
    padding-left: .5em;
-   vertical-align: top; 
+   vertical-align: top;
    display: block;
 }
 
@@ -358,10 +373,16 @@ label.error {
 .item-content .checkbox{
     margin-top: 10px;
 }
+input, label {
+    font-family: arial!important;
+}
 .order-label{
     position: absolute;
     left: 0;
     top: -25px;
+    font-size: 16px;
+    font-family: arial;
+    font-weight: bold;
 }
 .vi_tri_lap_dat{
     margin-bottom: 40px;

@@ -136,8 +136,10 @@ jQuery(function ($) {
                     text = $('#template-1').text();
                     break;
                 case 'form_vt_hang_ban':
-                case 'form_vt_hang_thue':
                     text = $('#template-2').text();
+                    break;
+                case 'form_vt_hang_thue':
+                    text = $('#template-1').text();
                     break;
                 case 'form_gian_giao_ban':
                 case 'form_gian_giao_thue':
