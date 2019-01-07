@@ -55,6 +55,10 @@ h3 {
 .form-row {
     display: flex;
     margin-bottom: 20px; }
+::placeholder {
+    color: #ccc!important;
+}
+
 .form-row .form-holder {
     width: 50%;
     margin-right: 20px; margin-bottom: 10px;}

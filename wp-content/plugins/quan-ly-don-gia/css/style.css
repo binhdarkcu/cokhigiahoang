@@ -1,0 +1,32 @@
+.main-content{
+    padding: 15px;
+}
+#modal-chi-tiet section, #modal-chinh-sua section, #modal-bao-gia section{
+    padding: 30px;
+}
+#modal-chi-tiet section button:nth-child(1), #modal-chinh-sua section button:nth-child(1), #modal-bao-gia section button:nth-child(1){
+    border-radius: 3px 0 0 3px;
+    background: #aaa;}
+#modal-chi-tiet section button:hover, #modal-chinh-sua section button:hover, #modal-bao-gia section button:hover{
+    opacity: 0.8;
+}
+#modal-chi-tiet section button, #modal-chinh-sua section button, #modal-bao-gia section button{
+    height: 46px;
+    padding: 0;
+}
+#modal-chi-tiet section button, #modal-chinh-sua section button, #modal-bao-gia section button{
+    background: #28CA97;
+    color: white;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    width: 50%;
+    float: left;
+    font-size: 14px;
+}
+.highlight{
+    text-align: left;
+}
+.xoa-bao-gia{
+    margin-left: 5px;
+}
