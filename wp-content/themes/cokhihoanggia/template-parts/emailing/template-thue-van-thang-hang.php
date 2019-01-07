@@ -94,7 +94,7 @@
           <tr>
             <td align="left" valign="top" style="padding: 20px 0 0 5px; line-height: 1.4; font-family: Helvetica, Arial, sans-serif; font-size: 16px; border-bottom: 1px solid #ccc;"> Công ty Gia Hoàng cám ơn Quý Công ty đã tín nhiệm sử dụng các sản phẩm do Cty Chúng tôi cung cấp trong
             suốt thời gian qua. Theo yêu cầu báo giá từ Quý Công oty, nay Công ty Gia Hoàng xin gửi bảng báo giá bán, vận chuyển và lắp đặt vận thăng tại %vi_tri% để Quý Công ty tham khảo, xem đặt hàng.<br/>
-            <br/><strong style="text-transform: uppercase">I. BẢNG GIÁ CHI TIẾT GIÁ %hinh_thuc% VẬN THĂNG LỒNG.</strong>&nbsp;</td>
+            <br/><strong style="text-transform: uppercase">I. BẢNG GIÁ CHI TIẾT GIÁ %hinh_thuc% VẬN THĂNG HÀNG.</strong>&nbsp;</td>
           </tr>
           <tr>
             <td style="padding: 5px 0 7px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; color: #000;" align="left" valign="top">
