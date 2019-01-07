@@ -46,11 +46,11 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 <?php get_footer(); ?>
 
 <script id="template-1" type="text/template">
-<?php get_template_part("template-parts/emailing/template1"); ?>
+<?php get_template_part("template-parts/emailing/template-thue-van-thang-hang"); ?>
 </script>
 
 <script id="template-2" type="text/template">
-<?php get_template_part("template-parts/emailing/template2"); ?>
+<?php get_template_part("template-parts/emailing/template-mua-van-thang-hang"); ?>
 </script>
 
 <script id="template-3" type="text/template">

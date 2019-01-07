@@ -181,7 +181,37 @@ foreach ($cities as $city => $districts){
                                 <div id="chieu_cao" class="form-holder">
                                     <label class="order-label">Chiều cao (m)</label>
                                     <i class="zmdi zmdi-format-list-numbered"></i>
-                                    <input id="chieu_cao" type="text" name="chieu_cao" value="" class="form-control" placeholder="Nhập chiều cao">
+                                    <select name="chieu_cao" id="chieu_cao" style="width: 100%;">
+                                        <option>Nhập chiều cao</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                        <option value="18">18</option>
+                                        <option value="20">20</option>
+                                        <option value="22">22</option>
+                                        <option value="24">24</option>
+                                        <option value="26">26</option>
+                                        <option value="28">28</option>
+                                        <option value="30">30</option>
+                                        <option value="32">32</option>
+                                        <option value="34">34</option>
+                                        <option value="36">36</option>
+                                        <option value="38">38</option>
+                                        <option value="40">40</option>
+                                        <option value="42">42</option>
+                                        <option value="44">44</option>
+                                        <option value="46">56</option>
+                                        <option value="48">48</option>
+                                        <option value="50">50</option>
+                                        <option value="52">52</option>
+                                        <option value="54">54</option>
+                                        <option value="56">56</option>
+                                        <option value="58">58</option>
+                                        <option value="60">60</option>
+                                    </select>
                                 </div>
                                 <div id="sl_gian_giao" class="form-holder">
                                     <label class="order-label">Số lượng (bộ)</label>

@@ -19,7 +19,7 @@ jQuery(function ($) {
         this.disabled = false;
     });
     updateOrder();
-    
+
     //---------------------------------
     $('#gui-bao-gia').on('click', function (e) {
         e.preventDefault();
@@ -47,7 +47,7 @@ jQuery(function ($) {
                     loaderBg: '#9EC600', // Background color of the toast loader
                 });
                 console.log(msg);
-                
+
                 $('#gui-bao-gia').off('click');
                 window.location.href = homeUrl;
             },
@@ -138,8 +138,10 @@ jQuery(function ($) {
                 text = $('#template-1').text();
                 break;
             case 'form_vt_hang_ban':
-            case 'form_vt_hang_thue':
                 text = $('#template-2').text();
+                break;
+            case 'form_vt_hang_thue':
+                text = $('#template-1').text();
                 break;
             case 'form_gian_giao_ban':
             case 'form_gian_giao_thue':
@@ -151,12 +153,12 @@ jQuery(function ($) {
         text = template(text, data);
 
         $('#form-wrapper').html(text);
-        
+
         // Re-enable input whenever reload template
         $('.so-luong').each(function (index, item) {
             item.disabled = false;
         });
-        
+
         $("#tblGianGiao .so-luong").on("change", function () {
             objectData[this.name] = this.value;
             updateOrder();
