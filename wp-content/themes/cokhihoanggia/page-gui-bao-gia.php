@@ -54,5 +54,8 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 </script>
 
 <script id="template-3" type="text/template">
-    <?php get_template_part("template-parts/emailing/template-gian-giao"); ?>
+    <?php get_template_part("template-parts/emailing/template-mua-gian-giao"); ?>
+</script>
+<script id="template-4" type="text/template">
+    <?php get_template_part("template-parts/emailing/template-thue-gian-giao"); ?>
 </script>

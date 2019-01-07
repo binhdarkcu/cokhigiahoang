@@ -144,8 +144,10 @@ jQuery(function ($) {
                 text = $('#template-1').text();
                 break;
             case 'form_gian_giao_ban':
-            case 'form_gian_giao_thue':
                 text = $('#template-3').text();
+                break;
+            case 'form_gian_giao_thue':
+                text = $('#template-4').text();
                 break;
             default:
                 break;

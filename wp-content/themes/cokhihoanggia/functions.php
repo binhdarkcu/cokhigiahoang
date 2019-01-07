@@ -242,7 +242,9 @@ function calculateDataForGianGiao($baoGia) {
                 $baoGia['trong_luong' . $index] = $formGianGiao[$key]['trong_luong'];
                 $baoGia['tong_trong_luong' . $index] = $formGianGiao[$key]['trong_luong'] * $value;
                 $baoGia['don_gia' . $index] = $formGianGiao[$key]['don_gia'];
+                $baoGia['don_gia_thue' . $index] = $formGianGiao[$key]['don_gia_thue'];
                 $baoGia['tong_don_gia' . $index] = number_format(convertToNumber($formGianGiao[$key]['don_gia']) * $value);
+                $baoGia['thanh_tien_thue' . $index] = number_format(convertToNumber($formGianGiao[$key]['don_gia_thue']) * $value);
             }
         }
     }
@@ -250,6 +252,8 @@ function calculateDataForGianGiao($baoGia) {
     $baoGia['tong_trong_luong'] = getTotalWeight($baoGia);
     $baoGia['phi_van_chuyen'] = number_format(1200 * $baoGia['tong_trong_luong']);
     $baoGia['tong_don_gia_thiet_bi'] = number_format(getTotalPriceBeforeTax($baoGia));
+    $baoGia['tong_don_gia_thue_thiet_bi'] = number_format(getBorrowTotalPriceBeforeTax($baoGia));
+    $baogia['tien_thue_tam_tinh'] = convertToNumber($baoGia['tong_don_gia_thue_thiet_bi']);
     $baoGia['tong_don_gia_truoc_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thiet_bi']) + convertToNumber($baoGia['phi_van_chuyen']));
     $baoGia['vat'] = number_format(convertToNumber($baoGia['tong_don_gia_truoc_thue']) * 0.1);
     $baoGia['tong_don_gia_sau_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_truoc_thue']) + convertToNumber($baoGia['vat']));
@@ -262,6 +266,17 @@ function getTotalPriceBeforeTax($data) {
     $total = 0;
     foreach ($data as $key => $value) {
         if (substr($key, 0, 12) === 'tong_don_gia' && strlen($key) > 12) {
+            $total += convertToNumber($value);
+        }
+    }
+    return $total;
+}
+
+// Get total pay before tax
+function getBorrowTotalPriceBeforeTax($data) {
+    $total = 0;
+    foreach ($data as $key => $value) {
+        if (substr($key, 0, 15) === 'thanh_tien_thue' && strlen($key) > 15) {
             $total += convertToNumber($value);
         }
     }
@@ -284,99 +299,123 @@ function getGianGiaoFormData() {
     return array(
         'so_luong2' => [
             'trong_luong' => 7.4,
-            'don_gia' => '178,000'
+            'don_gia' => '178,000',
+            'don_gia_thue' => 355
         ],
         'so_luong3' => [
             'trong_luong' => 5.8,
-            'don_gia' => '140,000'
+            'don_gia' => '140,000',
+            'don_gia_thue' => 278
         ],
         'so_luong4' => [
             'trong_luong' => 4.35,
-            'don_gia' => '105,000'
+            'don_gia' => '105,000',
+            'don_gia_thue' => 209
         ],
         'so_luong5' => [
             'trong_luong' => 3.15,
-            'don_gia' => '76,000'
+            'don_gia' => '76,000',
+            'don_gia_thue' => 151
         ],
         'so_luong6' => [
             'trong_luong' => 3.65,
-            'don_gia' => '88,000'
+            'don_gia' => '88,000',
+            'don_gia_thue' => 176
         ],
         'so_luong7' => [
             'trong_luong' => 1.1,
-            'don_gia' => '27,000'
+            'don_gia' => '27,000',
+            'don_gia_thue' => 53
         ],
         'so_luong8' => [
             'trong_luong' => 1.34,
-            'don_gia' => '33,000'
+            'don_gia' => '33,000',
+            'don_gia_thue' => 64
         ],
         'so_luong9' => [
             'trong_luong' => 2.05,
-            'don_gia' => '50,000'
+            'don_gia' => '50,000',
+            'don_gia_thue' => 98
         ],
         'so_luong10' => [
             'trong_luong' => 2.46,
-            'don_gia' => '60,000'
+            'don_gia' => '60,000',
+            'don_gia_thue' => 118
         ],
         'so_luong11' => [
             'trong_luong' => 3.02,
-            'don_gia' => '73,000'
+            'don_gia' => '73,000',
+            'don_gia_thue' => 145
         ],
         'so_luong12' => [
             'trong_luong' => 3.02,
-            'don_gia' => '73,000'
+            'don_gia' => '73,000',
+            'don_gia_thue' => 206
         ],
         'so_luong13' => [
             'trong_luong' => 8.27,
-            'don_gia' => '199,000'
+            'don_gia' => '199,000',
+            'don_gia_thue' => 582
         ],
         'so_luong14' => [
             'trong_luong' => 2,
-            'don_gia' => '48,000'
+            'don_gia' => '48,000',
+            'don_gia_thue' => 96
         ],
         'so_luong15' => [
             'trong_luong' => 2.3,
-            'don_gia' => '56,000'
+            'don_gia' => '56,000',
+            'don_gia_thue' => 110
         ],
         'so_luong16' => [
             'trong_luong' => 2,
-            'don_gia' => '48,000'
+            'don_gia' => '48,000',
+            'don_gia_thue' => 96
         ],
         'so_luong17' => [
             'trong_luong' => 2.3,
-            'don_gia' => '56,000'
+            'don_gia' => '56,000',
+            'don_gia_thue' => 110
         ],
         'so_luong18' => [
             'trong_luong' => 9.17,
-            'don_gia' => '221,000'
+            'don_gia' => '221,000',
+            'don_gia_thue' => 440
         ],
         'so_luong19' => [
             'trong_luong' => 20.96,
-            'don_gia' => '504,000'
+            'don_gia' => '504,000',
+            'don_gia_thue' => 1001
         ],
         'so_luong20' => [
             'trong_luong' => 14.08,
-            'don_gia' => '386,000'
+            'don_gia' => '386,000',
+            'don_gia_thue' => 670
         ],
         'so_luong21' => [
             'trong_luong' => 0.5,
-            'don_gia' => '15,000'
+            'don_gia' => '15,000',
+            'don_gia_thue' => 50
         ],
         'so_luong22' => [
             'trong_luong' => 4.5,
-            'don_gia' => '80,000'
+            'don_gia' => '80,000',
+            'don_gia_thue' => 162
         ],
         'so_luong23' => [
             'trong_luong' =>  2.7,
-            'don_gia' => '50,000'
+            'don_gia' => '50,000',
+            'don_gia_thue' => 90
         ],
         'so_luong24' => [
             'trong_luong' =>  4.5,
-            'don_gia' => '90,000'
+            'don_gia' => '90,000',
+            'don_gia_thue' => 170
         ],
         'so_luong25' => [
             'trong_luong' => 2.7,
-            'don_gia' => '55,000'
+            'don_gia' => '55,000',
+            'don_gia_thue' => 110
         ]
     );
 }
