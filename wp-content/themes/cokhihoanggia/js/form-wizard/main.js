@@ -282,8 +282,8 @@ jQuery(function ($) {
         $("#vi_tri").append('<option value="' + key + '">' + key + '</option>');
     });
 
-    $('.chon-vi-tri').chosen({width: "100%", no_results_text: "Không có kết quả cho "});
-    $('.chon-vi-tri').chosen().change(function () {
+    $('.chon-vi-tri, .chon-chieu-cao').chosen({width: "100%", no_results_text: "Không có kết quả cho "});
+    $('.chon-vi-tri, .chon-chieu-cao').chosen().change(function () {
         //re-validate select
         const selected = this.options[this.selectedIndex].value;
         if (window && window.GiaHoangProduct)

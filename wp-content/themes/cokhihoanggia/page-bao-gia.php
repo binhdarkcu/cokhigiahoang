@@ -181,7 +181,7 @@ foreach ($cities as $city => $districts){
                                 <div id="chieu_cao" class="form-holder">
                                     <label class="order-label">Chiều cao (m)</label>
                                     <i class="zmdi zmdi-format-list-numbered"></i>
-                                    <select name="chieu_cao" id="chieu_cao" style="width: 100%;">
+                                    <select name="chieu_cao" id="chieu_cao" class="chon-chieu-cao" style="width: 100%;">
                                         <option>Nhập chiều cao</option>
                                         <option value="6">6</option>
                                         <option value="8">8</option>
