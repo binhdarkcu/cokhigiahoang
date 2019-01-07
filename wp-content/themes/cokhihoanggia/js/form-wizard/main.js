@@ -249,6 +249,7 @@ jQuery(function ($) {
                 }
             } else if (sp.loai_sp === 'Giàn giáo') {
                 $('#loai_vt').hide();
+                $('#so_long').hide();
                 $('#chieu_cao').hide();
                 $('#tl_vt_hang').hide();
                 $('#tl_long').hide();
