@@ -21,7 +21,14 @@ class WP_GHProduct_Management {
 
     //Adding menu
     function wpa_add_menu() {
-        $hook_suffix = add_menu_page('Báo giá', 'Quản lý đơn giá', 'manage_options', 'bao-gia', array($this, 'display_order_page'));
+        $hook_suffix = add_menu_page('Báo giá', 'Quản lý cài đặt', 'manage_options', 'cai-dat', array($this, 'display_order_page'));
+        
+        add_submenu_page( 'cai-dat', 'Thành phố', 'Thành phố', 'administrator', 'thanh-pho', array($this, 'load_thanh_pho'));
+        add_submenu_page( 'cai-dat', 'Bán/thuê giàn giáo nêm', 'Bán/thuê giàn giáo nêm', 'administrator', 'ban-thue-gian-giao', array($this, 'loa_gian_giao'));
+        add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 500kg', 'Mua - VTH - 500kg', 'administrator', 'mua-vth-500kg', array($this, 'load_mua_vth_500kg'));
+        add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 1000kg', 'Mua - VTH - 1000kg', 'administrator', 'mua-vth-1000kg', array($this, 'load_mua_vth_1000kg'));
+        add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 500kg', 'Thuê - VTH - 500kg', 'administrator', 'thue-vth-500kg', array($this, 'load_thue_vth_500kg'));
+        add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 1000kg', 'Thuê - VTH - 1000kg', 'administrator', 'thue-vth-1000kg', array($this, 'load_thue_vth_1000kg'));
 
         add_action('load-' . $hook_suffix, array($this, 'wpa_admin_styles_scripts'));
     }
@@ -38,6 +45,30 @@ class WP_GHProduct_Management {
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
     }
 
+    function load_mua_vth_500kg(){
+        include_once( 'views/mua-vth-500kg.php' );
+    }
+    
+    function load_mua_vth_1000kg(){
+        include_once( 'views/mua-vth-1000kg.php' );
+    }
+    
+    function load_thue_vth_500kg(){
+        include_once( 'views/thue-vth-500kg.php' );
+    }
+    
+    function load_thue_vth_1000kg(){
+        include_once( 'views/thue-vth-1000kg.php' );
+    }
+    
+    function load_thanh_pho(){
+        include_once( 'views/thanh-pho.php' );
+    }
+    
+    function loa_gian_giao(){
+        include_once( 'views/gian-giao-nem.php' );
+    }
+    
     function display_order_page() {
         include_once( 'views/management.php' );
     }
