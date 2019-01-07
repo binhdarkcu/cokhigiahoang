@@ -132,7 +132,7 @@
                       <tr>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Tốc độ (m/phút)</td>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">16	</td>
-                        <td width="35%" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><i>Xuất xứ Trung Quốc</i>&nbsp;</td>
+                        <td width="35%" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><i></i>&nbsp;</td>
                       </tr>
                     </table>
                   </td>
@@ -396,7 +396,9 @@
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">4. <strong>Thanh toán</strong>&nbsp;</td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;font-weight: 700;">- Đặt cọc 02 tháng tiền thuê cho 01 bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: 19,000,000 đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối.</td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;font-weight: 700;">
+                      - Đặt cọc 02 tháng tiền thuê cho 01 bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: 19,000,000 đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối. <br/> <br/>
+                      - Thanh toán chi phí một lần cho 01 bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng sau khi nghiệm thu, kiểm định với số tiền : 29,700,000 đồng (Bằng chữ: Hai mươi chín triệu, bảy trăm ngàn đồng chẵn) trong vòng 07 ngày sau khi hoàn thành lắp đặt, kiểm định. </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Thuế GTGT</strong>&nbsp;</td>
