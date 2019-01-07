@@ -74,12 +74,12 @@ function bao_gia() {
                                                          VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
 
     $wpdb->query($query);
-    
-    
+
+
     if(sendEmailToCustomer($bao_gia)){
         $status = 'OK';
     }
-    
+
     $result = array(
         'message' => '',
         'status' => $status
@@ -92,23 +92,23 @@ function bao_gia() {
 
 function sendEmailToCustomer($bao_gia){
     $fields = array('ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp','so_luong', 'loai_vt', 'tl_vt_hang', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue');
-    
+
     $available_fields = array();
-    
+
     foreach ($bao_gia as $key => $value){
         if(in_array($key, $fields)){
             $available_fields[$key] = $value;
         }
     }
-    
+
     $template_path = get_template_directory().'/template-parts/emailing/email-customer.html';
     $template = file_get_contents($template_path);
-    
-    
+
+
     $chi_tiet = '';
     foreach ($available_fields as $key => $value){
         $template = str_replace("[$key]", $value, $template);
-        
+
         $dvt = '';
         switch ($key) {
             case 'thoi_gian_thue':
@@ -127,24 +127,24 @@ function sendEmailToCustomer($bao_gia){
                 break;
 
         }
-        
+
         if ($key !== 'ho_ten' && $key !== 'so_dt' && $key !== 'email' && $key !== 'cty' && $key !== 'vi_tri' && $key !== 'vi_tri2' && $key !== 'form_bao_gia' && $key !== 'ngay_can_hang') {
             $chi_tiet .= 'hinh_thuc' && $available_fields[$key] === 'Bán' ? 'Mua /' : " $available_fields[$key] $dvt/";
         }
     }
-    
+
     $chi_tiet = substr($chi_tiet, 0, -1);
     $date = getdate(date("U"));
     $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
-    
+
     $template = str_replace("[chi_tiet]", $chi_tiet, $template);
     $template = str_replace("[ngay_thang]", $ngay_thang, $template);
-    
+
     $to = $available_fields['email'];
     $subject = 'Xác nhận đơn hàng';
     $body = $template;
     $headers = array('Content-Type: text/html; charset=UTF-8');
- 
+
     return wp_mail( $to, $subject, $body, $headers );
 }
 
@@ -284,80 +284,100 @@ function getGianGiaoFormData() {
     return array(
         'so_luong2' => [
             'trong_luong' => 7.4,
-            'don_gia' => '148,000'
+            'don_gia' => '178,000'
         ],
         'so_luong3' => [
             'trong_luong' => 5.8,
-            'don_gia' => '116,000'
+            'don_gia' => '140,000'
         ],
         'so_luong4' => [
             'trong_luong' => 4.35,
-            'don_gia' => '87,000'
+            'don_gia' => '105,000'
         ],
         'so_luong5' => [
             'trong_luong' => 3.15,
-            'don_gia' => '63,000'
+            'don_gia' => '76,000'
         ],
         'so_luong6' => [
-            'trong_luong' => 1.1,
-            'don_gia' => '22,000'
+            'trong_luong' => 3.65,
+            'don_gia' => '88,000'
         ],
         'so_luong7' => [
-            'trong_luong' => 1.34,
+            'trong_luong' => 1.1,
             'don_gia' => '27,000'
         ],
         'so_luong8' => [
-            'trong_luong' => 2.05,
-            'don_gia' => '41,000'
+            'trong_luong' => 1.34,
+            'don_gia' => '33,000'
         ],
         'so_luong9' => [
-            'trong_luong' => 2.46,
+            'trong_luong' => 2.05,
             'don_gia' => '50,000'
         ],
         'so_luong10' => [
-            'trong_luong' => 3.02,
-            'don_gia' => '61,000'
+            'trong_luong' => 2.46,
+            'don_gia' => '60,000'
         ],
         'so_luong11' => [
             'trong_luong' => 3.02,
-            'don_gia' => '61,000'
+            'don_gia' => '73,000'
         ],
         'so_luong12' => [
-            'trong_luong' => 8.27,
-            'don_gia' => '166,000'
+            'trong_luong' => 3.02,
+            'don_gia' => '73,000'
         ],
         'so_luong13' => [
-            'trong_luong' => 2,
-            'don_gia' => '40,000'
+            'trong_luong' => 8.27,
+            'don_gia' => '199,000'
         ],
         'so_luong14' => [
-            'trong_luong' => 2.3,
-            'don_gia' => '46,000'
+            'trong_luong' => 2,
+            'don_gia' => '48,000'
         ],
         'so_luong15' => [
-            'trong_luong' => 2,
-            'don_gia' => '40,000'
+            'trong_luong' => 2.3,
+            'don_gia' => '56,000'
         ],
         'so_luong16' => [
-            'trong_luong' => 2.3,
-            'don_gia' => '46,000'
+            'trong_luong' => 2,
+            'don_gia' => '48,000'
         ],
         'so_luong17' => [
-            'trong_luong' => 9.17,
-            'don_gia' => '184,000'
+            'trong_luong' => 2.3,
+            'don_gia' => '56,000'
         ],
         'so_luong18' => [
-            'trong_luong' => 20.96,
-            'don_gia' => '420,000'
+            'trong_luong' => 9.17,
+            'don_gia' => '221,000'
         ],
         'so_luong19' => [
+            'trong_luong' => 20.96,
+            'don_gia' => '504,000'
+        ],
+        'so_luong20' => [
             'trong_luong' => 14.08,
             'don_gia' => '386,000'
         ],
-        'so_luong20' => [
+        'so_luong21' => [
             'trong_luong' => 0.5,
             'don_gia' => '15,000'
         ],
+        'so_luong22' => [
+            'trong_luong' => 4.5,
+            'don_gia' => '80,000'
+        ],
+        'so_luong23' => [
+            'trong_luong' =>  2.7,
+            'don_gia' => '50,000'
+        ],
+        'so_luong24' => [
+            'trong_luong' =>  4.5,
+            'don_gia' => '90,000'
+        ],
+        'so_luong25' => [
+            'trong_luong' => 2.7,
+            'don_gia' => '55,000'
+        ]
     );
 }
 
@@ -747,6 +767,6 @@ function getCities() {
             'Thành phố Cao Lãnh' => array(145, 2)
         )
     );
-    
+
     return $cities;
 }

@@ -43,18 +43,6 @@ jQuery(function ($) {
                 digits: true,
                 minlength: 10
             },
-            chieu_cao: {
-                required: true,
-                number: true,
-                min: 1,
-                max: 999
-            },
-            so_luong: {
-                required: true,
-                number: true,
-                min: 1,
-                max: 999
-            },
             thoi_gian_thue: {
                 required: true,
                 number: true,
@@ -249,7 +237,7 @@ jQuery(function ($) {
                 }
             } else if (sp.loai_sp === 'Giàn giáo') {
                 $('#loai_vt').hide();
-                $('#so_long').hide();
+                $('#sl_gian_giao').hide();
                 $('#chieu_cao').hide();
                 $('#tl_vt_hang').hide();
                 $('#tl_long').hide();
@@ -328,8 +316,8 @@ jQuery(function ($) {
             'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
             'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'so_luong', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };
         var sp = window.GiaHoangProduct;
         sp.submitData = {};

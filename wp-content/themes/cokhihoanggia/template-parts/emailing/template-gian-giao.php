@@ -197,7 +197,7 @@
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">4</td>
                         <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống đứng 1000 mm</strong><br/>- Ống mạ kẽm O49 x 2mm<br/>
-                          - L = 11000mm<br/>- Tóp đầu O42 mm<br/>- 2 cụm tai giằng (Tai giằng 4mm)<br/>- Sơn mạ kẽm mối hàn</td>
+                          - L = 11000mm<br/>- Tóp đầu O42 mm<br/>- 1 cụm tai giằng (Tai giằng 4mm)<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong5%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong5" value="%so_luong5%" disabled/></td>
@@ -214,15 +214,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">5</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 500 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 450 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống đứng 1000 mm</strong><br/>- Ống mạ kẽm O49 x 2mm<br/>
+                          - L = 11000mm<br/>- Tóp đầu O42 mm<br/>- 2 cụm tai giằng (Tai giằng 4mm)<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong6%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong6" value="%so_luong6%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong6%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia6%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia6%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-5.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-4.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -232,15 +232,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">6</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 600 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 550 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 500 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 450 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong7%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong7" value="%so_luong7%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong7%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia7%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia7%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-6.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-5.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -250,15 +250,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">7</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1000 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 950 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 600 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 550 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong8%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong8" value="%so_luong8%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong8%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia8%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia8%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-7.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-6.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -268,15 +268,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">8</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1200 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 1150 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1000 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 950 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong9%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong9" value="%so_luong9%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong9%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia9%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia9%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-8.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-7.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -286,15 +286,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">9</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1500 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 1450 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1200 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 1150 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong10%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong10" value="%so_luong10%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong10%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia10%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia10%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-9.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-8.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -304,15 +304,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">10</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống đà 1200 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 1200 mm<br/>- Tai nêm 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Giằng ngang 1500 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 1450 mm<br/>- Nêm giằng 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong11%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong11" value="%so_luong11%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong11%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia11%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia11%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-10.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-9.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -322,15 +322,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">11</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống consol 900mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
-                          - L = 1150 mm<br/>- Nêm 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống đà 1200 mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 1200 mm<br/>- Tai nêm 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
-                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong12%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong11%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong12" value="%so_luong12%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong12%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia12%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia12%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-11.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-10.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -340,15 +340,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">12</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng bằng: rỗng</strong><br/>- Ống Ø34 x 3,2mm<br/>
-                          - L = 500 mm<br/>- Đế kích 140x140x4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
-                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Chống consol 900mm</strong><br/>- Ống mạ kẽm Ø42 x 2mm<br/>
+                          - L = 1150 mm<br/>- Nêm 5 mm<br/>- Sơn mạ kẽm mối hàn</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cây</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong13%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong13" value="%so_luong13%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong13%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia13%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia13%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-12.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-11.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -359,14 +359,14 @@
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">13</td>
                         <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng bằng: rỗng</strong><br/>- Ống Ø34 x 3,2mm<br/>
-                          - L = 600 mm<br/>- Đế kích 140*140*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
+                          - L = 500 mm<br/>- Đế kích 140x140x4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong14%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong14" value="%so_luong14%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong14%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia14%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia14%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-13.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-12.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -376,15 +376,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">14</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng chữ U: rỗng </strong><br/>- Ống Ø34 x 3,2mm<br/>
-                          - L = 500 mm<br/>- Đế kích 180*80*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng bằng: rỗng</strong><br/>- Ống Ø34 x 3,2mm<br/>
+                          - L = 600 mm<br/>- Đế kích 140*140*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong15%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong15" value="%so_luong15%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong15%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia15%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia15%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-14.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-13.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -395,14 +395,14 @@
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">15</td>
                         <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng chữ U: rỗng </strong><br/>- Ống Ø34 x 3,2mm<br/>
-                          - L = 600 mm<br/>- Đế kích 180*80*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
+                          - L = 500 mm<br/>- Đế kích 180*80*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong16%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong16" value="%so_luong16%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong16%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia16%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia16%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-15.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-14.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -412,15 +412,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">16</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Mâm giàn giáo 1500x360mm </strong><br/>- Tôn dày 1,2 mm<br/>
-                          - Sơn bạc mối hàn+phần sắt<br/>- Dùng cho hệ gg nêm bước 1.5m</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Kích tăng chữ U: rỗng </strong><br/>- Ống Ø34 x 3,2mm<br/>
+                          - L = 600 mm<br/>- Đế kích 180*80*4mm<br/>- Sơn chống gỉ xám toàn bộ</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong17%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong17" value="%so_luong17%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong17%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia17%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia17%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-16.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-15.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -430,15 +430,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">17</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Thang giàn giáo 2500x410mm </strong><br/>- Sơn bạc toàn bộ<br/>
-                          - Chuyên dùng cho hệ gg nêm ngang 1.5m, cao 2m</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Mâm giàn giáo 1500x360mm </strong><br/>- Tôn dày 1,2 mm<br/>
+                          - Sơn bạc mối hàn+phần sắt<br/>- Dùng cho hệ gg nêm bước 1.5m</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong18%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong18" value="%so_luong18%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong18%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia18%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia18%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-17.jpg"/></td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-16.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -448,14 +448,15 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">18</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>Ống thép(L= 6m)</strong></td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>* Thang giàn giáo 2500x410mm </strong><br/>- Sơn bạc toàn bộ<br/>
+                          - Chuyên dùng cho hệ gg nêm ngang 1.5m, cao 2m</td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong19%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong19" value="%so_luong19%" disabled/></td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong19%</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia19%</td>
                         <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia19%</td>
-                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right">&nbsp;</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-17.jpg"/></td>
                       </tr>
                     </table>
                   </td>
@@ -465,7 +466,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
                       <tr>
                         <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">19</td>
-                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>Cùm</strong></td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><strong>Ống thép(L= 6m)</strong></td>
                         <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
                         <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong20%</td>
                         <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong20" value="%so_luong20%" disabled/></td>
@@ -477,7 +478,92 @@
                     </table>
                   </td>
                 </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
+                      <tr>
+                        <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">20</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Cùm</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Cái</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong21%</td>
+                        <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong21" value="%so_luong21%" disabled/></td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong21%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia21%</td>
+                        <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia21%</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
+                      <tr>
+                        <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">21</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Xà gồ 5x10 (1m, 2m, 3m, 6m)</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">m</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong22%</td>
+                        <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong22" value="%so_luong22%" disabled/></td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong22%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia22%</td>
+                        <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia22%</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Hàng đen</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
+                      <tr>
+                        <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">22</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Xà gồ 5x5 (1m, 2m, 3m, 6m)</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">m</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong23%</td>
+                        <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong23" value="%so_luong23%" disabled/></td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong23%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia23%</td>
+                        <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia23%</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Hàng đen</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
+                      <tr>
+                        <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">23</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Xà gồ 5x10 (1m, 2m, 3m, 6m)</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">m</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong24%</td>
+                        <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong24" value="%so_luong24%" disabled/></td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong24%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia24%</td>
+                        <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia24%</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; ">Hàng mạ kẽm</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout: fixed">
+                      <tr>
+                        <td width="25" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">24</td>
+                        <td width="170" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Xà gồ 5x5 (1m, 2m, 3m, 6m)</td>
+                        <td width="30" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">m</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="weightNumber">%trong_luong25%</td>
+                        <td width="50" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><input style="width: 100%; text-align: center; color: red; font-size: 20px;font-weight: 700;" class="so-luong" type="text" name="so_luong25" value="%so_luong25%" disabled/></td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong25%</td>
+                        <td width="70" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia25%</td>
+                        <td width="110" style="vertical-align: middle;border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia25%</td>
+                        <td width="130" style="vertical-align: middle;border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center">Hàng mạ kẽm</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
 
                 <tr>
                   <td align="left" valign="top" style="border-top: 2px solid #ccc">
