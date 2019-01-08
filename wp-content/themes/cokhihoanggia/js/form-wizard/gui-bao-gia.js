@@ -109,6 +109,7 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
+                console.log(JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
             },
             error: function (xhr, ajaxOptions, thrownError) {

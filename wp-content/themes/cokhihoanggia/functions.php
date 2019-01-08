@@ -226,7 +226,10 @@ function tinh_don_gia() {
 // SUPPORT FUNCTIONS
 //*/
 
-
+//*
+//INPUT: @string eg: "100,203"
+//OUTPUT: @number 100203
+//*/
 function convertToNumber($string) {
     return (int) str_replace(',', '', $string);
 }
@@ -249,13 +252,40 @@ function calculateDataForGianGiao($baoGia) {
         }
     }
 
-    $baoGia['tong_trong_luong'] = getTotalWeight($baoGia);
+    // Tổng trọng lượng
+    $baoGia['tong_trong_luong'] = round(getTotalWeight($baoGia));
+    
+    // Phí vận chuyển
     $baoGia['phi_van_chuyen'] = number_format(1200 * $baoGia['tong_trong_luong']);
+    
+    // Tổng đơn giá thiết bị
     $baoGia['tong_don_gia_thiet_bi'] = number_format(getTotalPriceBeforeTax($baoGia));
+    
+    // Tổng đơn giá thuê thiết bị
     $baoGia['tong_don_gia_thue_thiet_bi'] = number_format(getBorrowTotalPriceBeforeTax($baoGia));
-    $baogia['tien_thue_tam_tinh'] = convertToNumber($baoGia['tong_don_gia_thue_thiet_bi']);
+    
+    // Tiền thuê tạm tính
+    $baoGia['tien_thue_tam_tinh'] = convertToNumber($baoGia['tong_don_gia_thue_thiet_bi']);
+    
+    // Tiền thuê tạm tính cho 1 tháng
+    $baoGia['tien_thue_tam_tinh_30ngay'] = number_format($baoGia['tien_thue_tam_tinh']*30);
+    
+    // Tổng đơn giá thuê trước thuế
+    $baoGia['tong_don_gia_thue_truoc_thue'] = number_format(convertToNumber($baoGia['tien_thue_tam_tinh_30ngay']) + convertToNumber($baoGia['phi_van_chuyen']));
+    
+    // VAT tổng giá thuê
+    $baoGia['vat_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thue_truoc_thue'])*0.1);
+    
+    // Tổng đơn giá thuê sau thuế
+    $baoGia['tong_don_gia_thue_sau_thue'] = number_format(convertToNumber($baoGia['vat_thue']) + convertToNumber($baoGia['tong_don_gia_thue_truoc_thue']));
+    
+    // Tổng đơn giá trước thuế
     $baoGia['tong_don_gia_truoc_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thiet_bi']) + convertToNumber($baoGia['phi_van_chuyen']));
+    
+    // VAT
     $baoGia['vat'] = number_format(convertToNumber($baoGia['tong_don_gia_truoc_thue']) * 0.1);
+    
+    //Tổng đơn giá sau thuế
     $baoGia['tong_don_gia_sau_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_truoc_thue']) + convertToNumber($baoGia['vat']));
 
     return $baoGia;
@@ -284,6 +314,10 @@ function getBorrowTotalPriceBeforeTax($data) {
 }
 
 // Get total weight
+//*
+//INPUT @array
+//OUTPUT @float
+//*/
 function getTotalWeight($data) {
     $totalWeight = 0;
     foreach ($data as $key => $value) {
@@ -388,7 +422,7 @@ function getGianGiaoFormData() {
             'don_gia_thue' => 1001
         ],
         'so_luong20' => [
-            'trong_luong' => 14.08,
+            'trong_luong' => 14.80,
             'don_gia' => '386,000',
             'don_gia_thue' => 670
         ],
