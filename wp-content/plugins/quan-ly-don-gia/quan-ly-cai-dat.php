@@ -14,7 +14,8 @@ class WP_GHProduct_Management {
     function __construct() {
 
         add_action('admin_menu', array($this, 'wpa_add_menu'));
-
+//        add_action( 'admin_enqueue_scripts', array($this, 'load_custom_styles') );
+        
         register_activation_hook(__FILE__, array($this, 'wpa_install'));
         register_deactivation_hook(__FILE__, array($this, 'wpa_uninstall'));
     }
@@ -23,7 +24,7 @@ class WP_GHProduct_Management {
     function wpa_add_menu() {
         $hook_suffix = add_menu_page('Báo giá', 'Quản lý cài đặt', 'manage_options', 'cai-dat', array($this, 'display_order_page'));
         
-        add_submenu_page( 'cai-dat', 'Thành phố', 'Thành phố', 'administrator', 'thanh-pho', array($this, 'load_thanh_pho'));
+        $hook_city =  add_submenu_page( 'cai-dat', 'Thành phố', 'Thành phố', 'administrator', 'thanh-pho', array($this, 'load_thanh_pho'));
         add_submenu_page( 'cai-dat', 'Bán/thuê giàn giáo nêm', 'Bán/thuê giàn giáo nêm', 'administrator', 'ban-thue-gian-giao', array($this, 'loa_gian_giao'));
         add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 500kg', 'Mua - VTH - 500kg', 'administrator', 'mua-vth-500kg', array($this, 'load_mua_vth_500kg'));
         add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 1000kg', 'Mua - VTH - 1000kg', 'administrator', 'mua-vth-1000kg', array($this, 'load_mua_vth_1000kg'));
@@ -31,20 +32,32 @@ class WP_GHProduct_Management {
         add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 1000kg', 'Thuê - VTH - 1000kg', 'administrator', 'thue-vth-1000kg', array($this, 'load_thue_vth_1000kg'));
 
         add_action('load-' . $hook_suffix, array($this, 'wpa_admin_styles_scripts'));
+        add_action('load-' . $hook_city, array($this, 'load_thanh_pho_styles'));
     }
 
-    function wpa_admin_styles_scripts() {
-        wp_enqueue_style('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/css/jquery.dataTables.css', __FILE__));
-        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
-        wp_enqueue_style('iziModal', plugins_url('/libs/iziModal/iziModal.min.css', __FILE__));
-        wp_enqueue_style('style', plugins_url('/css/style.css', __FILE__));
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/js/jquery.dataTables.js', __FILE__));
+    function load_custom_styles(){
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
-        wp_enqueue_script('iziModal', plugins_url('/libs/iziModal/iziModal.min.js', __FILE__));
-        wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
+    }
+    
+    function wpa_admin_styles_scripts() {
+//        wp_enqueue_style('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/css/jquery.dataTables.css', __FILE__));
+//        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+//        wp_enqueue_style('iziModal', plugins_url('/libs/iziModal/iziModal.min.css', __FILE__));
+//        wp_enqueue_style('style', plugins_url('/css/style.css', __FILE__));
+//        wp_enqueue_script('jquery');
+//        wp_enqueue_script('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/js/jquery.dataTables.js', __FILE__));
+//        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+//        wp_enqueue_script('iziModal', plugins_url('/libs/iziModal/iziModal.min.js', __FILE__));
+//        wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
     }
 
+    //******************************************LOAD STYLES AND SCRIPTS*******************************
+    function load_thanh_pho_styles(){
+        wp_enqueue_style('thanh_pho', plugins_url('/css/thanh_pho.css', __FILE__));
+        wp_enqueue_script('thanh_pho', plugins_url('/js/thanh_pho.js', __FILE__));
+    }
+    
+    //***************************************** LOAD VIEWS********************************************
     function load_mua_vth_500kg(){
         include_once( 'views/mua-vth-500kg.php' );
     }

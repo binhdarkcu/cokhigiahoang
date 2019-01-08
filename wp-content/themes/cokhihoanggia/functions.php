@@ -756,7 +756,7 @@ function getCities() {
         ),
         'Tiền Giang' => array(
             'Huyện Châu Thành' => array(79.4, 2),
-            'Huyện Tân Phú Đông',
+            'Huyện Tân Phú Đông'=> array(-1, 2),
             'Thị xã Gò Công' => array(60.6, 2),
             'Huyện Tân Phước' => array(71.3, 2),
             'Huyện Gò Công Tây' => array(70.9, 2),
