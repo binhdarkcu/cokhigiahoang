@@ -7,7 +7,11 @@ and open the template in the editor.
     Created on : Jan 8, 2019, 3:25:57 PM
     Author     : cqthanh
 */
-
+#luu-thay-doi{
+    position: fixed;
+    bottom: 30px;
+    right: 15px
+}
 #page-thanh-pho{
     width: 100%;
 }
@@ -23,4 +27,7 @@ and open the template in the editor.
 #page-thanh-pho .city-underline{
     width: 33.33%;
     border-bottom: 1px solid black
+}
+.jq-toast-wrap{
+    z-index: 10000!important;
 }

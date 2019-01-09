@@ -53,6 +53,8 @@ class WP_GHProduct_Management {
 
     //******************************************LOAD STYLES AND SCRIPTS*******************************
     function load_thanh_pho_styles(){
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
         wp_enqueue_style('thanh_pho', plugins_url('/css/thanh_pho.css', __FILE__));
         wp_enqueue_script('thanh_pho', plugins_url('/js/thanh_pho.js', __FILE__));
     }
@@ -92,17 +94,13 @@ class WP_GHProduct_Management {
 
     function wpa_install() {
         global $wpdb;
-        $table_name = $wpdb->prefix . "product_settings";
+        $table_name = $wpdb->prefix . "baogia_settings";
         $charset_collate = $wpdb->get_charset_collate();
 
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
-		full_name tinytext DEFAULT '' NOT NULL,
-		phone_number tinytext DEFAULT '' NOT NULL,
-		email tinytext DEFAULT '' NOT NULL,
-		company tinytext NULL,
-		status tinytext DEFAULT '' NOT NULL,
-		order_detail text NULL,
+		setting_key tinytext DEFAULT '' NOT NULL,
+		setting_value text NULL,
                 is_deleted boolean DEFAULT false,
                 created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,

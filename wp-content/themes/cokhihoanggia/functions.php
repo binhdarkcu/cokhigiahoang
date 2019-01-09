@@ -15,6 +15,7 @@ add_action('wp_ajax_nopriv_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
 add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
+add_action('wp_ajax_cap_nhat_thanh_pho', 'cap_nhat_thanh_pho');
 
 $file = get_template_directory().'/assets/logo_email.png'; //phpmailer will load this file
 $uid = 'logo'; //will map it to this UID
@@ -196,6 +197,56 @@ function cap_nhat_trang_thai() {
     }
 
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
+    wp_die();
+}
+
+function cap_nhat_thanh_pho(){
+    
+    global $wpdb;
+    global $wp_version;
+    $value = $_POST['setting_value'];
+    $key = $_POST['setting_key'];
+
+    if (version_compare($wp_version, '5.0', '<')) {
+
+        $json = wp_unslash($value);
+    } else {
+
+        $json = $value;
+    }
+
+    $rows = array();
+    $result = array(
+        'data' => $rows,
+        'status' => 'ACTION_DENIED'
+    );
+    
+    $status = 'ERROR';
+    
+    // array
+    $decode_value = json_decode($json, JSON_UNESCAPED_UNICODE);
+    
+    // string
+    $encoded_value = json_encode($decode_value, JSON_UNESCAPED_UNICODE);
+    
+    if (is_admin()) {
+        $query = "SELECT * FROM " . $wpdb->prefix . "baogia_settings WHERE setting_key = '$key' AND is_deleted = 0 ORDER BY created_date DESC";
+        $wpdb->query($query);
+
+        $rows = $wpdb->get_results($query, 'ARRAY_A');
+        
+        if($rows){
+            $query = "UPDATE " . $wpdb->prefix . "baogia_settings SET setting_value = '$encoded_value' WHERE setting_key = '$key'";
+        }else{
+            $query = "INSERT INTO " . $wpdb->prefix . "baogia_settings (setting_key, setting_value) VALUES ('$key','$encoded_value')";
+        }
+        
+        $wpdb->query($query);
+        
+        $result['status'] = 'OK';
+    }
+
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
     wp_die();
 }
 
@@ -634,7 +685,7 @@ function getCities() {
             'Huyện U Minh Thượng' => array(300, 2)
         ),
         'Kon Tum' => array(
-            "Huyện Ia H' Drai" => array(590, 2.5),
+            'Huyện Ia H Drai' => array(590, 2.5),
             'Huyện Đắk Glei' => array(682, 2.5),
             'Huyện Ngọc Hồi' => array(636, 2.5),
             'Huyện Đắk Tô' => array(610, 2.5),
@@ -791,23 +842,23 @@ function getCities() {
             'Huyện Krông A Na' => array(352, 2.5),
             'Thành phố Buôn Ma Thuột' => array(334, 2.5),
             'Huyện Cư Kuin' => array(360, 2.5),
-            "Huyện Cư M'gar" => array(360, 2.5),
+            'Huyện Cư M gar' => array(360, 2.5),
             'Huyện Ea Súp' => array(407, 2.5),
             'Huyện Krông Năng' => array(408, 2.5),
-            "Huyện Ea H'leo" => array(417, 2.5),
+            'Huyện Ea H leo' => array(417, 2.5),
             'Huyện Krông Búk' => array(395, 2.5),
             'Huyện Buôn Đôn' => array(351, 2.5),
             'Huyện Lắk' => array(323, 2.5),
             'Huyện Krông Pắc' => array(375, 2.5),
             'Huyện Krông Bông' => array(373, 2.5),
             'Huyện Ea Kar' => array(400, 2.5),
-            "Huyện M'Đrắk" => array(429, 2.5)
+            'Huyện M Đrắk' => array(429, 2.5)
         ),
         'Đắk Nông' => array(
             'Huyện Đắk Mil' => array(278, 2.5),
             'Huyện Cư Jút' => array(325, 2.5),
             'Huyện Đăk Glong' => array(235, 2.5),
-            "Huyện Đắk R'Lấp" => array(193, 2.5),
+            'Huyện Đắk R Lấp' => array(193, 2.5),
             'Huyện Krông Nô' => array(305, 2.5),
             'Huyện Đắk Song' => array(246, 2.5),
             'Huyện Tuy Đức' => array(218, 2.5),
