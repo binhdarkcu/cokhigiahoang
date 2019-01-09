@@ -150,7 +150,7 @@
                         <td width="70" style="vertical-align: middle; border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="MassNumber">%tong_trong_luong2%</td>
                         <td width="70" style="vertical-align: middle; border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right" class="priceNumber">%don_gia2%</td>
                         <td width="110" style="vertical-align: middle; border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;" class="totalPrice">%tong_don_gia2%</td>
-                        <td width="130" style="vertical-align: middle; border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-1.jpg"/></td>
+                        <td width="130" style="vertical-align: middle; border-right: 1px solid #ddd; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right"><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/gian-giao-1.jpg" style="width: 100%" /></td>
                       </tr>
                     </table>
                   </td>

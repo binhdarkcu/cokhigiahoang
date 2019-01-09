@@ -27,7 +27,7 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     <section>
         <footer>
             <button data-izimodal-close="">Đóng</button>
-            <!--<button class="submit">Log in</button>-->            
+            <button class="submit" id="print">In</button>            
         </footer>
     </section>
     </div>
@@ -41,6 +41,10 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 <?php get_template_part("template-parts/emailing/template2");?>
 </script>
 
-<script id="template-3" type="text/template">
-<?php get_template_part("template-parts/emailing/template-gian-giao");?>
+<script id="template-mua-gian-giao" type="text/template">
+<?php get_template_part("template-parts/emailing/template-mua-gian-giao");?>
+</script>
+
+<script id="template-thue-gian-giao" type="text/template">
+<?php get_template_part("template-parts/emailing/template-thue-gian-giao");?>
 </script>

@@ -179,7 +179,7 @@ jQuery(document).ready(function ($) {
             .addClass('highlight');
 
     $("#modal-chi-tiet").iziModal({
-        width: 850,
+        width: 980,
         radius: 5,
         top: 35,
         bottom: 10,
@@ -208,9 +208,12 @@ jQuery(document).ready(function ($) {
                     text = $('#template-2').text();
                     break;
                 case 'form_gian_giao_ban':
+                    console.log('template-mua-gian-giao');
+                    text = $('#template-mua-gian-giao').text();
+                    break;
                 case 'form_gian_giao_thue':
-                    console.log('template 3');
-                    text = $('#template-3').text();
+                    console.log('template-thue-gian-giao');
+                    text = $('#template-thue-gian-giao').text();
                     break;
                 default:
                     console.log('No template found!');
@@ -349,7 +352,7 @@ jQuery(document).ready(function ($) {
 
     // Replace template engine
     function template(text, data) {
-        console.log('text: ', text);
+//        console.log('text: ', text);
         return text
                 .replace(
                         /%(\w*)%/g, // or /{(\w*)}/g for "{this} instead of %this%"
@@ -392,4 +395,8 @@ jQuery(document).ready(function ($) {
             loaderBg: '#9EC600', // Background color of the toast loader
         });
     }
+    
+    $('#print').on('click', function(){
+        $.print('#tblGianGiao');
+    });
 });
