@@ -37,8 +37,8 @@
             <td align="left" valign="top" style="padding-top: 1px">
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td style="padding-right: 3px" width="250">
-                    <a href="http://www.cokhigiahoang.com/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/logo_email.png" width="250" height="178" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0" /></a>
+                  <td style="padding-right: 3px;padding-left: 3px;" width="250">
+                    <a href="http://www.cokhigiahoang.com/" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/logo_email.png" width="245" height="178" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0" /></a>
                   </td>
                   <td align="left" valign="top" width="598">
                     <h3 style="color: #000; text-decoration: none; font-family: Helvetica, Arial, sans-serif; font-size: 20px; margin: 10px 0 15px; line-height: 1.5;">CÔNG TY TNHH MTV XÂY DỰNG CƠ KHÍ GIA HOÀNG</h3>
