@@ -314,24 +314,26 @@ function calculateDataForGianGiao($baoGia) {
     // Tổng đơn giá thiết bị
     $baoGia['tong_don_gia_thiet_bi'] = number_format(getTotalPriceBeforeTax($baoGia));
     
-    // Tổng đơn giá thuê thiết bị
-    $baoGia['tong_don_gia_thue_thiet_bi'] = number_format(getBorrowTotalPriceBeforeTax($baoGia));
-    
-    // Tiền thuê tạm tính
-    $baoGia['tien_thue_tam_tinh'] = convertToNumber($baoGia['tong_don_gia_thue_thiet_bi']);
-    
-    // Tiền thuê tạm tính cho 1 tháng
-    $baoGia['tien_thue_tam_tinh_30ngay'] = number_format($baoGia['tien_thue_tam_tinh']*30);
-    
-    // Tổng đơn giá thuê trước thuế
-    $baoGia['tong_don_gia_thue_truoc_thue'] = number_format(convertToNumber($baoGia['tien_thue_tam_tinh_30ngay']) + convertToNumber($baoGia['phi_van_chuyen']));
-    
-    // VAT tổng giá thuê
-    $baoGia['vat_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thue_truoc_thue'])*0.1);
-    
-    // Tổng đơn giá thuê sau thuế
-    $baoGia['tong_don_gia_thue_sau_thue'] = number_format(convertToNumber($baoGia['vat_thue']) + convertToNumber($baoGia['tong_don_gia_thue_truoc_thue']));
-    
+    if($baoGia['hinh_thuc'] == 'Thuê'){
+        // Tổng đơn giá thuê thiết bị
+        $baoGia['tong_don_gia_thue_thiet_bi'] = number_format(getBorrowTotalPriceBeforeTax($baoGia));
+
+        // Tiền thuê tạm tính
+        $baoGia['tien_thue_tam_tinh'] = convertToNumber($baoGia['tong_don_gia_thue_thiet_bi']);
+
+        // Tiền thuê tạm tính cho 1 tháng
+        $baoGia['tien_thue_tam_tinh_30ngay'] = number_format($baoGia['tien_thue_tam_tinh']*$baoGia['thoi_gian_thue']*30);
+
+        // Tổng đơn giá thuê trước thuế
+        $baoGia['tong_don_gia_thue_truoc_thue'] = number_format(convertToNumber($baoGia['tien_thue_tam_tinh_30ngay']) + convertToNumber($baoGia['phi_van_chuyen']));
+
+        // VAT tổng giá thuê
+        $baoGia['vat_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thue_truoc_thue'])*0.1);
+
+        // Tổng đơn giá thuê sau thuế
+        $baoGia['tong_don_gia_thue_sau_thue'] = number_format(convertToNumber($baoGia['vat_thue']) + convertToNumber($baoGia['tong_don_gia_thue_truoc_thue']));
+    }
+
     // Tổng đơn giá trước thuế
     $baoGia['tong_don_gia_truoc_thue'] = number_format(convertToNumber($baoGia['tong_don_gia_thiet_bi']) + convertToNumber($baoGia['phi_van_chuyen']));
     
