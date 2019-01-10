@@ -15,7 +15,7 @@ add_action('wp_ajax_nopriv_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
 add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
-add_action('wp_ajax_cap_nhat_thanh_pho', 'cap_nhat_thanh_pho');
+add_action('wp_ajax_update_setting', 'update_setting');
 
 $file = get_template_directory().'/assets/logo_email.png'; //phpmailer will load this file
 $uid = 'logo'; //will map it to this UID
@@ -200,7 +200,7 @@ function cap_nhat_trang_thai() {
     wp_die();
 }
 
-function cap_nhat_thanh_pho(){
+function update_setting(){
     
     global $wpdb;
     global $wp_version;
@@ -223,6 +223,8 @@ function cap_nhat_thanh_pho(){
     
     $status = 'ERROR';
     
+    $created_date = $updated_date = current_time('Y-m-d h:i:s');
+    
     // array
     $decode_value = json_decode($json, JSON_UNESCAPED_UNICODE);
     
@@ -236,9 +238,9 @@ function cap_nhat_thanh_pho(){
         $rows = $wpdb->get_results($query, 'ARRAY_A');
         
         if($rows){
-            $query = "UPDATE " . $wpdb->prefix . "baogia_settings SET setting_value = '$encoded_value' WHERE setting_key = '$key'";
+            $query = "UPDATE " . $wpdb->prefix . "baogia_settings SET setting_value = '$encoded_value', updated_date = '$updated_date' WHERE setting_key = '$key'";
         }else{
-            $query = "INSERT INTO " . $wpdb->prefix . "baogia_settings (setting_key, setting_value) VALUES ('$key','$encoded_value')";
+            $query = "INSERT INTO " . $wpdb->prefix . "baogia_settings (setting_key, setting_value, created_date, updated_date) VALUES ('$key','$encoded_value', '$created_date', '$updated_date')";
         }
         
         $wpdb->query($query);

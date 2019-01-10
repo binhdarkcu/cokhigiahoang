@@ -25,7 +25,7 @@ class WP_GHProduct_Management {
         $hook_suffix = add_menu_page('Báo giá', 'Quản lý cài đặt', 'manage_options', 'cai-dat', array($this, 'display_order_page'));
         
         $hook_city =  add_submenu_page( 'cai-dat', 'Thành phố', 'Thành phố', 'administrator', 'thanh-pho', array($this, 'load_thanh_pho'));
-        add_submenu_page( 'cai-dat', 'Bán/thuê giàn giáo nêm', 'Bán/thuê giàn giáo nêm', 'administrator', 'ban-thue-gian-giao', array($this, 'loa_gian_giao'));
+        $hook_gian_giao = add_submenu_page( 'cai-dat', 'Bán/thuê giàn giáo nêm', 'Bán/thuê giàn giáo nêm', 'administrator', 'ban-thue-gian-giao', array($this, 'loa_gian_giao'));
         add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 500kg', 'Mua - VTH - 500kg', 'administrator', 'mua-vth-500kg', array($this, 'load_mua_vth_500kg'));
         add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 1000kg', 'Mua - VTH - 1000kg', 'administrator', 'mua-vth-1000kg', array($this, 'load_mua_vth_1000kg'));
         add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 500kg', 'Thuê - VTH - 500kg', 'administrator', 'thue-vth-500kg', array($this, 'load_thue_vth_500kg'));
@@ -33,6 +33,7 @@ class WP_GHProduct_Management {
 
         add_action('load-' . $hook_suffix, array($this, 'wpa_admin_styles_scripts'));
         add_action('load-' . $hook_city, array($this, 'load_thanh_pho_styles'));
+        add_action('load-' . $hook_gian_giao, array($this, 'load_gian_giao_styles'));
     }
 
     function load_custom_styles(){
@@ -52,10 +53,21 @@ class WP_GHProduct_Management {
     }
 
     //******************************************LOAD STYLES AND SCRIPTS*******************************
+    function load_gian_giao_styles(){
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+        wp_enqueue_style('global_css', plugins_url('/css/global_css.css', __FILE__));
+        wp_enqueue_style('gian_giao', plugins_url('/css/gian_giao.css', __FILE__));
+        wp_enqueue_script('gian_giao', plugins_url('/js/gian_giao.js', __FILE__));
+        wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__));
+    }
+    
     function load_thanh_pho_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+        wp_enqueue_style('global_css', plugins_url('/css/global_css.css', __FILE__));
         wp_enqueue_style('thanh_pho', plugins_url('/css/thanh_pho.css', __FILE__));
+        wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__));
         wp_enqueue_script('thanh_pho', plugins_url('/js/thanh_pho.js', __FILE__));
     }
     
