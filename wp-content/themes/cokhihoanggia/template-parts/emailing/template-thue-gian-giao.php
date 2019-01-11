@@ -647,7 +647,7 @@
                   <td align="left" valign="top">
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
                       <tr>
-                        <td width="597" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Vận chuyển đi và về công trình (1200 vnđ/kg/lượt x Khối lượng thực tế)</td>
+                        <td width="597" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Vận chuyển đi và về công trình (600 vnđ/kg/lượt x Khối lượng thực tế)</td>
                         <td width="90" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 6px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;" class="deliveryPrice">%phi_van_chuyen%</td>
                         <td width="90" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 6px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;" class="finalTotal">%phi_van_chuyen%</td>
                         <td width="100" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 4px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;">&nbsp;</td>
