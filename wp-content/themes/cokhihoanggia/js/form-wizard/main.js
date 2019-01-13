@@ -314,10 +314,10 @@ jQuery(function ($) {
             'ngay_can_hang': 'Ngày cần hàng'
         };
         const form_bao_gia = {
-            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
-            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'so_luong','tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'so_luong', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'so_luong','tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'so_luong','tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
             'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };

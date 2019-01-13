@@ -2923,7 +2923,7 @@ table th, dt {
 table td,dd {
 	padding:6px 0;
 	vertical-align: top;
-	line-height: 1 !important;
+	/*line-height: 1 !important;*/
 }
 table.tbPrices td {
     padding: 0;

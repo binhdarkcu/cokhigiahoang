@@ -121,7 +121,7 @@
                       <tr>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Kiểu vận thăng</td>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">VTH1000</td>
-                        <td width="35%" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;"><i>Sx năm 2017</i>&nbsp;</td>
+                        <td width="35%" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;"><i>Sx năm 2017</i>&nbsp;</td>
                       </tr>
                     </table>
                   </td>
@@ -142,7 +142,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Chiều cao lắp (m)</td>
-                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">20</td>
+                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">%chieu_cao%</td>
                         <td width="35%" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">&nbsp;</td>
                       </tr>
                     </table>
@@ -216,7 +216,7 @@
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold;">Bộ</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">1</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">&nbsp;</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: right; font-weight: bold;">27,000,000</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: right; font-weight: bold;">%chi_phi_mot_lan%</td>
                       </tr>
                     </table>
                   </td>
@@ -229,8 +229,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: bold;">Vận chuyển thiết bị đến công trình</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">6,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">6,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%van_chuyen%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%van_chuyen%</td>
                       </tr>
                     </table>
                   </td>
@@ -243,8 +243,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Lắp đặt vận thăng chiều cao 20m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">6,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">6,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%lap_dat%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%lap_dat%</td>
                       </tr>
                     </table>
                   </td>
@@ -257,8 +257,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Kiểm định thiết bị (12 tháng/lần)</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">3,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">3,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%kiem_dinh_12thang%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%kiem_dinh_12thang%</td>
                       </tr>
                     </table>
                   </td>
@@ -271,8 +271,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Tháo dỡ thiết bị cao 20m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">6,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">6,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%lap_dat%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%lap_dat%</td>
                       </tr>
                     </table>
                   </td>
@@ -285,8 +285,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Vận chuyển thiết bị về kho</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">6,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">6,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%van_chuyen%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%van_chuyen%</td>
                       </tr>
                     </table>
                   </td>
@@ -296,11 +296,11 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold;">B</td>
-                        <td width="273" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;">CHI PHÍ THUÊ 05 THÁNG</td>
+                        <td width="273" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;">CHI PHÍ THUÊ %thoi_gian_thue% THÁNG</td>
                         <td width="55" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold;">Tháng</td>
-                        <td width="72" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">5</td>
-                        <td width="161" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">9,500,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: right; font-weight: bold;">47,500,000</td>
+                        <td width="72" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">%thoi_gian_thue%</td>
+                        <td width="161" style="border-right: 1px solid #000; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; font-weight: bold">%chi_phi_thue_1_thang%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: right; font-weight: bold;">%chi_phi_thue_x_thang%</td>
                       </tr>
                     </table>
                   </td>
@@ -313,8 +313,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; ">Cho thuê 01 bộ vận thăng hàng 1000kg cao 20m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Tháng</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">5</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">8,000,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">40,000,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%don_gia_thue_1_thang%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%don_gia_thue_x_thang%</td>
                       </tr>
                     </table>
                   </td>
@@ -327,8 +327,8 @@
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Bảo trì thiết bị</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Tháng</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">5</td>
-                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1,500,000</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">7,500,000</td>
+                        <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%bao_tri_1_thang%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%bao_tri_x_thang%</td>
                       </tr>
                     </table>
                   </td>
@@ -341,7 +341,7 @@
                         <td style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
                           Cộng giá trị thực hiện cho 01 bộ (A+B)
                         </td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">74,500,000</td>
+                        <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">%gia_tri_thuc_hien%</td>
                       </tr>
                     </table>
                   </td>
@@ -353,7 +353,7 @@
                         <td style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
                           Thuế GTGT 10%
                         </td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">7,450,000</td>
+                        <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">%vat%</td>
                       </tr>
                     </table>
                   </td>
@@ -365,7 +365,31 @@
                         <td style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
                           Tổng cộng 01 bộ sau thuế
                         </td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">81,950,000</td>
+                        <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">%tong_cong_1_bo_sau_thue%</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr style="display: none; display: %show_last_row%">
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
+                      <tr>
+                        <td style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
+                          Tổng cộng %so_luong% bộ sau thuế
+                        </td>
+                        <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">%tong_cong_x_bo_sau_thue%</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
+                      <tr>
+                        <td style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
+                          Bằng chữ: %don_gia_bang_chu% đồng
+                        </td>
+                        <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;"></td>
                       </tr>
                     </table>
                   </td>
@@ -397,8 +421,8 @@
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">4. <strong>Thanh toán</strong>&nbsp;</td>
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;font-weight: 700;">
-                      - Đặt cọc 02 tháng tiền thuê cho 01 bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: 19,000,000 đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối. <br/> <br/>
-                      - Thanh toán chi phí một lần cho 01 bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng sau khi nghiệm thu, kiểm định với số tiền : 29,700,000 đồng (Bằng chữ: Hai mươi chín triệu, bảy trăm ngàn đồng chẵn) trong vòng 07 ngày sau khi hoàn thành lắp đặt, kiểm định. </td>
+                      - Đặt cọc 02 tháng tiền thuê cho 01 bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: %dat_coc1% đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối. <br/> <br/>
+                      - Thanh toán chi phí một lần cho 01 bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng sau khi nghiệm thu, kiểm định với số tiền : %dat_coc2% đồng (Bằng chữ: %dat_coc2_bang_chu% đồng) trong vòng 07 ngày sau khi hoàn thành lắp đặt, kiểm định. </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Thuế GTGT</strong>&nbsp;</td>

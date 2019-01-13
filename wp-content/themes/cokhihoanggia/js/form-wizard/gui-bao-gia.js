@@ -109,7 +109,7 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
-                console.log(JSON.parse(objectDt));
+                console.log('vvvv',JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -139,16 +139,16 @@ jQuery(function ($) {
                 text = $('#template-1').text();
                 break;
             case 'form_vt_hang_ban':
-                text = $('#template-2').text();
+                text =  data.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
                 break;
             case 'form_vt_hang_thue':
-                text = $('#template-1').text();
+                 text =  data.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
                 break;
             case 'form_gian_giao_ban':
-                text = $('#template-3').text();
+                text = $('#template-mua-gian-giao').text();
                 break;
             case 'form_gian_giao_thue':
-                text = $('#template-4').text();
+                text = $('#template-thue-gian-giao').text();
                 break;
             default:
                 break;
