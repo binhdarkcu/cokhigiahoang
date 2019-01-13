@@ -297,9 +297,10 @@ function calculateDataForVanThang($baoGia){
 //    $baoGia['thoi_gian_thue'] = 1;
 //    $baoGia['so_luong'] = 2;
 //    $baoGia['vi_tri'] = 'Tiền Giang';
+//    $baoGia['chieu_cao'] = 60;
     switch($baoGia['loai_vt']){
         case 'Vận thăng hàng':
-            $baoGia = calculateDataForVTH($baoGia);
+            $baoGia = $baoGia['hinh_thu'] == 'Thuê' ? calculateDataForThueVTH($baoGia) : calculateDataForMuaVTH($baoGia);
             break;
         case 'Vận thăng lồng':
             $baoGia = calculateDataForVTL($baoGia);
@@ -309,10 +310,59 @@ function calculateDataForVanThang($baoGia){
     return $baoGia;
 }
 
-function calculateDataForVTH($baoGia){
-    
+function calculateDataForMuaVTH($baoGia){
     $uti = new Utilities();
+    $donGiaMua = $baoGia['tl_vt_hang'] == '500 kg' ? getDonGiaMuaVTH500kg($baoGia) : getDonGiaMuaVTH1000kg($baoGia);
     
+    //Đơn giá cho 1 bộ
+    $baoGia['don_gia_1_bo'] = $donGiaMua['don_gia'];
+    
+    // Đơn giá cho x bộ
+    $baoGia['don_gia_x_bo'] = number_format(convertToNumber($donGiaMua['don_gia'])*$baoGia['so_luong']);
+    
+    // Khung vận thăng
+    $baoGia['khung_van_thang'] = $donGiaMua['khung_van_thang'];
+    
+    // Thanh giằng
+    $baoGia['thanh_giang'] = $donGiaMua['thanh_giang'];
+    
+    $lapDatVaKiemDinh = getChiPhiLapDatVaKiemDinh();
+    // Chi phí lắp đặt
+    $baoGia['lap_dat'] = $lapDatVaKiemDinh['lap_dat'];
+    
+    // Chi phí kiểm định
+    $baoGia['kiem_dinh'] = $lapDatVaKiemDinh['kiem_dinh'];
+    
+    // Chi phí lắp đặt kiểm định (B)
+    $baoGia['chi_phi_lap_dat_kiem_dinh'] = number_format(convertToNumber($baoGia['lap_dat']) + convertToNumber($baoGia['kiem_dinh']));
+    
+    // Giá trị thực hiện (A+B)
+    $baoGia['gia_tri_thuc_hien'] = number_format(convertToNumber($baoGia['don_gia_x_bo']) + convertToNumber($baoGia['chi_phi_lap_dat_kiem_dinh']));
+    
+    // VAT (10%) gía trị thực hiện
+    $baoGia['vat'] = number_format(convertToNumber($baoGia['gia_tri_thuc_hien'])*0.1);
+    
+    // Tổng cộng sau thuế bằng số
+    $baoGia['tong_cong_sau_thue'] = number_format(convertToNumber($baoGia['vat']) + convertToNumber($baoGia['gia_tri_thuc_hien']));
+    
+    // Tổng cộng sau thuế bằng chữ
+    $baoGia['tong_cong_sau_thue_bang_chu'] = $uti->convert_number_to_words(convertToNumber($baoGia['tong_cong_sau_thue']));
+    
+    // Giá trị đặt cọc (50% tổng đơn giá sau thuế)
+    $baoGia['dat_coc1'] = number_format(convertToNumber($baoGia['tong_cong_sau_thue'])*0.5);
+    
+    return $baoGia;
+}
+
+function getChiPhiLapDatVaKiemDinh(){
+    return array(
+        'lap_dat' => '5,000,000',
+        'kiem_dinh' => '3,000,000'
+    );
+}
+
+function calculateDataForThueVTH($baoGia){
+    $uti = new Utilities();
     $additionaInfo = $baoGia['tl_vt_hang'] == '500 kg' ? getAdditionalInfoForVTH500kg() : getAdditionalInfoForVTH1000kg();
     
     // Đơn giá - Lắp đặt/tháo dỡ - vận chuyển
@@ -389,12 +439,22 @@ function calculateDataForVTH($baoGia){
 }
 
 function getDonGiaThueVTH500kg($baoGia){
-    $listDonGia = $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? get_gia_ban_VTH500kg_trong_TPHCM() : get_gia_thue_VTH500kg_ngoai_TP();
+    $listDonGia = $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? get_gia_thue_VTH500kg_trong_TPHCM() : get_gia_thue_VTH500kg_ngoai_TPHCM();
     return $listDonGia[$baoGia['chieu_cao']];
 }
 
 function getDonGiaThueVTH1000kg($baoGia){
     $listDonGia = $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? get_gia_thue_VTH1000kg_trong_TPHCM() : get_gia_thue_VTH1000kg_ngoai_TPHCM();
+    return $listDonGia[$baoGia['chieu_cao']];
+}
+
+function getDonGiaMuaVTH500kg($baoGia){
+    $listDonGia = $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? get_gia_ban_VTH500kg_trong_TPHCM() : get_gia_ban_VTH500kg_ngoai_TPHCM();
+    return $listDonGia[$baoGia['chieu_cao']];
+}
+
+function getDonGiaMuaVTH1000kg($baoGia){
+    $listDonGia = $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? get_gia_ban_VTH1000kg_trong_TPHCM() : get_gia_ban_VTH1000kg_ngoai_TPHCM();
     return $listDonGia[$baoGia['chieu_cao']];
 }
 
@@ -1460,7 +1520,153 @@ function get_gia_ban_VTH1000kg_trong_TPHCM(){
     );
 }
 
-function get_gia_thue_VTH500kg_trong_TP(){
+function get_gia_ban_VTH1000kg_ngoai_TPHCM(){
+    return array(
+        6 => array(
+            'don_gia' => '72,400,000',
+            'thanh_giang' => 1,
+            'khung_van_thang' => 3
+        ),
+        8 => array(
+            'don_gia' => '74,900,000',
+            'thanh_giang' => 1,
+            'khung_van_thang' => 4
+        ),
+        10 => array(
+            'don_gia' => '77,400,000',
+            'thanh_giang' => 2,
+            'khung_van_thang' => 5
+        ),
+        12 => array(
+            'don_gia' => '79,900,000',
+            'thanh_giang' => 2,
+            'khung_van_thang' => 6
+        ),
+        14 => array(
+            'don_gia' => '82,400,000',
+            'thanh_giang' => 2,
+            'khung_van_thang' => 7
+        ),
+        16 => array(
+            'don_gia' => '84,900,000',
+            'thanh_giang' => 3,
+            'khung_van_thang' => 8
+        ),
+        18 => array(
+            'don_gia' => '87,400,000',
+            'thanh_giang' => 3,
+            'khung_van_thang' => 9
+        ),
+        20 => array(
+            'don_gia' => '89,900,000',
+            'thanh_giang' => 4,
+            'khung_van_thang' => 10
+        ),
+        22 => array(
+            'don_gia' => '92,400,000',
+            'thanh_giang' => 5,
+            'khung_van_thang' => 11
+        ),
+        24 => array(
+            'don_gia' => '94,900,000',
+            'thanh_giang' => 5,
+            'khung_van_thang' => 12
+        ),
+        26 => array(
+            'don_gia' => '97,400,000',
+            'thanh_giang' => 6,
+            'khung_van_thang' => 13
+        ),
+        28 => array(
+            'don_gia' => '99,900,000',
+            'thanh_giang' => 7,
+            'khung_van_thang' => 14
+        ),
+        30 => array(
+            'don_gia' => '102,400,000',
+            'thanh_giang' => 7,
+            'khung_van_thang' => 15
+        ),
+        32 => array(
+            'don_gia' => '104,900,000',
+            'thanh_giang' => 7,
+            'khung_van_thang' => 16
+        ),
+        34 => array(
+            'don_gia' => '107,400,000',
+            'thanh_giang' => 8,
+            'khung_van_thang' => 17
+        ),
+        36 => array(
+            'don_gia' => '109,900,000',
+            'thanh_giang' => 9,
+            'khung_van_thang' => 18
+        ),
+        38 => array(
+            'don_gia' => '112,400,000',
+            'thanh_giang' => 9,
+            'khung_van_thang' => 19
+        ),
+        40 => array(
+            'don_gia' => '114,900,000',
+            'thanh_giang' => 10,
+            'khung_van_thang' => 20
+        ),
+        42 => array(
+            'don_gia' => '117,400,000',
+            'thanh_giang' => 11,
+            'khung_van_thang' => 21
+        ),
+        44 => array(
+            'don_gia' => '119,900,000',
+            'thanh_giang' => 11,
+            'khung_van_thang' => 22
+        ),
+        46 => array(
+            'don_gia' => '122,400,000',
+            'thanh_giang' => 12,
+            'khung_van_thang' => 23
+        ),
+        48 => array(
+            'don_gia' => '124,900,000',
+            'thanh_giang' => 13,
+            'khung_van_thang' => 24
+        ),
+        50 => array(
+            'don_gia' => '127,400,000',
+            'thanh_giang' => 13,
+            'khung_van_thang' => 25
+        ),
+        52 => array(
+            'don_gia' => '129,900,000',
+            'thanh_giang' => 14,
+            'khung_van_thang' => 26
+        ),
+        54 => array(
+            'don_gia' => '132,400,000',
+            'thanh_giang' => 15,
+            'khung_van_thang' => 27
+        ),
+        56 => array(
+            'don_gia' => '134,900,000',
+            'thanh_giang' => 15,
+            'khung_van_thang' => 28
+        ),
+        58 => array(
+            'don_gia' => '137,400,000',
+            'thanh_giang' => 16,
+            'khung_van_thang' => 29
+        ),
+        60 => array(
+            'don_gia' => '139,900,000',
+            'thanh_giang' => 17,
+            'khung_van_thang' => 30
+        ),
+    );
+}
+
+
+function get_gia_thue_VTH500kg_trong_TPHCM(){
     return array(
         20 => array(
             'don_gia' => '6,000,000',
@@ -1571,7 +1777,7 @@ function get_gia_thue_VTH500kg_trong_TP(){
 }
 
 
-function get_gia_thue_VTH500kg_ngoai_TP(){
+function get_gia_thue_VTH500kg_ngoai_TPHCM(){
     return array(
         20 => array(
             'don_gia' => '7,000,000',
