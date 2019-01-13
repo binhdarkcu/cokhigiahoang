@@ -252,6 +252,7 @@ function update_setting(){
     wp_die();
 }
 
+// Tính đơn giá giàn giáo, vận thăng
 function tinh_don_gia() {
     global $wp_version;
     global $wpdb;
@@ -310,6 +311,7 @@ function calculateDataForVanThang($baoGia){
     return $baoGia;
 }
 
+// Tính mua vận thăng hàng
 function calculateDataForMuaVTH($baoGia){
     $uti = new Utilities();
     $donGiaMua = $baoGia['tl_vt_hang'] == '500 kg' ? getDonGiaMuaVTH500kg($baoGia) : getDonGiaMuaVTH1000kg($baoGia);
@@ -351,6 +353,10 @@ function calculateDataForMuaVTH($baoGia){
     // Giá trị đặt cọc (50% tổng đơn giá sau thuế)
     $baoGia['dat_coc1'] = number_format(convertToNumber($baoGia['tong_cong_sau_thue'])*0.5);
     
+    // Ngày lập bảng
+    $date = getdate(date("U"));
+    $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
+    
     return $baoGia;
 }
 
@@ -361,6 +367,7 @@ function getChiPhiLapDatVaKiemDinh(){
     );
 }
 
+// Tính thuê vận thăng hàng
 function calculateDataForThueVTH($baoGia){
     $uti = new Utilities();
     $additionaInfo = $baoGia['tl_vt_hang'] == '500 kg' ? getAdditionalInfoForVTH500kg() : getAdditionalInfoForVTH1000kg();
@@ -435,6 +442,9 @@ function calculateDataForThueVTH($baoGia){
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convertToNumber($baoGia['tong_cong_1_bo_sau_thue']));
     }
     
+    // Ngày lập bảng
+    $date = getdate(date("U"));
+    $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
     return $baoGia;
 }
 
