@@ -199,25 +199,21 @@ jQuery(document).ready(function ($) {
             switch (order_detail.form_bao_gia) {
                 case 'form_vt_long_ban':
                 case 'form_vt_long_thue':
-                    console.log('template 1');
                     text = $('#template-1').text();
                     break;
                 case 'form_vt_hang_ban':
+                    text =  order_detail.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
+                    break;
                 case 'form_vt_hang_thue':
-                    console.log('template 2');
-                    text = $('#template-2').text();
+                     text =  order_detail.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
                     break;
                 case 'form_gian_giao_ban':
-                    console.log('template-mua-gian-giao');
                     text = $('#template-mua-gian-giao').text();
                     break;
                 case 'form_gian_giao_thue':
-                    console.log('template-thue-gian-giao');
                     text = $('#template-thue-gian-giao').text();
                     break;
                 default:
-                    console.log('No template found!');
-                    text = '';
                     break;
             }
 

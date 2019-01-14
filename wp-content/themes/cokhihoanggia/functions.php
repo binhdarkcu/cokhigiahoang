@@ -66,6 +66,9 @@ function bao_gia() {
         case 'Giàn giáo':
             $chi_tiet = json_encode(calculateDataForGianGiao($bao_gia), JSON_UNESCAPED_UNICODE);
             break;
+        case 'Vận thăng':
+            $chi_tiet = json_encode(calculateDataForVanThang($bao_gia), JSON_UNESCAPED_UNICODE);
+            break;
         default:
             break;
     }

@@ -33,18 +33,25 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     </div>
 </div>
 
-<script id="template-1" type="text/template">
-<?php get_template_part("template-parts/emailing/template1");?>
+<script id="template-thue-vth-500kg" type="text/template">
+<?php get_template_part("template-parts/emailing/template-thue-van-thang-hang-500kg"); ?>
 </script>
 
-<script id="template-2" type="text/template">
-<?php get_template_part("template-parts/emailing/template2");?>
+<script id="template-thue-vth-1000kg" type="text/template">
+<?php get_template_part("template-parts/emailing/template-thue-van-thang-hang-1000kg"); ?>
+</script>
+
+<script id="template-mua-vth-500kg" type="text/template">
+<?php get_template_part("template-parts/emailing/template-mua-van-thang-hang-500kg"); ?>
+</script>
+
+<script id="template-mua-vth-1000kg" type="text/template">
+<?php get_template_part("template-parts/emailing/template-mua-van-thang-hang-1000kg"); ?>
 </script>
 
 <script id="template-mua-gian-giao" type="text/template">
-<?php get_template_part("template-parts/emailing/template-mua-gian-giao");?>
+    <?php get_template_part("template-parts/emailing/template-mua-gian-giao"); ?>
 </script>
-
 <script id="template-thue-gian-giao" type="text/template">
-<?php get_template_part("template-parts/emailing/template-thue-gian-giao");?>
+    <?php get_template_part("template-parts/emailing/template-thue-gian-giao"); ?>
 </script>
