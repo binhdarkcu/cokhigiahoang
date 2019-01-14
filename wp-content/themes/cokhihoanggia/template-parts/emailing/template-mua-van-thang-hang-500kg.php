@@ -467,6 +467,7 @@
                   <td width="50%" valign="bottom" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;">Xác nhận từ khách hàng</td>
                   <td width="50%" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">
                     <i>%ngay_bao_gia%</i><br/><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong>
+                    <?php if(is_admin()) { ?><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/moc.png" style="width: 100%; max-width: 185px"/> <?php } ?>
                   </td>
                 </tr>
               </table>

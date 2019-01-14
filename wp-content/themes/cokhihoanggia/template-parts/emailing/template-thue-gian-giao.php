@@ -747,7 +747,7 @@
                   <td width="50%" valign="top" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;"><br/><br/>Xác nhận từ khách hàng</td>
                   <td width="50%" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">
                     <i>Ngày  &nbsp;&nbsp;&nbsp;  tháng &nbsp;&nbsp;&nbsp;  năm    </i><br/><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong> <br/>
-                    <?php if(is_admin()) { ?><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/moc.png" style="width: 100%"/> <?php } ?>
+                    <?php if(is_admin()) { ?><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/moc.png" style="width: 100%; max-width: 185px"/> <?php } ?>
                   </td>
                 </tr>
               </table>
