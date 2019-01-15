@@ -21,17 +21,18 @@ function addCommas(nStr) {
     return x1 + x2;
 }
 
-function sendPostRequest(_data, callback) {
+function sendPostRequest(_data, callback, showMsg) {
+    showMsg = typeof showMsg == 'undefined';
     jQuery.ajax({
         type: 'POST',
         url: ajaxurl,
         data: _data,
         success: function (result) {
-            showSuccessMsg();
+            if(showMsg) showSuccessMsg();
             callback(null, result);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            showErrorMsg();
+            if(showMsg) showErrorMsg();
             callback(thrownError);
         }
     });
