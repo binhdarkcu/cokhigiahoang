@@ -22,7 +22,7 @@ class WP_GHProduct_Management {
 
     //Adding menu
     function wpa_add_menu() {
-        $hook_suffix = add_menu_page('Báo giá', 'Quản lý cài đặt', 'manage_options', 'cai-dat', array($this, 'display_order_page'));
+        $hook_suffix = add_menu_page('Báo giá', 'Quản lý cài đặt', 'manage_options', 'cai-dat', array($this, 'display_management_page'));
         
         $hook_city =  add_submenu_page( 'cai-dat', 'Thành phố', 'Thành phố', 'administrator', 'thanh-pho', array($this, 'load_thanh_pho'));
         $hook_gian_giao = add_submenu_page( 'cai-dat', 'Bán/thuê giàn giáo nêm', 'Bán/thuê giàn giáo nêm', 'administrator', 'ban-thue-gian-giao', array($this, 'loa_gian_giao'));
@@ -57,6 +57,7 @@ class WP_GHProduct_Management {
     }
 
     //******************************************LOAD STYLES AND SCRIPTS*******************************
+    // Load styles & scripts cho page thuê vận thăng hàng 500kg
     function load_thue_VTH_500kg_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -65,6 +66,7 @@ class WP_GHProduct_Management {
         wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__)); 
     }
     
+    // Load styles & scripts cho page thuê vận thăng hàng 1000kg
     function load_thue_VTH_1000kg_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -73,6 +75,7 @@ class WP_GHProduct_Management {
         wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__)); 
     }
     
+    // Load styles & scripts cho page mua vận thăng hàng 1000kg
     function load_mua_VTH_1000kg_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -81,6 +84,7 @@ class WP_GHProduct_Management {
         wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__)); 
     }
     
+    // Load styles & scripts cho page mua vận thăng hàng 500kg
     function load_mua_VTH_500kg_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -89,6 +93,7 @@ class WP_GHProduct_Management {
         wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__)); 
     }
     
+    // Load styles & scripts cho page giàn giáo
     function load_gian_giao_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -98,6 +103,7 @@ class WP_GHProduct_Management {
         wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__));
     }
     
+    // Load styles & scripts cho page thành phố
     function load_thanh_pho_styles(){
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
         wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
@@ -108,31 +114,38 @@ class WP_GHProduct_Management {
     }
     
     //***************************************** LOAD VIEWS********************************************
+    // Load view mua vận thăng hàng 500kg
     function load_mua_vth_500kg(){
         include_once( 'views/mua-vth-500kg.php' );
     }
     
+    // Load view mua vận thăng hàng 1000kg
     function load_mua_vth_1000kg(){
         include_once( 'views/mua-vth-1000kg.php' );
     }
     
+    // Load view thuê vận thăng hàng 500kg
     function load_thue_vth_500kg(){
         include_once( 'views/thue-vth-500kg.php' );
     }
     
+    // Load view thuê vận thang hằng 1000kg
     function load_thue_vth_1000kg(){
         include_once( 'views/thue-vth-1000kg.php' );
     }
     
+    // Load view list thành phố
     function load_thanh_pho(){
         include_once( 'views/thanh-pho.php' );
     }
     
+    // Load view giàn giáo
     function loa_gian_giao(){
         include_once( 'views/gian-giao-nem.php' );
     }
     
-    function display_order_page() {
+    // Hiện thị trang quản trị chung
+    function display_management_page() {
         include_once( 'views/management.php' );
     }
 
