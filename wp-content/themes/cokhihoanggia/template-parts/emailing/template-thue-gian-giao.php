@@ -1,4 +1,4 @@
-<?php $gian_giao = getGianGiaoFormData(); ?>
+<?php $gian_giao = get_gian_giao_form_data(); ?>
 <!DOCTYPE html>
 <html>
 <head>

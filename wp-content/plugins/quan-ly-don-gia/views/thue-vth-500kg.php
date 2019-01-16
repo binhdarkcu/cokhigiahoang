@@ -1,4 +1,4 @@
-<?php $cities = getCities();
+<?php
 $list_don_gia_trong = get_gia_thue_VTH500kg_trong_TPHCM();
 $list_don_gia_ngoai = get_gia_thue_VTH500kg_ngoai_TPHCM();
 ?>

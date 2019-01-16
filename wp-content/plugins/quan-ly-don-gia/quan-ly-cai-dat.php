@@ -45,6 +45,11 @@ class WP_GHProduct_Management {
     }
     
     function wpa_admin_styles_scripts() {
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+        wp_enqueue_script('global_fnc', plugins_url('/js/global_func.js', __FILE__));
+        wp_enqueue_style('global_css', plugins_url('/css/global_css.css', __FILE__));
+        wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__)); 
 //        wp_enqueue_style('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/css/jquery.dataTables.css', __FILE__));
 //        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
 //        wp_enqueue_style('iziModal', plugins_url('/libs/iziModal/iziModal.min.css', __FILE__));

@@ -1,4 +1,4 @@
-<?php $cities = getCities();
+<?php $cities = get_cities();
 $count = 0;
 ?>
 <script>var Cities = JSON.parse(`<?php echo json_encode($cities, JSON_UNESCAPED_UNICODE)?>`)</script>

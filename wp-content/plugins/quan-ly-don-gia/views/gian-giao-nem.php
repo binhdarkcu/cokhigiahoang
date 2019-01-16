@@ -1,5 +1,5 @@
 <?php 
-$gian_giao = getGianGiaoFormData();
+$gian_giao = get_gian_giao_form_data();
 ?>
 <script>var GiaHoangData = {}; const setting_keys = ['gian_giao']; GiaHoangData[setting_keys[0]] = JSON.parse(`<?php echo json_encode($gian_giao, JSON_UNESCAPED_UNICODE)?>`);</script>
 <style type="text/css">

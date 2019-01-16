@@ -12,7 +12,9 @@ jQuery(document).ready(function ($) {
         const key = $(this).data('key');
         const index = $(this).data('index');
         var finalValue = (index === 'don_gia' || index === 'don_gia_thue' || index === 'lap_dat' || index === 'van_chuyen') ? addCommas(this.value) : this.value;
-        GiaHoangData[setting_key][key][index] = finalValue || 0;
+        // no key [1: 'a', 2: 'b']
+        // has key [1 :[data: 'abc', index: '456']]
+        key ? GiaHoangData[setting_key][key][index] = finalValue || 0 : GiaHoangData[setting_key][index] = finalValue || 0
         this.value = finalValue || 0;
 
         console.log(`key; ${key} - index: ${index} - value: ${this.value}`);

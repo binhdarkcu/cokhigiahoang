@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php
 $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
-$cities = getCities();
+$cities = get_cities();
 $data = array();
 foreach ($cities as $city => $districts){
     foreach ($districts as $district => $detail){
