@@ -723,6 +723,9 @@ function get_chi_phi_lap_dat_va_kiem_dinh() {
 
 function query_settings($setting_key) {
     global $wpdb;
+    
+    //temp disable
+    return '';
     if ($setting_key) {
         $query = 'SELECT * FROM ' . $wpdb->prefix . 'giahoang_settings WHERE setting_key="' . $setting_key . '" AND is_deleted = FALSE';
         $result =  $wpdb->get_row($query, ARRAY_A);
