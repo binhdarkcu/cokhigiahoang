@@ -272,7 +272,7 @@ function tinh_don_gia() {
     $baoGia = json_decode($json, true);
 
     switch($baoGia['loai_sp']){
-        case 'Giào giáo':
+        case 'Giàn giáo':
             $baoGia = calculate_data_for_gian_giao($baoGia);
             break;
         case 'Vận thăng':
@@ -294,7 +294,7 @@ function tinh_don_gia() {
 //OUTPUT: @number 100203
 //*/
 function convert_to_number($string) {
-    return (int) str_replace(',', '', $string);
+    return (float) str_replace(',', '', $string);
 }
 
 function calculate_data_for_van_thang($baoGia){
@@ -472,6 +472,7 @@ function get_don_gia_mua_VTH_1000kg($baoGia){
 }
 
 function calculate_data_for_gian_giao($baoGia) {
+    $uti = new Utilities();
     $formGianGiao = get_gian_giao_form_data();
     foreach ($baoGia as $key => $value) {
         // so_luong2 , so_luong3
@@ -492,11 +493,23 @@ function calculate_data_for_gian_giao($baoGia) {
     // Tổng trọng lượng
     $baoGia['tong_trong_luong'] = round(get_total_weight($baoGia));
     
+    //Đơn giá vận chuyển trên kg
+    $baoGia['don_gia_van_chuyen'] = get_phi_van_chuyen_gian_giao($baoGia);
+    
     // Phí vận chuyển
-    $baoGia['phi_van_chuyen'] = number_format(1200 * $baoGia['tong_trong_luong']);
+    $baoGia['phi_van_chuyen'] = number_format($baoGia['don_gia_van_chuyen'] * 2 * $baoGia['tong_trong_luong']);
     
     // Tổng đơn giá thiết bị
     $baoGia['tong_don_gia_thiet_bi'] = number_format(get_total_price_berfore_tax($baoGia));
+    
+    // Tổng đơn giá trước thuế
+    $baoGia['tong_don_gia_truoc_thue'] = number_format(convert_to_number($baoGia['tong_don_gia_thiet_bi']) + convert_to_number($baoGia['phi_van_chuyen']));
+    
+    // VAT
+    $baoGia['vat'] = number_format(convert_to_number($baoGia['tong_don_gia_truoc_thue']) * 0.1);
+    
+    //Tổng đơn giá sau thuế
+    $baoGia['tong_don_gia_sau_thue'] = number_format(convert_to_number($baoGia['tong_don_gia_truoc_thue']) + convert_to_number($baoGia['vat']));
     
     if($baoGia['hinh_thuc'] == 'Thuê'){
         // Tổng đơn giá thuê thiết bị
@@ -516,16 +529,16 @@ function calculate_data_for_gian_giao($baoGia) {
 
         // Tổng đơn giá thuê sau thuế
         $baoGia['tong_don_gia_thue_sau_thue'] = number_format(convert_to_number($baoGia['vat_thue']) + convert_to_number($baoGia['tong_don_gia_thue_truoc_thue']));
+        
+        $baoGia['tong_don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_don_gia_thue_sau_thue']));
+        
+    }else{
+        $baoGia['tong_don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_don_gia_sau_thue']));
     }
 
-    // Tổng đơn giá trước thuế
-    $baoGia['tong_don_gia_truoc_thue'] = number_format(convert_to_number($baoGia['tong_don_gia_thiet_bi']) + convert_to_number($baoGia['phi_van_chuyen']));
-    
-    // VAT
-    $baoGia['vat'] = number_format(convert_to_number($baoGia['tong_don_gia_truoc_thue']) * 0.1);
-    
-    //Tổng đơn giá sau thuế
-    $baoGia['tong_don_gia_sau_thue'] = number_format(convert_to_number($baoGia['tong_don_gia_truoc_thue']) + convert_to_number($baoGia['vat']));
+    // Ngày báo giá
+    $date = getdate(date("U"));
+    $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";;
 
     return $baoGia;
 }
@@ -1905,6 +1918,15 @@ function get_phan_tram_theo_thang_thue(){
         1 => 20,
         2 => 10
     );
+}
+
+function get_phi_van_chuyen_gian_giao($baoGia){
+    $phi_van_chuyen = array(
+        'trong_tp_hcm' => 500,
+        'ngoai_tp_hcm' => 600
+    );
+    
+    return $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? $phi_van_chuyen['trong_tp_hcm'] : $phi_van_chuyen['ngoai_tp_hcm'];
 }
 
 function get_gia_thue_VTH1000kg_trong_TPHCM(){

@@ -647,7 +647,7 @@
                   <td align="left" valign="top">
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
                       <tr>
-                        <td width="555" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Vận chuyển đi và về công trình (600 vnđ/kg/lượt x Khối lượng thực tế)</td>
+                        <td width="555" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Vận chuyển đi và về công trình (%don_gia_van_chuyen% vnđ/kg/lượt x Khối lượng thực tế)</td>
                         <td width="70" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 6px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;" class="deliveryPrice">%phi_van_chuyen%</td>
                         <td width="80" style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 5px 6px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;" class="finalTotal">%phi_van_chuyen%</td>
                         <td width="100" style="border-right: 1px solid transparent; border-bottom: 1px solid #000; padding: 5px 5px 5px 4px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;">&nbsp;</td>
@@ -695,7 +695,7 @@
                   <td align="left" valign="top">
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
                       <tr>
-                        <td style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Bằng chữ: Hai triệu ba trăm bốn bảy ngàn bốn trăm đồng</td>
+                        <td style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;font-weight: bold;">Bằng chữ: %tong_don_gia_bang_chu% đồng</td>
                         <td width="90" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 6px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;">&nbsp;</td>
                         <td width="100" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 4px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;font-weight: bold;">&nbsp;</td>
                       </tr>
@@ -746,7 +746,7 @@
                 <tr>
                   <td width="50%" valign="top" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: left; font-weight: bold;"><br/><br/>Xác nhận từ khách hàng</td>
                   <td width="50%" style="font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">
-                    <i>Ngày  &nbsp;&nbsp;&nbsp;  tháng &nbsp;&nbsp;&nbsp;  năm    </i><br/><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong> <br/>
+                    <i>%ngay_bao_gia%</i><br/><br/><strong>CÔNG TY TNHH MTV XD-CK GIA HOÀNG</strong> <br/>
                     <?php if(is_admin()) { ?><img src="<?php echo get_stylesheet_directory_uri(); ?>/template-parts/emailing/images/moc.png" style="width: 100%; max-width: 185px"/> <?php } ?>
                   </td>
                 </tr>
