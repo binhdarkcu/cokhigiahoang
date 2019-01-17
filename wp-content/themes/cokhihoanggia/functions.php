@@ -1,4 +1,5 @@
 <?php
+
 require_once( __DIR__ . './utilites/Utilities.php');
 require_once( __DIR__ . './utilites/Stores.php');
 //Define constants
@@ -303,7 +304,7 @@ function calculate_data_for_van_thang($baoGia) {
 //    $baoGia['chieu_cao'] = 60;
     switch ($baoGia['loai_vt']) {
         case 'Vận thăng hàng':
-            $baoGia = $baoGia['hinh_thu'] == 'Thuê' ? calculate_data_for_thue_VTH($baoGia) : calculate_data_for_mua_VTH($baoGia);
+            $baoGia = $baoGia['hinh_thuc'] == 'Thuê' ? calculate_data_for_thue_VTH($baoGia) : calculate_data_for_mua_VTH($baoGia);
             break;
         case 'Vận thăng lồng':
             $baoGia = calculateDataForVTL($baoGia);
@@ -361,7 +362,6 @@ function calculate_data_for_mua_VTH($baoGia) {
 
     return $baoGia;
 }
-
 
 // Tính thuê vận thăng hàng
 function calculate_data_for_thue_VTH($baoGia) {
@@ -574,62 +574,118 @@ function get_total_weight($data) {
 
 function get_additional_info_for_VTH_500kg() {
     $stores = new Stores();
+    $key = 'test';
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_additional_info_for_VTH_500kg();
 }
 
 function get_additional_info_for_VTH_1000kg() {
     $stores = new Stores();
+    $key = 'test';
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_additional_info_for_VTH_1000kg();
 }
 
 // Gian giao data structure
 function get_gian_giao_form_data() {
     $stores = new Stores();
+    $key = 'test';
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gian_giao_form_data();
 }
 
 function get_cities() {
+    $key = 'thanh_pho';
     $stores = new Stores();
 
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_cities();
 }
 
 function get_gia_ban_VTH500kg_trong_TPHCM() {
+    $key = 'ban_VTH_500kg_trong_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_ban_VTH500kg_trong_TPHCM();
 }
 
 function get_gia_ban_VTH500kg_ngoai_TPHCM() {
+    $key = 'ban_VTH_500kg_ngoai_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_ban_VTH500kg_ngoai_TPHCM();
 }
 
 function get_gia_ban_VTH1000kg_trong_TPHCM() {
+    $key = 'ban_VTH_1000kg_trong_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_ban_VTH1000kg_trong_TPHCM();
 }
 
 function get_gia_ban_VTH1000kg_ngoai_TPHCM() {
+    $key = 'ban_VTH_1000kg_ngoai_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_ban_VTH1000kg_ngoai_TPHCM();
 }
 
 function get_gia_thue_VTH500kg_trong_TPHCM() {
+    $key = 'thue_VTH_500kg_trong_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_thue_VTH500kg_trong_TPHCM();
 }
 
 function get_gia_thue_VTH500kg_ngoai_TPHCM() {
+    $key = 'thue_VTH_500kg_ngoai_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_thue_VTH500kg_ngoai_TPHCM();
 }
 
 function get_phan_tram_theo_thang_thue() {
+    $key = 'phan_tram_theo_thang_thue';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_phan_tram_theo_thang_thue();
 }
 
 function get_phi_van_chuyen_gian_giao($baoGia) {
+    $key = 'phi_van_chuyen_gian_giao';
     $phi_van_chuyen = array(
         'trong_tp_hcm' => 500,
         'ngoai_tp_hcm' => 600
@@ -639,16 +695,38 @@ function get_phi_van_chuyen_gian_giao($baoGia) {
 }
 
 function get_gia_thue_VTH1000kg_trong_TPHCM() {
+    $key = 'thue_vth_1000kg_trong_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_thue_VTH1000kg_trong_TPHCM();
 }
 
 function get_gia_thue_VTH1000kg_ngoai_TPHCM() {
+    $key = 'thue_vth_1000kg_ngoai_TPHCM';
     $stores = new Stores();
+    $result = query_settings($key);
+
+    if ($result) {
+        return $result;
+    }
     return $stores->get_gia_thue_VTH1000kg_ngoai_TPHCM();
 }
 
 function get_chi_phi_lap_dat_va_kiem_dinh() {
+    $key = 'addition_info_mua_VTH';
     $stores = new Stores();
     return $stores->get_chi_phi_lap_dat_va_kiem_dinh();
+}
+
+function query_settings($setting_key) {
+    global $wpdb;
+    if ($setting_key) {
+        $query = 'SELECT * FROM ' . $wpdb->prefix . 'giahoang_settings WHERE setting_key="' . $setting_key . '" AND is_deleted = FALSE';
+        $result =  $wpdb->get_row($query, ARRAY_A);
+        return $result ? json_decode($result, true) : '';
+    }
+    return '';
 }
