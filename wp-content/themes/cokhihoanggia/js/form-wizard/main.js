@@ -200,6 +200,23 @@ jQuery(function ($) {
         const value = this.value;
         if (window && window.GiaHoangProduct)
             window.GiaHoangProduct[name] = value;
+        
+        if(GiaHoangProduct['hinh_thuc'] === 'Bán' && GiaHoangProduct['loai_sp'] === 'Vận thăng'){
+            $('#select_chieu_cao').empty();
+            $("#select_chieu_cao").append('<option value=""></option>');
+            for(var i = 6; i<=60; i+=2){
+                $("#select_chieu_cao").append('<option value="' + i + '">' + i + '</option>');
+                $("#select_chieu_cao").trigger("chosen:updated");
+            }
+        }else if(GiaHoangProduct['hinh_thuc'] === 'Thuê' && GiaHoangProduct['loai_sp'] === 'Vận thăng'){
+            $('#select_chieu_cao').empty();
+            $("#select_chieu_cao").append('<option value=""></option>');
+            for(var i = 20; i<=60; i+=2){
+                $("#select_chieu_cao").append('<option value="' + i + '">' + i + '</option>');
+                $("#select_chieu_cao").trigger("chosen:updated");
+            }
+        }
+        console.log(`name ${this.name} - value ${this.value} - window.GiaHoangProduct ${window.GiaHoangProduct['hinh_thuc']}`);
         setShowHideSection();
     });
 
