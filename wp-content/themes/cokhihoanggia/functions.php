@@ -36,10 +36,12 @@ function ajax_enqueue() {
     wp_localize_script('main_js', 'globalConfig', array('admin_ajax_url' => admin_url('admin-ajax.php')));
 }
 
+
 function bao_gia() {
     check_ajax_referer('H4GpryAtCnbwJVTdNMMf', 'security');
     global $wp_version;
     global $wpdb;
+    $validator = new BaoGiaValidator();
     $json_data = $_POST['json'];
 
     if (version_compare($wp_version, '5.0', '<')) {
@@ -55,7 +57,8 @@ function bao_gia() {
     
     $bao_gia = json_decode($json, true);
 
-    isValidData($bao_gia);
+    $validator->isValidData($bao_gia);
+    
     //Lấy thông tin người báo giá
     //Validate dữ liệu đầu vào
     $ho_ten = $bao_gia['ho_ten'];
@@ -100,10 +103,6 @@ function bao_gia() {
     echo json_encode($result);
     // Don't forget to stop execution afterward.
     wp_die();
-}
-
-function isValidData($baoGia){
-    
 }
 
 function send_email_to_customer($bao_gia) {
