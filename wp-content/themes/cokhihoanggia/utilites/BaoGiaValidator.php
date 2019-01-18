@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Stores {
+class BaoGiaValidator {
     public function isValidData($data){
         
     }

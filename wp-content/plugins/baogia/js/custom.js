@@ -163,10 +163,10 @@ jQuery(document).ready(function ($) {
                 targets: 5,
                 data: "5",
                 render: {
-                  _: 'display',
-                  sort: 'selected_status',
-                  filter: 'selected_status'
-              }
+                    _: 'display',
+                    sort: 'selected_status',
+                    filter: 'selected_status'
+                }
             }],
         "createdRow": function (row, data, index) {
 //            console.log('row: ', row);
@@ -202,10 +202,10 @@ jQuery(document).ready(function ($) {
                     text = $('#template-1').text();
                     break;
                 case 'form_vt_hang_ban':
-                    text =  order_detail.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
+                    text = order_detail.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
                     break;
                 case 'form_vt_hang_thue':
-                     text =  order_detail.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
+                    text = order_detail.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
                     break;
                 case 'form_gian_giao_ban':
                     text = $('#template-mua-gian-giao').text();
@@ -274,8 +274,10 @@ jQuery(document).ready(function ($) {
                                 '2': baoGia.email,
                                 '3': baoGia.company,
                                 '4': baoGia.created_date,
-                                '5' : {
-                                    "display": (`<select class="order-status" data-item-id="${baoGia.id}">${statuses.map(function (item) {return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);}).join(' ')}</select>`),
+                                '5': {
+                                    "display": (`<select class="order-status" data-item-id="${baoGia.id}">${statuses.map(function (item) {
+                                        return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
+                                    }).join(' ')}</select>`),
                                     "selected_status": `${baoGia.status}`,
                                 },
                                 '6': (` <a href="#" class="xem-chi-tiet" data-id="${baoGia.id}" data-item-index="${index}" data-item-data="${Base64.encode(baoGia.order_detail)}">Chi tiết</a> <a href="#" class="xoa-bao-gia" data-id="${baoGia.id}" data-item-index="${index}">Xóa</a>`),
@@ -326,7 +328,6 @@ jQuery(document).ready(function ($) {
         });
     }
 
-
     // Send post request
     function sendPostRequest(_data, callback) {
         $.ajax({
@@ -335,11 +336,11 @@ jQuery(document).ready(function ($) {
             data: _data,
             success: function (result) {
                 console.log('result: ', result);
-                showSuccessMsg();
+                showNotification('Thông tin đã được cập nhật thành công.', 'success');
                 callback(null, result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                showErrorMsg();
+                showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.', 'error');
                 console.error(thrownError);
                 callback(thrownError);
             }
@@ -358,41 +359,24 @@ jQuery(document).ready(function ($) {
                 );
     }
 
-    // Show success message
-    function showSuccessMsg() {
-        $.toast({
-            text: "Thông tin đã được cập nhật thành công.", // Text that is to be shown in the toast
-            heading: 'Hệ thống', // Optional heading to be shown on the toast
-            icon: 'success', // Type of toast icon
-            showHideTransition: 'slide', // fade, slide or plain
-            allowToastClose: true, // Boolean value true or false
-            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-            textAlign: 'left', // Text alignment i.e. left, right or center
-            loader: true, // Whether to show loader or not. True by default
-            loaderBg: '#9EC600', // Background color of the toast loader
-        });
-    }
 
-    // Show error message
-    function showErrorMsg() {
-        $.toast({
-            text: "Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.", // Text that is to be shown in the toast
-            heading: 'Hệ thống', // Optional heading to be shown on the toast
-            icon: 'error', // Type of toast icon
-            showHideTransition: 'slide', // fade, slide or plain
-            allowToastClose: true, // Boolean value true or false
-            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-            textAlign: 'left', // Text alignment i.e. left, right or center
-            loader: true, // Whether to show loader or not. True by default
-            loaderBg: '#9EC600', // Background color of the toast loader
-        });
-    }
-    
-    $('#print').on('click', function(){
+    $('#print').on('click', function () {
         $.print('#tblGianGiao');
     });
+
+    function showNotification(msg, type) {
+        $.toast({
+            text: msg, // Text that is to be shown in the toast
+            heading: 'Hệ thống', // Optional heading to be shown on the toast
+            icon: type, // Type of toast icon
+            showHideTransition: 'slide', // fade, slide or plain
+            allowToastClose: true, // Boolean value true or false
+            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+            textAlign: 'left', // Text alignment i.e. left, right or center
+            loader: true, // Whether to show loader or not. True by default
+            loaderBg: '#9EC600', // Background color of the toast loader
+        });
+    }
 });
