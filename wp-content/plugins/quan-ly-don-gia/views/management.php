@@ -1,21 +1,20 @@
 <?php 
 $mua_VTH_lap_dat_kiem_dinh = get_chi_phi_lap_dat_va_kiem_dinh();
+
 $addition_info_mua_VTH_500kg = get_additional_info_for_VTH_500kg();
 $addition_info_mua_VTH_1000kg = get_additional_info_for_VTH_1000kg();
 $phan_tram_theo_thang_thue = get_phan_tram_theo_thang_thue();
+$phi_van_chuyen_gian_giao = get_phi_van_chuyen_gian_giao(null);
 ?>
-<script>var setting_keys = ['addition_info_mua_VTH', 'addition_info_mua_VTH_500kg', 'addition_info_mua_VTH_1000kg', 'phan_tram_theo_thang_thue']; var GiaHoangData = {};</script>
+<script>var setting_keys = ['<?php echo ADDITIONAL_INFO_MUA_VTH;?>', '<?php echo ADDITIONAL_INFO_MUA_VTH_500KG;?>', '<?php echo ADDITIONAL_INFO_MUA_VTH_1000KG;?>', '<?php echo PHAN_TRAM_THEO_THANG_THUE;?>', '<?php echo PHI_VAN_CHUYEN_GIAN_GIAO;?>']; var GiaHoangData = {};</script>
 <script>GiaHoangData[setting_keys[0]] = JSON.parse(`<?php echo json_encode($mua_VTH_lap_dat_kiem_dinh, JSON_UNESCAPED_UNICODE)?>`);</script>
 <script>GiaHoangData[setting_keys[1]] = JSON.parse(`<?php echo json_encode($addition_info_mua_VTH_500kg, JSON_UNESCAPED_UNICODE)?>`);</script>
 <script>GiaHoangData[setting_keys[2]] = JSON.parse(`<?php echo json_encode($addition_info_mua_VTH_1000kg, JSON_UNESCAPED_UNICODE)?>`);</script>
 <script>GiaHoangData[setting_keys[3]] = JSON.parse(`<?php echo json_encode($phan_tram_theo_thang_thue, JSON_UNESCAPED_UNICODE)?>`);</script>
+<script>GiaHoangData[setting_keys[4]] = JSON.parse(`<?php echo json_encode($phi_van_chuyen_gian_giao, JSON_UNESCAPED_UNICODE)?>`);</script>
 <div id="page-cai-dat-khac">
     <h1 class="align-center">CÁC THIẾT LẬP KHÁC</h2>
     <table width="100%">
-<!--        <thead>
-            <th><h3 class="align-left">Trong thành phố HCM</h3></th>
-            <th><h3 class="align-left">Ngoài thành phố HCM</h3></th>
-        </thead>-->
         <tbody>
             <tr>
                 <td>
@@ -53,7 +52,7 @@ $phan_tram_theo_thang_thue = get_phan_tram_theo_thang_thue();
                                 <strong>Lắp đặt:</strong>
                             </td>
                             <td>
-                                <input type="text" class="setting-data" data-key="" data-index="don_gia" data-setting-key-index="0" value="<?php echo $mua_VTH_lap_dat_kiem_dinh['lap_dat'];?>"/>
+                                <input type="text" class="setting-data" data-key="" data-index="lap_dat" data-setting-key-index="0" value="<?php echo $mua_VTH_lap_dat_kiem_dinh['lap_dat'];?>"/>
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +60,7 @@ $phan_tram_theo_thang_thue = get_phan_tram_theo_thang_thue();
                                 <strong>Kiểm định:</strong>
                             </td>
                             <td>
-                                <input type="text" class="setting-data" data-key="" data-index="don_gia" data-setting-key-index="0" value="<?php echo $mua_VTH_lap_dat_kiem_dinh['kiem_dinh'];?>"/>
+                                <input type="text" class="setting-data" data-key="" data-index="kiem_dinh" data-setting-key-index="0" value="<?php echo $mua_VTH_lap_dat_kiem_dinh['kiem_dinh'];?>"/>
                             </td>
                         </tr>
                     </table>                    
@@ -110,6 +109,29 @@ $phan_tram_theo_thang_thue = get_phan_tram_theo_thang_thue();
                         </tr>
                     </table>                    
                 </td>                
+            </tr>
+            <tr>
+                <td>
+                    <h3>Chi phí vận chuyển giàn giáo (THUÊ) - đơn giá VND</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <strong>Trong TP HCM:</strong>
+                            </td>
+                            <td>
+                                <input type="text" class="setting-data" data-key="" data-index="trong_tp_hcm" data-setting-key-index="4" value="<?php echo $phi_van_chuyen_gian_giao['trong_tp_hcm'];?>"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Ngoài TP HCM:</strong>
+                            </td>
+                            <td>
+                                <input type="text" class="setting-data" data-key="" data-index="ngoai_tp_hcm" data-setting-key-index="4" value="<?php echo $phi_van_chuyen_gian_giao['ngoai_tp_hcm'];?>"/>
+                            </td>
+                        </tr>
+                    </table>                    
+                </td>
             </tr>
         </tbody>
     </table>

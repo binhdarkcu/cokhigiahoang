@@ -219,8 +219,8 @@ jQuery(document).ready(function ($) {
 
             //Apply template
             delete order_detail.form_bao_gia;
-            console.log('text: ', text);
-            console.log('Object: ', JSON.stringify(order_detail));
+//            console.log('text: ', text);
+//            console.log('Object: ', JSON.stringify(order_detail));
             text = template(text, order_detail);
             $('#detail-content').html(text);
             detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);

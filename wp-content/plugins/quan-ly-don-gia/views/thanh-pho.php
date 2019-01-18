@@ -1,7 +1,7 @@
 <?php $cities = get_cities();
 $count = 0;
 ?>
-<script>var Cities = JSON.parse(`<?php echo json_encode($cities, JSON_UNESCAPED_UNICODE)?>`)</script>
+<script>var server_setting_key ="<?php echo THANH_PHO;?>"; var Cities = JSON.parse(`<?php echo json_encode($cities, JSON_UNESCAPED_UNICODE)?>`)</script>
 <div id="page-thanh-pho">
     <h1 class="align-center">DANH SÁCH THÀNH PHỐ VÀ CÁC QUẬN, HUYỆN HỖ TRỢ HOẠT ĐỘNG</h2>
     <table width="100%">

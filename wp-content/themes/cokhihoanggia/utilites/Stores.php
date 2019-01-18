@@ -1573,4 +1573,11 @@ class Stores {
         );
     }
 
+    public function get_phi_van_chuyen_gian_giao() {
+        return array(
+            'trong_tp_hcm' => 500,
+            'ngoai_tp_hcm' => 600
+        );
+    }
+
 }

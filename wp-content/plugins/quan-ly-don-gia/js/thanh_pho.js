@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 
     // Save value
     $('#luu-thay-doi').on('click', function () {
-        sendPostRequest({action: 'update_setting', setting_key: 'thanh_pho',setting_value: JSON.stringify(Cities)}, function (err, success) {
+        sendPostRequest({action: 'update_setting', setting_key: server_setting_key,setting_value: JSON.stringify(Cities)}, function (err, success) {
             if (!err) {
                 console.log('callback success result:', success);
             } else {

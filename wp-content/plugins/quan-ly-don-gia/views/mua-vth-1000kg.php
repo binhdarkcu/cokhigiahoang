@@ -2,7 +2,7 @@
 $list_don_gia_trong = get_gia_ban_VTH1000kg_trong_TPHCM();
 $list_don_gia_ngoai = get_gia_ban_VTH1000kg_ngoai_TPHCM();
 ?>
-<script>var setting_keys = ['ban_vth_1000kg_trong_TPHCM', 'ban_vth_1000kg_ngoai_TPHCM']; var GiaHoangData = {};</script>
+<script>var setting_keys = ['<?php echo BAN_VTH_1000KG_TRONG_TPHCM;?>', '<?php echo BAN_VTH_1000KG_NGOAI_TPHCM;?>']; var GiaHoangData = {};</script>
 <script>GiaHoangData[setting_keys[0]] = JSON.parse(`<?php echo json_encode($list_don_gia_trong, JSON_UNESCAPED_UNICODE)?>`);</script>
 <script>GiaHoangData[setting_keys[1]] = JSON.parse(`<?php echo json_encode($list_don_gia_ngoai, JSON_UNESCAPED_UNICODE)?>`);</script>
 <div id="page-mua-vth-1000kg">

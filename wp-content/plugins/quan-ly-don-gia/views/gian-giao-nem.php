@@ -1,7 +1,7 @@
 <?php 
 $gian_giao = get_gian_giao_form_data();
 ?>
-<script>var GiaHoangData = {}; const setting_keys = ['gian_giao']; GiaHoangData[setting_keys[0]] = JSON.parse(`<?php echo json_encode($gian_giao, JSON_UNESCAPED_UNICODE)?>`);</script>
+<script>var GiaHoangData = {}; const setting_keys = ['<?php echo GIAN_GIAO;?>']; GiaHoangData[setting_keys[0]] = JSON.parse(`<?php echo json_encode($gian_giao, JSON_UNESCAPED_UNICODE)?>`);</script>
 <style type="text/css">
     /* CLIENT-SPECIFIC STYLES */
     body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* Prevent WebKit and Windows mobile changing default text sizes */

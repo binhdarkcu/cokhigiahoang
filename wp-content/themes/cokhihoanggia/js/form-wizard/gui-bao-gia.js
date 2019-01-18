@@ -32,40 +32,15 @@ jQuery(function ($) {
                 'security': $('#ajax_nonce').val(),
                 'json': JSON.stringify(objectData)
             },
-            success: function (msg) {
-                $.toast({
-                    text: "Thông tin báo giá của bạn đã được lưu thành công.", // Text that is to be shown in the toast
-                    heading: 'Hệ thống', // Optional heading to be shown on the toast
-                    icon: 'success', // Type of toast icon
-                    showHideTransition: 'slide', // fade, slide or plain
-                    allowToastClose: true, // Boolean value true or false
-                    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                    position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                    textAlign: 'left', // Text alignment i.e. left, right or center
-                    loader: true, // Whether to show loader or not. True by default
-                    loaderBg: '#9EC600', // Background color of the toast loader
-                });
-                console.log(msg);
-
+            success: function (result) {
+//                console.log(result);
+                var data = JSON.parse(result);
+                showNotification(data.message, data.status.toLowerCase());
                 $('#gui-bao-gia').off('click');
                 window.location.href = homeUrl;
             },
             error: function (xhr, ajaxOptions, thrownError) {
-
-                $.toast({
-                    text: "Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.", // Text that is to be shown in the toast
-                    heading: 'Hệ thống', // Optional heading to be shown on the toast
-                    icon: 'error', // Type of toast icon
-                    showHideTransition: 'slide', // fade, slide or plain
-                    allowToastClose: true, // Boolean value true or false
-                    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                    position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                    textAlign: 'left', // Text alignment i.e. left, right or center
-                    loader: true, // Whether to show loader or not. True by default
-                    loaderBg: '#9EC600', // Background color of the toast loader
-                });
+                showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ!', 'error');
                 console.error(thrownError);
             }
         });
@@ -81,23 +56,23 @@ jQuery(function ($) {
                 );
     }
 
-
-    function totalPrices() {
-        var total = 0;
-        $('#tblGianGiao .totalPrice').each(function (index, value) {
-            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
-        });
-        return total;
-    }
-
-    function totalWeight() {
-        var total = 0;
-        $('#tblGianGiao .MassNumber').each(function (index, value) {
-            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
-        });
-        return total;
-
-    }
+//
+//    function totalPrices() {
+//        var total = 0;
+//        $('#tblGianGiao .totalPrice').each(function (index, value) {
+//            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
+//        });
+//        return total;
+//    }
+//
+//    function totalWeight() {
+//        var total = 0;
+//        $('#tblGianGiao .MassNumber').each(function (index, value) {
+//            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
+//        });
+//        return total;
+//
+//    }
 
 
     function updateOrder() {
@@ -109,23 +84,11 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
-                console.log('vvvv',JSON.parse(objectDt));
+                console.log('vvvv', JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                $.toast({
-                    text: "Lấy thông tin thất bại, vui lòng liên hệ để được hỗ trợ.", // Text that is to be shown in the toast
-                    heading: 'Hệ thống', // Optional heading to be shown on the toast
-                    icon: 'error', // Type of toast icon
-                    showHideTransition: 'slide', // fade, slide or plain
-                    allowToastClose: true, // Boolean value true or false
-                    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
-                    stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
-                    position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
-                    textAlign: 'left', // Text alignment i.e. left, right or center
-                    loader: true, // Whether to show loader or not. True by default
-                    loaderBg: '#9EC600', // Background color of the toast loader
-                });
+                showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.', 'error');
                 console.error(thrownError);
             }
         });
@@ -139,10 +102,10 @@ jQuery(function ($) {
                 text = $('#template-1').text();
                 break;
             case 'form_vt_hang_ban':
-                text =  data.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
+                text = data.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
                 break;
             case 'form_vt_hang_thue':
-                 text =  data.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
+                text = data.tl_vt_hang === '500 kg' ? $('#template-thue-vth-500kg').text() : $('#template-thue-vth-1000kg').text();
                 break;
             case 'form_gian_giao_ban':
                 text = $('#template-mua-gian-giao').text();
@@ -165,6 +128,22 @@ jQuery(function ($) {
         $("#tblGianGiao .so-luong").on("change", function () {
             objectData[this.name] = this.value;
             updateOrder();
+        });
+    }
+
+    function showNotification(messsage, type) {
+        $.toast({
+            text: messsage, // Text that is to be shown in the toast
+            heading: 'Hệ thống', // Optional heading to be shown on the toast
+            icon: type, // Type of toast icon
+            showHideTransition: 'slide', // fade, slide or plain
+            allowToastClose: true, // Boolean value true or false
+            hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+            stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+            position: 'bottom-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+            textAlign: 'left', // Text alignment i.e. left, right or center
+            loader: true, // Whether to show loader or not. True by default
+            loaderBg: '#9EC600', // Background color of the toast loader
         });
     }
 });

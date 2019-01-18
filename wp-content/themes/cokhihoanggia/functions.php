@@ -2,6 +2,7 @@
 
 require_once( __DIR__ . './utilites/Utilities.php');
 require_once( __DIR__ . './utilites/Stores.php');
+require_once( __DIR__ . './utilites/BaoGiaValidator.php');
 //Define constants
 define('TEMPLATE_PATH', get_bloginfo('template_url'));
 define('HOME_URL', get_home_url());
@@ -50,8 +51,11 @@ function bao_gia() {
     }
 
     $status = 'ERROR';
+    $message = 'Thông tin báo giá đã được gửi thành công';
+    
     $bao_gia = json_decode($json, true);
 
+    isValidData($bao_gia);
     //Lấy thông tin người báo giá
     //Validate dữ liệu đầu vào
     $ho_ten = $bao_gia['ho_ten'];
@@ -83,17 +87,23 @@ function bao_gia() {
 
 
     if (send_email_to_customer($bao_gia)) {
-        $status = 'OK';
+        $status = 'SUCCESS';
+    }else{
+        $message = 'Không thể gửi email!';
     }
 
     $result = array(
-        'message' => '',
+        'message' => $message,
         'status' => $status
     );
 
     echo json_encode($result);
     // Don't forget to stop execution afterward.
     wp_die();
+}
+
+function isValidData($baoGia){
+    
 }
 
 function send_email_to_customer($bao_gia) {
@@ -109,7 +119,6 @@ function send_email_to_customer($bao_gia) {
 
     $template_path = get_template_directory() . '/template-parts/emailing/email-customer.html';
     $template = file_get_contents($template_path);
-
 
     $chi_tiet = '';
     foreach ($available_fields as $key => $value) {
@@ -574,7 +583,7 @@ function get_total_weight($data) {
 
 function get_additional_info_for_VTH_500kg() {
     $stores = new Stores();
-    $key = 'test';
+    $key = ADDITIONAL_INFO_MUA_VTH_500KG;
     $result = query_settings($key);
     if ($result) {
         return $result;
@@ -584,7 +593,7 @@ function get_additional_info_for_VTH_500kg() {
 
 function get_additional_info_for_VTH_1000kg() {
     $stores = new Stores();
-    $key = 'test';
+    $key = ADDITIONAL_INFO_MUA_VTH_1000KG;
     $result = query_settings($key);
     if ($result) {
         return $result;
@@ -594,8 +603,8 @@ function get_additional_info_for_VTH_1000kg() {
 
 // Gian giao data structure
 function get_gian_giao_form_data() {
+    $key = GIAN_GIAO;
     $stores = new Stores();
-    $key = 'test';
     $result = query_settings($key);
     if ($result) {
         return $result;
@@ -604,7 +613,7 @@ function get_gian_giao_form_data() {
 }
 
 function get_cities() {
-    $key = 'thanh_pho';
+    $key = THANH_PHO;
     $stores = new Stores();
 
     $result = query_settings($key);
@@ -615,7 +624,7 @@ function get_cities() {
 }
 
 function get_gia_ban_VTH500kg_trong_TPHCM() {
-    $key = 'ban_VTH_500kg_trong_TPHCM';
+    $key = BAN_VTH_500KG_TRONG_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -625,7 +634,7 @@ function get_gia_ban_VTH500kg_trong_TPHCM() {
 }
 
 function get_gia_ban_VTH500kg_ngoai_TPHCM() {
-    $key = 'ban_VTH_500kg_ngoai_TPHCM';
+    $key = BAN_VTH_500KG_NGOAI_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -635,7 +644,7 @@ function get_gia_ban_VTH500kg_ngoai_TPHCM() {
 }
 
 function get_gia_ban_VTH1000kg_trong_TPHCM() {
-    $key = 'ban_VTH_1000kg_trong_TPHCM';
+    $key = BAN_VTH_1000KG_TRONG_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -645,7 +654,7 @@ function get_gia_ban_VTH1000kg_trong_TPHCM() {
 }
 
 function get_gia_ban_VTH1000kg_ngoai_TPHCM() {
-    $key = 'ban_VTH_1000kg_ngoai_TPHCM';
+    $key = BAN_VTH_1000KG_NGOAI_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -655,7 +664,7 @@ function get_gia_ban_VTH1000kg_ngoai_TPHCM() {
 }
 
 function get_gia_thue_VTH500kg_trong_TPHCM() {
-    $key = 'thue_VTH_500kg_trong_TPHCM';
+    $key = THUE_VTH_500KG_TRONG_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -665,7 +674,7 @@ function get_gia_thue_VTH500kg_trong_TPHCM() {
 }
 
 function get_gia_thue_VTH500kg_ngoai_TPHCM() {
-    $key = 'thue_VTH_500kg_ngoai_TPHCM';
+    $key = THUE_VTH_500KG_NGOAI_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -675,7 +684,7 @@ function get_gia_thue_VTH500kg_ngoai_TPHCM() {
 }
 
 function get_phan_tram_theo_thang_thue() {
-    $key = 'phan_tram_theo_thang_thue';
+    $key = PHAN_TRAM_THEO_THANG_THUE;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -685,17 +694,22 @@ function get_phan_tram_theo_thang_thue() {
 }
 
 function get_phi_van_chuyen_gian_giao($baoGia) {
-    $key = 'phi_van_chuyen_gian_giao';
-    $phi_van_chuyen = array(
-        'trong_tp_hcm' => 500,
-        'ngoai_tp_hcm' => 600
-    );
+    $key = PHI_VAN_CHUYEN_GIAN_GIAO;
+    $stores = new Stores();
+    $result = query_settings($key);
+    $phi_van_chuyen = $result ? $result : $stores->get_phi_van_chuyen_gian_giao();
 
+    // For updating setting page
+    if(!$baoGia){
+        return $phi_van_chuyen;
+    }
+    
+    // For calculation purposes
     return $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? $phi_van_chuyen['trong_tp_hcm'] : $phi_van_chuyen['ngoai_tp_hcm'];
 }
 
 function get_gia_thue_VTH1000kg_trong_TPHCM() {
-    $key = 'thue_vth_1000kg_trong_TPHCM';
+    $key = THUE_VTH_1000KG_TRONG_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
     if ($result) {
@@ -705,7 +719,7 @@ function get_gia_thue_VTH1000kg_trong_TPHCM() {
 }
 
 function get_gia_thue_VTH1000kg_ngoai_TPHCM() {
-    $key = 'thue_vth_1000kg_ngoai_TPHCM';
+    $key = THUE_VTH_1000KG_NGOAI_TPHCM;
     $stores = new Stores();
     $result = query_settings($key);
 
@@ -716,20 +730,23 @@ function get_gia_thue_VTH1000kg_ngoai_TPHCM() {
 }
 
 function get_chi_phi_lap_dat_va_kiem_dinh() {
-    $key = 'addition_info_mua_VTH';
+    $key = ADDITIONAL_INFO_MUA_VTH;
     $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
     return $stores->get_chi_phi_lap_dat_va_kiem_dinh();
 }
 
 function query_settings($setting_key) {
     global $wpdb;
-    
-    //temp disable
-    return '';
+
     if ($setting_key) {
-        $query = 'SELECT * FROM ' . $wpdb->prefix . 'giahoang_settings WHERE setting_key="' . $setting_key . '" AND is_deleted = FALSE';
-        $result =  $wpdb->get_row($query, ARRAY_A);
-        return $result ? json_decode($result, true) : '';
+        $query = 'SELECT setting_value FROM ' . $wpdb->prefix . 'baogia_settings WHERE setting_key="' . $setting_key . '" AND is_deleted = FALSE';
+        
+        $result = $wpdb->get_row($query, ARRAY_A);
+        return $result ? json_decode($result['setting_value'], true) : '';
     }
     return '';
 }
