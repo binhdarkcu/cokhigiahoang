@@ -199,8 +199,11 @@ class BaoGiaValidator {
     }
 
     private function isValidAddress($data) {
-//        $chieu_cao = trim($data['thoi_gian_thue']);
-//        return $this->isPositiveNumber($chieu_cao);
+        $cities = get_cities();
+        $city = trim($data['vi_tri']);
+        $district = trim($data['vi_tri2']);
+        
+        return !!($city && $district && $cities[$city] && $cities[$city][$district]);
     }
 
     //*
