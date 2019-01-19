@@ -44,6 +44,14 @@ function bao_gia() {
     $validator = new BaoGiaValidator();
     $json_data = $_POST['json'];
 
+    // Create response
+    $status = 'ERROR';
+    $message = 'Thông tin báo giá đã được gửi thành công';
+    $result = array(
+        'message' => $message,
+        'status' => $status
+    );
+    
     if (version_compare($wp_version, '5.0', '<')) {
 
         $json = wp_unslash($json_data);
@@ -52,12 +60,18 @@ function bao_gia() {
         $json = $json_data;
     }
 
-    $status = 'ERROR';
-    $message = 'Thông tin báo giá đã được gửi thành công';
+
     
     $bao_gia = json_decode($json, true);
 
-    $validator->isValidData($bao_gia);
+    $error = $validator->isValidData($bao_gia);
+    
+//    if(!empty($error['message'])){
+//        $result['message'] = $error['message'];
+//        echo json_encode($result);
+//        // Don't forget to stop execution afterward.
+//        wp_die();
+//    }
     
     //Lấy thông tin người báo giá
     //Validate dữ liệu đầu vào
@@ -95,10 +109,7 @@ function bao_gia() {
         $message = 'Không thể gửi email!';
     }
 
-    $result = array(
-        'message' => $message,
-        'status' => $status
-    );
+ 
 
     echo json_encode($result);
     // Don't forget to stop execution afterward.
