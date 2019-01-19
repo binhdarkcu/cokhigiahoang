@@ -64,7 +64,7 @@ function bao_gia() {
     
     $bao_gia = json_decode($json, true);
 
-    $error = $validator->isValidData($bao_gia);
+//    $error = $validator->isValidData($bao_gia);
     
 //    if(!empty($error['message'])){
 //        $result['message'] = $error['message'];
