@@ -223,6 +223,19 @@ jQuery(document).ready(function ($) {
 //            console.log('Object: ', JSON.stringify(order_detail));
             text = template(text, order_detail);
             $('#detail-content').html(text);
+            
+            if(order_detail.loai_sp === 'Giàn giáo'){
+                var counter = 1;
+                $('#detail-content').find('.so-luong').each(function(item){
+                    if(this.value != 0){
+                        $(this).closest('tr').children().first().html(counter++);
+                    }else{
+                        $(this).closest('tr').remove();
+                    }
+                });
+            }
+            console.log('order_detail', order_detail);
+            
             detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);
             detailModal.iziModal('setSubtitle', `${rowData[1]} - ${rowData[2]} - ${rowData[3]}`);
             detailModal.iziModal('open');

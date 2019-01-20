@@ -37,7 +37,8 @@ jQuery(function ($) {
                 var data = JSON.parse(result);
                 showNotification(data.message, data.status.toLowerCase());
                 $('#gui-bao-gia').off('click');
-                window.location.href = homeUrl;
+                window.location.href = homeUrl;  
+
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ!', 'error');

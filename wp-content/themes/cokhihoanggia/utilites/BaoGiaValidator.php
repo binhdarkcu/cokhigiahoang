@@ -9,61 +9,62 @@
 class BaoGiaValidator {
 
     public function isValidData($data) {
+         
         $result = array(
-            'messsage' => ''
+            'message' => ''
         );
         
         if (!$this->isValidHoTen($data)) {
-            $result['messsage'] = 'Họ tên không hợp lệ!';
+            $result['message'] = 'Họ tên không hợp lệ!';
             return $result;
         }
 
         if (!$this->isValidEmail($data)) {
-            $result['messsage'] = 'Email không hợp lệ!';
+            $result['message'] = 'Email không hợp lệ!';
             return $result;
         }
 
         if (!$this->isValidSDT($data)) {
-            $result['messsage'] = 'Số điện thoại không hợp lệ!';
+            $result['message'] = 'Số điện thoại không hợp lệ!';
             return $result;
         }
 
         if (!$this->isValidCongTy($data)) {
-            $result['messsage'] = 'Tên công ty không hợp lệ!';
+            $result['message'] = 'Tên công ty không hợp lệ!';
             return $result;
         }
 
         if (!$this->isValidHinhThuc($data)) {
-            $result['messsage'] = 'Chỉ chọn hình thức mua hoặc thuê!';
+            $result['message'] = 'Chỉ chọn hình thức mua hoặc thuê!';
             return $result;
         }
 
         if (!$this->isValidAddress($data)) {
-            $result['messsage'] = 'Địa chỉ lắp đặt không tồn tại trên hệ thống!';
+            $result['message'] = 'Địa chỉ lắp đặt không tồn tại trên hệ thống!';
             return $result;
         }
 
         // Kiểm tra thời gian thuê nếu hình thức là "THUÊ"
         if ($data['hinh_thuc'] === 'Thuê' && !$this->isValidThoiGianThue($data)) {
-            $result['messsage'] = 'Thời gian thuê không hợp lệ!';
+            $result['message'] = 'Thời gian thuê không hợp lệ!';
             return $result;
         }
 
         if (!$this->isValidLoaiSP($data)) {
-            $result['messsage'] = 'Loại sản phẩm được chọn chỉ gồm vận thăng và giàn giáo! ';
+            $result['message'] = 'Loại sản phẩm được chọn chỉ gồm vận thăng và giàn giáo! ';
             return $result;
         }
 
         if ($data['loai_sp'] === 'Vận thăng') {
 
             if (!$this->isValidVT($data)) {
-                $result['messsage'] = 'Loại vận thăng không hợp lệ!';
+                $result['message'] = 'Loại vận thăng không hợp lệ!';
                 return $result;
             }
 
             if ($data['loai_vt'] === 'Vận thăng hàng') {
                 if (!$this->isValidVTH($data)) {
-                    $result['messsage'] = 'Loại vận thăng hàng đã chọn không hợp lệ!';
+                    $result['message'] = 'Loại vận thăng hàng đã chọn không hợp lệ!';
                     return $result;
                 }
             }
@@ -71,11 +72,11 @@ class BaoGiaValidator {
     }
 
     private function isValidHoTen($data) {
-        return ($data['ho_ten'] && trim($data['ho_ten']));
+        return !!($data['ho_ten'] && trim($data['ho_ten']));
     }
 
     private function isValidSDT($data) {
-        return !!preg_match('^(?=.*\d)[\d]{10,13}$', $data['so_dt']);
+        return preg_match('/^\d{10,15}$/', $data['so_dt']);
     }
 
     private function isValidEmail($data) {
@@ -90,8 +91,8 @@ class BaoGiaValidator {
         $result = true;
         $hinh_thuc = trim($data['hinh_thuc']);
         switch ($hinh_thuc) {
+            case 'Thuê':
             case 'Bán':
-            case 'Mua':
                 break;
             default:
                 $result = false;

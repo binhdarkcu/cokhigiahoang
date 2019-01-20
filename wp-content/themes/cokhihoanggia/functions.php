@@ -64,15 +64,14 @@ function bao_gia() {
     
     $bao_gia = json_decode($json, true);
 
-//    $error = $validator->isValidData($bao_gia);
-    
-//    if(!empty($error['message'])){
-//        $result['message'] = $error['message'];
-//        echo json_encode($result);
-//        // Don't forget to stop execution afterward.
-//        wp_die();
-//    }
-    
+    $error = $validator->isValidData($bao_gia);
+    if($error['message']){
+  
+        $result['message'] = $error['message'];
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
+        // Don't forget to stop execution afterward.
+        wp_die();
+    }
     //Lấy thông tin người báo giá
     //Validate dữ liệu đầu vào
     $ho_ten = $bao_gia['ho_ten'];
@@ -104,14 +103,12 @@ function bao_gia() {
 
 
     if (send_email_to_customer($bao_gia)) {
-        $status = 'SUCCESS';
+        $result['status'] = 'SUCCESS';
     }else{
-        $message = 'Không thể gửi email!';
+        $result['message'] = 'Không thể gửi email!';
     }
 
- 
-
-    echo json_encode($result);
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
     // Don't forget to stop execution afterward.
     wp_die();
 }
