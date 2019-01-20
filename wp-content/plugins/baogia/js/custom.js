@@ -234,7 +234,6 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
-            console.log('order_detail', order_detail);
             
             detailModal.iziModal('setTitle', `Chi tiết báo giá cho ${rowData[0]}`);
             detailModal.iziModal('setSubtitle', `${rowData[1]} - ${rowData[2]} - ${rowData[3]}`);
