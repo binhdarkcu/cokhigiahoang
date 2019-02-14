@@ -1,8 +1,7 @@
 <?php
-
-require_once( __DIR__ . './utilites/Utilities.php');
-require_once( __DIR__ . './utilites/Stores.php');
-require_once( __DIR__ . './utilites/BaoGiaValidator.php');
+include_once( get_template_directory() . '/utilites/Utilities.php');
+include_once( get_template_directory() . '/utilites/Stores.php');
+include_once( get_template_directory() . '/utilites/BaoGiaValidator.php');
 //Define constants
 define('TEMPLATE_PATH', get_bloginfo('template_url'));
 define('HOME_URL', get_home_url());
