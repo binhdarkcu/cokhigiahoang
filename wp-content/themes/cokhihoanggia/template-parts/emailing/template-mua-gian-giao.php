@@ -651,23 +651,15 @@
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Bên thuê vào kho của Cty Gia Hoàng nhận và trả hàng hoặc giao nhận vận chuyển theo đơn giá trên</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
-                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">3. <strong>Tạm ứng</strong>&nbsp;</td>
+                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">3. <strong>Thanh toán</strong></td>
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Thanh toán 100% giá trị đơn hàng tương ứng %tong_don_gia_sau_thue% đồng và khối lượng trước khi giao hàng.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
-                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">4. <strong>Thanh toán</strong></td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Thanh toán 100% giá trị đơn hàng tương ứng %tong_don_gia_sau_thue% đồng và khối lượng trước khi giao hàng.</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #ccc">
-                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Thời gian thuê</strong>&nbsp;</td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Bảng giá trên áp dụng cho thời gian thuê từ 1 đến dưới 6 tháng. Thời gian tối thiểu là 1 tháng.</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #ccc">
-                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">6. <strong>Thuế GTGT</strong>&nbsp;</td>
+                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">4. <strong>Thuế GTGT</strong>&nbsp;</td>
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Bảng báo giá trên đã bao gồm thuế GTGT</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
-                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">7. <strong>Hiệu lực báo giá</strong>&nbsp;</td>
+                  <td width="30%" valign="top" style="padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Hiệu lực báo giá</strong>&nbsp;</td>
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Bảng báo giá trên có hiệu lực trong vào 15 ngày kể từ ngày báo giá</td>
                 </tr>
               </table>

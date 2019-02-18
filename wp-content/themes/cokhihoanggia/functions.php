@@ -334,11 +334,15 @@ function calculate_data_for_mua_VTH($baoGia) {
     $uti = new Utilities();
     $donGiaMua = $baoGia['tl_vt_hang'] == '500 kg' ? get_don_gia_mua_VTH_500kg($baoGia) : get_don_gia_mua_VTH_1000kg($baoGia);
 
+    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
+    
+    $don_gia_bang_so = convert_to_number($donGiaMua['don_gia'])*$gia_tri_sp;
+    
     //Đơn giá cho 1 bộ
     $baoGia['don_gia_1_bo'] = $donGiaMua['don_gia'];
 
     // Đơn giá cho x bộ
-    $baoGia['don_gia_x_bo'] = number_format(convert_to_number($donGiaMua['don_gia']) * $baoGia['so_luong']);
+    $baoGia['don_gia_x_bo'] = number_format($don_gia_bang_so * $baoGia['so_luong']);
 
     // Khung vận thăng
     $baoGia['khung_van_thang'] = $donGiaMua['khung_van_thang'];
@@ -489,17 +493,20 @@ function get_don_gia_mua_VTH_1000kg($baoGia) {
 function calculate_data_for_gian_giao($baoGia) {
     $uti = new Utilities();
     $formGianGiao = get_gian_giao_form_data();
+    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
+    
     foreach ($baoGia as $key => $value) {
         // so_luong2 , so_luong3
         if (substr($key, 0, 8) === 'so_luong' && strlen($key) > 8 && $baoGia[$key] > 0) {
             // $form_giao_giao[so_luong2]
             if ($formGianGiao[$key]) {
                 $index = substr($key, 8);
+                $don_gia_bang_so = convert_to_number($formGianGiao[$key]['don_gia'])*$gia_tri_sp;
                 $baoGia['trong_luong' . $index] = $formGianGiao[$key]['trong_luong'];
                 $baoGia['tong_trong_luong' . $index] = $formGianGiao[$key]['trong_luong'] * $value;
-                $baoGia['don_gia' . $index] = $formGianGiao[$key]['don_gia'];
+                $baoGia['don_gia' . $index] = number_format($don_gia_bang_so);
                 $baoGia['don_gia_thue' . $index] = $formGianGiao[$key]['don_gia_thue'];
-                $baoGia['tong_don_gia' . $index] = number_format(convert_to_number($formGianGiao[$key]['don_gia']) * $value);
+                $baoGia['tong_don_gia' . $index] = number_format($don_gia_bang_so * $value);
                 $baoGia['thanh_tien_thue' . $index] = number_format(convert_to_number($formGianGiao[$key]['don_gia_thue']) * $value);
             }
         }
@@ -753,7 +760,7 @@ function get_chi_phi_lap_dat_va_kiem_dinh() {
 }
 
 function get_gia_tri_san_pham($baoGia){
-    return $baoGia['tt_sp'] === 'Cũ' ? get_gia_tri_san_pham_cu() : 1;
+    return $baoGia['tt_sp'] === 'Cũ' ? get_gia_tri_san_pham_cu()/100 : 1;
 }
 
 function get_gia_tri_san_pham_cu() {

@@ -68,7 +68,6 @@ jQuery(function ($) {
                 anyDate: true
             },
             chieu_cao: {
-                required: true,
                 number: true
             }
         }
@@ -88,7 +87,7 @@ jQuery(function ($) {
         onStepChanging: function (event, currentIndex, newIndex) {
             const ignorePattern = currentIndex === 1 ? ":disabled,:hidden:not(select)" : ":disabled,:hidden";
             form.validate().settings.ignore = ignorePattern;
-            console.log(templateUrl)
+            console.log(currentIndex);
             if (form.valid() || (currentIndex > newIndex)) {
                 if (newIndex >= 1) {
                     $('.steps ul li:first-child a img').attr('src', `${templateUrl}/assets/form-wizard/images/step-1.png`);
@@ -246,6 +245,7 @@ jQuery(function ($) {
 
                 if (sp.loai_sp === 'Vận thăng') {
                     $('#chieu_cao').fadeIn();
+                    $('#select_chieu_cao').prop('disabled', false);
                     $('#loai_vt').fadeIn();
                     if (sp.loai_vt === 'Vận thăng hàng') {
 
@@ -274,6 +274,7 @@ jQuery(function ($) {
                     $('#loai_vt').hide();
                     $('#sl_gian_giao').hide();
                     $('#chieu_cao').hide();
+                    $('#select_chieu_cao').prop('disabled', true);
                     $('#tl_vt_hang').hide();
                     $('#tl_long').hide();
                     $('#so_long').hide();
