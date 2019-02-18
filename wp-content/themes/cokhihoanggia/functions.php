@@ -353,8 +353,15 @@ function calculate_data_for_mua_VTH($baoGia) {
     // Chi phí kiểm định
     $baoGia['kiem_dinh'] = $lapDatVaKiemDinh['kiem_dinh'];
 
+    //Tổng chi phí lắp đặt
+    $baoGia['tong_lap_dat'] = number_format($baoGia['so_luong']* convert_to_number($baoGia['lap_dat']));
+    
+    //Tổng chi phí kiểm định
+    $baoGia['tong_kiem_dinh'] = number_format($baoGia['so_luong']* convert_to_number($baoGia['kiem_dinh']));
+    
+    
     // Chi phí lắp đặt kiểm định (B)
-    $baoGia['chi_phi_lap_dat_kiem_dinh'] = number_format(convert_to_number($baoGia['lap_dat']) + convert_to_number($baoGia['kiem_dinh']));
+    $baoGia['chi_phi_lap_dat_kiem_dinh'] = number_format(convert_to_number($baoGia['tong_lap_dat']) + convert_to_number($baoGia['tong_kiem_dinh']));
 
     // Giá trị thực hiện (A+B)
     $baoGia['gia_tri_thuc_hien'] = number_format(convert_to_number($baoGia['don_gia_x_bo']) + convert_to_number($baoGia['chi_phi_lap_dat_kiem_dinh']));
@@ -743,6 +750,20 @@ function get_chi_phi_lap_dat_va_kiem_dinh() {
         return $result;
     }
     return $stores->get_chi_phi_lap_dat_va_kiem_dinh();
+}
+
+function get_gia_tri_san_pham($baoGia){
+    return $baoGia['tt_sp'] === 'Cũ' ? get_gia_tri_san_pham_cu() : 1;
+}
+
+function get_gia_tri_san_pham_cu() {
+    $key = GIA_TRI_SAN_PHAM;
+    $stores = new Stores();
+    $result = query_settings($key);
+    if ($result) {
+        return $result;
+    }
+    return $stores->get_gia_tri_san_pham_cu();
 }
 
 function query_settings($setting_key) {

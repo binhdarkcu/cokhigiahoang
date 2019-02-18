@@ -1107,6 +1107,41 @@ class Stores {
 
     public function get_gia_thue_VTH500kg_trong_TPHCM() {
         return array(
+            6 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            8 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            10 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            12 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            14 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            16 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            18 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
             20 => array(
                 'don_gia' => '6,000,000',
                 'lap_dat' => '4,000,000',
@@ -1217,6 +1252,41 @@ class Stores {
 
     public function get_gia_thue_VTH500kg_ngoai_TPHCM() {
         return array(
+            6 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            8 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            10 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            12 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            14 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            16 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
+            18 => array(
+                'don_gia' => '6,000,000',
+                'lap_dat' => '4,000,000',
+                'van_chuyen' => '4,000,000'
+            ),
             20 => array(
                 'don_gia' => '7,000,000',
                 'lap_dat' => '6,000,000',
@@ -1578,6 +1648,10 @@ class Stores {
             'trong_tp_hcm' => 500,
             'ngoai_tp_hcm' => 600
         );
+    }
+    
+    public function get_gia_tri_san_pham_cu() {
+        return 80;
     }
 
 }

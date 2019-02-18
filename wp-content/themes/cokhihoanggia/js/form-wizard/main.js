@@ -9,7 +9,14 @@ jQuery(function ($) {
             },
             "Nhập một ngày hợp lệ!"
             );
+    $.validator.addMethod("validate_email", function(value, element) {
 
+        if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+            return true;
+        } else {
+            return false;
+        }
+    }, "Địa chỉ email không hợp lệ.");
     $.extend($.validator.messages, {
         required: "Trường này là bắt buộc.",
         remote: "Please fix this field.",
@@ -22,7 +29,7 @@ jQuery(function ($) {
         creditcard: "Please enter a valid credit card number.",
         equalTo: "Please enter the same value again.",
         accept: "Please enter a value with a valid extension.",
-        maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+        maxlength: jQuery.validator.format("Vui lòng không nhập quá {0} ký tự."),
         minlength: jQuery.validator.format("Vui lòng nhập ít nhất {0} ký tự."),
         rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
         range: jQuery.validator.format("Please enter a value between {0} and {1}."),
@@ -36,18 +43,19 @@ jQuery(function ($) {
         rules: {
             email: {
                 required: true,
-                email: true
+                validate_email: true
             },
             so_dt: {
                 required: true,
                 digits: true,
-                minlength: 10
+                minlength: 10,
+                maxlength: 11
             },
             thoi_gian_thue: {
                 required: true,
                 number: true,
                 min: 1,
-                max: 999
+                max: 99
             },
             vi_tri: {
                 required: true,
@@ -58,6 +66,10 @@ jQuery(function ($) {
             ngay_can_hang: {
                 required: true,
                 anyDate: true
+            },
+            chieu_cao: {
+                required: true,
+                number: true
             }
         }
     });
@@ -142,12 +154,7 @@ jQuery(function ($) {
             //Apply template
             const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
             window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
-            //window.top.close();
-//            text = template(text, window.GiaHoangProduct);
-//            $('#detail-content').html(text);
-//            modalBaoGia.iziModal('setTitle', `Chi tiết báo giá`);
-//            modalBaoGia.iziModal('setSubtitle', `Báo giá ngày 18/11/2018`);
-//            modalBaoGia.iziModal('open');
+
         }
     });
     // Custom Button Jquery Steps
@@ -182,7 +189,8 @@ jQuery(function ($) {
             'vi_tri2': '',
             'thoi_gian_thue': '',
             'form_bao_gia': 'form_vt_hang',
-            'ngay_can_hang': ''
+            'ngay_can_hang': '',
+            'tt_sp': ''
         };
 
     setShowHideSection();
@@ -226,55 +234,73 @@ jQuery(function ($) {
 
 
         if (sp.hinh_thuc) {
-            $('#loai_sp').fadeIn();
-
-            if (sp.loai_sp === 'Vận thăng') {
-                $('#chieu_cao').fadeIn();
-                $('#loai_vt').fadeIn();
-                if (sp.loai_vt === 'Vận thăng hàng') {
-
-                    $('#tl_vt_hang').fadeIn();
-                    $('#so_long').hide();
-                    $('#tl_long').hide();
-                    $('#bien_tan').hide();
-                    sp.form_bao_gia = 'form_vt_hang';
-
-                } else if (sp.loai_vt === 'Vận thăng lồng') {
-
-                    $('#tl_vt_hang').hide();
-                    $('#so_long').fadeIn();
-
-                    if (sp.so_long) {
-                        $('#tl_long').fadeIn();
-
-                        if (sp.tl_long) {
-                            $('#bien_tan').fadeIn();
-                        }
-
-                    }
-                    sp.form_bao_gia = 'form_vt_long';
+            if(sp.hinh_thuc === 'Bán' && sp.tt_sp || sp.hinh_thuc === 'Thuê'){
+                
+                if(sp.hinh_thuc === 'Thuê'){
+                    $('#tt_sp').hide();
+                }else{
+                    $('#tt_sp').show();
                 }
-            } else if (sp.loai_sp === 'Giàn giáo') {
+                
+                $('#loai_sp').fadeIn();
+
+                if (sp.loai_sp === 'Vận thăng') {
+                    $('#chieu_cao').fadeIn();
+                    $('#loai_vt').fadeIn();
+                    if (sp.loai_vt === 'Vận thăng hàng') {
+
+                        $('#tl_vt_hang').fadeIn();
+                        $('#so_long').hide();
+                        $('#tl_long').hide();
+                        $('#bien_tan').hide();
+                        sp.form_bao_gia = 'form_vt_hang';
+
+                    } else if (sp.loai_vt === 'Vận thăng lồng') {
+
+                        $('#tl_vt_hang').hide();
+                        $('#so_long').fadeIn();
+
+                        if (sp.so_long) {
+                            $('#tl_long').fadeIn();
+
+                            if (sp.tl_long) {
+                                $('#bien_tan').fadeIn();
+                            }
+
+                        }
+                        sp.form_bao_gia = 'form_vt_long';
+                    }
+                } else if (sp.loai_sp === 'Giàn giáo') {
+                    $('#loai_vt').hide();
+                    $('#sl_gian_giao').hide();
+                    $('#chieu_cao').hide();
+                    $('#tl_vt_hang').hide();
+                    $('#tl_long').hide();
+                    $('#so_long').hide();
+                    $('#bien_tan').hide();
+                    sp.form_bao_gia = 'form_gian_giao';
+                }
+
+                if (sp.hinh_thuc === 'Bán') {
+                    $('#thoi_gian_thue').hide();
+                    sp.form_bao_gia += '_ban';
+                } else {
+                    $('#thoi_gian_thue').show();
+                    sp.form_bao_gia += '_thue';
+                }
+            }else{
+                $('#tt_sp').fadeIn();
                 $('#loai_vt').hide();
-                $('#sl_gian_giao').hide();
-                $('#chieu_cao').hide();
+                $('#loai_sp').hide();
+                $('#bien_tan').hide();
                 $('#tl_vt_hang').hide();
                 $('#tl_long').hide();
                 $('#so_long').hide();
-                $('#bien_tan').hide();
-                sp.form_bao_gia = 'form_gian_giao';
-            }
-
-            if (sp.hinh_thuc === 'Bán') {
-                $('#thoi_gian_thue').hide();
-                sp.form_bao_gia += '_ban';
-            } else {
-                $('#thoi_gian_thue').show();
-                sp.form_bao_gia += '_thue';
             }
 
         } else {
             //Hide all
+            $('#tt_sp').hide();
             $('#loai_vt').hide();
             $('#loai_sp').hide();
             $('#bien_tan').hide();
@@ -331,11 +357,11 @@ jQuery(function ($) {
             'ngay_can_hang': 'Ngày cần hàng'
         };
         const form_bao_gia = {
-            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'so_luong','tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_hang_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'tt_sp','loai_sp', 'loai_vt', 'chieu_cao', 'so_luong','tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_vt_hang_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'chieu_cao', 'so_luong', 'tl_vt_hang', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'so_luong','tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_vt_long_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'tt_sp', 'loai_sp', 'loai_vt', 'so_long', 'so_luong','tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_vt_long_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'loai_vt', 'so_long', 'so_luong','tl_long', 'chieu_cao', 'bien_tan', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'thoi_gian_thue', 'form_bao_gia'],
-            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
+            'form_gian_giao_ban': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'tt_sp', 'loai_sp', 'vi_tri', 'vi_tri2', 'ngay_can_hang', 'form_bao_gia'],
             'form_gian_giao_thue': ['ho_ten', 'so_dt', 'email', 'cty', 'hinh_thuc', 'loai_sp', 'vi_tri', 'vi_tri2', 'thoi_gian_thue', 'ngay_can_hang', 'form_bao_gia']
         };
         var sp = window.GiaHoangProduct;

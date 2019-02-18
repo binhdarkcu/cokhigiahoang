@@ -29,7 +29,6 @@
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841">&nbsp;</li>
                     <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544  menu-item-783"><a>HỖ TRỢ ONLINE</a></li>
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="tel: 0903370117"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/so_phone.png" style="height: 40px;width: 40px;float: left;margin-right: 5px;padding: 2px;"/>Mr. Hòa <br/>(090.337.0117)</a></li>
-                    <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841"><a href="tel: 0938679117"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/so_phone.png" style="height: 40px;width: 40px;float: left;margin-right: 5px;padding: 2px;"/>Ms. Minh <br/>(0938 679 117)</a></li>
 
                     <li id="menu-item-841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-841">&nbsp;</li>
                     <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-544 menu-item-783"><a>DỊCH VỤ</a></li>

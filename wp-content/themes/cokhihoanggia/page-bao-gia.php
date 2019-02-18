@@ -57,7 +57,24 @@ foreach ($cities as $city => $districts){
                                     </div>
 
                                 </div>
-
+                                
+                                <!--Trạng thái sản phẩm-->
+                                <div id="tt_sp" data-title="Subtotal" class="flex-item">
+                                    <div class="item-content">
+                                        <i class="fa fa-arrow-down"></i>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="radio" name="tt_sp" value="Cũ" required> Cũ
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="tt_sp" value="Mới" required> Mới
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <!--Loại sản phẩm-->
                                 <div id="loai_sp" data-title="Subtotal" class="flex-item">
                                     <div class="item-content">
@@ -74,7 +91,7 @@ foreach ($cities as $city => $districts){
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <!--Loại vận thăng-->
                                 <div id="loai_vt" data-title="Subtotal" class="flex-item">
                                     <div class="item-content">
@@ -181,7 +198,7 @@ foreach ($cities as $city => $districts){
                                 <div id="chieu_cao" class="form-holder">
                                     <label class="order-label">Chiều cao (m)</label>
                                     <i class="zmdi zmdi-format-list-numbered"></i>
-                                    <select name="chieu_cao" id="select_chieu_cao" class="chon-chieu-cao" style="width: 100%;" data-placeholder="Chọn chiều cao...">
+                                    <select name="chieu_cao" id="select_chieu_cao" class="chon-chieu-cao required" style="width: 100%;" data-placeholder="Chọn chiều cao...">
                                         
                                     </select>
                                 </div>
