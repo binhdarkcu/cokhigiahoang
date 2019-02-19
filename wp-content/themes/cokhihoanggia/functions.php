@@ -345,10 +345,10 @@ function calculate_data_for_mua_VTH($baoGia) {
     $baoGia['don_gia_x_bo'] = number_format($don_gia_bang_so * $baoGia['so_luong']);
 
     // Khung vận thăng
-    $baoGia['khung_van_thang'] = $donGiaMua['khung_van_thang'];
+    $baoGia['khung_van_thang'] = number_format($donGiaMua['khung_van_thang']*$baoGia['so_luong']);
 
     // Thanh giằng
-    $baoGia['thanh_giang'] = $donGiaMua['thanh_giang'];
+    $baoGia['thanh_giang'] = number_format($donGiaMua['thanh_giang']*$baoGia['so_luong']);
 
     $lapDatVaKiemDinh = get_chi_phi_lap_dat_va_kiem_dinh();
     // Chi phí lắp đặt
@@ -382,6 +382,9 @@ function calculate_data_for_mua_VTH($baoGia) {
     // Giá trị đặt cọc (50% tổng đơn giá sau thuế)
     $baoGia['dat_coc1'] = number_format(convert_to_number($baoGia['tong_cong_sau_thue']) * 0.5);
 
+    // Nhân đôi
+    $baoGia['so_luongx2'] = $baoGia['so_luong']*2;
+    
     // Ngày lập bảng
     $date = getdate(date("U"));
     $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
@@ -461,9 +464,11 @@ function calculate_data_for_thue_VTH($baoGia) {
         $baoGia['show_last_row'] = 'block';
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_cong_x_bo_sau_thue']));
     } else {
+        $baoGia['so_luong'] =
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_cong_1_bo_sau_thue']));
     }
 
+    $baoGia['so_luong'] = $baoGia['so_luong'] < 10 ? "0".$baoGia['so_luong'] : $baoGia['so_luong'];
     // Ngày lập bảng
     $date = getdate(date("U"));
     $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";

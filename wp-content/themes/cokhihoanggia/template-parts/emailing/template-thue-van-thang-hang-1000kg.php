@@ -240,7 +240,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; ">2</td>
-                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Lắp đặt vận thăng chiều cao 20m</td>
+                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Lắp đặt vận thăng chiều cao %chieu_cao%m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%lap_dat%</td>
@@ -268,7 +268,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">4</td>
-                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Tháo dỡ thiết bị cao 20m</td>
+                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Tháo dỡ thiết bị cao %chieu_cao%m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Lần</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">1</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%lap_dat%</td>
@@ -310,9 +310,9 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; ">1</td>
-                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; ">Cho thuê 01 bộ vận thăng hàng 1000kg cao 20m</td>
+                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; ">Cho thuê 01 bộ vận thăng hàng 1000kg cao %chieu_cao%m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Tháng</td>
-                        <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">5</td>
+                        <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%thoi_gian_thue%</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%don_gia_thue_1_thang%</td>
                         <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%don_gia_thue_x_thang%</td>
                       </tr>
@@ -326,7 +326,7 @@
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; ">2</td>
                         <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left;">Bảo trì thiết bị</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Tháng</td>
-                        <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">5</td>
+                        <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%thoi_gian_thue%</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%bao_tri_1_thang%</td>
                         <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%bao_tri_x_thang%</td>
                       </tr>
@@ -421,8 +421,8 @@
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">4. <strong>Thanh toán</strong>&nbsp;</td>
                   <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;font-weight: 700;">
-                      - Đặt cọc 02 tháng tiền thuê cho 01 bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: %dat_coc1% đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối. <br/> <br/>
-                      - Thanh toán chi phí một lần cho 01 bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng sau khi nghiệm thu, kiểm định với số tiền : %dat_coc2% đồng (Bằng chữ: %dat_coc2_bang_chu% đồng) trong vòng 07 ngày sau khi hoàn thành lắp đặt, kiểm định. </td>
+                      - Đặt cọc 02 tháng tiền thuê cho %so_luong% bộ chưa có thuế VAT sau khi hai bên tiến hành ký hợp đồng trước khi bên thuê chuyển thiết bị về công trình lắp đặt, tương đương giá trị là: %dat_coc1% đồng. Chi phí này không xuất hóa đơn và được cấn trừ vào tháng thuê cuối. <br/> <br/>
+                      - Thanh toán chi phí một lần cho %so_luong% bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng sau khi nghiệm thu, kiểm định với số tiền : %dat_coc2% đồng (Bằng chữ: %dat_coc2_bang_chu% đồng) trong vòng 07 ngày sau khi hoàn thành lắp đặt, kiểm định. </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Thuế GTGT</strong>&nbsp;</td>

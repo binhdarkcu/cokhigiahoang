@@ -44,6 +44,12 @@ class BaoGiaValidator {
             return $result;
         }
 
+        // Chỉ vận thăng có số lượng
+        if($data['loai_sp'] ==='Vận thăng' && !$this->isValidSoLuong($data)){
+            $result['message'] = 'Địa chỉ lắp đặt không tồn tại trên hệ thống!';
+            return $result;
+        }
+        
         // Kiểm tra thời gian thuê nếu hình thức là "THUÊ"
         if ($data['hinh_thuc'] === 'Thuê' && !$this->isValidThoiGianThue($data)) {
             $result['message'] = 'Thời gian thuê không hợp lệ!';
@@ -76,7 +82,7 @@ class BaoGiaValidator {
     }
 
     private function isValidSDT($data) {
-        return preg_match('/^\d{10,15}$/', $data['so_dt']);
+        return preg_match('/^\d{10,11}$/', $data['so_dt']);
     }
 
     private function isValidEmail($data) {
@@ -190,13 +196,13 @@ class BaoGiaValidator {
     }
 
     private function isValidSoLuong($data) {
-        $chieu_cao = trim($data['so_luong']);
-        return $this->isPositiveNumber($chieu_cao);
+        $sl = trim($data['so_luong']);
+        return $this->isPositiveNumber($sl) && $sl < 999;
     }
 
     private function isValidThoiGianThue($data) {
-        $chieu_cao = trim($data['thoi_gian_thue']);
-        return $this->isPositiveNumber($chieu_cao);
+        $tg_thue = trim($data['thoi_gian_thue']);
+        return $this->isPositiveNumber($tg_thue)  && $tg_thue < 99;
     }
 
     private function isValidAddress($data) {

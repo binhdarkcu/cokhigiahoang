@@ -69,6 +69,12 @@ jQuery(function ($) {
             },
             chieu_cao: {
                 number: true
+            },
+            so_luong: {
+                number: true,
+                required: true,
+                min: 1,
+                max: 999
             }
         }
     });
