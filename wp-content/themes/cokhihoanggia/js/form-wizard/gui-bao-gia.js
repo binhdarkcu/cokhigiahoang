@@ -57,25 +57,6 @@ jQuery(function ($) {
                 );
     }
 
-//
-//    function totalPrices() {
-//        var total = 0;
-//        $('#tblGianGiao .totalPrice').each(function (index, value) {
-//            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
-//        });
-//        return total;
-//    }
-//
-//    function totalWeight() {
-//        var total = 0;
-//        $('#tblGianGiao .MassNumber').each(function (index, value) {
-//            total = total + Number($(value).html().replace(/[^0-9.-]+/g, ""))
-//        });
-//        return total;
-//
-//    }
-
-
     function updateOrder() {
         $.ajax({
             type: 'POST',
@@ -99,8 +80,10 @@ jQuery(function ($) {
         var text = '';
         switch (data.form_bao_gia) {
             case 'form_vt_long_ban':
+                text = $('#template-mua-vtl').text();
+                break;
             case 'form_vt_long_thue':
-                text = $('#template-1').text();
+                text = $('#template-thue-vtl').text();
                 break;
             case 'form_vt_hang_ban':
                 text = data.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();

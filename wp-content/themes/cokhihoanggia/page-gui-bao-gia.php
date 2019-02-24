@@ -64,6 +64,15 @@ $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
 <script id="template-mua-gian-giao" type="text/template">
     <?php get_template_part("template-parts/emailing/template-mua-gian-giao"); ?>
 </script>
+
 <script id="template-thue-gian-giao" type="text/template">
     <?php get_template_part("template-parts/emailing/template-thue-gian-giao"); ?>
+</script>
+
+<script id="template-thue-vtl" type="text/template">
+    <?php get_template_part("template-parts/emailing/template-thue-van-thang-long"); ?>
+</script>
+
+<script id="template-mua-vtl" type="text/template">
+    <?php get_template_part("template-parts/emailing/template-mua-van-thang-long"); ?>
 </script>

@@ -134,27 +134,6 @@ jQuery(function ($) {
         },
         onFinished: function (event, currentIndex)
         {
-            var text;
-            switch (window.GiaHoangProduct.form_bao_gia) {
-                case 'form_vt_long_ban':
-                case 'form_vt_long_thue':
-                    text = $('#template-1').text();
-                    break;
-                case 'form_vt_hang_ban':
-                    text = $('#template-2').text();
-                    break;
-                case 'form_vt_hang_thue':
-                    text = $('#template-1').text();
-                    break;
-                case 'form_gian_giao_ban':
-                    text = $('#template-3').text();
-                    break;
-                case 'form_gian_giao_thue':
-                    text = $('#template-4').text();
-                    break;
-                    defaut:
-                            break;
-            }
 
             //Apply template
             const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));

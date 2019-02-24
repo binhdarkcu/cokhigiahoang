@@ -322,11 +322,129 @@ function calculate_data_for_van_thang($baoGia) {
             $baoGia = $baoGia['hinh_thuc'] == 'Thuê' ? calculate_data_for_thue_VTH($baoGia) : calculate_data_for_mua_VTH($baoGia);
             break;
         case 'Vận thăng lồng':
-            $baoGia = calculateDataForVTL($baoGia);
+            $baoGia = $baoGia['hinh_thuc'] == 'Thuê' ? calculate_data_for_thue_VTL($baoGia) : calculate_data_for_mua_VTL($baoGia);
             break;
         default;
     }
     return $baoGia;
+}
+
+function calculate_data_for_thue_VTL($baoGia){
+    $donGiaThue = get_don_gia_thue_vtl($baoGia);
+    $uti = new Utilities();
+    // Có lỗi xảy ra
+    if(!$donGiaThue){
+        return $baoGia;
+    }
+    
+    $phanTramTheoThangThue = 0;
+    switch($baoGia['thoi_gian_thue']){
+        case 1:
+            $phanTramTheoThangThue = 20;
+            break;
+        case 2:
+            $phanTramTheoThangThue = 10;
+        default:
+            break;
+    }
+    
+    $baoGia['show_bien_tan'] = $baoGia['bien_tan'] === 'Có' ? 'grid' : 'none';
+    
+    $temp = array();
+    
+    $temp['don_gia'] = convert_to_number($donGiaThue['don_gia']);
+    $temp['don_gia_thue_1_thang'] = $temp['don_gia'] + $temp['don_gia']*$phanTramTheoThangThue*0.01;
+    $temp['don_gia_thue_x_thang'] = $temp['don_gia_thue_1_thang'] * $baoGia['thoi_gian_thue'];
+    
+    $temp['lap_dat'] = convert_to_number($donGiaThue['lap_dat']);
+    $temp['van_chuyen'] = convert_to_number($donGiaThue['van_chuyen']);
+    $temp['kiem_dinh'] = convert_to_number('5,000,000');
+    
+    $temp['van_hanh_1_thang'] = convert_to_number('7,000,000');
+    $temp['van_hanh_x_thang'] = $temp['van_hanh_1_thang'] * $baoGia['thoi_gian_thue'];
+    
+    // Bảo trì
+    $temp['bao_tri_1_thang'] = convert_to_number('2,000,000');
+    $temp['bao_tri_x_thang'] = $temp['bao_tri_1_thang'] * $baoGia['thoi_gian_thue'];
+    
+    // Chi phí 1 tháng = Đơn giá + Vận hành + Bảo trì
+    $temp['chi_phi_thue_1_thang'] = $temp['don_gia_thue_1_thang'] + $temp['van_hanh_1_thang'] + $temp['bao_tri_1_thang'];
+    $temp['chi_phi_thue_x_thang'] = $temp['chi_phi_thue_1_thang'] * $baoGia['thoi_gian_thue'];
+    
+    //Chi phí một lần (A+B)
+    $temp['chi_phi_mot_lan'] = $temp['van_chuyen']*2 + $temp['lap_dat']*2 + $temp['kiem_dinh'];
+    
+    // Tổng 1 bộ trước thuế
+    $temp['gia_tri_thuc_hien'] = $temp['chi_phi_mot_lan'] + $temp['chi_phi_thue_x_thang'];
+    
+    // VAT
+    $temp['vat'] = $temp['gia_tri_thuc_hien']*0.1;
+    
+    // Tổng 1 bộ sau thuế
+    $temp['tong_cong_1_bo_sau_thue'] = $temp['gia_tri_thuc_hien'] + $temp['vat'];
+    
+    // Cọc 1
+    $temp['coc_1'] = $temp['don_gia_thue_1_thang']*2*$baoGia['so_luong'];
+    $baoGia['coc_1_bang_chu'] = $uti->convert_number_to_words($temp['coc_1']);
+    
+    // Cọc 2
+    $temp['coc_2'] = $temp['chi_phi_mot_lan']*$baoGia['so_luong']*1.1;
+    $baoGia['coc_2_bang_chu'] = $uti->convert_number_to_words($temp['coc_2']);
+    
+    if($baoGia['so_luong'] > 1){
+        $temp['tong_cong_x_bo_sau_thue'] = $temp['tong_cong_1_bo_sau_thue']*$baoGia['so_luong'];
+        $baoGia['show_last_row'] = 'block';
+        $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words($temp['tong_cong_x_bo_sau_thue']);
+    }else{
+        $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words($temp['tong_cong_1_bo_sau_thue']);
+    }
+    
+    // Ngày lập bảng
+    $date = getdate(date("U"));
+    $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
+    
+    foreach ($temp as $key => $value){
+        $baoGia[$key] = number_format($value);
+    }
+    
+    return $baoGia;
+}
+
+function get_don_gia_thue_vtl($baoGia){
+    $list_VTL = array(
+        '1 lồng' => array(
+            '1 tấn' => '1L1T',
+            '2 tấn' => '1L2T'
+        ),
+        '2 lồng' => array(
+            '1 tấn' => '2L1T',
+            '2 tấn' => '2L2T'
+        )
+    );
+    $loai_vtl = $list_VTL[$baoGia['so_long']][$baoGia['tl_long']];
+    
+    if(!$loai_vtl){
+        return null;
+    }
+    
+    $run_dynamic_function = "get_don_gia_thue_VTL_".$loai_vtl."_trong_TPHCM";
+    $don_gia_thue = $run_dynamic_function();
+    
+    return $don_gia_thue[$baoGia['chieu_cao']];
+}
+
+function calculate_data_for_mua_VTL($baoGia){
+    return $baoGia;
+}
+
+// Tính số khung của VTL
+function get_so_khung($chieu_cao){
+    return (ceil($chieu_cao/1.5)-2);
+}
+
+// Tính số giằng của VTL
+function get_so_giang($chieu_cao){
+    return ceil($chieu_cao/8.0);
 }
 
 // Tính mua vận thăng hàng
@@ -464,7 +582,6 @@ function calculate_data_for_thue_VTH($baoGia) {
         $baoGia['show_last_row'] = 'block';
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_cong_x_bo_sau_thue']));
     } else {
-        $baoGia['so_luong'] =
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_cong_1_bo_sau_thue']));
     }
 
@@ -608,121 +725,88 @@ function get_total_weight($data) {
 
 function get_additional_info_for_VTH_500kg() {
     $stores = new Stores();
-    $key = ADDITIONAL_INFO_MUA_VTH_500KG;
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_additional_info_for_VTH_500kg();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_additional_info_for_VTH_1000kg() {
     $stores = new Stores();
-    $key = ADDITIONAL_INFO_MUA_VTH_1000KG;
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_additional_info_for_VTH_1000kg();
+    return run_executor($key, __FUNCTION__);
 }
 
 // Gian giao data structure
 function get_gian_giao_form_data() {
     $key = GIAN_GIAO;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gian_giao_form_data();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_cities() {
     $key = THANH_PHO;
-    $stores = new Stores();
-
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_cities();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_ban_VTH500kg_trong_TPHCM() {
     $key = BAN_VTH_500KG_TRONG_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_ban_VTH500kg_trong_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_ban_VTH500kg_ngoai_TPHCM() {
     $key = BAN_VTH_500KG_NGOAI_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_ban_VTH500kg_ngoai_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_ban_VTH1000kg_trong_TPHCM() {
     $key = BAN_VTH_1000KG_TRONG_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_ban_VTH1000kg_trong_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_ban_VTH1000kg_ngoai_TPHCM() {
     $key = BAN_VTH_1000KG_NGOAI_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_ban_VTH1000kg_ngoai_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_thue_VTH500kg_trong_TPHCM() {
     $key = THUE_VTH_500KG_TRONG_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_thue_VTH500kg_trong_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_thue_VTH500kg_ngoai_TPHCM() {
     $key = THUE_VTH_500KG_NGOAI_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_thue_VTH500kg_ngoai_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_phan_tram_theo_thang_thue() {
     $key = PHAN_TRAM_THEO_THANG_THUE;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_phan_tram_theo_thang_thue();
+    return run_executor($key, __FUNCTION__);
+}
+
+function get_don_gia_thue_cua_tang(){
+     $key = DON_GIA_CUA_TANG;
+    return run_executor($key, __FUNCTION__);   
+}
+
+function get_don_gia_thue_VTL_1L1T_trong_TPHCM(){
+     $key = DON_GIA_VTL_1L1T_TPHCM;
+    return run_executor($key, __FUNCTION__);   
+}
+
+function get_don_gia_thue_VTL_1L2T_trong_TPHCM(){
+     $key = DON_GIA_VTL_1L2T_TPHCM;
+    return run_executor($key, __FUNCTION__);   
+}
+
+function get_don_gia_thue_VTL_2L1T_trong_TPHCM(){
+     $key = DON_GIA_VTL_2L1T_TPHCM;
+    return run_executor($key, __FUNCTION__);   
+}
+
+function get_don_gia_thue_VTL_2L2T_trong_TPHCM(){
+     $key = DON_GIA_VTL_2L2T_TPHCM;
+    return run_executor($key, __FUNCTION__);   
 }
 
 function get_phi_van_chuyen_gian_giao($baoGia) {
     $key = PHI_VAN_CHUYEN_GIAN_GIAO;
-    $stores = new Stores();
-    $result = query_settings($key);
-    $phi_van_chuyen = $result ? $result : $stores->get_phi_van_chuyen_gian_giao();
+    $phi_van_chuyen =  run_executor($key, __FUNCTION__);
 
     // For updating setting page
     if(!$baoGia){
@@ -735,33 +819,17 @@ function get_phi_van_chuyen_gian_giao($baoGia) {
 
 function get_gia_thue_VTH1000kg_trong_TPHCM() {
     $key = THUE_VTH_1000KG_TRONG_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_thue_VTH1000kg_trong_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_thue_VTH1000kg_ngoai_TPHCM() {
     $key = THUE_VTH_1000KG_NGOAI_TPHCM;
-    $stores = new Stores();
-    $result = query_settings($key);
-
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_thue_VTH1000kg_ngoai_TPHCM();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_chi_phi_lap_dat_va_kiem_dinh() {
     $key = ADDITIONAL_INFO_MUA_VTH;
-    $stores = new Stores();
-    $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_chi_phi_lap_dat_va_kiem_dinh();
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_gia_tri_san_pham($baoGia){
@@ -770,12 +838,20 @@ function get_gia_tri_san_pham($baoGia){
 
 function get_gia_tri_san_pham_cu() {
     $key = GIA_TRI_SAN_PHAM;
+    return run_executor($key, __FUNCTION__);
+}
+
+// Lấy giá biến tần mua/thuê
+function get_gia_bien_tan($hinh_thuc) {
+    $key = GIA_BIEN_TAN;
+    $data = run_executor($key, __FUNCTION__);
+    return $hinh_thuc === 'Mua' ? $data['mua'] : $data['thue'];
+}
+
+function run_executor($key, $fnc_name){
     $stores = new Stores();
     $result = query_settings($key);
-    if ($result) {
-        return $result;
-    }
-    return $stores->get_gia_tri_san_pham_cu();
+    return $result ? $result : $stores->$fnc_name();
 }
 
 function query_settings($setting_key) {
