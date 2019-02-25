@@ -326,9 +326,7 @@ function calculate_data_for_van_thang($baoGia) {
 }
 
 function calculate_data_for_mua_VTL($baoGia){
-    
     $ulti = new Utilities();
-    
     $code = $baoGia['so_long'] == '1 lồng' ? '1L' : '2L';
     $code .= $baoGia['tl_long'] == '1 tấn' ? '1T' : '2T';
     $donGiaMua = get_don_gia_mua_VTL();
@@ -339,14 +337,23 @@ function calculate_data_for_mua_VTL($baoGia){
         return $baoGia;
     }
     
-    $baoGia['show_bien_tan'] = $baoGia['bien_tan'] == 'Có' ? 'grid' : 'none';
+    $giaBienTan = 0;
+    $giaSan = convert_to_number($donGia['gia_san']);
+    $giaMotMet = convert_to_number($donGia['don_gia_mot_met']);
+    
+    if($baoGia['bien_tan'] == 'Có'){
+        $giaBienTan = convert_to_number(get_gia_bien_tan($baoGia['hinh_thuc']));
+        $baoGia['show_bien_tan'] = 'grid';
+    }else{
+        $baoGia['show_bien_tan'] = 'none';
+    }
     
     $temp = array();
     $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao']);
     $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao']);
     $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
     
-    $temp['don_gia_1_bo'] = (convert_to_number($donGia['gia_san']) + convert_to_number($donGia['don_gia_mot_met'])*$khungVTLamTron) * get_gia_tri_san_pham($baoGia);
+    $temp['don_gia_1_bo'] = ($giaBienTan + $giaSan + $giaMotMet*$khungVTLamTron) * get_gia_tri_san_pham($baoGia);
     
     $temp['tong_1_bo_truoc_thue'] = $temp['don_gia_1_bo'];
     $temp['vat'] = $temp['tong_1_bo_truoc_thue']*0.1;
