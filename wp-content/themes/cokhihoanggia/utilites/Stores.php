@@ -1990,4 +1990,25 @@ class Stores {
         );
     }
     
+    function get_don_gia_mua_VTL(){
+        return array(
+            '1L1T' => array(
+                'gia_san' => '200,000,000',
+                'don_gia_mot_met' => '7,500,000'
+            ),
+            '1L2T' => array(
+                'gia_san' => '370,000,000',
+                'don_gia_mot_met' => '8,500,000'
+            ),
+            '2L1T' => array(
+                'gia_san' => '220,000,000',
+                'don_gia_mot_met' => '7,500,000'
+            ),
+            '2L2T' => array(
+                'gia_san' => '400,000,000',
+                'don_gia_mot_met' => '8,500,000'
+            )
+        );
+    }
+    
 }

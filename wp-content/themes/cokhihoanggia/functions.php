@@ -313,10 +313,6 @@ function convert_to_number($string) {
 }
 
 function calculate_data_for_van_thang($baoGia) {
-//    $baoGia['thoi_gian_thue'] = 1;
-//    $baoGia['so_luong'] = 2;
-//    $baoGia['vi_tri'] = 'Tiền Giang';
-//    $baoGia['chieu_cao'] = 60;
     switch ($baoGia['loai_vt']) {
         case 'Vận thăng hàng':
             $baoGia = $baoGia['hinh_thuc'] == 'Thuê' ? calculate_data_for_thue_VTH($baoGia) : calculate_data_for_mua_VTH($baoGia);
@@ -328,6 +324,58 @@ function calculate_data_for_van_thang($baoGia) {
     }
     return $baoGia;
 }
+
+function calculate_data_for_mua_VTL($baoGia){
+    
+    $ulti = new Utilities();
+    
+    $code = $baoGia['so_long'] == '1 lồng' ? '1L' : '2L';
+    $code .= $baoGia['tl_long'] == '1 tấn' ? '1T' : '2T';
+    $donGiaMua = get_don_gia_mua_VTL();
+    $donGia = $donGiaMua[$code];
+    
+    // Xảy ra lỗi
+    if(!$donGia){
+        return $baoGia;
+    }
+    
+    $baoGia['show_bien_tan'] = $baoGia['bien_tan'] == 'Có' ? 'grid' : 'none';
+    
+    $temp = array();
+    $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao']);
+    $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao']);
+    $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
+    
+    $temp['don_gia_1_bo'] = (convert_to_number($donGia['gia_san']) + convert_to_number($donGia['don_gia_mot_met'])*$khungVTLamTron) * get_gia_tri_san_pham($baoGia);
+    
+    $temp['tong_1_bo_truoc_thue'] = $temp['don_gia_1_bo'];
+    $temp['vat'] = $temp['tong_1_bo_truoc_thue']*0.1;
+    $temp['tong_1_bo_sau_thue'] = $temp['tong_1_bo_truoc_thue'] + $temp['vat'];
+    
+    if($baoGia['so_luong'] > 1){
+        $temp['tong_x_bo_sau_thue'] = $temp['tong_1_bo_sau_thue']*$baoGia['so_luong'];
+        $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
+        
+    }else{
+        $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_1_bo_sau_thue']);
+        
+        // Cọc 1
+        $temp['coc_1'] = $temp['tong_1_bo_sau_thue']*0.4;
+        $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
+        
+        // Cọc 2
+        $temp['coc_2'] = $temp['tong_1_bo_sau_thue']*0.2;
+        $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);  
+    }
+    
+    // Định dạng thông số, vd: 50000 => 50,000
+    foreach($temp as $key => $value){
+        $baoGia[$key] = number_format($value);
+    }
+    
+    return $baoGia;
+}
+
 
 function calculate_data_for_thue_VTL($baoGia){
     $donGiaThue = get_don_gia_thue_vtl($baoGia);
@@ -433,17 +481,13 @@ function get_don_gia_thue_vtl($baoGia){
     return $don_gia_thue[$baoGia['chieu_cao']];
 }
 
-function calculate_data_for_mua_VTL($baoGia){
-    return $baoGia;
-}
-
 // Tính số khung của VTL
-function get_so_khung($chieu_cao){
-    return (ceil($chieu_cao/1.5)-2);
+function get_so_khung($chieu_cao, $isRound = false){
+    return $isRound ? ceil($chieu_cao/1.5) : (ceil($chieu_cao/1.5)-2);
 }
 
 // Tính số giằng của VTL
-function get_so_giang($chieu_cao){
+function get_so_thanh_giang($chieu_cao){
     return ceil($chieu_cao/8.0);
 }
 
@@ -801,6 +845,11 @@ function get_don_gia_thue_VTL_2L1T_trong_TPHCM(){
 
 function get_don_gia_thue_VTL_2L2T_trong_TPHCM(){
      $key = DON_GIA_VTL_2L2T_TPHCM;
+    return run_executor($key, __FUNCTION__);   
+}
+
+function get_don_gia_mua_VTL(){
+     $key = DON_GIA_MUA_VTL;
     return run_executor($key, __FUNCTION__);   
 }
 
