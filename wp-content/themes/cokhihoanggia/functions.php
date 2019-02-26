@@ -416,10 +416,12 @@ function calculate_data_for_thue_VTL($baoGia){
     $temp['kiem_dinh'] = convert_to_number('5,000,000');
     
     $temp['van_hanh_1_thang'] = convert_to_number('7,000,000');
-    $temp['van_hanh_x_thang'] = $temp['van_hanh_1_thang'] * $baoGia['thoi_gian_thue'];
-    
-    // Bảo trì
     $temp['bao_tri_1_thang'] = convert_to_number('2,000,000');
+    if($baoGia['so_long'] == 2){
+        $temp['van_hanh_1_thang']*=2;
+        $temp['bao_tri_1_thang']*=2;
+    }
+    $temp['van_hanh_x_thang'] = $temp['van_hanh_1_thang'] * $baoGia['thoi_gian_thue'];
     $temp['bao_tri_x_thang'] = $temp['bao_tri_1_thang'] * $baoGia['thoi_gian_thue'];
     
     // Chi phí 1 tháng = Đơn giá + Vận hành + Bảo trì

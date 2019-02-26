@@ -196,14 +196,42 @@ jQuery(function ($) {
         if(GiaHoangProduct['hinh_thuc'] === 'Bán' && GiaHoangProduct['loai_sp'] === 'Vận thăng'){
             $('#select_chieu_cao').empty();
             $("#select_chieu_cao").append('<option value=""></option>');
-            for(var i = 6; i<=60; i+=2){
+            
+            var min = 20;
+            var max = 60;
+            var step = 2
+            if(GiaHoangProduct['loai_vt'] == 'Vận thăng lồng'){
+                min = 30; step = 10;
+                if(GiaHoangProduct['so_long'] == '2 lồng' && GiaHoangProduct['tl_long'] == '2 tấn'){
+                    max = 230;
+                }else{
+                    max = 150;
+                }
+            }
+            
+            for(var i = min; i<=max; i+=step){
                 $("#select_chieu_cao").append('<option value="' + i + '">' + i + '</option>');
                 $("#select_chieu_cao").trigger("chosen:updated");
             }
         }else if(GiaHoangProduct['hinh_thuc'] === 'Thuê' && GiaHoangProduct['loai_sp'] === 'Vận thăng'){
             $('#select_chieu_cao').empty();
             $("#select_chieu_cao").append('<option value=""></option>');
-            for(var i = 20; i<=60; i+=2){
+            
+            var min = 20;
+            var max = 60;
+            var step = 2
+            if(GiaHoangProduct['loai_vt'] == 'Vận thăng lồng'){
+                min = 30; step = 10;
+                if(GiaHoangProduct['so_long'] == '2 lồng' && GiaHoangProduct['tl_long'] == '2 tấn'){
+                    max = 230;
+                }else{
+                    max = 150;
+                }
+            }
+                
+            
+            
+            for(var i = min; i<=max; i+=step){
                 $("#select_chieu_cao").append('<option value="' + i + '">' + i + '</option>');
                 $("#select_chieu_cao").trigger("chosen:updated");
             }
