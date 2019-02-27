@@ -198,8 +198,10 @@ jQuery(document).ready(function ($) {
             var text;
             switch (order_detail.form_bao_gia) {
                 case 'form_vt_long_ban':
+                    text = $('#template-mua-vtl').text();
+                    break;
                 case 'form_vt_long_thue':
-                    text = $('#template-1').text();
+                    text = $('#template-thue-vtl').text();
                     break;
                 case 'form_vt_hang_ban':
                     text = order_detail.tl_vt_hang === '500 kg' ? $('#template-mua-vth-500kg').text() : $('#template-mua-vth-1000kg').text();
@@ -273,7 +275,8 @@ jQuery(document).ready(function ($) {
                 try {
                     jsonData = JSON.parse(result);
 
-                    const statuses = ['Đã báo giá', 'Đã thanh toán', 'Hoàn thành'];
+                    const statuses = ['Đã xem', 'Đã báo giá', 'Đã thanh toán', 'Hoàn thành'];
+                    console.log(`aaaa`, statuses);
                     //Get data OK
                     if (jsonData.status === 'OK') {
 

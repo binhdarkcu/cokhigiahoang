@@ -33,6 +33,14 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     </div>
 </div>
 
+<script id="template-mua-vtl" type="text/template">
+<?php get_template_part("template-parts/emailing/template-thue-van-thang-long"); ?>
+</script>
+
+<script id="template-thue-vtl" type="text/template">
+<?php get_template_part("template-parts/emailing/template-thue-van-thang-long"); ?>
+</script>
+
 <script id="template-thue-vth-500kg" type="text/template">
 <?php get_template_part("template-parts/emailing/template-thue-van-thang-hang-500kg"); ?>
 </script>

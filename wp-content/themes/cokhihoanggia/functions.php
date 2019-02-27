@@ -13,8 +13,13 @@ add_action('wp_enqueue_scripts', 'ajax_enqueue');
 //Send ajax request without login
 add_action('wp_ajax_nopriv_tao_bao_gia', 'bao_gia');
 add_action('wp_ajax_tao_bao_gia', 'bao_gia');
+
+add_action('wp_ajax_nopriv_luu_thong_tin_khach_hang', 'luu_thong_tin_khach_hang');
+add_action('wp_ajax_luu_thong_tin_khach_hang', 'luu_thong_tin_khach_hang');
+
 add_action('wp_ajax_nopriv_tinh_don_gia', 'tinh_don_gia');
 add_action('wp_ajax_tinh_don_gia', 'tinh_don_gia');
+
 add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
 add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
 add_action('wp_ajax_update_setting', 'update_setting');
@@ -35,6 +40,45 @@ function ajax_enqueue() {
     wp_localize_script('main_js', 'globalConfig', array('admin_ajax_url' => admin_url('admin-ajax.php')));
 }
 
+function luu_thong_tin_khach_hang(){
+    global $wp_version;
+    global $wpdb;
+    $json_data = $_POST['json'];
+
+    if (version_compare($wp_version, '5.0', '<')) {
+
+        $json = wp_unslash($json_data);
+    } else {
+
+        $json = $json_data;
+    }
+    $bao_gia = json_decode($json, true);
+    
+    $validator = new BaoGiaValidator();
+    $error = $validator->isValidData($bao_gia);
+    
+    if($error['message']){
+        $result['message'] = $error['message'];
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
+        // Don't forget to stop execution afterward.
+        wp_die();
+    }
+    
+    $ho_ten = $bao_gia['ho_ten'];
+    $sdt = $bao_gia['so_dt'];
+    $email = $bao_gia['email'];
+    $cty = $bao_gia['cty'];
+    $trang_thai = 'Đã xem';
+    $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
+    $ngay_tao = $ngay_cap_nhat = current_time('Y-m-d h:i:s');
+    $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
+                                            (full_name, phone_number, email, company, status, order_detail, created_date, updated_date, is_deleted)
+                                                     VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
+    $wpdb->query($query);
+    $row_id = $wpdb->insert_id;
+    echo json_encode($row_id);
+    wp_die();
+}
 
 function bao_gia() {
     check_ajax_referer('H4GpryAtCnbwJVTdNMMf', 'security');

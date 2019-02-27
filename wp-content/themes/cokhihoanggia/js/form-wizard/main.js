@@ -137,7 +137,21 @@ jQuery(function ($) {
 
             //Apply template
             const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
-            window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
+            $.ajax({
+                type: 'POST',
+                url: globalConfig.admin_ajax_url,
+                data: {
+                    'action': 'luu_thong_tin_khach_hang',
+                    'json': JSON.stringify(GiaHoangProduct.submitData)
+                },
+                success: function (data) {
+                    console.log('data', data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error(thrownError);
+                }
+        });
+//            window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
 
         }
     });
@@ -257,6 +271,7 @@ jQuery(function ($) {
                 $('#loai_sp').fadeIn();
 
                 if (sp.loai_sp === 'Vận thăng') {
+                    $('#sl_gian_giao').fadeIn();
                     $('#chieu_cao').fadeIn();
                     $('#select_chieu_cao').prop('disabled', false);
                     $('#loai_vt').fadeIn();
