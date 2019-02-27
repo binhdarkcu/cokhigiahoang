@@ -146,13 +146,14 @@ jQuery(function ($) {
                 },
                 success: function (data) {
                     console.log('data', data);
+                    window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.error(thrownError);
+                    window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 }
         });
-//            window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
-
+            
         }
     });
     // Custom Button Jquery Steps
