@@ -138,6 +138,8 @@ function bao_gia() {
             break;
     }
 
+    //TODO: update exist order
+    
     $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
                                 		(full_name, phone_number, email, company, status, order_detail, created_date, updated_date, is_deleted)
                                                          VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
@@ -399,25 +401,21 @@ function calculate_data_for_mua_VTL($baoGia){
     
     $temp['don_gia_1_bo'] = ($giaBienTan + $giaSan + $giaMotMet*$khungVTLamTron) * get_gia_tri_san_pham($baoGia);
     
-    $temp['tong_1_bo_truoc_thue'] = $temp['don_gia_1_bo'];
-    $temp['vat'] = $temp['tong_1_bo_truoc_thue']*0.1;
-    $temp['tong_1_bo_sau_thue'] = $temp['tong_1_bo_truoc_thue'] + $temp['vat'];
+    $temp['tong_x_bo_truoc_thue'] = $temp['don_gia_1_bo'] * $baoGia['so_luong'];
+    $temp['vat'] = $temp['tong_x_bo_truoc_thue']*0.1;
+    $temp['tong_x_bo_sau_thue'] = $temp['tong_x_bo_truoc_thue'] + $temp['vat'];
     
-    if($baoGia['so_luong'] > 1){
-        $temp['tong_x_bo_sau_thue'] = $temp['tong_1_bo_sau_thue']*$baoGia['so_luong'];
-        $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
-        
-    }else{
-        $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_1_bo_sau_thue']);
-        
-        // Cọc 1
-        $temp['coc_1'] = $temp['tong_1_bo_sau_thue']*0.4;
-        $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
-        
-        // Cọc 2
-        $temp['coc_2'] = $temp['tong_1_bo_sau_thue']*0.2;
-        $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);  
-    }
+    
+    $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
+
+    // Cọc 1
+    $temp['coc_1'] = $temp['tong_x_bo_sau_thue']*0.4;
+    $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
+
+    // Cọc 2
+    $temp['coc_2'] = $temp['tong_x_bo_sau_thue']*0.2;
+    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']); 
+    
     
     // Định dạng thông số, vd: 50000 => 50,000
     foreach($temp as $key => $value){
@@ -457,6 +455,16 @@ function calculate_data_for_thue_VTL($baoGia){
     
     $temp['lap_dat'] = convert_to_number($donGiaThue['lap_dat']);
     $temp['van_chuyen'] = convert_to_number($donGiaThue['van_chuyen']);
+    
+    if($baoGia['vi_tri'] != 'Tp Hồ Chí Minh'){
+        $temp['lap_dat'] *= 2;
+        $temp['van_chuyen'] *= 2;
+    }
+    
+    $temp['tong_lap_dat'] = $temp['lap_dat'] * $baoGia['so_luong'];
+    $temp['tong_van_chuyen'] = $temp['van_chuyen'] * $baoGia['so_luong'];
+    
+    
     $temp['kiem_dinh'] = convert_to_number('5,000,000');
     
     $temp['van_hanh_1_thang'] = convert_to_number('7,000,000');
@@ -465,6 +473,9 @@ function calculate_data_for_thue_VTL($baoGia){
         $temp['van_hanh_1_thang']*=2;
         $temp['bao_tri_1_thang']*=2;
     }
+    
+    $temp['tong_kiem_dinh'] = $temp['kiem_dinh'] * $baoGia['so_luong'];
+    
     $temp['van_hanh_x_thang'] = $temp['van_hanh_1_thang'] * $baoGia['thoi_gian_thue'];
     $temp['bao_tri_x_thang'] = $temp['bao_tri_1_thang'] * $baoGia['thoi_gian_thue'];
     
@@ -473,7 +484,7 @@ function calculate_data_for_thue_VTL($baoGia){
     $temp['chi_phi_thue_x_thang'] = $temp['chi_phi_thue_1_thang'] * $baoGia['thoi_gian_thue'];
     
     //Chi phí một lần (A+B)
-    $temp['chi_phi_mot_lan'] = $temp['van_chuyen']*2 + $temp['lap_dat']*2 + $temp['kiem_dinh'];
+    $temp['chi_phi_mot_lan'] = $temp['tong_van_chuyen']*2 + $temp['tong_lap_dat']*2 + $temp['tong_kiem_dinh'];
     
     // Tổng 1 bộ trước thuế
     $temp['gia_tri_thuc_hien'] = $temp['chi_phi_mot_lan'] + $temp['chi_phi_thue_x_thang'];
