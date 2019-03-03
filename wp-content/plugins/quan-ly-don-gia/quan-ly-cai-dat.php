@@ -30,6 +30,9 @@ class WP_GHProduct_Management {
         $hook_mua_VTH_1000kg = add_submenu_page( 'cai-dat', 'Mua - vận thăng hàng - 1000kg', 'Mua - VTH - 1000kg', 'administrator', 'mua-vth-1000kg', array($this, 'load_mua_vth_1000kg'));
         $hook_thue_VTH_500kg = add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 500kg', 'Thuê - VTH - 500kg', 'administrator', 'thue-vth-500kg', array($this, 'load_thue_vth_500kg'));
         $hook_thue_VTH_1000kg = add_submenu_page( 'cai-dat', 'Thuê - vận thăng hàng - 1000kg', 'Thuê - VTH - 1000kg', 'administrator', 'thue-vth-1000kg', array($this, 'load_thue_vth_1000kg'));
+        
+        $hook_mua_VTL = add_submenu_page( 'cai-dat', 'Mua - VTL', 'Mua - VTL', 'administrator', 'mua-vtl', array($this, 'load_mua_vtl'));
+        $hook_thue_VTL = add_submenu_page( 'cai-dat', 'Thuê - VTL', 'Thuê - VTL', 'administrator', 'thue-vtl', array($this, 'load_thue_vtl'));
 
         add_action('load-' . $hook_suffix, array($this, 'wpa_admin_styles_scripts'));
         add_action('load-' . $hook_city, array($this, 'load_thanh_pho_styles'));
@@ -38,6 +41,8 @@ class WP_GHProduct_Management {
         add_action('load-' . $hook_mua_VTH_1000kg, array($this, 'load_mua_VTH_1000kg_styles'));
         add_action('load-' . $hook_thue_VTH_500kg, array($this, 'load_thue_VTH_500kg_styles'));
         add_action('load-' . $hook_thue_VTH_1000kg, array($this, 'load_thue_VTH_1000kg_styles'));
+        add_action('load-' . $hook_mua_VTL, array($this, 'load_mua_vtl_styles'));
+        add_action('load-' . $hook_thue_VTL, array($this, 'load_thue_vtl_styles'));
     }
 
     function load_custom_styles(){
@@ -118,6 +123,21 @@ class WP_GHProduct_Management {
         wp_enqueue_script('thanh_pho', plugins_url('/js/thanh_pho.js', __FILE__));
     }
     
+    function load_mua_vtl_styles(){
+        wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__));
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+        wp_enqueue_style('global_css', plugins_url('/css/global_css.css', __FILE__));
+        wp_enqueue_script('global_fnc', plugins_url('/js/global_func.js', __FILE__));
+    }
+    
+    function load_thue_vtl_styles(){
+        wp_enqueue_script('support_func', plugins_url('/js/support_func.js', __FILE__));
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+        wp_enqueue_style('global_css', plugins_url('/css/global_css.css', __FILE__));
+        wp_enqueue_script('global_fnc', plugins_url('/js/global_func.js', __FILE__));
+    }
     //***************************************** LOAD VIEWS********************************************
     // Load view mua vận thăng hàng 500kg
     function load_mua_vth_500kg(){
@@ -154,6 +174,13 @@ class WP_GHProduct_Management {
         include_once( 'views/management.php' );
     }
 
+    function load_mua_vtl(){
+        include_once( 'views/mua-vtl.php' );
+    }
+    
+    function load_thue_vtl(){
+        include_once( 'views/thue-vtl.php' );
+    }
     /*
      * Actions perform on activation of plugin
      */

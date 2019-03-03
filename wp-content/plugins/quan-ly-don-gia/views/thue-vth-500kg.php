@@ -21,15 +21,15 @@ $list_don_gia_ngoai = get_gia_thue_VTH500kg_ngoai_TPHCM();
                         <tbody>
                             <tr>
                                 <td>Đơn giá</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="don_gia" data-setting-key-index="0" value="<?php echo $chi_tiet['don_gia'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_TRONG_TPHCM."-$chieu_cao-don_gia"?>" value="<?php echo $chi_tiet['don_gia'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Lắp đặt</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="lap_dat" data-setting-key-index="0" value="<?php echo $chi_tiet['lap_dat'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_TRONG_TPHCM."-$chieu_cao-lap_dat"?>" value="<?php echo $chi_tiet['lap_dat'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Vận chuyển</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="van_chuyen" data-setting-key-index="0" value="<?php echo $chi_tiet['van_chuyen'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_TRONG_TPHCM."-$chieu_cao-van_chuyen"?>" value="<?php echo $chi_tiet['van_chuyen'];?>"/></td>
                             </tr>
                         </tbody>
                     </table>
@@ -41,15 +41,15 @@ $list_don_gia_ngoai = get_gia_thue_VTH500kg_ngoai_TPHCM();
                         <tbody>
                             <tr>
                                 <td>Đơn giá</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="don_gia" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['don_gia'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_NGOAI_TPHCM."-$chieu_cao-don_gia"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['don_gia'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Lắp đặt</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="lap_dat" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['lap_dat'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_NGOAI_TPHCM."-$chieu_cao-lap_dat"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['lap_dat'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Vận chuyển</td>
-                                <td><input type="text"  class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="van_chuyen" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['van_chuyen'];?>"/></td>
+                                <td><input type="text"  class="setting-data" data-key="<?php echo THUE_VTH_500KG_NGOAI_TPHCM."-$chieu_cao-van_chuyen"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['van_chuyen'];?>"/></td>
                             </tr>
                         </tbody>
                     </table>

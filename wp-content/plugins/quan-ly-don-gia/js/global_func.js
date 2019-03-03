@@ -7,17 +7,25 @@
 jQuery(document).ready(function ($) {
     // Update value
     $('.setting-data').on('change', function () {
-        const setting_key_index = $(this).data('setting-key-index');
-        const setting_key = setting_keys[setting_key_index];
-        const key = $(this).data('key');
-        const index = $(this).data('index');
-        var finalValue = (index === 'don_gia' || index === 'don_gia_thue' || index === 'lap_dat' || index === 'van_chuyen') ? addCommas(this.value) : this.value;
-        // no key [1: 'a', 2: 'b']
-        // has key [1 :[data: 'abc', index: '456']]
-        key ? GiaHoangData[setting_key][key][index] = finalValue || 0 : GiaHoangData[setting_key][index] = finalValue || 0
-        this.value = finalValue || 0;
-
-        console.log(`key; ${key} - index: ${index} - value: ${this.value}`);
+        const keyStr = $(this).data('key');
+        const keys = keyStr.split('-');
+        const _self = this;
+        var updateValue = function(data, keys, index){
+            if(index < keys.length - 1){
+                return updateValue(data[keys[index]], keys, ++index);
+            }else{
+                const _lastKey = keys[index]; 
+                const _fields = ['don_gia', 'don_gia_thue', 'lap_dat', 'van_chuyen', 
+                    'don_gia_mot_khung', 'van_chuyen_den', 'van_chuyen_ve', 'thao_do', 'plc',
+                    'kiem_dinh_12thang', 'trong_tp_hcm', 'ngoai_tp_hcm',
+                    'van_hanh', 'bao_tri', 'gia_bien_tan', 'kiem_dinh'];
+                const _finalValue = _fields.indexOf(_lastKey) !== -1 ? addCommas(_self.value) : _self.value;
+                data[_lastKey] = _finalValue;
+                _self.value = _finalValue || 0;
+                return data;
+            }
+        };
+        updateValue(GiaHoangData, keys, 0);
 
     });
 

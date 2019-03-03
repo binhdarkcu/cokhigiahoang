@@ -37,7 +37,7 @@ jQuery(function ($) {
                 var data = JSON.parse(result);
                 showNotification(data.message, data.status.toLowerCase());
                 $('#gui-bao-gia').off('click');
-                window.location.href = homeUrl;  
+//                window.location.href = homeUrl;  
 
             },
             error: function (xhr, ajaxOptions, thrownError) {

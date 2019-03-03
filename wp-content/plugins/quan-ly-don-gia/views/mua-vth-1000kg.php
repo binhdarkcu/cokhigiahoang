@@ -21,15 +21,15 @@ $list_don_gia_ngoai = get_gia_ban_VTH1000kg_ngoai_TPHCM();
                         <tbody>
                             <tr>
                                 <td>Đơn giá</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="don_gia" data-setting-key-index="0" value="<?php echo $chi_tiet['don_gia'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-don_gia"?>" value="<?php echo $chi_tiet['don_gia'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Thanh giằng</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="thanh_giang" data-setting-key-index="0" value="<?php echo $chi_tiet['thanh_giang'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-thanh_giang"?>" value="<?php echo $chi_tiet['thanh_giang'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Khung vận thăng</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="khung_van_thang" data-setting-key-index="0" value="<?php echo $chi_tiet['khung_van_thang'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-khung_van_thang"?>" value="<?php echo $chi_tiet['khung_van_thang'];?>"/></td>
                             </tr>
                         </tbody>
                     </table>
@@ -41,15 +41,15 @@ $list_don_gia_ngoai = get_gia_ban_VTH1000kg_ngoai_TPHCM();
                         <tbody>
                             <tr>
                                 <td>Đơn giá</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="don_gia" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['don_gia'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-don_gia"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['don_gia'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Thanh giằng</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="thanh_giang" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['thanh_giang'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-thanh_giang"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['thanh_giang'];?>"/></td>
                             </tr>
                             <tr>
                                 <td>Khung vận thăng</td>
-                                <td><input type="text" class="setting-data" data-key="<?php echo $chieu_cao;?>" data-index="khung_van_thang" data-setting-key-index="1" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['khung_van_thang'];?>"/></td>
+                                <td><input type="text" class="setting-data" data-key="<?php echo BAN_VTH_1000KG_NGOAI_TPHCM."-$chieu_cao-khung_van_thang"?>" value="<?php echo $list_don_gia_ngoai[$chieu_cao]['khung_van_thang'];?>"/></td>
                             </tr>
                         </tbody>
                     </table>

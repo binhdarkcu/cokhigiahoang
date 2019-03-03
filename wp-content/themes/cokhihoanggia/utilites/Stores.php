@@ -1661,353 +1661,448 @@ class Stores {
         );
     }
 
-    function get_don_gia_thue_VTL_1L1T_trong_TPHCM(){
+    public function get_don_gia_thue_VTL_1L1T_trong_TPHCM(){
         return array(
-            30 => array(
-                'don_gia' => '14,000,000',
-                'van_chuyen' => '8,000,000',
-                'lap_dat' => '10,000,000'
+            'cua_tang' => array(
+                'don_gia' => '500,000',
+                'van_chuyen_den' => '300,000',
+                'van_chuyen_ve' => '300,000',
+                'lap_dat' => '400,000',
+                'thao_do' => '300,000'
             ),
-            40 => array(
-                'don_gia' => '15,000,000',
-                'van_chuyen' => '9,000,000',
-                'lap_dat' => '11,000,000'
+            'thong_tin_sp' => array(
+                'kieu_van_thang' => 'Model SC100',
+                'bien_tan' => '30kw x 2',
+                'dong_co_bien_tan' => '2 x 13kw',
+                'dong_co_ko_bien_tan' => '2 x 11Kw',
+                'tai_trong' => '01 x 1.0000kg/16 người'
             ),
-            50 => array(
-                'don_gia' => '16,000,000',
-                'van_chuyen' => '10,000,000',
-                'lap_dat' => '12,000,000'
-            ),
-            60 => array(
-                'don_gia' => '17,000,000',
-                'van_chuyen' => '11,000,000',
-                'lap_dat' => '13,000,000'
-            ),
-            70 => array(
-                'don_gia' => '18,000,000',
-                'van_chuyen' => '12,000,000',
-                'lap_dat' => '14,000,000'
-            ),
-            80 => array(
-                'don_gia' => '20,000,000',
-                'van_chuyen' => '13,000,000',
-                'lap_dat' => '15,000,000'
-            ),
-            90 => array(
-                'don_gia' => '22,000,000',
-                'van_chuyen' => '14,000,000',
-                'lap_dat' => '16,000,000'
-            ),
-            100 => array(
-                'don_gia' => '24,000,000',
-                'van_chuyen' => '15,000,000',
-                'lap_dat' => '17,000,000'
-            ),
-            110 => array(
-                'don_gia' => '26,0000,000',
-                'van_chuyen' => '16,000,000',
-                'lap_dat' => '18,000,000'
-            ),
-            120 => array(
-                'don_gia' => '28,000,000',
-                'van_chuyen' => '17,000,000',
-                'lap_dat' => '19,000,000'
-            ),
-            130 => array(
-                'don_gia' => '30,000,000',
-                'van_chuyen' => '18,000,000',
-                'lap_dat' => '20,000,000'
-            ),
-            140 => array(
-                'don_gia' => '32,000,000',
-                'van_chuyen' => '19,000,000',
-                'lap_dat' => '21,000,000'
-            ),
-            150 => array(
-                'don_gia' => '34,000,000',
-                'van_chuyen' => '20,000,000',
-                'lap_dat' => '22,000,000'
+            'thong_tin_don_gia' => array(
+                30 => array(
+                    'don_gia' => '14,000,000',
+                    'van_chuyen' => '8,000,000',
+                    'lap_dat' => '10,000,000'
+                ),
+                40 => array(
+                    'don_gia' => '15,000,000',
+                    'van_chuyen' => '9,000,000',
+                    'lap_dat' => '11,000,000'
+                ),
+                50 => array(
+                    'don_gia' => '16,000,000',
+                    'van_chuyen' => '10,000,000',
+                    'lap_dat' => '12,000,000'
+                ),
+                60 => array(
+                    'don_gia' => '17,000,000',
+                    'van_chuyen' => '11,000,000',
+                    'lap_dat' => '13,000,000'
+                ),
+                70 => array(
+                    'don_gia' => '18,000,000',
+                    'van_chuyen' => '12,000,000',
+                    'lap_dat' => '14,000,000'
+                ),
+                80 => array(
+                    'don_gia' => '20,000,000',
+                    'van_chuyen' => '13,000,000',
+                    'lap_dat' => '15,000,000'
+                ),
+                90 => array(
+                    'don_gia' => '22,000,000',
+                    'van_chuyen' => '14,000,000',
+                    'lap_dat' => '16,000,000'
+                ),
+                100 => array(
+                    'don_gia' => '24,000,000',
+                    'van_chuyen' => '15,000,000',
+                    'lap_dat' => '17,000,000'
+                ),
+                110 => array(
+                    'don_gia' => '26,000,000',
+                    'van_chuyen' => '16,000,000',
+                    'lap_dat' => '18,000,000'
+                ),
+                120 => array(
+                    'don_gia' => '28,000,000',
+                    'van_chuyen' => '17,000,000',
+                    'lap_dat' => '19,000,000'
+                ),
+                130 => array(
+                    'don_gia' => '30,000,000',
+                    'van_chuyen' => '18,000,000',
+                    'lap_dat' => '20,000,000'
+                ),
+                140 => array(
+                    'don_gia' => '32,000,000',
+                    'van_chuyen' => '19,000,000',
+                    'lap_dat' => '21,000,000'
+                ),
+                150 => array(
+                    'don_gia' => '34,000,000',
+                    'van_chuyen' => '20,000,000',
+                    'lap_dat' => '22,000,000'
+                )
             )
         );
     }
     
-    function get_don_gia_thue_VTL_1L2T_trong_TPHCM(){
+    public function get_don_gia_thue_VTL_1L2T_trong_TPHCM(){
         return array(
-            30 => array(
-                'don_gia' => '16,000,000',
-                'van_chuyen' => '8,000,000',
-                'lap_dat' => '10,000,000'
+            'cua_tang' => array(
+                'don_gia' => '500,000',
+                'van_chuyen_den' => '200,000',
+                'van_chuyen_ve' => '200,000',
+                'lap_dat' => '300,000',
+                'thao_do' => '300,000'
             ),
-            40 => array(
-                'don_gia' => '17,000,000',
-                'van_chuyen' => '9,000,000',
-                'lap_dat' => '11,000,000'
+            'thong_tin_sp' => array(
+                'kieu_van_thang' => 'Model SC200',
+                'bien_tan' => '30kw x 2',
+                'dong_co_bien_tan' => '3 x 13kw',
+                'dong_co_ko_bien_tan' => '2 x 11Kw',
+                'tai_trong' => '01 x 2.0000kg/16 người'
             ),
-            50 => array(
-                'don_gia' => '18,000,000',
-                'van_chuyen' => '10,000,000',
-                'lap_dat' => '12,000,000'
-            ),
-            60 => array(
-                'don_gia' => '19,000,000',
-                'van_chuyen' => '11,000,000',
-                'lap_dat' => '13,000,000'
-            ),
-            70 => array(
-                'don_gia' => '20,000,000',
-                'van_chuyen' => '12,000,000',
-                'lap_dat' => '14,000,000'
-            ),
-            80 => array(
-                'don_gia' => '22,000,000',
-                'van_chuyen' => '13,000,000',
-                'lap_dat' => '15,000,000'
-            ),
-            90 => array(
-                'don_gia' => '24,000,000',
-                'van_chuyen' => '14,000,000',
-                'lap_dat' => '16,000,000'
-            ),
-            100 => array(
-                'don_gia' => '26,000,000',
-                'van_chuyen' => '15,000,000',
-                'lap_dat' => '17,000,000'
-            ),
-            110 => array(
-                'don_gia' => '29,0000,000',
-                'van_chuyen' => '16,000,000',
-                'lap_dat' => '18,000,000'
-            ),
-            120 => array(
-                'don_gia' => '32,000,000',
-                'van_chuyen' => '17,000,000',
-                'lap_dat' => '19,000,000'
-            ),
-            130 => array(
-                'don_gia' => '35,000,000',
-                'van_chuyen' => '18,000,000',
-                'lap_dat' => '20,000,000'
-            ),
-            140 => array(
-                'don_gia' => '38,000,000',
-                'van_chuyen' => '19,000,000',
-                'lap_dat' => '21,000,000'
-            ),
-            150 => array(
-                'don_gia' => '41,000,000',
-                'van_chuyen' => '20,000,000',
-                'lap_dat' => '22,000,000'
+            'thong_tin_don_gia' => array(
+                30 => array(
+                    'don_gia' => '16,000,000',
+                    'van_chuyen' => '8,000,000',
+                    'lap_dat' => '10,000,000'
+                ),
+                40 => array(
+                    'don_gia' => '17,000,000',
+                    'van_chuyen' => '9,000,000',
+                    'lap_dat' => '11,000,000'
+                ),
+                50 => array(
+                    'don_gia' => '18,000,000',
+                    'van_chuyen' => '10,000,000',
+                    'lap_dat' => '12,000,000'
+                ),
+                60 => array(
+                    'don_gia' => '19,000,000',
+                    'van_chuyen' => '11,000,000',
+                    'lap_dat' => '13,000,000'
+                ),
+                70 => array(
+                    'don_gia' => '20,000,000',
+                    'van_chuyen' => '12,000,000',
+                    'lap_dat' => '14,000,000'
+                ),
+                80 => array(
+                    'don_gia' => '22,000,000',
+                    'van_chuyen' => '13,000,000',
+                    'lap_dat' => '15,000,000'
+                ),
+                90 => array(
+                    'don_gia' => '24,000,000',
+                    'van_chuyen' => '14,000,000',
+                    'lap_dat' => '16,000,000'
+                ),
+                100 => array(
+                    'don_gia' => '26,000,000',
+                    'van_chuyen' => '15,000,000',
+                    'lap_dat' => '17,000,000'
+                ),
+                110 => array(
+                    'don_gia' => '29,0000,000',
+                    'van_chuyen' => '16,000,000',
+                    'lap_dat' => '18,000,000'
+                ),
+                120 => array(
+                    'don_gia' => '32,000,000',
+                    'van_chuyen' => '17,000,000',
+                    'lap_dat' => '19,000,000'
+                ),
+                130 => array(
+                    'don_gia' => '35,000,000',
+                    'van_chuyen' => '18,000,000',
+                    'lap_dat' => '20,000,000'
+                ),
+                140 => array(
+                    'don_gia' => '38,000,000',
+                    'van_chuyen' => '19,000,000',
+                    'lap_dat' => '21,000,000'
+                ),
+                150 => array(
+                    'don_gia' => '41,000,000',
+                    'van_chuyen' => '20,000,000',
+                    'lap_dat' => '22,000,000'
+                )
             )
         );
     }
     
-    function get_don_gia_thue_VTL_2L1T_trong_TPHCM(){
+    public function get_don_gia_thue_VTL_2L1T_trong_TPHCM(){
         return array(
-            30 => array(
-                'don_gia' => '24,000,000',
-                'van_chuyen' => '8,000,000',
-                'lap_dat' => '10,000,000'
+            'cua_tang' => array(
+                'don_gia' => '500,000',
+                'van_chuyen_den' => '300,000',
+                'van_chuyen_ve' => '300,000',
+                'lap_dat' => '400,000',
+                'thao_do' => '300,000'
             ),
-            40 => array(
-                'don_gia' => '25,000,000',
-                'van_chuyen' => '9,000,000',
-                'lap_dat' => '11,000,000'
+            'thong_tin_sp' => array(
+                'kieu_van_thang' => 'Model SC100/100',
+                'bien_tan' => '30kw x 2',
+                'dong_co_bien_tan' => '2 x 13 Kw x2',
+                'dong_co_ko_bien_tan' => '2 x 11 Kw x2',
+                'tai_trong' => '02 x 1.0000kg/16 người'
             ),
-            50 => array(
-                'don_gia' => '26,000,000',
-                'van_chuyen' => '10,000,000',
-                'lap_dat' => '12,000,000'
-            ),
-            60 => array(
-                'don_gia' => '27,000,000',
-                'van_chuyen' => '11,000,000',
-                'lap_dat' => '13,000,000'
-            ),
-            70 => array(
-                'don_gia' => '28,000,000',
-                'van_chuyen' => '12,000,000',
-                'lap_dat' => '14,000,000'
-            ),
-            80 => array(
-                'don_gia' => '30,000,000',
-                'van_chuyen' => '13,000,000',
-                'lap_dat' => '15,000,000'
-            ),
-            90 => array(
-                'don_gia' => '32,000,000',
-                'van_chuyen' => '14,000,000',
-                'lap_dat' => '16,000,000'
-            ),
-            100 => array(
-                'don_gia' => '34,000,000',
-                'van_chuyen' => '15,000,000',
-                'lap_dat' => '17,000,000'
-            ),
-            110 => array(
-                'don_gia' => '36,0000,000',
-                'van_chuyen' => '16,000,000',
-                'lap_dat' => '18,000,000'
-            ),
-            120 => array(
-                'don_gia' => '38,000,000',
-                'van_chuyen' => '17,000,000',
-                'lap_dat' => '19,000,000'
-            ),
-            130 => array(
-                'don_gia' => '40,000,000',
-                'van_chuyen' => '18,000,000',
-                'lap_dat' => '20,000,000'
-            ),
-            140 => array(
-                'don_gia' => '42,000,000',
-                'van_chuyen' => '19,000,000',
-                'lap_dat' => '21,000,000'
-            ),
-            150 => array(
-                'don_gia' => '44,000,000',
-                'van_chuyen' => '20,000,000',
-                'lap_dat' => '22,000,000'
+            'thong_tin_don_gia' => array(
+                30 => array(
+                    'don_gia' => '24,000,000',
+                    'van_chuyen' => '8,000,000',
+                    'lap_dat' => '10,000,000'
+                ),
+                40 => array(
+                    'don_gia' => '25,000,000',
+                    'van_chuyen' => '9,000,000',
+                    'lap_dat' => '11,000,000'
+                ),
+                50 => array(
+                    'don_gia' => '26,000,000',
+                    'van_chuyen' => '10,000,000',
+                    'lap_dat' => '12,000,000'
+                ),
+                60 => array(
+                    'don_gia' => '27,000,000',
+                    'van_chuyen' => '11,000,000',
+                    'lap_dat' => '13,000,000'
+                ),
+                70 => array(
+                    'don_gia' => '28,000,000',
+                    'van_chuyen' => '12,000,000',
+                    'lap_dat' => '14,000,000'
+                ),
+                80 => array(
+                    'don_gia' => '30,000,000',
+                    'van_chuyen' => '13,000,000',
+                    'lap_dat' => '15,000,000'
+                ),
+                90 => array(
+                    'don_gia' => '32,000,000',
+                    'van_chuyen' => '14,000,000',
+                    'lap_dat' => '16,000,000'
+                ),
+                100 => array(
+                    'don_gia' => '34,000,000',
+                    'van_chuyen' => '15,000,000',
+                    'lap_dat' => '17,000,000'
+                ),
+                110 => array(
+                    'don_gia' => '36,0000,000',
+                    'van_chuyen' => '16,000,000',
+                    'lap_dat' => '18,000,000'
+                ),
+                120 => array(
+                    'don_gia' => '38,000,000',
+                    'van_chuyen' => '17,000,000',
+                    'lap_dat' => '19,000,000'
+                ),
+                130 => array(
+                    'don_gia' => '40,000,000',
+                    'van_chuyen' => '18,000,000',
+                    'lap_dat' => '20,000,000'
+                ),
+                140 => array(
+                    'don_gia' => '42,000,000',
+                    'van_chuyen' => '19,000,000',
+                    'lap_dat' => '21,000,000'
+                ),
+                150 => array(
+                    'don_gia' => '44,000,000',
+                    'van_chuyen' => '20,000,000',
+                    'lap_dat' => '22,000,000'
+                )
             )
+            
         );
     }
     
-    function get_don_gia_thue_VTL_2L2T_trong_TPHCM(){
+    public function get_don_gia_thue_VTL_2L2T_trong_TPHCM(){
         return array(
-            30 => array(
-                'don_gia' => '27,000,000',
-                'van_chuyen' => '8,000,000',
-                'lap_dat' => '10,000,000'
+            'cua_tang' => array(
+                'don_gia' => '500,000',
+                'van_chuyen_den' => '300,000',
+                'van_chuyen_ve' => '300,000',
+                'lap_dat' => '400,000',
+                'thao_do' => '300,000'
             ),
-            40 => array(
-                'don_gia' => '28,000,000',
-                'van_chuyen' => '9,000,000',
-                'lap_dat' => '11,000,000'
+            'thong_tin_sp' => array(
+                'kieu_van_thang' => 'Model SC200/200',
+                'bien_tan' => '30kw x 2',
+                'dong_co_bien_tan' => '2 x 13 Kw x2',
+                'dong_co_ko_bien_tan' => '2 x 11 Kw x2',
+                'tai_trong' => '02 x 2.0000kg/16 người'
             ),
-            50 => array(
-                'don_gia' => '29,000,000',
-                'van_chuyen' => '10,000,000',
-                'lap_dat' => '12,000,000'
+            'thong_tin_don_gia' => array(
+                30 => array(
+                    'don_gia' => '27,000,000',
+                    'van_chuyen' => '8,000,000',
+                    'lap_dat' => '10,000,000'
+                ),
+                40 => array(
+                    'don_gia' => '28,000,000',
+                    'van_chuyen' => '9,000,000',
+                    'lap_dat' => '11,000,000'
+                ),
+                50 => array(
+                    'don_gia' => '29,000,000',
+                    'van_chuyen' => '10,000,000',
+                    'lap_dat' => '12,000,000'
+                ),
+                60 => array(
+                    'don_gia' => '30,000,000',
+                    'van_chuyen' => '11,000,000',
+                    'lap_dat' => '13,000,000'
+                ),
+                70 => array(
+                    'don_gia' => '31,000,000',
+                    'van_chuyen' => '12,000,000',
+                    'lap_dat' => '14,000,000'
+                ),
+                80 => array(
+                    'don_gia' => '33,000,000',
+                    'van_chuyen' => '13,000,000',
+                    'lap_dat' => '15,000,000'
+                ),
+                90 => array(
+                    'don_gia' => '35,000,000',
+                    'van_chuyen' => '14,000,000',
+                    'lap_dat' => '16,000,000'
+                ),
+                100 => array(
+                    'don_gia' => '37,000,000',
+                    'van_chuyen' => '15,000,000',
+                    'lap_dat' => '17,000,000'
+                ),
+                110 => array(
+                    'don_gia' => '40,0000,000',
+                    'van_chuyen' => '16,000,000',
+                    'lap_dat' => '18,000,000'
+                ),
+                120 => array(
+                    'don_gia' => '43,000,000',
+                    'van_chuyen' => '17,000,000',
+                    'lap_dat' => '19,000,000'
+                ),
+                130 => array(
+                    'don_gia' => '46,000,000',
+                    'van_chuyen' => '18,000,000',
+                    'lap_dat' => '20,000,000'
+                ),
+                140 => array(
+                    'don_gia' => '49,000,000',
+                    'van_chuyen' => '19,000,000',
+                    'lap_dat' => '21,000,000'
+                ),
+                150 => array(
+                    'don_gia' => '52,000,000',
+                    'van_chuyen' => '21,000,000',
+                    'lap_dat' => '22,000,000'
+                ),
+                160 => array(
+                    'don_gia' => '62,000,000',
+                    'van_chuyen' => '222,000,000',
+                    'lap_dat' => '23,000,000'
+                ),
+                170 => array(
+                    'don_gia' => '66,000,000',
+                    'van_chuyen' => '20,000,000',
+                    'lap_dat' => '24,000,000'
+                ),
+                180 => array(
+                    'don_gia' => '70,000,000',
+                    'van_chuyen' => '23,000,000',
+                    'lap_dat' => '25,000,000'
+                ),
+                190 => array(
+                    'don_gia' => '74,000,000',
+                    'van_chuyen' => '24,000,000',
+                    'lap_dat' => '26,000,000'
+                ),
+                200 => array(
+                    'don_gia' => '78,000,000',
+                    'van_chuyen' => '25,000,000',
+                    'lap_dat' => '27,000,000'
+                ),
+                210 => array(
+                    'don_gia' => '82,000,000',
+                    'van_chuyen' => '26,000,000',
+                    'lap_dat' => '28,000,000'
+                ),
+                220 => array(
+                    'don_gia' => '86,000,000',
+                    'van_chuyen' => '27,000,000',
+                    'lap_dat' => '29,000,000'
+                ),
+                230 => array(
+                    'don_gia' => '90,000,000',
+                    'van_chuyen' => '28,000,000',
+                    'lap_dat' => '30,000,000'
+                )
             ),
-            60 => array(
-                'don_gia' => '30,000,000',
-                'van_chuyen' => '11,000,000',
-                'lap_dat' => '13,000,000'
-            ),
-            70 => array(
-                'don_gia' => '31,000,000',
-                'van_chuyen' => '12,000,000',
-                'lap_dat' => '14,000,000'
-            ),
-            80 => array(
-                'don_gia' => '33,000,000',
-                'van_chuyen' => '13,000,000',
-                'lap_dat' => '15,000,000'
-            ),
-            90 => array(
-                'don_gia' => '35,000,000',
-                'van_chuyen' => '14,000,000',
-                'lap_dat' => '16,000,000'
-            ),
-            100 => array(
-                'don_gia' => '37,000,000',
-                'van_chuyen' => '15,000,000',
-                'lap_dat' => '17,000,000'
-            ),
-            110 => array(
-                'don_gia' => '40,0000,000',
-                'van_chuyen' => '16,000,000',
-                'lap_dat' => '18,000,000'
-            ),
-            120 => array(
-                'don_gia' => '43,000,000',
-                'van_chuyen' => '17,000,000',
-                'lap_dat' => '19,000,000'
-            ),
-            130 => array(
-                'don_gia' => '46,000,000',
-                'van_chuyen' => '18,000,000',
-                'lap_dat' => '20,000,000'
-            ),
-            140 => array(
-                'don_gia' => '49,000,000',
-                'van_chuyen' => '19,000,000',
-                'lap_dat' => '21,000,000'
-            ),
-            150 => array(
-                'don_gia' => '52,000,000',
-                'van_chuyen' => '21,000,000',
-                'lap_dat' => '22,000,000'
-            ),
-            160 => array(
-                'don_gia' => '62,000,000',
-                'van_chuyen' => '222,000,000',
-                'lap_dat' => '23,000,000'
-            ),
-            170 => array(
-                'don_gia' => '66,000,000',
-                'van_chuyen' => '20,000,000',
-                'lap_dat' => '24,000,000'
-            ),
-            180 => array(
-                'don_gia' => '70,000,000',
-                'van_chuyen' => '23,000,000',
-                'lap_dat' => '25,000,000'
-            ),
-            190 => array(
-                'don_gia' => '74,000,000',
-                'van_chuyen' => '24,000,000',
-                'lap_dat' => '26,000,000'
-            ),
-            200 => array(
-                'don_gia' => '78,000,000',
-                'van_chuyen' => '25,000,000',
-                'lap_dat' => '27,000,000'
-            ),
-            210 => array(
-                'don_gia' => '82,000,000',
-                'van_chuyen' => '26,000,000',
-                'lap_dat' => '28,000,000'
-            ),
-            220 => array(
-                'don_gia' => '86,000,000',
-                'van_chuyen' => '27,000,000',
-                'lap_dat' => '29,000,000'
-            ),
-            230 => array(
-                'don_gia' => '90,000,000',
-                'van_chuyen' => '28,000,000',
-                'lap_dat' => '30,000,000'
-            )
+            
         );
     }
     
-    function get_don_gia_thue_cua_tang(){
-        return array(
-            'don_gia' => '500,000',
-            'van_chuyen' => '300,000',
-            'lap_dat' => '400,000',
-            'thao_do' => '300,000'
-        );
-    }
     
-    function get_don_gia_mua_VTL(){
+    public function get_don_gia_mua_VTL(){
         return array(
             '1L1T' => array(
-                'gia_san' => '200,000,000',
-                'don_gia_mot_met' => '7,500,000'
+                'don_gia' => '200,000,000',
+                'don_gia_mot_khung' => '7,500,000',
+                'kieu_van_thang' => 'Model SC100',
+                'bien_tan' => '30 kw x 2',
+                'dong_co' => '2 x 11Kw',
+                'dong_co_ko_bt' => '2 x 11Kw',
+                'tai_trong' => '1.000kg/12 người'
             ),
             '1L2T' => array(
-                'gia_san' => '370,000,000',
-                'don_gia_mot_met' => '8,500,000'
+                'don_gia' => '370,000,000',
+                'don_gia_mot_khung' => '8,500,000',
+                'kieu_van_thang' => 'Model SC200',
+                'bien_tan' => '30 kw x 2',
+                'dong_co' => '2 x 13kw x 2',
+                'dong_co_ko_bt' => '13kw x 2',
+                'tai_trong' => '2.000kg/16 người'
             ),
             '2L1T' => array(
-                'gia_san' => '220,000,000',
-                'don_gia_mot_met' => '7,500,000'
+                'don_gia' => '220,000,000',
+                'don_gia_mot_khung' => '7,500,000',
+                'kieu_van_thang' => 'Model SC200',
+                'bien_tan' => '30 kw x 2',
+                'dong_co' => '2 x 13Kw x 2',
+                'dong_co_ko_bt' => '13kw x 2',
+                'tai_trong' => '02 x 1.000kg/16 người'
             ),
             '2L2T' => array(
-                'gia_san' => '400,000,000',
-                'don_gia_mot_met' => '8,500,000'
+                'don_gia' => '400,000,000',
+                'don_gia_mot_khung' => '8,500,000',
+                'kieu_van_thang' => 'Model SC200/2',
+                'bien_tan' => '30 kw x 2',
+                'dong_co' => '2 x 11Kw x 2',
+                'dong_co_ko_bt' => '2 x 13kw x 2',
+                'tai_trong' => '02 x 2.000kg/16 người'
             )
+        );
+    }
+    
+    public function get_thue_VTL_cai_dat_chung(){
+        return array(
+            'van_hanh' => '7,000,000',
+            'kiem_dinh' => '5,000,000',
+            'ty_so_ngoai_tp' => 2,
+            'gia_bien_tan' => '3,000,000',
+            'bao_tri' => '2,000,000'
+        );
+    }
+    
+    public function get_mua_VTL_cai_dat_chung(){
+        return array(
+            'gia_bien_tan' => '40,000,000',
+            'plc' => '30,000,000'
         );
     }
     
