@@ -1761,7 +1761,7 @@ class Stores {
                 'bien_tan' => '30kw x 2',
                 'dong_co_bien_tan' => '3 x 13kw',
                 'dong_co_ko_bien_tan' => '2 x 11Kw',
-                'tai_trong' => '01 x 2.0000kg/16 người'
+                'tai_trong' => '01 x 2.000kg/16 người'
             ),
             'thong_tin_don_gia' => array(
                 30 => array(
@@ -1847,7 +1847,7 @@ class Stores {
                 'bien_tan' => '30kw x 2',
                 'dong_co_bien_tan' => '2 x 13 Kw x2',
                 'dong_co_ko_bien_tan' => '2 x 11 Kw x2',
-                'tai_trong' => '02 x 1.0000kg/16 người'
+                'tai_trong' => '02 x 1.000kg/16 người'
             ),
             'thong_tin_don_gia' => array(
                 30 => array(
@@ -1934,7 +1934,7 @@ class Stores {
                 'bien_tan' => '30kw x 2',
                 'dong_co_bien_tan' => '2 x 13 Kw x2',
                 'dong_co_ko_bien_tan' => '2 x 11 Kw x2',
-                'tai_trong' => '02 x 2.0000kg/16 người'
+                'tai_trong' => '02 x 2.000kg/16 người'
             ),
             'thong_tin_don_gia' => array(
                 30 => array(
