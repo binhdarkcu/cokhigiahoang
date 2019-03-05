@@ -30,3 +30,11 @@
 .xoa-bao-gia{
     margin-left: 5px;
 }
+.bao-gia-filter{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+table.dataTable thead th{
+    padding: 10px;
+}

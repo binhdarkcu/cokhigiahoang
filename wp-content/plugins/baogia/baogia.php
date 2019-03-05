@@ -37,9 +37,13 @@ class WP_Order_Management {
         wp_enqueue_script('iziModal', plugins_url('/libs/iziModal/iziModal.min.js', __FILE__));
         wp_enqueue_script('jQueryPrint', plugins_url('/libs/print/jQuery.print.js', __FILE__));
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
+        wp_localize_script('custom', 'plugin_api', array(
+            'url' => plugins_url('api/get-list.php', __FILE__)
+        ));
     }
 
     function display_order_page() {
+        
         include_once( 'views/management.php' );
     }
 

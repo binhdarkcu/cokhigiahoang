@@ -3,9 +3,20 @@ global $wpdb;
 $query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date DESC";
 $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 ?>
+<div class="bao-gia-filter">
+    <div>
+        <h3>Bộ lọc</h3>
+    </div>
+    <strong>Không hiển thị những báo giá có trạng thái:</strong> &nbsp;&nbsp;&nbsp;
+    <input id="ko-hien-thi-seen" type="checkbox" name="ko-hien-thi-seen" value="16">
+    <label for="ko-hien-thi-seen">Đã xem</label> &nbsp;&nbsp;&nbsp;
+    <input id="ko-hien-thi-done" type="checkbox" name="ko-hien-thi-done" value="17">
+    <label for="ko-hien-thi-done">Đã hoàn thành</label>
+</div>
 <table id="bao-gia" class="display" style="width:100%">
     <thead>
         <tr>
+            <th><input type="checkbox" name="select-multiple" value="-1"></th>
             <th>Họ tên</th>
             <th>Số điện thoại</th>
             <th>Email</th>

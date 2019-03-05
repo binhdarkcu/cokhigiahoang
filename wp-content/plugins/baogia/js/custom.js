@@ -155,19 +155,73 @@ jQuery(document).ready(function ($) {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json" //TODO: change to server url
         },
-        "columnDefs": [{
-                "targets": 6,
-                "searchable": false,
-                "orderable": false
-            }, {
-                targets: 5,
-                data: "5",
-                render: {
-                    _: 'display',
-                    sort: 'selected_status',
-                    filter: 'selected_status'
+        "processing": true,
+        "serverSide": true,
+        "ajax": plugin_api.url,
+        "order": [[ 5, "desc" ]],
+        "columnDefs": [
+            {
+                targets: 0,
+                data: 'id',                
+                searchable: false,
+                orderable: false,
+                render: function(id){
+                    return `<input type="checkbox" name="select-multiple" value="${id}">`;
                 }
-            }],
+            },
+            {
+                targets: 1,
+                data: 'full_name',
+                render: function(fName){
+                    return fName;
+                }
+            },
+            {
+                targets: 2,
+                orderable: false,
+                data: 'phone_number',
+                render: function(phone_number){
+                    return phone_number;
+                }
+            },
+            {
+                targets: 3,
+                data: 'email',
+                render: function(email){
+                    return email;
+                }
+            },
+            {
+                targets: 4,
+                data: 'company',
+                render: function(company){
+                    return company;
+                }
+            },
+            {
+                targets: 5,
+                data: 'created_date',
+                render: function(created_date){
+                    return created_date;
+                }
+            },
+            {
+                targets: 6,
+                data: 'status',
+                render: function(status){
+                    return status;
+                }
+            },
+            {
+                targets: 7,
+                data: 'order_detail',
+                searchable: false,
+                orderable: false,
+                render: function(detail, type, row){
+                    return `Xem - Xoa`;
+                }
+            },
+        ],
         "createdRow": function (row, data, index) {
 //            console.log('row: ', row);
 //            console.log('data: ', data);
@@ -262,7 +316,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    getDataAndRenderTable();
+//    getDataAndRenderTable();
     // Send post renquest and render data table
     function getDataAndRenderTable() {
         $.ajax({
@@ -394,4 +448,8 @@ jQuery(document).ready(function ($) {
             loaderBg: '#9EC600', // Background color of the toast loader
         });
     }
+    
+    $('#ko-hien-thi-seen, #ko-hien-thi-done').on('change', function(){
+       console.log('change'); 
+    });
 });
