@@ -151,6 +151,10 @@ const Base64 = {
 
 }
 jQuery(document).ready(function ($) {
+    var checkedIds = $('#checkedIds').val();
+    var arrayIDs = checkedIds ? checkedIds.split(',') : [];
+    var checkAllNode = null;
+    
     var tableBaoGia = $('#bao-gia').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json" //TODO: change to server url
@@ -166,7 +170,9 @@ jQuery(document).ready(function ($) {
                 searchable: false,
                 orderable: false,
                 render: function(id){
-                    return `<input type="checkbox" name="select-multiple" value="${id}">`;
+                    id = id.toString();
+                    var checked = arrayIDs.indexOf(id) > -1;
+                    return `<input type="checkbox" ${checked ? 'checked':''} class="select-multiple" value="${id}">`;
                 }
             },
             {
@@ -223,12 +229,46 @@ jQuery(document).ready(function ($) {
             },
         ],
         "createdRow": function (row, data, index) {
-//            console.log('row: ', row);
-//            console.log('data: ', data);
-//            console.log('index: ', index);
-//            console.log('aaaa', $('td', row).eq(6).addClass('aaa'));
+            var chkbox = $(row).find('.select-multiple');
+            chkbox.on('change', function(){
+                const _value = this.value;
+                this.checked ?  arrayIDs.push(this.value) : (arrayIDs = arrayIDs.filter(function(item){ return item.toString() !== _value.toString();}));
+                $('#checkedIds').val(arrayIDs.join(','));
+                setCheckAll();
+            });
+        },
+        "drawCallback": function(){
+            setCheckAll();
         }
     });
+    
+    function setCheckAll(){
+        var count = 0;
+        var rows = $("#bao-gia").dataTable().fnGetNodes(); 
+        rows.forEach(function(r){
+          var chkbox = $(r).find('.select-multiple');
+          if(chkbox.is(':checked')) count++;
+        });
+
+       $('#check-all').prop('checked', (count === rows.length));        
+    }
+    
+    $('#check-all').on('change', function(){
+       var rows = $("#bao-gia").dataTable().fnGetNodes(); 
+       const checkAll = this.checked;
+       if(!checkAllNode) checkAllNode = this;
+       var ids = [];
+       rows.forEach(function(row){
+          var chkbox = $(row).find('.select-multiple');
+          $(chkbox).prop('checked', checkAll);
+          ids.push(chkbox.val());
+       });
+       
+       arrayIDs = arrayIDs.filter(function(id){return !(ids.indexOf(id) > -1)});
+       if(checkAll) arrayIDs = arrayIDs.concat(ids);
+       $('#checkedIds').val(arrayIDs.join(','));
+    });
+    
     $(tableBaoGia.table().header())
             .addClass('highlight');
 

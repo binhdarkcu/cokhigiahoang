@@ -13,10 +13,12 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     <input id="ko-hien-thi-done" type="checkbox" name="ko-hien-thi-done" value="17">
     <label for="ko-hien-thi-done">Đã hoàn thành</label>
 </div>
+<input type="hidden" id ="checkedIds"/>
+<input type="hidden" id="allIds"/>
 <table id="bao-gia" class="display" style="width:100%">
     <thead>
         <tr>
-            <th><input type="checkbox" name="select-multiple" value="-1"></th>
+            <th><input type="checkbox" id="check-all" name="select-multiple" value="-1"></th>
             <th>Họ tên</th>
             <th>Số điện thoại</th>
             <th>Email</th>
