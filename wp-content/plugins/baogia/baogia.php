@@ -1,5 +1,5 @@
 <?php
-
+include_once( plugin_dir_path(__FILE__) . '/uti/constants.php');
 /*
  * Plugin Name: Quản lý báo giá
  * Plugin URI: 
@@ -38,7 +38,8 @@ class WP_Order_Management {
         wp_enqueue_script('jQueryPrint', plugins_url('/libs/print/jQuery.print.js', __FILE__));
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
         wp_localize_script('custom', 'plugin_api', array(
-            'url' => plugins_url('api/get-list.php', __FILE__)
+            'url' => plugins_url('api/get-list.php', __FILE__),
+            'statuses' => array(DA_XEM, DA_BAO_GIA, DA_THANH_TOAN, HOAN_THANH)
         ));
     }
 

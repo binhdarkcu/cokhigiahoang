@@ -38,3 +38,8 @@
 table.dataTable thead th{
     padding: 10px;
 }
+#bulk-action{
+    margin: 10px 0;
+    display: none;
+}
+#number-of-items-selected{display: inline-block; line-height: 30px; margin-right: 5px;}

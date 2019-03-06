@@ -8,13 +8,18 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
         <h3>Bộ lọc</h3>
     </div>
     <strong>Không hiển thị những báo giá có trạng thái:</strong> &nbsp;&nbsp;&nbsp;
-    <input id="ko-hien-thi-seen" type="checkbox" name="ko-hien-thi-seen" value="16">
+    <input id="ko-hien-thi-seen" type="checkbox" name="ko-hien-thi-seen" value="Đã xem">
     <label for="ko-hien-thi-seen">Đã xem</label> &nbsp;&nbsp;&nbsp;
-    <input id="ko-hien-thi-done" type="checkbox" name="ko-hien-thi-done" value="17">
-    <label for="ko-hien-thi-done">Đã hoàn thành</label>
+    <input id="ko-hien-thi-done" type="checkbox" name="ko-hien-thi-done" value="Hoàn thành">
+    <label for="ko-hien-thi-done">Hoàn thành</label>
 </div>
 <input type="hidden" id ="checkedIds"/>
 <input type="hidden" id="allIds"/>
+<div id="bulk-action">
+    <strong id="number-of-items-selected"></strong>
+    <button class="button button-primary button-large" id="delete-bulk">Xóa tất cả</button>  
+    <button class="button button-primary button-large" id="cancel-bulk">Bỏ chọn</button>    
+</div>
 <table id="bao-gia" class="display" style="width:100%">
     <thead>
         <tr>

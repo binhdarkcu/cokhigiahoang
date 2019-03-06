@@ -161,7 +161,15 @@ jQuery(document).ready(function ($) {
         },
         "processing": true,
         "serverSide": true,
-        "ajax": plugin_api.url,
+        "ajax": {
+            url: plugin_api.url,
+            data: function(d){
+                const dontShowSeen = $('#ko-hien-thi-seen')[0];
+                const dontShowDone = $('#ko-hien-thi-done')[0];
+                if(dontShowSeen.checked) d.dontShowSeen = true;
+                if(dontShowDone.checked) d.dontShowDone = true;
+            }
+        },
         "order": [[ 5, "desc" ]],
         "columnDefs": [
             {
@@ -250,7 +258,17 @@ jQuery(document).ready(function ($) {
           if(chkbox.is(':checked')) count++;
         });
 
-       $('#check-all').prop('checked', (count === rows.length));        
+       $('#check-all').prop('checked', (count > 0 && count === rows.length)); 
+        showHideDeleteBulk();
+    }
+    
+    function showHideDeleteBulk(){
+        if(arrayIDs.length > 0){
+           $('#bulk-action').fadeIn();
+           $('#number-of-items-selected').html(`Đã chọn ${arrayIDs.length} mục`);
+       }else{
+            $('#bulk-action').hide();
+       }    
     }
     
     $('#check-all').on('change', function(){
@@ -267,11 +285,13 @@ jQuery(document).ready(function ($) {
        arrayIDs = arrayIDs.filter(function(id){return !(ids.indexOf(id) > -1)});
        if(checkAll) arrayIDs = arrayIDs.concat(ids);
        $('#checkedIds').val(arrayIDs.join(','));
+       showHideDeleteBulk();
     });
     
     $(tableBaoGia.table().header())
             .addClass('highlight');
 
+            
     $("#modal-chi-tiet").iziModal({
         width: 980,
         radius: 5,
@@ -279,7 +299,19 @@ jQuery(document).ready(function ($) {
         bottom: 10,
         loop: true
     });
-
+    
+    $('#cancel-bulk').on('click', function(){
+        $('#checkedIds').val('');
+        arrayIDs = [];
+        $('#check-all').prop('checked', false);
+        var rows = $("#bao-gia").dataTable().fnGetNodes(); 
+        rows.forEach(function(row){
+           var chkbox = $(row).find('.select-multiple');
+           $(chkbox).prop('checked', false);
+        });
+        showHideDeleteBulk();
+    });
+    
     // Handle view details action
     $(document).on('click', '.xem-chi-tiet', function (event) {
         event.preventDefault();
@@ -369,8 +401,6 @@ jQuery(document).ready(function ($) {
                 try {
                     jsonData = JSON.parse(result);
 
-                    const statuses = ['Đã xem', 'Đã báo giá', 'Đã thanh toán', 'Hoàn thành'];
-                    console.log(`aaaa`, statuses);
                     //Get data OK
                     if (jsonData.status === 'OK') {
 
@@ -384,7 +414,7 @@ jQuery(document).ready(function ($) {
                                 '3': baoGia.company,
                                 '4': baoGia.created_date,
                                 '5': {
-                                    "display": (`<select class="order-status" data-item-id="${baoGia.id}">${statuses.map(function (item) {
+                                    "display": (`<select class="order-status" data-item-id="${baoGia.id}">${plugin_api.statuses.map(function (item) {
                                         return(`<option value='${item}' ${item === baoGia.status ? 'selected' : ''}>${item}</option>`);
                                     }).join(' ')}</select>`),
                                     "selected_status": `${baoGia.status}`,
@@ -489,7 +519,7 @@ jQuery(document).ready(function ($) {
         });
     }
     
-    $('#ko-hien-thi-seen, #ko-hien-thi-done').on('change', function(){
-       console.log('change'); 
+    $('#ko-hien-thi-seen, #ko-hien-thi-done').on('change', function(){ 
+       tableBaoGia.ajax.reload();
     });
 });

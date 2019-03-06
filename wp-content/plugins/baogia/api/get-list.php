@@ -7,7 +7,8 @@ if(current_user_can('manage_options')){
     $draw = (int)filter_input(INPUT_GET, "draw", FILTER_SANITIZE_STRING);
     $search = filter_input(INPUT_GET, "search", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
     $order = filter_input(INPUT_GET, "order", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-    
+    $dontShowSeen = filter_input(INPUT_GET, "dontShowSeen", FILTER_SANITIZE_STRING);
+    $dontShowDone = filter_input(INPUT_GET, "dontShowDone", FILTER_SANITIZE_STRING);
     // Query
     $where = '';
     $order_by = '';
@@ -20,9 +21,9 @@ if(current_user_can('manage_options')){
         '5' => 'created_date',
         '6' => 'status'
     );
-//    echo json_encode($length);
-//    die();
-    
+
+
+
     $_table = $wpdb->prefix . "bao_gia";
     $query = "SELECT * FROM $_table WHERE is_deleted = 0 ";
     
@@ -31,15 +32,22 @@ if(current_user_can('manage_options')){
         $_dir = strtolower($order[0]['dir']) === 'asc' ? 'ASC':'DESC';
         $order_by = " ORDER BY $_o $_dir";
     }
+    // Filter out Seen and Done orders
+    $dontShowDone &&  $where.= " AND status != 'Hoàn thành' ";
+    $dontShowSeen && $where.= " AND status != 'Đã xem' ";
     
     if(trim($search['value'])){
-        $_s = $search['value'];
-        $where = " AND (full_name LIKE '%$_s%' OR phone_number LIKE '%$_s%' OR company LIKE '%$_s%' OR email LIKE '%$_s%' OR status LIKE '%$_s%') ";
+        $_s = '%'.$search['value'].'%';
+        $where .= $wpdb->prepare(" AND (full_name LIKE %s OR phone_number LIKE %s OR company LIKE %s OR email LIKE %s OR status LIKE %s) ", $_s, $_s,$_s,$_s,$_s);
     }
     
- 
-    $limit = " LIMIT $length OFFSET $start";
+    // Limit length of data to 100
+    if($length > 100){
+        $length = 100;
+    }
     
+    $limit = $wpdb->prepare(" LIMIT %d OFFSET %d", $length, $start);
+
     $query = $query.$where.$order_by.$limit;
     
 //    echo $query;
