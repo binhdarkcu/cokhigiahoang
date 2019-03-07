@@ -24,6 +24,12 @@ add_action('wp_ajax_get_list_bao_gia', 'danh_sach_bao_gia');
 add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
 add_action('wp_ajax_update_setting', 'update_setting');
 
+//Hide admin footer from admin
+function change_footer_admin () {return ' ';}
+add_filter('admin_footer_text', 'change_footer_admin', 9999);
+function change_footer_version() {return ' ';}
+add_filter( 'update_footer', 'change_footer_version', 9999);
+
 $file = get_template_directory() . '/assets/logo_email.png'; //phpmailer will load this file
 $uid = 'logo'; //will map it to this UID
 $name = 'logo.png'; //this will be the file name for the attachment

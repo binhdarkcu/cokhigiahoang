@@ -21,11 +21,25 @@ class WP_Order_Management {
 
     //Adding menu
     function wpa_add_menu() {
+        //Plugin dashboard page
         $hook_suffix = add_menu_page('Báo giá', 'Quản lý báo giá', 'manage_options', 'bao-gia', array($this, 'display_order_page'));
-
         add_action('load-' . $hook_suffix, array($this, 'wpa_admin_styles_scripts'));
+        
+        // Bao gia detail page
+        $hook_for_detail_page = add_menu_page('custom_page', 'custom', 'manage_options','chi-tiet-bao-gia', array($this, 'show_order_detail_page'));
+        add_action('load-' . $hook_for_detail_page, array($this, 'wpa_detail_page_scripts'));
+        remove_menu_page('chi-tiet-bao-gia');
     }
 
+    function wpa_detail_page_scripts(){
+        wp_enqueue_script('baoGiaDetail', plugins_url('/js/bao-gia-detail.js', __FILE__));
+        wp_enqueue_script('jQueryPrint', plugins_url('/libs/print/jQuery.print.js', __FILE__));
+        wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
+        wp_enqueue_style('baoGiaChiTietCSS', plugins_url('/css/bao-gia-chi-tiet.css', __FILE__));
+        wp_enqueue_script('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.js', __FILE__));
+    }
+    
+    
     function wpa_admin_styles_scripts() {
         wp_enqueue_style('jquery.dataTables', plugins_url('/libs/DataTables-1.10.18/css/jquery.dataTables.css', __FILE__));
         wp_enqueue_style('jqueryToast', plugins_url('/libs/jqueryToast/jquery.toast.min.css', __FILE__));
@@ -38,11 +52,16 @@ class WP_Order_Management {
         wp_enqueue_script('jQueryPrint', plugins_url('/libs/print/jQuery.print.js', __FILE__));
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
         wp_localize_script('custom', 'plugin_api', array(
-            'url' => plugins_url('api/get-list.php', __FILE__),
+            'get_list_url' => plugins_url('api/get-list.php', __FILE__),
+            'page_chi_tiet_url' => get_admin_url().'admin.php?page=chi-tiet-bao-gia',
             'statuses' => array(DA_XEM, DA_BAO_GIA, DA_THANH_TOAN, HOAN_THANH)
         ));
     }
 
+    function show_order_detail_page(){
+        include_once ('views/detail.php');
+    }
+    
     function display_order_page() {
         
         include_once( 'views/management.php' );

@@ -42,4 +42,14 @@ table.dataTable thead th{
     margin: 10px 0;
     display: none;
 }
+.rdx-div{float: left; margin: 15px 0 25px 0;}
+#detail-content{padding: 0 30px; font-size: 14px;}
+.edit-detail{margin: 5px 0; font-weight: bold;}
 #number-of-items-selected{display: inline-block; line-height: 30px; margin-right: 5px;}
+.bao-gia-status{display: inline-block; padding: 3px 5px; color: #fff; font-size: 14px; text-decoration: none;}
+.bao-gia-status:hover, .bao-gia-status:focus, .bao-gia-status:visited{color: #fff;}
+.status-da-xem{background: #ffc107;}
+.status-da-bao-gia{background: #007bff;}
+.status-da-thanh-toan{background: #e83e8c;}
+.status-hoan-thanh{background: #28a745;}
+

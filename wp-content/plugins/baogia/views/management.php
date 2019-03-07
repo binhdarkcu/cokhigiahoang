@@ -1,8 +1,3 @@
-<?php 
-global $wpdb;
-$query = "SELECT * FROM " . $wpdb->prefix . "bao_gia WHERE is_deleted=0  ORDER BY created_date DESC";
-$rows = $wpdb->get_results ( $query, 'ARRAY_A' );
-?>
 <div class="bao-gia-filter">
     <div>
         <h3>Bộ lọc</h3>
@@ -45,39 +40,15 @@ $rows = $wpdb->get_results ( $query, 'ARRAY_A' );
     <section>
         <footer>
             <button data-izimodal-close="">Đóng</button>
-            <button class="submit" id="print">In</button>            
+            <button class="submit" id="save-change">Lưu</button>            
         </footer>
     </section>
     </div>
 </div>
-
-<script id="template-mua-vtl" type="text/template">
-<?php get_template_part("template-parts/emailing/template-thue-van-thang-long"); ?>
-</script>
-
-<script id="template-thue-vtl" type="text/template">
-<?php get_template_part("template-parts/emailing/template-thue-van-thang-long"); ?>
-</script>
-
-<script id="template-thue-vth-500kg" type="text/template">
-<?php get_template_part("template-parts/emailing/template-thue-van-thang-hang-500kg"); ?>
-</script>
-
-<script id="template-thue-vth-1000kg" type="text/template">
-<?php get_template_part("template-parts/emailing/template-thue-van-thang-hang-1000kg"); ?>
-</script>
-
-<script id="template-mua-vth-500kg" type="text/template">
-<?php get_template_part("template-parts/emailing/template-mua-van-thang-hang-500kg"); ?>
-</script>
-
-<script id="template-mua-vth-1000kg" type="text/template">
-<?php get_template_part("template-parts/emailing/template-mua-van-thang-hang-1000kg"); ?>
-</script>
-
-<script id="template-mua-gian-giao" type="text/template">
-    <?php get_template_part("template-parts/emailing/template-mua-gian-giao"); ?>
-</script>
-<script id="template-thue-gian-giao" type="text/template">
-    <?php get_template_part("template-parts/emailing/template-thue-gian-giao"); ?>
+<script id="modal-template" type="template/javascript">
+    <div class="edit-detail">Họ tên: <strong>%full_name%</strong></div>
+    <div class="edit-detail">Email: <strong>%email%</strong></div>
+    <div class="edit-detail">Số điện thoại: <strong>%phone_number%</strong></div>
+    <div class="edit-detail">Công ty: <strong>%company%</strong></div>
+    <div class="edit-detail">Ngày báo giá: <strong>%created_date%</strong></div>
 </script>
