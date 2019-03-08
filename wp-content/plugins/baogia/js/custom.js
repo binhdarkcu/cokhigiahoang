@@ -179,6 +179,7 @@ jQuery(document).ready(function ($) {
         rows.forEach(function(row){
            var chkbox = $(row).find('.select-multiple');
            $(chkbox).prop('checked', false);
+           $(row).removeClass('selected');
         });
         showHideDeleteBulk();
     });
@@ -240,13 +241,11 @@ jQuery(document).ready(function ($) {
             url: ajaxurl,
             data: _data,
             success: function (result) {
-                console.log('result: ', result);
                 showNotification('Thông tin đã được cập nhật thành công.', 'success');
                 callback(null, result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.', 'error');
-                console.error(thrownError);
                 callback(thrownError);
             }
         });
