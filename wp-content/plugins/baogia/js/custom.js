@@ -129,7 +129,7 @@ jQuery(document).ready(function ($) {
           }
         });
 
-       $('#check-all').prop('checked', (count > 0 && count === rows.length)); 
+        $('#check-all').prop('checked', (count > 0 && count === rows.length)); 
         showHideDeleteBulk();
     }
     

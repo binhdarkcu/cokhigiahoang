@@ -1,4 +1,6 @@
 <?php
+
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 include_once( get_template_directory() . '/utilites/Utilities.php');
 include_once( get_template_directory() . '/utilites/Stores.php');
 include_once( get_template_directory() . '/utilites/BaoGiaValidator.php');
@@ -25,10 +27,17 @@ add_action('wp_ajax_cap_nhat_trang_thai', 'cap_nhat_trang_thai');
 add_action('wp_ajax_update_setting', 'update_setting');
 
 //Hide admin footer from admin
-function change_footer_admin () {return ' ';}
+function change_footer_admin() {
+    return ' ';
+}
+
 add_filter('admin_footer_text', 'change_footer_admin', 9999);
-function change_footer_version() {return ' ';}
-add_filter( 'update_footer', 'change_footer_version', 9999);
+
+function change_footer_version() {
+    return ' ';
+}
+
+add_filter('update_footer', 'change_footer_version', 9999);
 
 $file = get_template_directory() . '/assets/logo_email.png'; //phpmailer will load this file
 $uid = 'logo'; //will map it to this UID
@@ -46,7 +55,7 @@ function ajax_enqueue() {
     wp_localize_script('main_js', 'globalConfig', array('admin_ajax_url' => admin_url('admin-ajax.php')));
 }
 
-function luu_thong_tin_khach_hang(){
+function luu_thong_tin_khach_hang() {
     global $wp_version;
     global $wpdb;
     $json_data = $_POST['json'];
@@ -59,30 +68,31 @@ function luu_thong_tin_khach_hang(){
         $json = $json_data;
     }
     $bao_gia = json_decode($json, true);
-    
+
     $validator = new BaoGiaValidator();
     $error = $validator->isValidData($bao_gia);
-    
-    if($error['message']){
+
+    if ($error['message']) {
         $result['message'] = $error['message'];
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
         // Don't forget to stop execution afterward.
         wp_die();
     }
-    
+
     $ho_ten = $bao_gia['ho_ten'];
     $sdt = $bao_gia['so_dt'];
     $email = $bao_gia['email'];
     $cty = $bao_gia['cty'];
     $trang_thai = 'Đã xem';
+    $token = uniqid();
+    $token_expiry = strtotime("+30 minutes");
     $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
     $ngay_tao = $ngay_cap_nhat = current_time('Y-m-d h:i:s');
     $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
-                                            (full_name, phone_number, email, company, status, order_detail, created_date, updated_date, is_deleted)
-                                                     VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";
+                                            (full_name, phone_number, email, company, status, order_detail, token, token_timestamp, created_date, updated_date, is_deleted)
+                                                     VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$token', $token_expiry,'$ngay_tao','$ngay_cap_nhat', 0)";
     $wpdb->query($query);
-    $row_id = $wpdb->insert_id;
-    echo json_encode($row_id);
+    echo $token;
     wp_die();
 }
 
@@ -100,7 +110,7 @@ function bao_gia() {
         'message' => $message,
         'status' => $status
     );
-    
+
     if (version_compare($wp_version, '5.0', '<')) {
 
         $json = wp_unslash($json_data);
@@ -109,13 +119,11 @@ function bao_gia() {
         $json = $json_data;
     }
 
-
-    
     $bao_gia = json_decode($json, true);
 
     $error = $validator->isValidData($bao_gia);
-    if($error['message']){
-  
+    if ($error['message']) {
+
         $result['message'] = $error['message'];
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
         // Don't forget to stop execution afterward.
@@ -130,7 +138,7 @@ function bao_gia() {
     $trang_thai = 'Đã báo giá';
     $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
     $ngay_tao = $ngay_cap_nhat = current_time('Y-m-d h:i:s');
-    $order_id = (int)$bao_gia['order_id'];
+    $token = $bao_gia['token'];
 
     // Check type of product
     $loai_sp = $bao_gia['loai_sp'];
@@ -146,20 +154,21 @@ function bao_gia() {
     }
 
     //TODO: update exist order
-    if($order_id){
-        $query = "UPDATE " . $wpdb->prefix . "bao_gia SET status = '$trang_thai', order_detail = '$chi_tiet', updated_date = '$ngay_tao' WHERE id= $order_id";
-    }else{
-        $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
-                                		(full_name, phone_number, email, company, status, order_detail, created_date, updated_date, is_deleted)
-                                                         VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$ngay_tao','$ngay_cap_nhat', 0)";  
+    $_table = $wpdb->prefix . "bao_gia";
+    $now = time();
+    if ($token) {
+        $query = $wpdb->prepare("UPDATE $_table SET status = %s, order_detail = %s, updated_date = %s, token = NULL, token_timestamp = 0 WHERE token= %s AND token_timestamp > $now", $trang_thai, $chi_tiet, $ngay_tao, $token);
+    } else {
+        $query = $wpdb->prepare("INSERT INTO $_table "
+                . "(full_name, phone_number, email, company, status, order_detail, token, token_timestamp, created_date, updated_date, is_deleted) "
+                . "VALUES (%s, %s, %s, %s, %s, %s, NULL, 0, %s,%s, 0)", $ho_ten, $sdt, $email, $cty, $trang_thai, $chi_tiet, $ngay_tao, $ngay_cap_nhat);
     }
 
     $wpdb->query($query);
 
-
     if (send_email_to_customer($bao_gia)) {
         $result['status'] = 'SUCCESS';
-    }else{
+    } else {
         $result['message'] = 'Không thể gửi email!';
     }
 
@@ -268,18 +277,18 @@ function cap_nhat_trang_thai() {
             $ids = explode(',', $id);
             $query_ids = '';
             $param_ids = array();
-            
-            foreach ($ids as $_id){
-                if(isset($_id)){
+
+            foreach ($ids as $_id) {
+                if (isset($_id)) {
                     //assigns to list of params
-                    $query_ids.='%d,';
+                    $query_ids .= '%d,';
                     //assigns to list of values
-                    $param_ids[]=$_id;
+                    $param_ids[] = $_id;
                 }
             }
-            
+
             $query_ids = substr($query_ids, 0, -1);
-            
+
             $query = $wpdb->prepare("UPDATE $_table SET is_deleted=1 WHERE id IN($query_ids)", $param_ids);
         } else if ($action == 'update' && $status) {
             $query = $wpdb->prepare("UPDATE $_table SET status = %s  WHERE id= %d", $status, $id);
@@ -397,7 +406,7 @@ function calculate_data_for_van_thang($baoGia) {
     return $baoGia;
 }
 
-function calculate_data_for_mua_VTL($baoGia){
+function calculate_data_for_mua_VTL($baoGia) {
     $ulti = new Utilities();
     $code = $baoGia['so_long'] == '1 lồng' ? '1L' : '2L';
     $code .= $baoGia['tl_long'] == '1 tấn' ? '1T' : '2T';
@@ -405,74 +414,73 @@ function calculate_data_for_mua_VTL($baoGia){
     $donGia = $donGiaMua[$code];
     $caiDatChung = get_mua_VTL_cai_dat_chung();
     // Xảy ra lỗi
-    if(!$donGia){
+    if (!$donGia) {
         return $baoGia;
     }
-    
+
     $giaBienTan = 0;
     $giaSan = convert_to_number($donGia['don_gia']);
     $giaMotMet = convert_to_number($donGia['don_gia_mot_khung']);
-    
+
     //Thông tin sản phẩm
     $baoGia['bien_tan'] = $donGia['bien_tan'];
     $baoGia['tai_trong'] = $donGia['tai_trong'];
     $baoGia['kieu_van_thang'] = $donGia['kieu_van_thang'];
-    
-    if($baoGia['bien_tan'] == 'Có'){
+
+    if ($baoGia['bien_tan'] == 'Có') {
         $giaBienTan = convert_to_number($caiDatChung['gia_bien_tan']);
         $baoGia['show_bien_tan'] = 'grid';
         $baoGia['dong_co'] = $donGia['dong_co'];
-    }else{
+    } else {
         $baoGia['show_bien_tan'] = 'none';
         $baoGia['dong_co'] = $donGia['dong_co_ko_bt'];
     }
-    
+
     $temp = array();
     $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao']);
     $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao']);
     $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
-    
-    $temp['don_gia_1_bo'] = ($giaBienTan + $giaSan + $giaMotMet*$khungVTLamTron) * get_gia_tri_san_pham($baoGia);
-    
+
+    $temp['don_gia_1_bo'] = ($giaBienTan + $giaSan + $giaMotMet * $khungVTLamTron) * get_gia_tri_san_pham($baoGia);
+
     $temp['tong_x_bo_truoc_thue'] = $temp['don_gia_1_bo'] * $baoGia['so_luong'];
-    $temp['vat'] = $temp['tong_x_bo_truoc_thue']*0.1;
+    $temp['vat'] = $temp['tong_x_bo_truoc_thue'] * 0.1;
     $temp['tong_x_bo_sau_thue'] = $temp['tong_x_bo_truoc_thue'] + $temp['vat'];
-    
-    
+
+
     $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
 
     // Cọc 1
-    $temp['coc_1'] = $temp['tong_x_bo_sau_thue']*0.4;
+    $temp['coc_1'] = $temp['tong_x_bo_sau_thue'] * 0.4;
     $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
 
     // Cọc 2
-    $temp['coc_2'] = $temp['tong_x_bo_sau_thue']*0.2;
-    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']); 
-    
-    
+    $temp['coc_2'] = $temp['tong_x_bo_sau_thue'] * 0.2;
+    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);
+
+
     // Định dạng thông số, vd: 50000 => 50,000
-    foreach($temp as $key => $value){
+    foreach ($temp as $key => $value) {
         $baoGia[$key] = number_format($value);
     }
-    
+
     return $baoGia;
 }
 
-
-function calculate_data_for_thue_VTL($baoGia){
+function calculate_data_for_thue_VTL($baoGia) {
     $data = get_don_gia_thue_vtl($baoGia);
-       // Có lỗi xảy ra
-    if(!$data){
+    // Có lỗi xảy ra
+    if (!$data) {
         return $baoGia;
     }
-    
+
     $donGiaThue = $data['thong_tin_don_gia'][$baoGia['chieu_cao']];
     $ttvt = $data['thong_tin_sp'];
     $cuaTang = $data['cua_tang'];
     $caiDatChung = get_thue_VTL_cai_dat_chung();
-    
+
     $uti = new Utilities();
-    
+
     $phanTramTheoThangThue = 0;
     $listPhanTramThueTheoThang = get_phan_tram_theo_thang_thue();
     switch ($baoGia['thoi_gian_thue']) {
@@ -488,12 +496,12 @@ function calculate_data_for_thue_VTL($baoGia){
     $baoGia['kieu_van_thang'] = $ttvt['kieu_van_thang'];
     $baoGia['bien_tan'] = $ttvt['bien_tan'];
     $baoGia['tai_trong'] = $ttvt['tai_trong'];
-    
-    if($baoGia['bien_tan'] === 'Có'){
-       $baoGia['show_bien_tan'] = 'grid'; 
-       $baoGia['dong_co'] = $ttvt['dong_co_bien_tan'];
-    }else{
-        $baoGia['show_bien_tan'] = 'none'; 
+
+    if ($baoGia['bien_tan'] === 'Có') {
+        $baoGia['show_bien_tan'] = 'grid';
+        $baoGia['dong_co'] = $ttvt['dong_co_bien_tan'];
+    } else {
+        $baoGia['show_bien_tan'] = 'none';
         $baoGia['dong_co'] = $ttvt['dong_co_ko_bien_tan'];
     }
     //-------------------------------------------------------------
@@ -504,83 +512,83 @@ function calculate_data_for_thue_VTL($baoGia){
     $baoGia['thao_do_ct'] = $cuaTang['thao_do'];
     $baoGia['don_gia_cua_tang'] = $cuaTang['don_gia'];
     //-------------------------------------------------------------
-    
+
     $temp = array();
-    
+
     $temp['don_gia'] = convert_to_number($donGiaThue['don_gia']);
-    $temp['don_gia_thue_1_thang'] = $temp['don_gia'] + $temp['don_gia']*$phanTramTheoThangThue*0.01;
+    $temp['don_gia_thue_1_thang'] = $temp['don_gia'] + $temp['don_gia'] * $phanTramTheoThangThue * 0.01;
     $temp['don_gia_thue_x_thang'] = $temp['don_gia_thue_1_thang'] * $baoGia['thoi_gian_thue'];
-    
+
     $temp['lap_dat'] = convert_to_number($donGiaThue['lap_dat']);
     $temp['van_chuyen'] = convert_to_number($donGiaThue['van_chuyen']);
-    
-    if($baoGia['vi_tri'] != 'Tp Hồ Chí Minh'){
+
+    if ($baoGia['vi_tri'] != 'Tp Hồ Chí Minh') {
         $temp['lap_dat'] *= $caiDatChung['ty_so_ngoai_tp'];
         $temp['van_chuyen'] *= $caiDatChung['ty_so_ngoai_tp'];
     }
-    
+
     $temp['tong_lap_dat'] = $temp['lap_dat'] * $baoGia['so_luong'];
     $temp['tong_van_chuyen'] = $temp['van_chuyen'] * $baoGia['so_luong'];
-    
-    
+
+
     $temp['kiem_dinh'] = convert_to_number($caiDatChung['kiem_dinh']);
-    
+
     $temp['van_hanh_1_thang'] = convert_to_number($caiDatChung['van_hanh']);
     $temp['bao_tri_1_thang'] = convert_to_number($caiDatChung['bao_tri']);
-    if($baoGia['so_long'] == 2){
-        $temp['van_hanh_1_thang']*=2;
-        $temp['bao_tri_1_thang']*=2;
+    if ($baoGia['so_long'] == 2) {
+        $temp['van_hanh_1_thang'] *= 2;
+        $temp['bao_tri_1_thang'] *= 2;
     }
-    
+
     $temp['tong_kiem_dinh'] = $temp['kiem_dinh'] * $baoGia['so_luong'];
-    
+
     $temp['van_hanh_x_thang'] = $temp['van_hanh_1_thang'] * $baoGia['thoi_gian_thue'];
     $temp['bao_tri_x_thang'] = $temp['bao_tri_1_thang'] * $baoGia['thoi_gian_thue'];
-    
+
     // Chi phí 1 tháng = Đơn giá + Vận hành + Bảo trì
     $temp['chi_phi_thue_1_thang'] = $temp['don_gia_thue_1_thang'] + $temp['van_hanh_1_thang'] + $temp['bao_tri_1_thang'];
     $temp['chi_phi_thue_x_thang'] = $temp['chi_phi_thue_1_thang'] * $baoGia['thoi_gian_thue'];
-    
+
     //Chi phí một lần (A+B)
-    $temp['chi_phi_mot_lan'] = $temp['tong_van_chuyen']*2 + $temp['tong_lap_dat']*2 + $temp['tong_kiem_dinh'];
-    
+    $temp['chi_phi_mot_lan'] = $temp['tong_van_chuyen'] * 2 + $temp['tong_lap_dat'] * 2 + $temp['tong_kiem_dinh'];
+
     // Tổng 1 bộ trước thuế
     $temp['gia_tri_thuc_hien'] = $temp['chi_phi_mot_lan'] + $temp['chi_phi_thue_x_thang'];
-    
+
     // VAT
-    $temp['vat'] = $temp['gia_tri_thuc_hien']*0.1;
-    
+    $temp['vat'] = $temp['gia_tri_thuc_hien'] * 0.1;
+
     // Tổng 1 bộ sau thuế
     $temp['tong_cong_1_bo_sau_thue'] = $temp['gia_tri_thuc_hien'] + $temp['vat'];
-    
+
     // Cọc 1
-    $temp['coc_1'] = $temp['don_gia_thue_1_thang']*2*$baoGia['so_luong'];
+    $temp['coc_1'] = $temp['don_gia_thue_1_thang'] * 2 * $baoGia['so_luong'];
     $baoGia['coc_1_bang_chu'] = $uti->convert_number_to_words($temp['coc_1']);
-    
+
     // Cọc 2
-    $temp['coc_2'] = $temp['chi_phi_mot_lan']*$baoGia['so_luong']*1.1;
+    $temp['coc_2'] = $temp['chi_phi_mot_lan'] * $baoGia['so_luong'] * 1.1;
     $baoGia['coc_2_bang_chu'] = $uti->convert_number_to_words($temp['coc_2']);
-    
-    if($baoGia['so_luong'] > 1){
-        $temp['tong_cong_x_bo_sau_thue'] = $temp['tong_cong_1_bo_sau_thue']*$baoGia['so_luong'];
+
+    if ($baoGia['so_luong'] > 1) {
+        $temp['tong_cong_x_bo_sau_thue'] = $temp['tong_cong_1_bo_sau_thue'] * $baoGia['so_luong'];
         $baoGia['show_last_row'] = 'block';
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words($temp['tong_cong_x_bo_sau_thue']);
-    }else{
+    } else {
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words($temp['tong_cong_1_bo_sau_thue']);
     }
-    
+
     // Ngày lập bảng
     $date = getdate(date("U"));
     $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
-    
-    foreach ($temp as $key => $value){
+
+    foreach ($temp as $key => $value) {
         $baoGia[$key] = number_format($value);
     }
-    
+
     return $baoGia;
 }
 
-function get_don_gia_thue_vtl($baoGia){
+function get_don_gia_thue_vtl($baoGia) {
     $list_VTL = array(
         '1 lồng' => array(
             '1 tấn' => '1L1T',
@@ -592,25 +600,25 @@ function get_don_gia_thue_vtl($baoGia){
         )
     );
     $loai_vtl = $list_VTL[$baoGia['so_long']][$baoGia['tl_long']];
-    
-    if(!$loai_vtl){
+
+    if (!$loai_vtl) {
         return null;
     }
-    
-    $run_dynamic_function = "get_don_gia_thue_VTL_".$loai_vtl."_trong_TPHCM";
+
+    $run_dynamic_function = "get_don_gia_thue_VTL_" . $loai_vtl . "_trong_TPHCM";
     $don_gia_thue = $run_dynamic_function();
-    
+
     return $don_gia_thue;
 }
 
 // Tính số khung của VTL
-function get_so_khung($chieu_cao, $isRound = false){
-    return $isRound ? ceil($chieu_cao/1.5) : (ceil($chieu_cao/1.5)-2);
+function get_so_khung($chieu_cao, $isRound = false) {
+    return $isRound ? ceil($chieu_cao / 1.5) : (ceil($chieu_cao / 1.5) - 2);
 }
 
 // Tính số giằng của VTL
-function get_so_thanh_giang($chieu_cao){
-    return ceil($chieu_cao/8.0);
+function get_so_thanh_giang($chieu_cao) {
+    return ceil($chieu_cao / 8.0);
 }
 
 // Tính mua vận thăng hàng
@@ -619,9 +627,9 @@ function calculate_data_for_mua_VTH($baoGia) {
     $donGiaMua = $baoGia['tl_vt_hang'] == '500 kg' ? get_don_gia_mua_VTH_500kg($baoGia) : get_don_gia_mua_VTH_1000kg($baoGia);
 
     $gia_tri_sp = get_gia_tri_san_pham($baoGia);
-    
-    $don_gia_bang_so = convert_to_number($donGiaMua['don_gia'])*$gia_tri_sp;
-    
+
+    $don_gia_bang_so = convert_to_number($donGiaMua['don_gia']) * $gia_tri_sp;
+
     //Đơn giá cho 1 bộ
     $baoGia['don_gia_1_bo'] = $donGiaMua['don_gia'];
 
@@ -629,10 +637,10 @@ function calculate_data_for_mua_VTH($baoGia) {
     $baoGia['don_gia_x_bo'] = number_format($don_gia_bang_so * $baoGia['so_luong']);
 
     // Khung vận thăng
-    $baoGia['khung_van_thang'] = number_format($donGiaMua['khung_van_thang']*$baoGia['so_luong']);
+    $baoGia['khung_van_thang'] = number_format($donGiaMua['khung_van_thang'] * $baoGia['so_luong']);
 
     // Thanh giằng
-    $baoGia['thanh_giang'] = number_format($donGiaMua['thanh_giang']*$baoGia['so_luong']);
+    $baoGia['thanh_giang'] = number_format($donGiaMua['thanh_giang'] * $baoGia['so_luong']);
 
     $lapDatVaKiemDinh = get_chi_phi_lap_dat_va_kiem_dinh();
     // Chi phí lắp đặt
@@ -642,12 +650,12 @@ function calculate_data_for_mua_VTH($baoGia) {
     $baoGia['kiem_dinh'] = $lapDatVaKiemDinh['kiem_dinh'];
 
     //Tổng chi phí lắp đặt
-    $baoGia['tong_lap_dat'] = number_format($baoGia['so_luong']* convert_to_number($baoGia['lap_dat']));
-    
+    $baoGia['tong_lap_dat'] = number_format($baoGia['so_luong'] * convert_to_number($baoGia['lap_dat']));
+
     //Tổng chi phí kiểm định
-    $baoGia['tong_kiem_dinh'] = number_format($baoGia['so_luong']* convert_to_number($baoGia['kiem_dinh']));
-    
-    
+    $baoGia['tong_kiem_dinh'] = number_format($baoGia['so_luong'] * convert_to_number($baoGia['kiem_dinh']));
+
+
     // Chi phí lắp đặt kiểm định (B)
     $baoGia['chi_phi_lap_dat_kiem_dinh'] = number_format(convert_to_number($baoGia['tong_lap_dat']) + convert_to_number($baoGia['tong_kiem_dinh']));
 
@@ -667,8 +675,8 @@ function calculate_data_for_mua_VTH($baoGia) {
     $baoGia['dat_coc1'] = number_format(convert_to_number($baoGia['tong_cong_sau_thue']) * 0.5);
 
     // Nhân đôi
-    $baoGia['so_luongx2'] = $baoGia['so_luong']*2;
-    
+    $baoGia['so_luongx2'] = $baoGia['so_luong'] * 2;
+
     // Ngày lập bảng
     $date = getdate(date("U"));
     $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
@@ -751,7 +759,7 @@ function calculate_data_for_thue_VTH($baoGia) {
         $baoGia['don_gia_bang_chu'] = $uti->convert_number_to_words(convert_to_number($baoGia['tong_cong_1_bo_sau_thue']));
     }
 
-    $baoGia['so_luong'] = $baoGia['so_luong'] < 10 ? "0".$baoGia['so_luong'] : $baoGia['so_luong'];
+    $baoGia['so_luong'] = $baoGia['so_luong'] < 10 ? "0" . $baoGia['so_luong'] : $baoGia['so_luong'];
     // Ngày lập bảng
     $date = getdate(date("U"));
     $baoGia['ngay_bao_gia'] = $ngay_thang = "Ngày $date[mday] tháng $date[mon] năm $date[year]";
@@ -782,14 +790,14 @@ function calculate_data_for_gian_giao($baoGia) {
     $uti = new Utilities();
     $formGianGiao = get_gian_giao_form_data();
     $gia_tri_sp = get_gia_tri_san_pham($baoGia);
-    
+
     foreach ($baoGia as $key => $value) {
         // so_luong2 , so_luong3
         if (substr($key, 0, 8) === 'so_luong' && strlen($key) > 8 && $baoGia[$key] > 0) {
             // $form_giao_giao[so_luong2]
             if ($formGianGiao[$key]) {
                 $index = substr($key, 8);
-                $don_gia_bang_so = convert_to_number($formGianGiao[$key]['don_gia'])*$gia_tri_sp;
+                $don_gia_bang_so = convert_to_number($formGianGiao[$key]['don_gia']) * $gia_tri_sp;
                 $baoGia['trong_luong' . $index] = $formGianGiao[$key]['trong_luong'];
                 $baoGia['tong_trong_luong' . $index] = $formGianGiao[$key]['trong_luong'] * $value;
                 $baoGia['don_gia' . $index] = number_format($don_gia_bang_so);
@@ -945,41 +953,40 @@ function get_phan_tram_theo_thang_thue() {
     return run_executor($key, __FUNCTION__);
 }
 
-
-function get_don_gia_thue_VTL_1L1T_trong_TPHCM(){
-     $key = DON_GIA_THUE_VTL_1L1T_TPHCM;
-    return run_executor($key, __FUNCTION__);   
+function get_don_gia_thue_VTL_1L1T_trong_TPHCM() {
+    $key = DON_GIA_THUE_VTL_1L1T_TPHCM;
+    return run_executor($key, __FUNCTION__);
 }
 
-function get_don_gia_thue_VTL_1L2T_trong_TPHCM(){
-     $key = DON_GIA_THUE_VTL_1L2T_TPHCM;
-    return run_executor($key, __FUNCTION__);   
+function get_don_gia_thue_VTL_1L2T_trong_TPHCM() {
+    $key = DON_GIA_THUE_VTL_1L2T_TPHCM;
+    return run_executor($key, __FUNCTION__);
 }
 
-function get_don_gia_thue_VTL_2L1T_trong_TPHCM(){
-     $key = DON_GIA_THUE_VTL_2L1T_TPHCM;
-    return run_executor($key, __FUNCTION__);   
+function get_don_gia_thue_VTL_2L1T_trong_TPHCM() {
+    $key = DON_GIA_THUE_VTL_2L1T_TPHCM;
+    return run_executor($key, __FUNCTION__);
 }
 
-function get_don_gia_thue_VTL_2L2T_trong_TPHCM(){
-     $key = DON_GIA_THUE_VTL_2L2T_TPHCM;
-    return run_executor($key, __FUNCTION__);   
+function get_don_gia_thue_VTL_2L2T_trong_TPHCM() {
+    $key = DON_GIA_THUE_VTL_2L2T_TPHCM;
+    return run_executor($key, __FUNCTION__);
 }
 
-function get_don_gia_mua_VTL(){
-     $key = DON_GIA_MUA_VTL;
-    return run_executor($key, __FUNCTION__);   
+function get_don_gia_mua_VTL() {
+    $key = DON_GIA_MUA_VTL;
+    return run_executor($key, __FUNCTION__);
 }
 
 function get_phi_van_chuyen_gian_giao($baoGia) {
     $key = PHI_VAN_CHUYEN_GIAN_GIAO;
-    $phi_van_chuyen =  run_executor($key, __FUNCTION__);
+    $phi_van_chuyen = run_executor($key, __FUNCTION__);
 
     // For updating setting page
-    if(!$baoGia){
+    if (!$baoGia) {
         return $phi_van_chuyen;
     }
-    
+
     // For calculation purposes
     return $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? $phi_van_chuyen['trong_tp_hcm'] : $phi_van_chuyen['ngoai_tp_hcm'];
 }
@@ -999,8 +1006,8 @@ function get_chi_phi_lap_dat_va_kiem_dinh() {
     return run_executor($key, __FUNCTION__);
 }
 
-function get_gia_tri_san_pham($baoGia){
-    return $baoGia['tt_sp'] === 'Cũ' ? get_gia_tri_san_pham_cu()/100 : 1;
+function get_gia_tri_san_pham($baoGia) {
+    return $baoGia['tt_sp'] === 'Cũ' ? get_gia_tri_san_pham_cu() / 100 : 1;
 }
 
 function get_gia_tri_san_pham_cu() {
@@ -1015,17 +1022,17 @@ function get_gia_bien_tan($hinh_thuc) {
     return $hinh_thuc === 'Mua' ? $data['mua'] : $data['thue'];
 }
 
-function get_thue_VTL_cai_dat_chung(){
+function get_thue_VTL_cai_dat_chung() {
     $key = THUE_VTL_CAI_DAT_CHUNG;
     return run_executor($key, __FUNCTION__);
 }
 
-function get_mua_VTL_cai_dat_chung(){
+function get_mua_VTL_cai_dat_chung() {
     $key = MUA_VTL_CAI_DAT_CHUNG;
     return run_executor($key, __FUNCTION__);
 }
 
-function run_executor($key, $fnc_name){
+function run_executor($key, $fnc_name) {
     $stores = new Stores();
     $result = query_settings($key);
     return $result ? $result : $stores->$fnc_name();
@@ -1036,7 +1043,7 @@ function query_settings($setting_key) {
 
     if ($setting_key) {
         $query = 'SELECT setting_value FROM ' . $wpdb->prefix . 'baogia_settings WHERE setting_key="' . $setting_key . '" AND is_deleted = FALSE';
-        
+
         $result = $wpdb->get_row($query, ARRAY_A);
         return $result ? json_decode($result['setting_value'], true) : '';
     }

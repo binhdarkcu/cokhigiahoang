@@ -77,7 +77,7 @@ class WP_Order_Management {
         $charset_collate = $wpdb->get_charset_collate();
 
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
-		id mediumint(9) NOT NULL AUTO_INCREMENT,
+		id mediumint UNSIGNED NOT NULL AUTO_INCREMENT,
 		full_name tinytext DEFAULT '' NOT NULL,
 		phone_number tinytext DEFAULT '' NOT NULL,
 		email tinytext DEFAULT '' NOT NULL,
@@ -85,6 +85,8 @@ class WP_Order_Management {
 		status tinytext DEFAULT '' NOT NULL,
 		order_detail text NULL,
                 is_deleted boolean DEFAULT false,
+                token tinytext NULL,
+                token_timestamp INT UNSIGNED DEFAULT 0,
                 created_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		updated_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 		PRIMARY KEY (id)

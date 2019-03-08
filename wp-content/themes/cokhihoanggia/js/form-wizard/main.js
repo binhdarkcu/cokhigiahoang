@@ -143,10 +143,7 @@ jQuery(function ($) {
                     'action': 'luu_thong_tin_khach_hang',
                     'json': JSON.stringify(GiaHoangProduct.submitData)
                 },
-                success: function (id) {
-                    console.log('data', id);
-                    GiaHoangProduct.submitData['order_id'] = id;
-                    const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
+                success: function (token) {
                     window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -246,8 +243,6 @@ jQuery(function ($) {
                 }
             }
                 
-            
-            
             for(var i = min; i<=max; i+=step){
                 $("#select_chieu_cao").append('<option value="' + i + '">' + i + '</option>');
                 $("#select_chieu_cao").trigger("chosen:updated");

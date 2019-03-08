@@ -7,9 +7,8 @@
 
 jQuery(function ($) {
     console.log('load ok');
-    const stringData = Base64.decode(token);
-    const objectData = JSON.parse(stringData);
-
+    const objectData = window.BaoGia;
+    if(!objectData) return;
     // Main flow
     renderFormBaoGia(objectData);
     // Set default value before getting update from server
@@ -33,11 +32,10 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (result) {
-//                console.log(result);
                 var data = JSON.parse(result);
                 showNotification(data.message, data.status.toLowerCase());
                 $('#gui-bao-gia').off('click');
-//                window.location.href = homeUrl;  
+                window.location.href = homeUrl;  
 
             },
             error: function (xhr, ajaxOptions, thrownError) {

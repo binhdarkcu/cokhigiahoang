@@ -1,9 +1,25 @@
-<?php get_header(); ?>
-<?php
+<?php get_header(); 
+$token = filter_input(INPUT_GET, "token", FILTER_SANITIZE_STRING);
+$table = $wpdb->prefix ."bao_gia";
+$query = $wpdb->prepare("SELECT * FROM $table WHERE token=%s AND token_timestamp > %d", $token, time());
+
+$data = $wpdb->get_results($query, 'ARRAY_A');
+$bao_gia= '';
+if(sizeof($data) == 1){
+    $bao_gia = $data[0]['order_detail'];
+}else{
+    global $wp_query;
+    $wp_query->set_404();
+    status_header( 404 );
+    get_template_part( 404 ); 
+    exit();
+}
+
 $ajax_nonce = wp_create_nonce('H4GpryAtCnbwJVTdNMMf');
+
 ?>
-<?php if($_GET['token']):?>
-<script>var token = "<?php echo $_GET['token'];?>", homeUrl = "<?php echo get_site_url();?>";</script>
+<?php if($bao_gia):?>
+<script>var BaoGia = JSON.parse('<?php echo $bao_gia;?>'), homeUrl = "<?php echo get_site_url();?>";BaoGia.token="<?php echo $token;?>"</script>
 <?php endif;?>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
 
