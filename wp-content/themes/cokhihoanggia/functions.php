@@ -248,9 +248,9 @@ function danh_sach_bao_gia() {
 function cap_nhat_trang_thai() {
     global $wpdb;
     // Validate input data
-    $id = $_POST['id'];
-    $action = $_POST['action_type'];
-    $status = $_POST['status'];
+    $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
+    $action = filter_input(INPUT_POST, "action_type", FILTER_SANITIZE_STRING);
+    $status = filter_input(INPUT_POST, "status", FILTER_SANITIZE_STRING);
 
     $response = array(
         'data' => 'null',
@@ -260,12 +260,29 @@ function cap_nhat_trang_thai() {
         'status' => 'ACTION_DENIED'
     );
 
+    $_table = $wpdb->prefix . "bao_gia";
     if (is_admin() && $id) {
         $query = '';
         if ($action == 'delete') {
-            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET is_deleted=1 WHERE id=" . $id;
+            //convert to array
+            $ids = explode(',', $id);
+            $query_ids = '';
+            $param_ids = array();
+            
+            foreach ($ids as $_id){
+                if(isset($_id)){
+                    //assigns to list of params
+                    $query_ids.='%d,';
+                    //assigns to list of values
+                    $param_ids[]=$_id;
+                }
+            }
+            
+            $query_ids = substr($query_ids, 0, -1);
+            
+            $query = $wpdb->prepare("UPDATE $_table SET is_deleted=1 WHERE id IN($query_ids)", $param_ids);
         } else if ($action == 'update' && $status) {
-            $query = "UPDATE " . $wpdb->prefix . "bao_gia SET status = '" . $status . "' WHERE id=" . $id;
+            $query = $wpdb->prepare("UPDATE $_table SET status = %s  WHERE id= %d", $status, $id);
         }
         $wpdb->query($query);
         $response['status'] = $query;
@@ -276,7 +293,6 @@ function cap_nhat_trang_thai() {
 }
 
 function update_setting() {
-
     global $wpdb;
     global $wp_version;
     $value = $_POST['setting_value'];
