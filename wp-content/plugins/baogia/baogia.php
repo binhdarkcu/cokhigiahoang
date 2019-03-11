@@ -4,7 +4,7 @@ include_once( plugin_dir_path(__FILE__) . '/uti/constants.php');
  * Plugin Name: Quản lý báo giá
  * Plugin URI: 
  * Author URI: 
- * Description: Plugin quản lý báo giá
+ * Description: Plugin quản lý báo giá.
  * Author: Admin
  * Version:1.0
  */
