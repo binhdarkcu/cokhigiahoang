@@ -61,23 +61,25 @@ class Utilities {
             );
             return false;
         }
-        if ($number < 0) {
-            return $negative . convert_number_to_words(abs($number));
-        }
+
         $string = $fraction = null;
         if (strpos($number, '.') !== false) {
             list($number, $fraction) = explode('.', $number);
         }
         switch (true) {
             case $number < 21:
-                $string = $dictionary[$number];
+                if($number < 10){
+                    $string .= 'lẻ ';
+                }
+                
+                $string .= $dictionary[$number];
                 break;
             case $number < 100:
                 $tens = ((int) ($number / 10)) * 10;
                 $units = $number % 10;
                 $string = $dictionary[$tens];
                 if ($units) {
-                    $string .= $hyphen . $dictionary[$units];
+                    $string .= ($units == 5 && $tens > 0) ? $hyphen . 'lăm ' : $hyphen . $dictionary[$units];
                 }
                 break;
             case $number < 1000:
