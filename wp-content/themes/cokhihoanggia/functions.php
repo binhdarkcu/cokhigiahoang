@@ -52,6 +52,7 @@ add_action('phpmailer_init', function(&$phpmailer)use($file, $uid, $name) {
 //create admin ajax url
 function ajax_enqueue() {
     wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js', array('jquery'));
+    wp_enqueue_script('blockUI', get_template_directory_uri() . '/js/jquery.blockUI.js', array('jquery'));
     wp_localize_script('main_js', 'globalConfig', array('admin_ajax_url' => admin_url('admin-ajax.php')));
 }
 

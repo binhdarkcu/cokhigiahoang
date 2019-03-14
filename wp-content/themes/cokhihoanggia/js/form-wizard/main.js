@@ -135,6 +135,17 @@ jQuery(function ($) {
         onFinished: function (event, currentIndex)
         {
 
+            $.blockUI({ 
+                message: 'Vui lòng chờ...',
+                css: { 
+                border: 'none', 
+                padding: '15px', 
+                backgroundColor: '#000', 
+                '-webkit-border-radius': '10px', 
+                '-moz-border-radius': '10px', 
+                opacity: .5, 
+                color: '#fff' 
+            } });
             //Apply template
             $.ajax({
                 type: 'POST',
@@ -144,10 +155,12 @@ jQuery(function ($) {
                     'json': JSON.stringify(GiaHoangProduct.submitData)
                 },
                 success: function (token) {
+                    $.unblockUI();
                     window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.error(thrownError);
+                    $.unblockUI();
                     const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
                     window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 }

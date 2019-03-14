@@ -22,7 +22,19 @@ jQuery(function ($) {
     //---------------------------------
     $('#gui-bao-gia').on('click', function (e) {
         e.preventDefault();
-
+        $('#gui-bao-gia').off('click');
+        $.blockUI({ 
+            message: 'Vui lòng chờ...',
+            css: { 
+            border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#fff' 
+        } });
+    
         $.ajax({
             type: 'POST',
             url: globalConfig.admin_ajax_url,
@@ -33,12 +45,16 @@ jQuery(function ($) {
             },
             success: function (result) {
                 var data = JSON.parse(result);
+                $.unblockUI();
                 showNotification(data.message, data.status.toLowerCase());
                 $('#gui-bao-gia').off('click');
-                window.location.href = homeUrl;  
+                setTimeout(function(){
+                    window.location.href = homeUrl; 
+                }, 3000); 
 
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                $.unblockUI();
                 showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ!', 'error');
                 console.error(thrownError);
             }
