@@ -6,7 +6,7 @@
 
 
 jQuery(function ($) {
-    console.log('load ok');
+//    console.log('load ok');
     const objectData = window.BaoGia;
     if(!objectData) return;
     // Main flow
@@ -80,8 +80,9 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
-                console.log('vvvv', JSON.parse(objectDt));
+//                console.log('vvvv', JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
+                resizeRows();
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 showNotification('Lưu thông tin báo giá thất bại, vui lòng liên hệ để được hỗ trợ.', 'error');
@@ -142,6 +143,27 @@ jQuery(function ($) {
             textAlign: 'left', // Text alignment i.e. left, right or center
             loader: true, // Whether to show loader or not. True by default
             loaderBg: '#9EC600', // Background color of the toast loader
+        });
+    }
+    
+    function resizeRows(){
+        var hasOverflowItem = false, maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0;
+        
+        $('.totalPrice').each(function(index, item){
+            scrollWidth = $(item)[0].scrollWidth;
+            innerWidth = $(item).innerWidth();
+            if(scrollWidth > innerWidth){
+                hasOverflowItem = true;
+                temp = scrollWidth - innerWidth;
+                maxOverflowSize = maxOverflowSize < temp ? temp : maxOverflowSize;
+            }
+        });
+        
+        console.log('maxOverflowSize', maxOverflowSize);
+        console.log('temp', temp);
+        
+        $('.totalPrice').each(function(index, item){
+            $(item).width(maxOverflowSize + temp);
         });
     }
 });

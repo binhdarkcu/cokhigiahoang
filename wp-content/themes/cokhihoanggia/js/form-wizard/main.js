@@ -1,6 +1,7 @@
 
 jQuery(function ($) {
 
+    var isFormSubmitted = false;
     const form = $("#wizard");
     const modalBaoGia = $("#modal-bao-gia");
     $.validator.addMethod("anyDate",
@@ -134,7 +135,10 @@ jQuery(function ($) {
         },
         onFinished: function (event, currentIndex)
         {
-
+            event.preventDefault();
+            if(isFormSubmitted) return;
+            
+            isFormSubmitted = true;
             $.blockUI({ 
                 message: 'Vui lòng chờ...',
                 css: { 

@@ -8,7 +8,7 @@
 
 class Utilities {
 
-    public function convert_number_to_words($number) {
+    public function convert_number_to_words($number, $greater = false) {
         $hyphen = ' ';
         $conjunction = '  ';
         $separator = ' ';
@@ -68,7 +68,7 @@ class Utilities {
         }
         switch (true) {
             case $number < 21:
-                if($number < 10){
+                if($number < 10 && !$greater){
                     $string .= 'lẻ ';
                 }
                 
@@ -79,7 +79,7 @@ class Utilities {
                 $units = $number % 10;
                 $string = $dictionary[$tens];
                 if ($units) {
-                    $string .= ($units == 5 && $tens > 0) ? $hyphen . 'lăm ' : $hyphen . $dictionary[$units];
+                    $string .= ($units == 5 && $tens > 0) ? $hyphen . 'lăm ' : $units == 1 ? $hyphen . 'mốt ': $hyphen . $dictionary[$units];
                 }
                 break;
             case $number < 1000:
@@ -94,22 +94,13 @@ class Utilities {
                 $baseUnit = pow(1000, floor(log($number, 1000)));
                 $numBaseUnits = (int) ($number / $baseUnit);
                 $remainder = $number % $baseUnit;
-                $string = $this->convert_number_to_words($numBaseUnits) . ' ' . $dictionary[$baseUnit];
+                $string = $this->convert_number_to_words($numBaseUnits, true) . ' ' . $dictionary[$baseUnit];
                 if ($remainder) {
                     $string .= $remainder < 100 ? $conjunction : $separator;
                     $string .= $this->convert_number_to_words($remainder);
                 }
                 break;
         }
-        if (null !== $fraction && is_numeric($fraction)) {
-            $string .= $decimal;
-            $words = array();
-            foreach (str_split((string) $fraction) as $number) {
-                $words[] = $dictionary[$number];
-            }
-            $string .= implode(' ', $words);
-        }
         return $string;
     }
-
 }

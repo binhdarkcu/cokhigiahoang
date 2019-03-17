@@ -800,7 +800,7 @@ function calculate_data_for_gian_giao($baoGia) {
                 $index = substr($key, 8);
                 $don_gia_bang_so = convert_to_number($formGianGiao[$key]['don_gia']) * $gia_tri_sp;
                 $baoGia['trong_luong' . $index] = $formGianGiao[$key]['trong_luong'];
-                $baoGia['tong_trong_luong' . $index] = $formGianGiao[$key]['trong_luong'] * $value;
+                $baoGia['tong_trong_luong' . $index] = round_big_number($formGianGiao[$key]['trong_luong'] * $value);
                 $baoGia['don_gia' . $index] = number_format($don_gia_bang_so);
                 $baoGia['don_gia_thue' . $index] = $formGianGiao[$key]['don_gia_thue'];
                 $baoGia['tong_don_gia' . $index] = number_format($don_gia_bang_so * $value);
@@ -888,6 +888,15 @@ function get_borrow_total_price_before_tax($data) {
 //INPUT @array
 //OUTPUT @float
 //*/
+
+function round_big_number($number){
+    if($number > 9999){
+        return round($number);
+    }
+    
+    return $number;
+}
+
 function get_total_weight($data) {
     $totalWeight = 0;
     foreach ($data as $key => $value) {
