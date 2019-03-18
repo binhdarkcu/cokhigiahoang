@@ -51,7 +51,7 @@
             </td>
           </tr>
           <tr>
-            <td width="100%" align="left" valign="middle" style="color: #fff; text-align: center; line-height: 1.2; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 17px; padding: 10px 0; background: #000;">Manufacture - Trading - Renting - Installation - Dismantle</td>
+            <td width="100%" align="left" valign="middle" style="color: #fff; text-align: center; line-height: 1.2; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 17px; padding: 10px 0; background: #000; -webkit-print-color-adjust: exact;">Manufacture - Trading - Renting - Installation - Dismantle</td>
           </tr>
           <tr>
             <td align="left" valign="top" style="text-transform: uppercase; font-weight: bold; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; color: #000; padding: 30px 0; font-size: 20px; text-decoration: underline; text-align: center;">
@@ -511,15 +511,15 @@
                 </tr>
                 <tr>
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">5. <strong>Thanh toán</strong></td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 1: Sau khi ký hợp đồng Bên Mua đặt cọc số tiền <b>%coc_1% đồng </b>(Tương đương 40% giá trị hợp đồng), <b>(Bằng chữ: %coc_1_bang_chu%)</b>.</td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 1: Sau khi ký hợp đồng Bên Mua đặt cọc số tiền <b>%coc_1% đồng </b>(Tương đương 40% giá trị hợp đồng), <b>(Bằng chữ: %coc_1_bang_chu% đồng)</b>.</td>
                 </tr>
                 <tr>
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"></td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 2: Trong vòng 03 ngày sau khi nhận được vận đơn (bản scan) gửi qua email Bên mua phải thanh toán 40% giá trị hợp đồng sau thuế tương đương <b> %coc_1% vnđ (Bằng chữ: %coc_1_bang_chu%)</b></td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 2: Trong vòng 03 ngày sau khi nhận được vận đơn (bản scan) gửi qua email Bên mua phải thanh toán 40% giá trị hợp đồng sau thuế tương đương <b> %coc_1% vnđ (Bằng chữ: %coc_1_bang_chu% đồng)</b></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"></td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 3: Bên mua thanh toán 20% giá trị còn lại của hợp đồng tương đương <b>%coc_2% vnđ (Bằng chữ: %coc_2_bang_chu%) </b> trong vòng 30 ngày kể từ ngày hoàn thành lắp dựng, kiểm định và bàn giao thiết bị tại công trình (đối với trường hợp giao thiết bị về công trình của bên mua) hoặc kể từ ngày hoàn thành nghiệm thu bàn giao thiết bị tại kho (đối với trường hợp giao thiết bị về kho của bên mua).Trường hợp giao thiết bị về kho (không lắp dựng tại công trình) Bên mua sẽ được khầu trừ chi phí lắp dựng và kiểm định sau thuế là 10 triệu đồng/bộ. Bên mua cung cấp 01 bảo lãnh thanh toán tương đương 20% giá trị sau thuế của HĐ trước khi bên bán chuyển hàng về lắp dựng hoặc bàn giao tại kho cho bên mua.</td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Đợt 3: Bên mua thanh toán 20% giá trị còn lại của hợp đồng tương đương <b>%coc_2% vnđ (Bằng chữ: %coc_2_bang_chu% đồng) </b> trong vòng 30 ngày kể từ ngày hoàn thành lắp dựng, kiểm định và bàn giao thiết bị tại công trình (đối với trường hợp giao thiết bị về công trình của bên mua) hoặc kể từ ngày hoàn thành nghiệm thu bàn giao thiết bị tại kho (đối với trường hợp giao thiết bị về kho của bên mua).Trường hợp giao thiết bị về kho (không lắp dựng tại công trình) Bên mua sẽ được khầu trừ chi phí lắp dựng và kiểm định sau thuế là 10 triệu đồng/bộ. Bên mua cung cấp 01 bảo lãnh thanh toán tương đương 20% giá trị sau thuế của HĐ trước khi bên bán chuyển hàng về lắp dựng hoặc bàn giao tại kho cho bên mua.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">6. <strong>Thuế GTGT</strong></td>

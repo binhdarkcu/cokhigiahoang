@@ -231,7 +231,7 @@ function send_email_to_customer($bao_gia) {
     $body = $template;
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
-    return wp_mail($to, $subject, $body, $headers);
+    return true ;//wp_mail($to, $subject, $body, $headers);
 }
 
 function danh_sach_bao_gia() {
@@ -890,7 +890,7 @@ function get_borrow_total_price_before_tax($data) {
 //*/
 
 function round_big_number($number){
-    if($number > 9999){
+    if($number > 999){
         return round($number);
     }
     
@@ -908,12 +908,10 @@ function get_total_weight($data) {
 }
 
 function get_additional_info_for_VTH_500kg() {
-    $stores = new Stores();
     return run_executor($key, __FUNCTION__);
 }
 
 function get_additional_info_for_VTH_1000kg() {
-    $stores = new Stores();
     return run_executor($key, __FUNCTION__);
 }
 

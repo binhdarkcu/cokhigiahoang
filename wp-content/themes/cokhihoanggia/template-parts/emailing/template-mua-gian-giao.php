@@ -56,7 +56,7 @@
             </td>
           </tr>
           <tr>
-            <td width="100%" align="left" valign="middle" style="color: #fff; text-align: center; line-height: 1.2; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 17px; padding: 10px 0; background: #000;">Manufacture - Trading - Renting - Installation - Dismantle</td>
+            <td width="100%" align="left" valign="middle" style="color: #fff; text-align: center; line-height: 1.2; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 17px; padding: 10px 0; background: #000; -webkit-print-color-adjust: exact;">Manufacture - Trading - Renting - Installation - Dismantle</td>
           </tr>
           <tr>
             <td align="left" valign="top" style="text-transform: uppercase;font-weight: bold; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; color: #000; padding: 30px 0; font-size: 20px; text-decoration: underline; text-align: center;">

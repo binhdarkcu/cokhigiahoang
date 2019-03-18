@@ -19,6 +19,8 @@ jQuery(document).ready(function ($) {
             }
         });
     }    
+    
+    resizeRows();
     // Replace template engine
     function template(text, data) {
         return text
@@ -30,7 +32,27 @@ jQuery(document).ready(function ($) {
                 );
     }
 
-
+    function resizeRows(){
+        var hasOverflowItem = false, maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0, maxTemp = 0;
+        
+        $('.totalPrice').each(function(index, item){
+            scrollWidth = $(item)[0].scrollWidth;
+            innerWidth = $(item).innerWidth();
+            if(scrollWidth > innerWidth){
+                hasOverflowItem = true;
+                temp = scrollWidth - innerWidth;
+                console.log('tem', temp);
+                maxTemp = maxTemp < temp ? temp : maxTemp;
+            }
+        });
+        
+        console.log('maxOverflowSize', maxOverflowSize);
+        console.log('temp', temp);
+        
+        $('.totalPrice').each(function(index, item){
+            $(item).width(maxOverflowSize + maxTemp);
+        });
+    }
     $('#print').on('click', function () {
         $.print('#show-content');
     });

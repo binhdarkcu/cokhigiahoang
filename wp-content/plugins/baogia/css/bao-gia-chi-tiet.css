@@ -8,8 +8,18 @@ and open the template in the editor.
     Author     : cqthanh
 */
 
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
 #list-action{text-align: center}
 #print{    background: #28CA97;
     color: #fff;
     width: 200px;
     font-size: 14px}
+table.tbPrices td {
+    padding: 0;
+}

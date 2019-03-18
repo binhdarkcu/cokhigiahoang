@@ -8,12 +8,29 @@
 
 class Utilities {
 
-    public function convert_number_to_words($number, $greater = false) {
+    public function convert_number_to_words($blocks_three_number) {
+        //101,304,230,135
+        if(!is_numeric($blocks_three_number)){
+            return false;
+        }
+        
+        $string = '';
         $hyphen = ' ';
-        $conjunction = '  ';
-        $separator = ' ';
-        $negative = 'âm ';
-        $decimal = ' phẩy ';
+        $number_array = explode(',', number_format($blocks_three_number));
+        
+        $block_length = sizeof($number_array);
+        if($block_length > 4){
+            return false;
+        }
+        
+        $baseUnits = array(
+            1 => '',
+            2 => 'nghìn',
+            3 => 'triệu',
+            4 => 'tỷ'
+        );
+        
+        $baseUnits2 = array(1 => '', 2 => 'mươi', 3 => 'trăm');
         $dictionary = array(
             0 => 'không',
             1 => 'một',
@@ -24,83 +41,69 @@ class Utilities {
             6 => 'sáu',
             7 => 'bảy',
             8 => 'tám',
-            9 => 'chín',
-            10 => 'mười',
-            11 => 'mười một',
-            12 => 'mười hai',
-            13 => 'mười ba',
-            14 => 'mười bốn',
-            15 => 'mười năm',
-            16 => 'mười sáu',
-            17 => 'mười bảy',
-            18 => 'mười tám',
-            19 => 'mười chín',
-            20 => 'hai mươi',
-            30 => 'ba mươi',
-            40 => 'bốn mươi',
-            50 => 'năm mươi',
-            60 => 'sáu mươi',
-            70 => 'bảy mươi',
-            80 => 'tám mươi',
-            90 => 'chín mươi',
-            100 => 'trăm',
-            1000 => 'nghìn',
-            1000000 => 'triệu',
-            1000000000 => 'tỷ',
-            1000000000000 => 'nghìn tỷ',
-            1000000000000000 => 'nghìn triệu triệu',
-            1000000000000000000 => 'tỷ tỷ'
+            9 => 'chín'
         );
-        if (!is_numeric($number)) {
-            return false;
-        }
-        if (($number >= 0 && (int) $number < 0) || (int) $number < 0 - PHP_INT_MAX) {
-            // overflow
-            trigger_error(
-                    'convert_number_to_words only accepts numbers between -' . PHP_INT_MAX . ' and ' . PHP_INT_MAX, E_USER_WARNING
-            );
-            return false;
-        }
-
-        $string = $fraction = null;
-        if (strpos($number, '.') !== false) {
-            list($number, $fraction) = explode('.', $number);
-        }
-        switch (true) {
-            case $number < 21:
-                if($number < 10 && !$greater){
-                    $string .= 'lẻ ';
+ 
+        foreach ($number_array as $block_index => $blocks_three_number){
+            
+            if((int)$blocks_three_number == 0){
+                continue;
+            }
+            
+            $blocks_one_number = str_split($blocks_three_number);
+            $number_length = sizeof($blocks_one_number);
+            // 105
+            foreach ($blocks_one_number as $number_index => $number_value){
+                
+                switch($number_value){
+                    case 0:
+                        //Số 0 ở giữa cụm 3 chữ số (hàng chục)
+                        if($number_length - $number_index == 2 && $blocks_one_number[$number_length-1] != 0){
+                            $string.= 'lẻ';
+                        //Số 0 ở vị trí đầu tiên (hàng trăm)
+                        }else if($number_length - $number_index == 3){
+                            $string.= $dictionary[$number_value].$hyphen.$baseUnits2[$number_length - $number_index];
+                        }
+                        break;
+                    case 5:
+                        //Số 5 ở hàng đơn vị, có ít nhất 2 số và số ở hàng chục lớn hơn 0
+                        if(($number_length - $number_index == 1) && $number_length > 1 && $blocks_one_number[$number_index - 1] > 0){
+                            $string.= 'lăm';
+                        }else{
+                            $string.= $dictionary[$number_value].$hyphen.$baseUnits2[$number_length - $number_index];
+                        }
+                        break;
+                    case 1:
+                        //Số có ít nhất 2 số, ở vị trí hàng đơn vị ko phân biệt cụm và có chữ số hàng chục lớn hơn 1
+                        if($number_length > 1 && ($number_length - $number_index == 1) && $blocks_one_number[$number_index - 1] > 1){
+                            $string.= 'mốt';
+                        //Số ở hàng chục và có giá trị bằng 1
+                        }else if($number_length - $number_index == 2){
+                            $string.= 'mười';
+                        }else{
+                            $string.= $dictionary[$number_value].$hyphen.$baseUnits2[$number_length - $number_index];
+                        }
+                        break;
+                    default:
+                        $string.= $dictionary[$number_value].$hyphen.$baseUnits2[$number_length - $number_index];
+                        break;
                 }
                 
-                $string .= $dictionary[$number];
-                break;
-            case $number < 100:
-                $tens = ((int) ($number / 10)) * 10;
-                $units = $number % 10;
-                $string = $dictionary[$tens];
-                if ($units) {
-                    $string .= ($units == 5 && $tens > 0) ? $hyphen . 'lăm ' : $units == 1 ? $hyphen . 'mốt ': $hyphen . $dictionary[$units];
+                //Dont add hyphen in the last
+                if($number_index != $number_length){
+                    $string.= $hyphen;
                 }
-                break;
-            case $number < 1000:
-                $hundreds = $number / 100;
-                $remainder = $number % 100;
-                $string = $dictionary[$hundreds] . ' ' . $dictionary[100];
-                if ($remainder) {
-                    $string .= $conjunction . $this->convert_number_to_words($remainder);
-                }
-                break;
-            default:
-                $baseUnit = pow(1000, floor(log($number, 1000)));
-                $numBaseUnits = (int) ($number / $baseUnit);
-                $remainder = $number % $baseUnit;
-                $string = $this->convert_number_to_words($numBaseUnits, true) . ' ' . $dictionary[$baseUnit];
-                if ($remainder) {
-                    $string .= $remainder < 100 ? $conjunction : $separator;
-                    $string .= $this->convert_number_to_words($remainder);
-                }
-                break;
+            }
+            
+            // tên hàng (hàng tỷ, hàng triệu, hàng ngàn
+            $string.= $hyphen.$baseUnits[$block_length-$block_index];
+            
+            //Dont add hyphen in the last
+            if($block_index != $block_length){
+                $string.= $hyphen;
+            }
         }
+        
         return $string;
     }
 }

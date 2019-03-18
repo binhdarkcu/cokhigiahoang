@@ -80,7 +80,7 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
-//                console.log('vvvv', JSON.parse(objectDt));
+                console.log('vvvv', JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
                 resizeRows();
             },
@@ -147,7 +147,7 @@ jQuery(function ($) {
     }
     
     function resizeRows(){
-        var hasOverflowItem = false, maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0;
+        var hasOverflowItem = false, maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0, maxTemp = 0;
         
         $('.totalPrice').each(function(index, item){
             scrollWidth = $(item)[0].scrollWidth;
@@ -155,7 +155,8 @@ jQuery(function ($) {
             if(scrollWidth > innerWidth){
                 hasOverflowItem = true;
                 temp = scrollWidth - innerWidth;
-                maxOverflowSize = maxOverflowSize < temp ? temp : maxOverflowSize;
+                console.log('tem', temp);
+                maxTemp = maxTemp < temp ? temp : maxTemp;
             }
         });
         
@@ -163,7 +164,7 @@ jQuery(function ($) {
         console.log('temp', temp);
         
         $('.totalPrice').each(function(index, item){
-            $(item).width(maxOverflowSize + temp);
+            $(item).width(maxOverflowSize + maxTemp);
         });
     }
 });

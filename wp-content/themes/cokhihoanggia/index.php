@@ -22,7 +22,7 @@ get_header();
 
         <div class="container_alt container_pad builder woocommerce"><div><div></div>
 
-                <?php get_template_part("template-parts/what-we", "do"); ?>
+                <?php get_template_part("template-parts/cac-loai", "vt"); ?>
 
 
 
@@ -35,8 +35,8 @@ get_header();
                 </div>
 
 
-                <?php get_template_part("template-parts/lastest", "news"); ?>
-                <?php get_template_part("template-parts/featured", "projects"); ?>
+                <?php get_template_part("template-parts/san-pham", "moi"); ?>
+                <?php get_template_part("template-parts/dich-vu", "cty"); ?>
                 <div id="ml-block-824-11" class="ml-block ml-block-ml_text_block_action ml_span12 ml-first clearfix">
                 </div></div></div>
 
