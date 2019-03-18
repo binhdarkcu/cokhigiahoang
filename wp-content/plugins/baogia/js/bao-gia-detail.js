@@ -41,13 +41,9 @@ jQuery(document).ready(function ($) {
             if(scrollWidth > innerWidth){
                 hasOverflowItem = true;
                 temp = scrollWidth - innerWidth;
-                console.log('tem', temp);
                 maxTemp = maxTemp < temp ? temp : maxTemp;
             }
         });
-        
-        console.log('maxOverflowSize', maxOverflowSize);
-        console.log('temp', temp);
         
         $('.totalPrice').each(function(index, item){
             $(item).width(maxOverflowSize + maxTemp);
