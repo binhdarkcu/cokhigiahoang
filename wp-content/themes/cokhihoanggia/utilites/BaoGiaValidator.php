@@ -73,8 +73,16 @@ class BaoGiaValidator {
                     $result['message'] = 'Loại vận thăng hàng đã chọn không hợp lệ!';
                     return $result;
                 }
+            }else{
+                 if (!$this->isValidSoLong($data) || !$this->isValidTLLong($data) || !$this->isValidBienTan($data)) {
+                    $result['message'] = 'Loại vận thăng lồng đã chọn không hợp lệ!';
+                    return $result;
+                }               
             }
+            
         }
+        
+        return $result;
     }
 
     private function isValidHoTen($data) {
