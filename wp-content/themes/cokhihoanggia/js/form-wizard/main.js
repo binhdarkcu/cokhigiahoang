@@ -94,7 +94,6 @@ jQuery(function ($) {
         onStepChanging: function (event, currentIndex, newIndex) {
             const ignorePattern = currentIndex === 1 ? ":disabled,:hidden:not(select)" : ":disabled,:hidden";
             form.validate().settings.ignore = ignorePattern;
-            console.log(currentIndex);
             if (form.valid() || (currentIndex > newIndex)) {
                 if (newIndex >= 1) {
                     $('.steps ul li:first-child a img').attr('src', `${templateUrl}/assets/form-wizard/images/step-1.png`);
@@ -163,7 +162,6 @@ jQuery(function ($) {
                     window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    console.error(thrownError);
                     $.unblockUI();
                     const token = Base64.encode(JSON.stringify(GiaHoangProduct.submitData));
                     window.open(`${homeUrl}/gui-bao-gia?token=${token}`, '_self');
@@ -213,7 +211,6 @@ jQuery(function ($) {
     $("input[type=text]").on("change", function () {
         const name = this.name;
         const value = this.value;
-        console.log(`Name: ${name} - Value ${value}`);
         if (window && window.GiaHoangProduct)
             window.GiaHoangProduct[name] = value;
     });
@@ -265,7 +262,6 @@ jQuery(function ($) {
                 $("#select_chieu_cao").trigger("chosen:updated");
             }
         }
-        console.log(`name ${this.name} - value ${this.value} - window.GiaHoangProduct ${window.GiaHoangProduct['hinh_thuc']}`);
         setShowHideSection();
     });
 

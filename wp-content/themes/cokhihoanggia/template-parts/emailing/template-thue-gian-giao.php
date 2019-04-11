@@ -81,7 +81,7 @@
                   <td width="60%" align="left" style="padding: 5px 5px 5px 3px">
                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
                       <tr>
-                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>0818344</strong>&nbsp;</td>
+                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>%so_bao_gia%</strong>&nbsp;</td>
                         <td width="30%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số trang: <strong>02</strong>&nbsp;</td>
                       </tr>
                     </table>

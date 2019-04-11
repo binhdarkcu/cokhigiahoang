@@ -77,7 +77,7 @@
                   <td width="60%" align="left" style="padding: 5px 5px 5px 3px">
                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
                       <tr>
-                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>040618</strong>&nbsp;</td>
+                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>%so_bao_gia%</strong>&nbsp;</td>
                         <td width="30%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số trang: <strong>02</strong>&nbsp;</td>
                       </tr>
                     </table>
@@ -598,7 +598,7 @@
                 </tr>
                 <tr>
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"></td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Thanh toán chi phí một lần sau thuế cho %so_luong% bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng với số tiền <b>%coc_2% đồng (Bằng chữ: %coc_2_bang_chu% đồng)</b> trong vòng 07 ngày sau khi hoàn thành lắp đặt kiểm định.</td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">- Thanh toán chi phí một lần sau thuế cho %so_luong% bộ vận thăng bao gồm vận chuyển đi, về, lắp dựng, tháo hạ, kiểm định, bulon móng với số tiền <b>%coc_1% đồng (Bằng chữ: %coc_1_bang_chu% đồng)</b> trong vòng 07 ngày sau khi hoàn thành lắp đặt kiểm định.</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"></td>

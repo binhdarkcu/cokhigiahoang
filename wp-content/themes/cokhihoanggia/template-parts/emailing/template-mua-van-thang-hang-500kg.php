@@ -77,7 +77,7 @@
                   <td width="60%" align="left" style="padding: 5px 5px 5px 3px">
                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
                       <tr>
-                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>040618</strong>&nbsp;</td>
+                        <td width="70%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số báo giá: <strong>%so_bao_gia%</strong>&nbsp;</td>
                         <td width="30%" style="line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Số trang: <strong>02</strong>&nbsp;</td>
                       </tr>
                     </table>
@@ -133,11 +133,11 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td width="31" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; font-weight: bold;">1</td>
-                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: bold;">Vận thăng 500 kg cao %chieu_cao%m</td>
+                        <td width="273" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; font-weight: bold;">Vận thăng 500kg cao %chieu_cao%m</td>
                         <td width="55" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Bộ</td>
                         <td width="72" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%so_luong%</td>
                         <td width="161" style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%don_gia_1_bo%</td>
-                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">%don_gia_1_bo%</td>
+                        <td width="161" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: right;">-</td>
                       </tr>
                     </table>
                   </td>
@@ -447,11 +447,11 @@
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">9. <strong>Lắp đặt</strong>&nbsp;</td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Lắp đặt theo chiều cao công trình %chieu_cao%m. Giá trên chưa bao gồm chi phí xây dựng móng, Nguồn điện 380V/3 phase/50Hz - CB 50A tại chân vận thăng.<br/><br/>Nếu số lần nâng chiều cao >03 lần thì phí nâng là 1 triệu/lần (chưa bao gồm trong báo giá trên).</td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">Lắp đặt theo chiều cao công trình %chieu_cao%m. Giá trên chưa bao gồm chi phí xây dựng móng, nguồn điện 380V/3 phase/50Hz - CB 50A tại chân vận thăng.<br/><br/>Nếu số lần nâng chiều cao >03 lần thì phí nâng là 1 triệu/lần (chưa bao gồm trong báo giá trên).</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #ccc">
                   <td width="30%" valign="top" style="border-right: 1px solid #ccc; padding: 5px 5px 5px 20px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;">10. <strong>Ghi chú khác</strong>&nbsp;</td>
-                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><strong>Giá trị thiết bị đã qua sử dụng được tính bằng 80% giá trị thiết bị mới.</strong></td>
+                  <td width="70%" style="padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px;"><strong>Giá trị thiết bị đã qua sử dụng được tính bằng %phan_tram_gia_tri%% giá trị thiết bị mới.</strong></td>
                 </tr>
 
               </table>

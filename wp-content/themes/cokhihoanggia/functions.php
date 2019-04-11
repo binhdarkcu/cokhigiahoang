@@ -87,12 +87,19 @@ function luu_thong_tin_khach_hang() {
     $trang_thai = 'Đã xem';
     $token = uniqid();
     $token_expiry = strtotime("+30 minutes");
-    $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
     $ngay_tao = $ngay_cap_nhat = current_time('Y-m-d h:i:s');
-    $query = "INSERT INTO " . $wpdb->prefix . "bao_gia
-                                            (full_name, phone_number, email, company, status, order_detail, token, token_timestamp, created_date, updated_date, is_deleted)
-                                                     VALUES ('$ho_ten','$sdt','$email','$cty','$trang_thai','$chi_tiet','$token', $token_expiry,'$ngay_tao','$ngay_cap_nhat', 0)";
+    
+    $_table = $wpdb->prefix . "bao_gia";
+    $query = $wpdb->prepare("INSERT INTO $_table "
+            . "(full_name, phone_number, email, company, status, order_detail, token, token_timestamp, created_date, updated_date, is_deleted) "
+            . "VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0)", array($ho_ten, $sdt, $email, $cty, $trang_thai, '_chi_tiet', $token, $token_expiry, $ngay_tao, $ngay_cap_nhat));
+ 
     $wpdb->query($query);
+    $lastid = $wpdb->insert_id;
+    
+    $bao_gia['so_bao_gia'] = '0'.$lastid;
+    $chi_tiet = json_encode($bao_gia, JSON_UNESCAPED_UNICODE);
+    $wpdb->update($_table, array('order_detail' => $chi_tiet), array('id' => $lastid));
     echo $token;
     wp_die();
 }
@@ -424,11 +431,12 @@ function calculate_data_for_mua_VTL($baoGia) {
     $giaMotMet = convert_to_number($donGia['don_gia_mot_khung']);
 
     //Thông tin sản phẩm
+    $hasBienTan = $baoGia['bien_tan'];
     $baoGia['bien_tan'] = $donGia['bien_tan'];
     $baoGia['tai_trong'] = $donGia['tai_trong'];
     $baoGia['kieu_van_thang'] = $donGia['kieu_van_thang'];
 
-    if ($baoGia['bien_tan'] == 'Có') {
+    if ($hasBienTan == 'Có') {
         $giaBienTan = convert_to_number($caiDatChung['gia_bien_tan']);
         $baoGia['show_bien_tan'] = 'grid';
         $baoGia['dong_co'] = $donGia['dong_co'];
@@ -452,13 +460,13 @@ function calculate_data_for_mua_VTL($baoGia) {
     $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
 
     // Cọc 1
-    $temp['coc_1'] = $temp['tong_x_bo_sau_thue'] * 0.4;
+    $temp['coc_1'] = $temp['tong_x_bo_sau_thue'] * 0.5;
     $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
 
-    // Cọc 2
-    $temp['coc_2'] = $temp['tong_x_bo_sau_thue'] * 0.2;
-    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);
-
+//    // Cọc 2
+//    $temp['coc_2'] = $temp['tong_x_bo_sau_thue'] * 0.2;
+//    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);
+//
 
     // Định dạng thông số, vd: 50000 => 50,000
     foreach ($temp as $key => $value) {
@@ -631,6 +639,9 @@ function calculate_data_for_mua_VTH($baoGia) {
 
     $don_gia_bang_so = convert_to_number($donGiaMua['don_gia']) * $gia_tri_sp;
 
+    //Giá trị sản phẩm
+    $baoGia['phan_tram_gia_tri'] = get_gia_tri_san_pham_cu();
+    
     //Đơn giá cho 1 bộ
     $baoGia['don_gia_1_bo'] = $donGiaMua['don_gia'];
 
