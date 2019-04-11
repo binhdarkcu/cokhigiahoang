@@ -29,7 +29,7 @@ $list = array(
 
 $txt_ttsp = array(
     'kieu_van_thang' => 'Kiểu vận thăng',
-    'bien_tan' => 'Biến tần',
+    'cong_suat_bien_tan' => 'Biến tần',
     'dong_co_bien_tan' => 'Động cơ (biến tần)',
     'dong_co_ko_bien_tan' => 'Động cơ (ko BT)',
     'tai_trong' => 'Tải trọng'

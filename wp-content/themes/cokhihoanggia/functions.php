@@ -416,7 +416,15 @@ function calculate_data_for_van_thang($baoGia) {
 
 function calculate_data_for_mua_VTL($baoGia) {
     $ulti = new Utilities();
-    $code = $baoGia['so_long'] == '1 lồng' ? '1L' : '2L';
+    
+    if($baoGia['so_long'] == '1 lồng'){
+        $code = '1L';
+        $soLong = 1;
+    }else{
+        $code = '2L';
+        $soLong = 2;
+    }
+    
     $code .= $baoGia['tl_long'] == '1 tấn' ? '1T' : '2T';
     $donGiaMua = get_don_gia_mua_VTL();
     $donGia = $donGiaMua[$code];
@@ -432,7 +440,7 @@ function calculate_data_for_mua_VTL($baoGia) {
 
     //Thông tin sản phẩm
     $hasBienTan = $baoGia['bien_tan'];
-    $baoGia['bien_tan'] = $donGia['bien_tan'];
+    $baoGia['cong_suat_bien_tan'] = $donGia['cong_suat_bien_tan'];
     $baoGia['tai_trong'] = $donGia['tai_trong'];
     $baoGia['kieu_van_thang'] = $donGia['kieu_van_thang'];
 
@@ -446,27 +454,21 @@ function calculate_data_for_mua_VTL($baoGia) {
     }
 
     $temp = array();
-    $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao']);
+    $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao'], true);
     $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao']);
     $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
 
-    $temp['don_gia_1_bo'] = ($giaBienTan + $giaSan + $giaMotMet * $khungVTLamTron) * get_gia_tri_san_pham($baoGia);
+    $temp['don_gia_1_bo'] = ($giaBienTan*$soLong + $giaSan + $giaMotMet * $khungVTLamTron) * get_gia_tri_san_pham($baoGia);
 
     $temp['tong_x_bo_truoc_thue'] = $temp['don_gia_1_bo'] * $baoGia['so_luong'];
     $temp['vat'] = $temp['tong_x_bo_truoc_thue'] * 0.1;
     $temp['tong_x_bo_sau_thue'] = $temp['tong_x_bo_truoc_thue'] + $temp['vat'];
-
 
     $baoGia['don_gia_bang_chu'] = $ulti->convert_number_to_words($temp['tong_x_bo_sau_thue']);
 
     // Cọc 1
     $temp['coc_1'] = $temp['tong_x_bo_sau_thue'] * 0.5;
     $baoGia['coc_1_bang_chu'] = $ulti->convert_number_to_words($temp['coc_1']);
-
-//    // Cọc 2
-//    $temp['coc_2'] = $temp['tong_x_bo_sau_thue'] * 0.2;
-//    $baoGia['coc_2_bang_chu'] = $ulti->convert_number_to_words($temp['coc_2']);
-//
 
     // Định dạng thông số, vd: 50000 => 50,000
     foreach ($temp as $key => $value) {
@@ -503,7 +505,7 @@ function calculate_data_for_thue_VTL($baoGia) {
     }
     //Thông tin vận thăng
     $baoGia['kieu_van_thang'] = $ttvt['kieu_van_thang'];
-    $baoGia['bien_tan'] = $ttvt['bien_tan'];
+    $baoGia['cong_suat_bien_tan'] = $ttvt['cong_suat_bien_tan'];
     $baoGia['tai_trong'] = $ttvt['tai_trong'];
 
     if ($baoGia['bien_tan'] === 'Có') {
