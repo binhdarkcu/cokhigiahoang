@@ -454,8 +454,8 @@ function calculate_data_for_mua_VTL($baoGia) {
     }
 
     $temp = array();
-    $temp['so_khung_vt_tc'] = get_so_khung($baoGia['chieu_cao'], true);
-    $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao']);
+    $temp['so_khung_vt_tc'] = (get_so_khung($baoGia['chieu_cao'], true) - 2)*$baoGia['so_luong'];
+    $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao'])*$baoGia['so_luong'];
     $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
 
     $temp['don_gia_1_bo'] = ($giaBienTan*$soLong + $giaSan + $giaMotMet * $khungVTLamTron) * get_gia_tri_san_pham($baoGia);
@@ -645,7 +645,7 @@ function calculate_data_for_mua_VTH($baoGia) {
     $baoGia['phan_tram_gia_tri'] = get_gia_tri_san_pham_cu();
     
     //Đơn giá cho 1 bộ
-    $baoGia['don_gia_1_bo'] = $donGiaMua['don_gia'];
+    $baoGia['don_gia_1_bo'] = number_format($don_gia_bang_so);
 
     // Đơn giá cho x bộ
     $baoGia['don_gia_x_bo'] = number_format($don_gia_bang_so * $baoGia['so_luong']);
