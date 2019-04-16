@@ -53,6 +53,7 @@ class WP_Order_Management {
         wp_enqueue_script('custom', plugins_url('/js/custom.js', __FILE__));
         wp_localize_script('custom', 'plugin_api', array(
             'get_list_url' => plugins_url('api/get-list.php', __FILE__),
+            'clean_list_url' => plugins_url('api/clean.php', __FILE__),
             'page_chi_tiet_url' => get_admin_url().'admin.php?page=chi-tiet-bao-gia',
             'statuses' => array(DA_XEM, DA_BAO_GIA, DA_THANH_TOAN, HOAN_THANH)
         ));

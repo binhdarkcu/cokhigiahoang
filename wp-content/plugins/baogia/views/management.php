@@ -2,6 +2,7 @@
     <div>
         <h3>Bộ lọc</h3>
     </div>
+    <button class="button button-primary button-large" id="clean-list">Xóa vĩnh viễn các mục đã xóa</button> <br> <br>
     <strong>Không hiển thị những báo giá có trạng thái:</strong> &nbsp;&nbsp;&nbsp;
     <input id="ko-hien-thi-seen" type="checkbox" name="ko-hien-thi-seen" value="Đã xem">
     <label for="ko-hien-thi-seen">Đã xem</label> &nbsp;&nbsp;&nbsp;

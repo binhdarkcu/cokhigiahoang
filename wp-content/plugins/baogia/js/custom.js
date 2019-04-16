@@ -270,4 +270,18 @@ jQuery(document).ready(function ($) {
     $('#ko-hien-thi-seen, #ko-hien-thi-done').on('change', function(){ 
        tableBaoGia.ajax.reload();
     });
+    
+    $('#clean-list').on('click', function(){
+       console.log('clicked!');
+        $.ajax({
+            type: 'POST',
+            url: plugin_api.clean_list_url,
+            success: function (result) {
+                showNotification('Đã dọn dẹp '+ JSON.parse(result).total +' mục.', 'success');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                showNotification('Đã xảy ra lỗi, vui lòng liên hệ để được hỗ trợ.', 'error');
+            }
+        });
+    });
 });
