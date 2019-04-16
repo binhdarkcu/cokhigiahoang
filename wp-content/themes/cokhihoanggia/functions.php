@@ -238,7 +238,7 @@ function send_email_to_customer($bao_gia) {
     $body = $template;
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
-    return true ;//wp_mail($to, $subject, $body, $headers);
+    return wp_mail($to, $subject, $body, $headers);
 }
 
 function danh_sach_bao_gia() {

@@ -368,7 +368,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;" bgcolor="#ddd">
                       <tr>
                         <td style="border-right: 1px solid #000; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">
-                          Tổng cộng 01 bộ
+                          Tổng cộng %so_luong% bộ
                         </td>
                         <td width="173" style="border-right: 1px solid transparent; border-bottom: 1px solid transparent; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 18px; text-align: right;font-weight: bold;">%tong_cong_sau_thue%</td>
                       </tr>
