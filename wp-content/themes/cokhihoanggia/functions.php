@@ -434,6 +434,9 @@ function calculate_data_for_mua_VTL($baoGia) {
         return $baoGia;
     }
 
+    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
+    $baoGia['phan_tram_gia_tri'] = $gia_tri_sp*100;
+    
     $giaBienTan = 0;
     $giaSan = convert_to_number($donGia['don_gia']);
     $giaMotMet = convert_to_number($donGia['don_gia_mot_khung']);
@@ -641,8 +644,10 @@ function calculate_data_for_mua_VTH($baoGia) {
 
     $don_gia_bang_so = convert_to_number($donGiaMua['don_gia']) * $gia_tri_sp;
 
-    //Giá trị sản phẩm
-    $baoGia['phan_tram_gia_tri'] = get_gia_tri_san_pham_cu();
+    //Giá trị sản phẩm cũ
+    $baoGia['phan_tram_gia_tri_cu'] = get_gia_tri_san_pham_cu();
+    
+    $baoGia['phan_tram_gia_tri'] = $gia_tri_sp*100;
     
     //Đơn giá cho 1 bộ
     $baoGia['don_gia_1_bo'] = number_format($don_gia_bang_so);
@@ -803,7 +808,7 @@ function get_don_gia_mua_VTH_1000kg($baoGia) {
 function calculate_data_for_gian_giao($baoGia) {
     $uti = new Utilities();
     $formGianGiao = get_gian_giao_form_data();
-    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
+    $gia_tri_sp = 1; //get_gia_tri_san_pham($baoGia);
 
     foreach ($baoGia as $key => $value) {
         // so_luong2 , so_luong3
@@ -829,7 +834,7 @@ function calculate_data_for_gian_giao($baoGia) {
     $baoGia['don_gia_van_chuyen'] = get_phi_van_chuyen_gian_giao($baoGia);
 
     // Phí vận chuyển
-    $baoGia['phi_van_chuyen'] = number_format($baoGia['don_gia_van_chuyen'] * 2 * $baoGia['tong_trong_luong']);
+    $baoGia['phi_van_chuyen'] = number_format(convert_to_number($baoGia['don_gia_van_chuyen']) * 2 * $baoGia['tong_trong_luong']);
 
     // Tổng đơn giá thiết bị
     $baoGia['tong_don_gia_thiet_bi'] = number_format(get_total_price_berfore_tax($baoGia));
