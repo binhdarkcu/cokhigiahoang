@@ -22,7 +22,6 @@ jQuery(function ($) {
     //---------------------------------
     $('#gui-bao-gia').on('click', function (e) {
         e.preventDefault();
-        $('#gui-bao-gia').off('click');
         $.blockUI({ 
             message: 'Vui lòng chờ...',
             css: { 
@@ -47,10 +46,12 @@ jQuery(function ($) {
                 var data = JSON.parse(result);
                 $.unblockUI();
                 showNotification(data.message, data.status.toLowerCase());
-                $('#gui-bao-gia').off('click');
-                setTimeout(function(){
-                    window.location.href = homeUrl; 
-                }, 3000); 
+                if(data.status !== 'ERROR'){
+                    $('#gui-bao-gia').off('click');
+                   setTimeout(function(){
+                       window.location.href = homeUrl; 
+                   }, 3000);                   
+                }
 
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -80,7 +81,6 @@ jQuery(function ($) {
                 'json': JSON.stringify(objectData)
             },
             success: function (objectDt) {
-                console.log('vvvv', JSON.parse(objectDt));
                 renderFormBaoGia(JSON.parse(objectDt));
                 resizeRows();
             },
@@ -147,13 +147,12 @@ jQuery(function ($) {
     }
     
     function resizeRows(){
-        var hasOverflowItem = false, maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0, maxTemp = 0;
+        var maxOverflowSize = 90, scrollWidth = 0, innerWidth = 0, temp = 0, maxTemp = 0;
         
         $('.totalPrice').each(function(index, item){
             scrollWidth = $(item)[0].scrollWidth;
             innerWidth = $(item).innerWidth();
             if(scrollWidth > innerWidth){
-                hasOverflowItem = true;
                 temp = scrollWidth - innerWidth;
                 maxTemp = maxTemp < temp ? temp : maxTemp;
             }

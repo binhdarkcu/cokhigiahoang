@@ -80,6 +80,11 @@ class BaoGiaValidator {
                 }               
             }
             
+        }else{
+            if($data['hinh_thuc'] === 'Thuê' && ($data['so_luong22'] > 0 || $data['so_luong23'] > 0 || $data['so_luong24'] > 0 || $data['so_luong25'] > 0) && $data['thoi_gian_thue'] < 3){
+                $result['message'] = 'Thời gian thuê xà gồ tối thiểu là 3 tháng!';
+                return $result;
+            }
         }
         
         return $result;
