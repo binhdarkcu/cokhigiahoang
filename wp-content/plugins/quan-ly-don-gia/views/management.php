@@ -116,22 +116,20 @@ $sp_cu = get_gia_tri_san_pham_cu();
                 <td>
                     <h3>Chi phí vận chuyển giàn giáo (THUÊ) - đơn giá VND</h3>
                     <table>
+                        <thead>
+                            <tr>
+                                <td><strong>Từ x km</strong></td>
+                                <td><strong>Đến x km</strong></td>
+                                <td><strong>Đơn giá VND</strong></td>
+                            </tr>
+                        </thead>
+                        <?php foreach ($phi_van_chuyen_gian_giao as $index => $value):?>
                         <tr>
-                            <td>
-                                <strong>Trong TP HCM:</strong>
-                            </td>
-                            <td>
-                                <input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-trong_tp_hcm"?>" value="<?php echo $phi_van_chuyen_gian_giao['trong_tp_hcm'];?>"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Ngoài TP HCM:</strong>
-                            </td>
-                            <td>
-                                <input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-ngoai_tp_hcm"?>" value="<?php echo $phi_van_chuyen_gian_giao['ngoai_tp_hcm'];?>"/>
-                            </td>
-                        </tr>
+                            <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-min"?>" value="<?php echo $value['min']?>" /></td>
+                            <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-max"?>" value="<?php echo $value['max']?>" /></td>
+                            <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-don_gia"?>"value="<?php echo $value['don_gia']?>" /></td>
+                        </tr> 
+                        <?php endforeach;?>
                     </table>                    
                 </td>
             </tr>

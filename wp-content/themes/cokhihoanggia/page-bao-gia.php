@@ -8,8 +8,11 @@ foreach ($cities as $city => $districts){
         $data[$city][] = $district;
     }
 }
+
+$chieu_cao = lay_tat_ca_chieu_cao();
 ?>
-<script>var Cities = JSON.parse(`<?php echo json_encode($data, JSON_UNESCAPED_UNICODE)?>`)</script>
+<script>var Cities = JSON.parse(`<?php echo json_encode($data, JSON_UNESCAPED_UNICODE)?>`);</script>
+<script>var ChieuCao = JSON.parse(`<?php echo json_encode($chieu_cao, JSON_UNESCAPED_UNICODE)?>`);</script>
 <body class="home page-template page-template-homepage page-template-homepage-php page page-id-596 woocommerce-no-js">
 
     <div class="wrapper upper modern-header">

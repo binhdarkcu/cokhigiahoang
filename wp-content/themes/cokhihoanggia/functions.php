@@ -309,6 +309,18 @@ function cap_nhat_trang_thai() {
     wp_die();
 }
 
+function lay_tat_ca_chieu_cao(){
+    $result = array();
+    $result['MUA_VTH500'] = array_keys(get_gia_ban_VTH500kg_trong_TPHCM());
+    $result['THUE_VTH500'] = array_keys(get_gia_thue_VTH500kg_trong_TPHCM());
+    $result['MUA_VTH1000'] = array_keys(get_gia_ban_VTH1000kg_trong_TPHCM());
+    $result['THUE_VTH1000'] = array_keys(get_gia_thue_VTH1000kg_trong_TPHCM());
+    $result['VTL_1L1T'] = array_keys(get_don_gia_thue_VTL_1L1T_trong_TPHCM()['thong_tin_don_gia']);
+    $result['VTL_2L2T'] = array_keys(get_don_gia_thue_VTL_2L2T_trong_TPHCM()['thong_tin_don_gia']);
+  
+    return $result;
+}
+
 function update_setting() {
     global $wpdb;
     global $wp_version;
@@ -668,6 +680,8 @@ function calculate_data_for_mua_VTH($baoGia) {
     // Chi phí kiểm định
     $baoGia['kiem_dinh'] = $lapDatVaKiemDinh['kiem_dinh'];
 
+     $baoGia['don_gia_lap_dat_kiem_dinh'] = number_format(convert_to_number($baoGia['kiem_dinh']) + convert_to_number($baoGia['lap_dat']));
+    
     //Tổng chi phí lắp đặt
     $baoGia['tong_lap_dat'] = number_format($baoGia['so_luong'] * convert_to_number($baoGia['lap_dat']));
 
@@ -808,7 +822,7 @@ function get_don_gia_mua_VTH_1000kg($baoGia) {
 function calculate_data_for_gian_giao($baoGia) {
     $uti = new Utilities();
     $formGianGiao = get_gian_giao_form_data();
-    $gia_tri_sp = 1; //get_gia_tri_san_pham($baoGia);
+    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
 
     foreach ($baoGia as $key => $value) {
         // so_luong2 , so_luong3
@@ -1006,15 +1020,28 @@ function get_don_gia_mua_VTL() {
 
 function get_phi_van_chuyen_gian_giao($baoGia) {
     $key = PHI_VAN_CHUYEN_GIAN_GIAO;
-    $phi_van_chuyen = run_executor($key, __FUNCTION__);
-
-    // For updating setting page
-    if (!$baoGia) {
-        return $phi_van_chuyen;
+    $cities = get_cities();
+    // For updating
+    if(!$baoGia){
+       return  run_executor($key, __FUNCTION__);
     }
+    
+    $data = isset($cities[$baoGia['vi_tri']]) && isset($cities[$baoGia['vi_tri']][$baoGia['vi_tri2']]) ? $cities[$baoGia['vi_tri']][$baoGia['vi_tri2']] : null;
+    
+    $don_gia = 0;
+    
+    if($data){
+        $phi_van_chuyen = run_executor($key, __FUNCTION__);
+        foreach ($phi_van_chuyen as $value){
+            if($value['min']<= $data[0] && $data[0] <= $value['max']){
+                $don_gia =  $value['don_gia'];
+                break;
+            }
+        }
+    }
+    
+    return $don_gia;
 
-    // For calculation purposes
-    return $baoGia['vi_tri'] === 'Tp Hồ Chí Minh' ? $phi_van_chuyen['trong_tp_hcm'] : $phi_van_chuyen['ngoai_tp_hcm'];
 }
 
 function get_gia_thue_VTH1000kg_trong_TPHCM() {

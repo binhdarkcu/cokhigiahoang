@@ -1645,8 +1645,51 @@ class Stores {
 
     public function get_phi_van_chuyen_gian_giao() {
         return array(
-            'trong_tp_hcm' => 500,
-            'ngoai_tp_hcm' => 600
+            array(
+                'min' => 0,
+                'max' => 40,
+                'don_gia' => 400
+            ),
+            array(
+                'min' => 41,
+                'max' => 100,
+                'don_gia' => 500
+            ),
+            array(
+                'min' => 101,
+                'max' => 200,
+                'don_gia' => 600
+            ),
+            array(
+                'min' => 201,
+                'max' => 300,
+                'don_gia' => 700
+            ),
+            array(
+                'min' => 301,
+                'max' => 400,
+                'don_gia' => 800
+            ),
+            array(
+                'min' => 401,
+                'max' => 500,
+                'don_gia' => 900
+            ),
+            array(
+                'min' => 501,
+                'max' => 600,
+                'don_gia' => 1000
+            ),
+            array(
+                'min' => 601,
+                'max' => 700,
+                'don_gia' => 1100
+            ),
+            array(
+                'min' => 701,
+                'max' => 800,
+                'don_gia' => 1200
+            ),
         );
     }
     

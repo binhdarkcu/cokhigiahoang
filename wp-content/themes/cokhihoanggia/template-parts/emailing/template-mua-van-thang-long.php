@@ -120,7 +120,7 @@
                       <tr>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">Kiểu vận thăng</td>
                         <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 16px; text-align: center;">%kieu_van_thang%</td>
-                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">Mới 100% SX năm 2018</i></td>
+                        <td width="35%" style="border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 5px 5px 5px 3px; line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 15px; text-align: center;">%tt_sp% %phan_tram_gia_tri%% SX năm 2018</i></td>
                       </tr>
                     </table>
                   </td>

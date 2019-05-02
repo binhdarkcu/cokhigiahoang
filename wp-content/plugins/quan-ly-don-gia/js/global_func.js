@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
                 const _lastKey = keys[index]; 
                 const _fields = ['don_gia', 'don_gia_thue', 'lap_dat', 'van_chuyen', 
                     'don_gia_mot_khung', 'van_chuyen_den', 'van_chuyen_ve', 'thao_do', 'plc',
-                    'kiem_dinh_12thang', 'trong_tp_hcm', 'ngoai_tp_hcm',
+                    'kiem_dinh_12thang', 'trong_tp_hcm', 'ngoai_tp_hcm', 'min', 'max',
                     'van_hanh', 'bao_tri', 'gia_bien_tan', 'kiem_dinh'];
                 const _finalValue = _fields.indexOf(_lastKey) !== -1 ? addCommas(_self.value) : _self.value;
                 data[_lastKey] = _finalValue;
