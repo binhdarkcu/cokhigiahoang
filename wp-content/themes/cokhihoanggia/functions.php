@@ -1033,6 +1033,7 @@ function get_phi_van_chuyen_gian_giao($baoGia) {
     if($data){
         $phi_van_chuyen = run_executor($key, __FUNCTION__);
         foreach ($phi_van_chuyen as $value){
+            //$data[0] = km(s)
             if($value['min']<= $data[0] && $data[0] <= $value['max']){
                 $don_gia =  $value['don_gia'];
                 break;
