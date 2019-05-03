@@ -410,6 +410,7 @@ function tinh_don_gia() {
 //OUTPUT: @number 100203
 //*/
 function convert_to_number($string) {
+    if(!$string) return 0;
     return (float) str_replace(',', '', $string);
 }
 
@@ -1034,8 +1035,8 @@ function get_phi_van_chuyen_gian_giao($baoGia) {
         $phi_van_chuyen = run_executor($key, __FUNCTION__);
         foreach ($phi_van_chuyen as $value){
             //$data[0] = km(s)
-            if($value['min']<= $data[0] && $data[0] <= $value['max']){
-                $don_gia =  $value['don_gia'];
+            if(convert_to_number($value['min'])<= $data[0] && $data[0] <= convert_to_number($value['max'])){
+                $don_gia =  convert_to_number($value['don_gia']);
                 break;
             }
         }

@@ -72,3 +72,18 @@ function showErrorMsg() {
     });
 }
 
+function addNewRow(element, mainKey, keys, useIndex){
+    const currentEl = jQuery(element);
+    var blankObj = {};
+    const tr = currentEl.closest('tr');
+    var newRow = '<tr class="display">';
+    const subKey = useIndex ? "-"+ (tr.closest('tbody').find('tr').length -1) : "";
+    keys.forEach(function(item, index){
+        blankObj[item] = null;
+        newRow += `<td><input type="text" class="setting-data" data-key="${mainKey}${subKey}-${item}" value=""/>${(index+1) === keys.length ? '<input type="button" class="delete-row button button-primary button-large" value="xóa"/>':''}</td>`;
+    });
+    newRow += '</tr>';
+    tr.before(newRow);
+    GiaHoangData[mainKey].push(blankObj);
+}
+

@@ -115,7 +115,7 @@ $sp_cu = get_gia_tri_san_pham_cu();
             <tr>
                 <td>
                     <h3>Chi phí vận chuyển giàn giáo (THUÊ) - đơn giá VND</h3>
-                    <table>
+                    <table id="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO;?>">
                         <thead>
                             <tr>
                                 <td><strong>Từ x km</strong></td>
@@ -124,12 +124,17 @@ $sp_cu = get_gia_tri_san_pham_cu();
                             </tr>
                         </thead>
                         <?php foreach ($phi_van_chuyen_gian_giao as $index => $value):?>
-                        <tr>
+                        <tr class="display">
                             <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-min"?>" value="<?php echo $value['min']?>" /></td>
                             <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-max"?>" value="<?php echo $value['max']?>" /></td>
-                            <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-don_gia"?>"value="<?php echo $value['don_gia']?>" /></td>
+                            <td><input type="text" class="setting-data" data-key="<?php echo PHI_VAN_CHUYEN_GIAN_GIAO."-$index-don_gia"?>"value="<?php echo $value['don_gia']?>" /><input type="button" class="delete-row button button-primary button-large" value="xóa"/></td>
                         </tr> 
                         <?php endforeach;?>
+                        <tr>
+                            <td><input id="add-new-row" onclick="addNewRow(this, '<?php echo PHI_VAN_CHUYEN_GIAN_GIAO;?>',['min', 'max', 'don_gia'], true)" type="button" class="button button-primary button-large" value="Thêm hàng mới"/></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     </table>                    
                 </td>
             </tr>
