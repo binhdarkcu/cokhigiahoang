@@ -653,20 +653,20 @@ function calculate_data_for_mua_VTH($baoGia) {
     $uti = new Utilities();
     $donGiaMua = $baoGia['tl_vt_hang'] == '500 kg' ? get_don_gia_mua_VTH_500kg($baoGia) : get_don_gia_mua_VTH_1000kg($baoGia);
 
-    $gia_tri_sp = get_gia_tri_san_pham($baoGia);
+    $giaTriSp = get_gia_tri_san_pham($baoGia);
 
-    $don_gia_bang_so = convert_to_number($donGiaMua['don_gia']) * $gia_tri_sp;
+    $donGiaBangSo = convert_to_number($donGiaMua['don_gia']) * $giaTriSp;
 
     //Giá trị sản phẩm cũ
     $baoGia['phan_tram_gia_tri_cu'] = get_gia_tri_san_pham_cu();
     
-    $baoGia['phan_tram_gia_tri'] = $gia_tri_sp*100;
+    $baoGia['phan_tram_gia_tri'] = $giaTriSp*100;
     
     //Đơn giá cho 1 bộ
-    $baoGia['don_gia_1_bo'] = number_format($don_gia_bang_so);
+    $baoGia['don_gia_1_bo'] = number_format($donGiaBangSo);
 
     // Đơn giá cho x bộ
-    $baoGia['don_gia_x_bo'] = number_format($don_gia_bang_so * $baoGia['so_luong']);
+    $baoGia['don_gia_x_bo'] = number_format($donGiaBangSo * $baoGia['so_luong']);
 
     // Khung vận thăng
     $baoGia['khung_van_thang'] = number_format($donGiaMua['khung_van_thang'] * $baoGia['so_luong']);
