@@ -473,7 +473,7 @@ function calculate_data_for_mua_VTL($baoGia) {
     $temp['so_khung_vt_tc'] = (get_so_khung($baoGia['chieu_cao'], true) - 2)*$baoGia['so_luong'];
     $temp['so_thanh_giang'] = get_so_thanh_giang($baoGia['chieu_cao'])*$baoGia['so_luong'];
     $khungVTLamTron = get_so_khung($baoGia['chieu_cao'], true);
-
+    
     $temp['don_gia_1_bo'] = ($giaBienTan*$soLong + $giaSan + $giaMotMet * $khungVTLamTron) * get_gia_tri_san_pham($baoGia);
 
     $temp['tong_x_bo_truoc_thue'] = $temp['don_gia_1_bo'] * $baoGia['so_luong'];
@@ -507,7 +507,8 @@ function calculate_data_for_thue_VTL($baoGia) {
     $caiDatChung = get_thue_VTL_cai_dat_chung();
 
     $uti = new Utilities();
-
+    
+    $giaBienTan = 0;
     $phanTramTheoThangThue = 0;
     $listPhanTramThueTheoThang = get_phan_tram_theo_thang_thue();
     switch ($baoGia['thoi_gian_thue']) {
@@ -527,6 +528,7 @@ function calculate_data_for_thue_VTL($baoGia) {
     if ($baoGia['bien_tan'] === 'Có') {
         $baoGia['show_bien_tan'] = 'grid';
         $baoGia['dong_co'] = $ttvt['dong_co_bien_tan'];
+        $giaBienTan = convert_to_number($caiDatChung['gia_bien_tan']);
     } else {
         $baoGia['show_bien_tan'] = 'none';
         $baoGia['dong_co'] = $ttvt['dong_co_ko_bien_tan'];
@@ -543,7 +545,7 @@ function calculate_data_for_thue_VTL($baoGia) {
     $temp = array();
 
     $temp['don_gia'] = convert_to_number($donGiaThue['don_gia']);
-    $temp['don_gia_thue_1_thang'] = $temp['don_gia'] + $temp['don_gia'] * $phanTramTheoThangThue * 0.01;
+    $temp['don_gia_thue_1_thang'] = $giaBienTan + $temp['don_gia'] + $temp['don_gia'] * $phanTramTheoThangThue * 0.01;
     $temp['don_gia_thue_x_thang'] = $temp['don_gia_thue_1_thang'] * $baoGia['thoi_gian_thue'];
 
     $temp['lap_dat'] = convert_to_number($donGiaThue['lap_dat']);

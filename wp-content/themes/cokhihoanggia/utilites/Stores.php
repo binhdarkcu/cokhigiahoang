@@ -1718,7 +1718,7 @@ class Stores {
                 'cong_suat_bien_tan' => '30kw x 2',
                 'dong_co_bien_tan' => '2 x 13kw',
                 'dong_co_ko_bien_tan' => '2 x 11Kw',
-                'tai_trong' => '01 x 1.0000kg/16 người'
+                'tai_trong' => '01 x 1.000kg/16 người'
             ),
             'thong_tin_don_gia' => array(
                 30 => array(
@@ -2103,7 +2103,7 @@ class Stores {
                 'tai_trong' => '1.000kg/12 người'
             ),
             '1L2T' => array(
-                'don_gia' => '370,000,000',
+                'don_gia' => '220,000,000',
                 'don_gia_mot_khung' => '8,500,000',
                 'kieu_van_thang' => 'Model SC200',
                 'cong_suat_bien_tan' => '30 kw x 2',
@@ -2112,7 +2112,7 @@ class Stores {
                 'tai_trong' => '2.000kg/16 người'
             ),
             '2L1T' => array(
-                'don_gia' => '220,000,000',
+                'don_gia' => '370,000,000',
                 'don_gia_mot_khung' => '7,500,000',
                 'kieu_van_thang' => 'Model SC200',
                 'cong_suat_bien_tan' => '30 kw x 2',
